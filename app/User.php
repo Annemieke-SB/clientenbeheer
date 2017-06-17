@@ -9,13 +9,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'voornaam','achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon',
     ];
 
     /**
@@ -26,4 +28,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function intermediair()
+    {
+        return $this->hasOne('App\Intermediair');
+    }
+
+    public function verified()
+    {
+
+        
+        $this->emailverified = 1;
+        $this->email_token = null;
+        $this->save();        
+
+        if ($this->activated == 0) {
+            sendNewUserNotificationEmailToAdmin();
+        }
+    }
 }
