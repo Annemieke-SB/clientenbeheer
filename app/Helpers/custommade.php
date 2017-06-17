@@ -3,8 +3,13 @@
 
 
 use App\Setting;
+use App\Helpers;
 
-    function returnNextSinterklaasJaar() {
+class custommade {
+
+
+
+    public static function returnNextSinterklaasJaar() {
         
         $thisDate = date('m/d/Y', time());
 		$thisYear = date('Y', time());
@@ -23,7 +28,7 @@ use App\Setting;
     }
 
 
-    function sendNewUserNotificationEmailToAdmin() {
+    public static function sendNewUserNotificationEmailToAdmin() {
 
     	$to = Setting::find(5)->setting;    	
 
@@ -40,7 +45,7 @@ use App\Setting;
 
 
 
-    function sendUserEmail($to, $message) {
+    public static function sendUserEmail($to, $message) {
 
     	    	
 
@@ -53,7 +58,7 @@ use App\Setting;
 		mail($to, 'Bericht van clientenbeheer', $message, $headers); 	
     }
 
-    function typenIntermediairs($id=false) {
+    public static function typenIntermediairs($id=false) {
 
     	$set = array(
     		'' => "-",
@@ -87,7 +92,7 @@ use App\Setting;
     }
 
 
-    function showVoorwaarden() {
+    public static function showVoorwaarden() {
 
 
         $voorwaarden = "
@@ -112,7 +117,7 @@ use App\Setting;
     }
 
 
-
+}
 
 
 ?> 
