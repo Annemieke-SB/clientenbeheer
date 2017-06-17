@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Barcode;
 use DNS1D;
+use Custommade;
 
 
 class Kid extends Model
@@ -86,7 +87,7 @@ class Kid extends Model
 
     public function getAgenextsintAttribute()
     {
-        $volgendSinterklaasJaar = returnNextSinterklaasJaar();
+        $volgendSinterklaasJaar = Custommade::returnNextSinterklaasJaar();
         $volgendSinterklaas = "12/5/". $volgendSinterklaasJaar;
         return date_diff(date_create($this->geboortedatum), date_create($volgendSinterklaas))->y;        
     }
