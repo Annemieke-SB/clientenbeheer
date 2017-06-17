@@ -14,7 +14,7 @@
                 <div class="panel-heading">Bedankt voor uw interesse</div>
 
                 <div class="panel-body">
-                    {!! showVoorwaarden() !!}
+                    {!! Custommade::showVoorwaarden() !!}
 
 
                     <center><a id="akkoord" href="{{ url('/register') }}"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Ik ben akkoord met de voorwaarden!</button></a></center><br><br>

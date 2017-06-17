@@ -85,7 +85,7 @@
                                                 <h4 class="modal-title" id="myModalLabel">Toevoegen van een gezin</h4>
                                               </div>
                                               <div class="modal-body">
-                                                {!! showVoorwaarden() !!}
+                                                {!! Custommade::showVoorwaarden() !!}
                                               </div>
                                               <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;Annuleer</button>

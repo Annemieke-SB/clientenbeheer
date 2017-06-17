@@ -217,7 +217,7 @@ class UserController extends Controller
             $emailmessage = new EmailVerification(new User(['email_token' => $user->email_token, 'name'=>$user->name]));
             Mail::to($user->email)->send($emailmessage);
 
-            sendUserEmail($oude_mail, 'Uw emailadres is gewijzigd naar '.$request->email1 .'. Als dit niet klopt, neem dan zo spoedig mogelijk contact op met webmaster@sinterklaasbank.nl.');
+            Custommade::sendUserEmail($oude_mail, 'Uw emailadres is gewijzigd naar '.$request->email1 .'. Als dit niet klopt, neem dan zo spoedig mogelijk contact op met webmaster@sinterklaasbank.nl.');
 
             Auth::logout();
             return redirect('login')->with('message', 'Gegevens gewijzigd. Omdat het emailadres is gewijzigd is er een verificatiemail naar het nieuwe emailadres ('.$request->email1.') gestuurd. Na het klikken op de link kunt u pas weer inloggen.');

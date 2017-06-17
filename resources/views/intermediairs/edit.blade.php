@@ -44,7 +44,7 @@
                         <div class="form-group">
 
                             {!! Form::label('type', 'Type organisatie') !!}
-                            {!! Form::select('type', typenIntermediairs(), $intermediair->type,  ["class"=>"form-control", 'autofocus']) !!}
+                            {!! Form::select('type', Custommade::typenIntermediairs(), $intermediair->type,  ["class"=>"form-control", 'autofocus']) !!}
 
                         </div>
 

@@ -27,7 +27,7 @@
                 				<th>Achternaam&nbsp;</th>
                 				<th>Woonplaats&nbsp;</th>
                                 <th><span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI</span></th>
-                				<th><span class="badge" data-toggle="tooltip" title="Dit is de leeftijd op aankomend sinterklaasfeest (5/12/{{returnNextSinterklaasJaar()}}).">LT</span></th>          
+                				<th><span class="badge" data-toggle="tooltip" title="Dit is de leeftijd op aankomend sinterklaasfeest (5/12/{{Custommade::returnNextSinterklaasJaar()}}).">LT</span></th>          
                                 <th><span class="badge" data-toggle="tooltip" title="Kind is aangemeld en goedgekeurd.">A</span></th>  
                                 <th><span class="badge" data-toggle="tooltip" title="De PDF is gedownload (kan pas na sluiting inschrijvingen).">PDF</span></th>                
                                 <th>Toon&nbsp;</th> 

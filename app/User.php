@@ -43,7 +43,7 @@ class User extends Authenticatable
         $this->save();        
 
         if ($this->activated == 0) {
-            sendNewUserNotificationEmailToAdmin();
+            Custommade::sendNewUserNotificationEmailToAdmin();
         }
     }
 }

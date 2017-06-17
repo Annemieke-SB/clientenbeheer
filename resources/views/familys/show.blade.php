@@ -137,7 +137,7 @@
                                 <th>Achternaam&nbsp;</th>
                                 <th>Geslacht&nbsp;</th>
                                 <th>Geboren&nbsp;</th>
-                                <th><span class="badge" data-toggle="tooltip" title="Dit is de leeftijd op aankomend sinterklaasfeest (5/12/{{returnNextSinterklaasJaar()}}).">LT</span></th>
+                                <th><span class="badge" data-toggle="tooltip" title="Dit is de leeftijd op aankomend sinterklaasfeest (5/12/{{Custommade::returnNextSinterklaasJaar()}}).">LT</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Bij een groen vinkje valt het kind in de doelgroep. Er is er minimaal één nodig binnen het gezin voor deelname.">D</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Kind valt in de 'broer/zus'-groep en doet mee als er een kind in het gezin binnen de doelgroep (kolom D) valt.">BZ</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Wanneer er een mogelijke dubbeling is geconstateerd, verschijnt er een uitroepteken. Klik dan op 'Toon' voor meer info.">DB</span></th>
