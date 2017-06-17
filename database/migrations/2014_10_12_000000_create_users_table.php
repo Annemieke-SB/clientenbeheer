@@ -15,9 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('organisatienaam');
+            $table->string('voornaam');
+            $table->string('achternaam');
+            $table->string('geslacht')->default('-');
             $table->string('email')->unique();
+            $table->string('functie')->nullable();
             $table->string('password');
+            $table->integer('emailverified')->default(0);
+            $table->string('email_token')->nullable();
+            $table->longtext('reden');            
+            $table->string('website');
+            $table->string('telefoon');
+            $table->integer('activated')->default(0);
+            $table->integer('usertype')->default(3); // 1 = admin, 2 = raadpleger, 3 = intermediair
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +41,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::drop('users');
     }
 }
