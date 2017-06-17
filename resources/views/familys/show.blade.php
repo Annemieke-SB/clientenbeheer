@@ -75,10 +75,10 @@
                             @endif
                     @endif
                 @if (Auth::user()->usertype==1)
-
-                    {{ Html::link(URL::previous(), '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+                    <a href="{{ url(URL::previous()) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @else
-                    {{ Html::link('/intermediairs/show/'. $intermediair->id, '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+
+                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @endif
                 </div>
             </div>
