@@ -182,7 +182,7 @@
       <div class="panel-body">
       <table>
                         <tr>
-                            <td><b>{{ typenIntermediairs($intermediair->type) }}</b>&nbsp;</td></tr><tr>                                                    
+                            <td><b>{{ Custommade::typenIntermediairs($intermediair->type) }}</b>&nbsp;</td></tr><tr>                                                    
                             <td>{{ $intermediair->adres }}&nbsp;{{ $intermediair->huisnummer }}&nbsp;{{ $intermediair->huisnummertoevoeging }}</td></tr><tr>                                                     
                             <td>{{ $intermediair->postcode }}&nbsp;{{ $intermediair->woonplaats }}</td></tr><tr>                           
                         </tr>

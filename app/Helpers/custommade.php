@@ -3,9 +3,9 @@
 
 
 use App\Setting;
-use App\Helpers;
+namespace App\Helpers;
 
-class custommade {
+class Custommade {
 
 
 

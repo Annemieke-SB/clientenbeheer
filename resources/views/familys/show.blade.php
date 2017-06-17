@@ -104,7 +104,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;({{ typenIntermediairs($intermediair->type) }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($intermediair->type) }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>

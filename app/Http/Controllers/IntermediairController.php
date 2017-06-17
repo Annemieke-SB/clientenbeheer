@@ -17,6 +17,7 @@ use App\Setting;
 use App\Barcode;
 use DB;
 use Html;
+use Custommade;
 use App\Intermediair;
 
 
