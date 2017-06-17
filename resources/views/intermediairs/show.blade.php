@@ -163,8 +163,7 @@
                         </tr>
                     </table>
                     @if (Auth::user()->usertype==3)
-
-                        {{ Html::link('/user/edit/'.$eigenaar->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig gegevens & wachtwoord</button>', 'Wijzig', array(), false)}}
+                        <a href="{{ url('/user/edit/'.$eigenaar->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig gegevens & wachtwoord</button></a>
                     @endif
 
       </div>
