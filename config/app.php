@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://contactenbeheer.app'),
+    'url' => env('APP_URL', 'https://clientenbeheer.sinterklaasbank.nl'),
 
     /*
     |--------------------------------------------------------------------------
