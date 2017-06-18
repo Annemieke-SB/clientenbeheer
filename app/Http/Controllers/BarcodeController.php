@@ -20,7 +20,7 @@ use App\User;
 use App\Setting;
 use App\Intermediair;
 use App\Intertoys;
-use App\Helpers\Custom;
+use Custommade;
 
 
 class BarcodeController extends Controller
