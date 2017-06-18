@@ -30,7 +30,7 @@ class Custommade {
 
     public static function sendNewUserNotificationEmailToAdmin() {
 
-    	$to = Setting::find(5)->value;    	
+    	$to = Setting::find(5)->setting;    	
 
 		$headers = 'From: noreply@sinterklaasbank.nl' . "\r\n" .
 					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
