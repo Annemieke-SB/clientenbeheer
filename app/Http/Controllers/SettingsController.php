@@ -13,6 +13,7 @@ use App\Setting;
 use Mail;
 use App\Intermediair;
 use App\User;
+use Custommade;
 
 
 class SettingsController extends Controller
