@@ -18,7 +18,11 @@
 
                     	@if($match)
 	                    	De download begint over 2 seconden, als dat niet zo is, klik hier 
-	                    	{{ Html::link('/download/pdfvoorkind/'.$id, 'hier', 'download', array(), false)}} .<br><br><br>
+
+
+
+                    	<a href="{{ url('/download/pdfvoorkind/'.$id) }}">hier</a> 
+	                    	.<br><br><br>
 	                    
 							<div class="progress">
 								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
@@ -28,8 +32,9 @@
                     	@endif
                     	<br>
 
+                    	<a href="{{ url('/intermediair/downloads/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a> 
 
-                    	{{ Html::link('/intermediair/downloads/', '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right pdfdownload"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'PDF', array(), false)}}   
+
                     	</div>
                 	</div>
             </div>
