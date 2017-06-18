@@ -190,7 +190,7 @@
 
                     {!! Form::open(['url' => 'settings/update/5']) !!}
                         <div class="form-group">
-                            {!! Form::text('value', $settingarray[5]['setting'],  ['class' => 'form-control']) !!}
+                            {!! Form::text('value', $settingarray[5]['value'],  ['class' => 'form-control']) !!}
                             {!! Form::hidden('id', '5') !!}
                         </div>
                         <div class="form-group">
