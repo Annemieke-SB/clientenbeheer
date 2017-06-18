@@ -18,6 +18,7 @@ use App\Barcode;
 use Mail;
 use DB;
 use Html;
+use Custommade;
 use App\Intermediair;
 
 
