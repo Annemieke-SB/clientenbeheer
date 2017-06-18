@@ -15,7 +15,9 @@
 
                 <div class="panel-body">
                     <p>
-                        {{ Html::link('/home/', '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+
+
+                        <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                     </p>
                     <p>
                         Hier is het overzicht van gebruikers. Dit overzicht is alleen beschikbaar voor administrators en raadplegers. Het is niet mogelijk gebruikers toe te voegen, zij moeten zichzelf registreren. Als ze dan in dit overzicht komen kan hun rol worden aangepast. 
