@@ -69,7 +69,7 @@ class UserController extends Controller
             $user->activated=0;
             $maildata = [
                 'titel' => "Uw account is gedeactiveerd",
-                'mailmessage' => "Uw account in clientenbeheer is gedeactiveerd en kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.",
+                'mailmessage' => "Uw account in de clientenbeheer van de Sinterklaasbank is gedeactiveerd en kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.",
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
@@ -80,7 +80,7 @@ class UserController extends Controller
 
             $maildata = [
                 'titel' => "Uw account is geactiveerd",
-                'mailmessage' => "Uw account in clientenbeheer is geactiveerd en kunt nu inloggen.",
+                'mailmessage' => "Uw account in clientenbeheer van de Sinterklaasbank is geactiveerd en kunt nu inloggen.",
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];

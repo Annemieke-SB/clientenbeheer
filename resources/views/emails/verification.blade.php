@@ -290,7 +290,7 @@
                       <td>
                         <p>Beste {{ ucfirst($user->voornaam) }},</p>
                         <p>Bedankt voor uw aanmelding! De Sinterklaasbank verzoekt u uw emailadres te verifiëren door op de onderstaande knop te klikken. Wanneer u uw emailadres heeft geverifiëerd zal de Sinterklaasbank uw aanmelding beoordelen. Als de aanmelding wordt goedgekeurd krijgt u daar een bericht van. Daarna kunt u pas inloggen.</p>
-                        <p>Wij doen ons best uw aanmelding zo spoedig mogelijk te beoordelen, maar het kan zijn dat hier enige tijd overheen gaat. Mocht het te lang duren stuurt u dan een email naar onze <a href="mailto:webmaster@sinterklaasbank.nl">webmaster</a>.<br></p>
+                        <p>Wij doen ons best uw aanmelding zo spoedig mogelijk te beoordelen, maar het kan zijn dat hier enige tijd overheen gaat. Mocht het te lang duren stuurt u dan een email naar ons emailadres <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>.<br></p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
