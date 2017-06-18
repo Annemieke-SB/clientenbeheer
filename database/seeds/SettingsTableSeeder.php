@@ -42,8 +42,8 @@ class SettingsTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),          
         ],          
         [
-            'setting' => 'adminemails',
-            'value' => 'henrique@van.huisste.de',
+            'setting' => 'henrique@van.huisste.de',
+            'value' => 1,
             'lastTamperedUser_id' => 1,   
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),          
