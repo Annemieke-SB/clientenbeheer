@@ -2,7 +2,7 @@
 // kleine letter in bestand
 
 
-use App\Setting;
+use DB;
 namespace App\Helpers;
 
 class Custommade {
@@ -30,7 +30,9 @@ class Custommade {
 
     public static function sendNewUserNotificationEmailToAdmin() {
 
-    	$to = Setting::find(5)->setting;    	
+        $to = DB::select('select setting from settingg where id = ?', [5]);
+
+    	//$to = Setting::find(5)->setting;    	
 
 		$headers = 'From: noreply@sinterklaasbank.nl' . "\r\n" .
 					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
