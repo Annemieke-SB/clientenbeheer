@@ -362,10 +362,12 @@ class FamilyController extends Controller
         $family = Family::findOrFail($fam_id);
 
         foreach ($family->kids as $kid) {
-                            
-            $barcode = Barcode::findOrFail($kid->barcode->id);
-            $barcode->kid_id = NULL;
-            $barcode->save();
+            if ($kid->barcode->id) {
+                $barcode = Barcode::findOrFail($kid->barcode->id);
+                $barcode->kid_id = NULL;
+                $barcode->save();               
+            }
+
         }
     }   
 
