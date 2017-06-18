@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Settings;
 use Custommade;
 
 class User extends Authenticatable
@@ -44,7 +45,8 @@ class User extends Authenticatable
         $this->save();        
 
         if ($this->activated == 0) {
-            Custommade::sendNewUserNotificationEmailToAdmin();
+            $to = Setting::find(5)->setting;
+            Custommade::sendNewUserNotificationEmailToAdmin($to);
         }
     }
 }

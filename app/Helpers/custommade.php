@@ -3,7 +3,7 @@
 
 
 namespace App\Helpers;
-use Illuminate\Support\Facades\DB;
+
 
 class Custommade {
 
@@ -28,11 +28,7 @@ class Custommade {
     }
 
 
-    public static function sendNewUserNotificationEmailToAdmin() {
-
-        $to = DB::select('select setting from setting where id = ?', [5]);
-
-    	//$to = Setting::find(5)->setting;    	
+    public static function sendNewUserNotificationEmailToAdmin($to) {
 
 		$headers = 'From: noreply@sinterklaasbank.nl' . "\r\n" .
 					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
