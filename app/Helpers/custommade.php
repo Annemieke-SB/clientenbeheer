@@ -2,7 +2,6 @@
 // kleine letter in bestand
 
 
-use DB;
 namespace App\Helpers;
 
 class Custommade {
