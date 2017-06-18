@@ -16,7 +16,7 @@
                 <div class="panel-body">
                 Hier staan uw downloads. U kunt hier de PDF's voor de kinderen downloaden nadat de inschrijvingen zijn gesloten.  
                 <br><br>
-<a href="{{ url(URL::previous()) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+<a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 </div>
             </div>
 
