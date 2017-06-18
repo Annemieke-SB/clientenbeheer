@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Barcode;
+//use Barcode;
 use DNS1D;
 use Custommade;
 
