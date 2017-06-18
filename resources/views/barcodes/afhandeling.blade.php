@@ -54,7 +54,7 @@
                         <p>Er zijn {{$aant_barcodes}} barcodes in de database geplaatst!</p>
                     @endif
 
-                    <a class="btn btn-info" href="{{ url('/barcodes/') }}" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbsp;Terug</a> 
+                    <a href="{{ url('/barcodes/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 </div>
             </div>       
         </div>
