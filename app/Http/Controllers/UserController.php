@@ -191,7 +191,7 @@ class UserController extends Controller
 
         $user->fill($input)->save();
 
-        return redirect('user/edit/'.$user->id)->with('message', 'Gegevens gewijzigd');
+        return redirect('home')->with('message', 'Gegevens gewijzigd');
     }
 
     public function updateemail(Request $request)
