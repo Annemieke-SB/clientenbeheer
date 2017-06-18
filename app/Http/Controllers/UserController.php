@@ -87,7 +87,7 @@ class UserController extends Controller
         }
 
         Mail::send('emails.activationtoggle', $maildata, function ($message) use ($maildata){
-            $message->from('noreply@sinterklaasbank.nl', 'Stichting De Sinterklaasbank');
+            $message->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank');
             
             $message->to($maildata['email']);
                 
