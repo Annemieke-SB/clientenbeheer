@@ -110,7 +110,7 @@
 
                             <br><br>De inschrijvingen zijn gesloten. U kunt nu naar de downloads-pagina gaan om de PDF's met de kadokaart-barcode te downloaden. <br><br>
 
-                            {{ Html::link('/intermediair/downloads', '<button type="button" class="btn btn-success navbar-btn btn-sm text-right pdfdownload"><span class="glyphicon glyphicon-download"></span>&nbsp;&nbsp;Downloads</button>', 'Terug', array(), false)}}&nbsp;
+                            <a href="{{ url('/intermediair/downloads') }}"><button type="button" class="btn btn-success navbar-btn btn-sm text-right pdfdownload"><span class="glyphicon glyphicon-download"></span>&nbsp;&nbsp;Downloads</button></a>
 
                             @endif
             @else
