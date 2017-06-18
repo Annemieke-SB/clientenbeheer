@@ -30,7 +30,7 @@ class Custommade {
 
     public static function sendNewUserNotificationEmailToAdmin() {
 
-        $to = DB::select('select setting from settingg where id = ?', [5]);
+        $to = DB::select('select setting from setting where id = ?', [5]);
 
     	//$to = Setting::find(5)->setting;    	
 
