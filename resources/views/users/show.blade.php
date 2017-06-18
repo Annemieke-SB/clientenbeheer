@@ -71,7 +71,9 @@
 
                     </table>
                     
-                    {{ Html::link('/user/edit/'.$user->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button>', 'Wijzig', array(), false)}}
+                
+
+                    <a href="{{ url('/user/edit/'.$user->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
                     
                 </div>
             </div>    

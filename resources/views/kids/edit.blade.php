@@ -72,7 +72,8 @@
                         </div>                   
                     {!! Form::close() !!}
                     
-{{ Html::link('/kids/show/'.$kid->id, '<button type="button" class="btn btn-danger navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Annuleren</button>', 'Annuleren', array(), false)}}
+
+<a href="{{ url('/kids/show/'.$kid->id) }}"><button type="button" class="btn btn-danger navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Annuleren</button></a>
 
   
   <script type="text/javascript">

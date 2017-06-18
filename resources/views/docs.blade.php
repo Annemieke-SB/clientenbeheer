@@ -17,7 +17,7 @@
 
 
                 <div class="panel-body">
-                    <p>{{ Html::link('/home/', '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+                    <p>                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                     </p>
                 <h1>Handleiding Clientenbeheer</h1>
 

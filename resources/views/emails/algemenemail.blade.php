@@ -342,7 +342,7 @@
                     
     @if($preview)
 <div class="panel-body"><br><br>
-{{ Html::link('/home/', '<button type="button" class="">&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+                 <a href="{{ url('/home/') }}"><button type="button" class=""><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
 </div>
 @endif
                   </td>

@@ -121,7 +121,9 @@
                     </table>
                     @if (Auth::user()->usertype==3)
                         @if(!$family->aangemeld)
-                        {{ Html::link('/family/edit/'.$family->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button>', 'Wijzig', array(), false)}}
+
+
+                                         <a href="{{ url('/family/edit/'.$family->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
                         @endif
                     @endif
                 </div>
@@ -239,7 +241,10 @@
                     </table>
                     @if (Auth::user()->usertype==3)
                         @if(!$family->aangemeld)
-                         {{ Html::link('/kids/toevoegen/'.$family->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Toevoegen</button>', 'Toevoegen', array(), false)}}
+
+
+                         <a href="{{ url('/kids/toevoegen/'.$family->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Toevoegen</button></a>
+
                         @endif
                     @endif
                 </div>

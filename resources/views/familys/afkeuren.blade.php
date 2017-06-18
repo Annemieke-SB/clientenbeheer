@@ -20,7 +20,7 @@
                     </ol>
 
                 <div class="panel-body">
-                <p>{{ Html::link('/gezinnenlijst/', '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}</p>
+                <p>                 <a href="{{ url('/gezinnenlijst/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a></p>
                  De tekst hoeft niet te worden weggehaald voor goedkeuren, in dat geval gewoon goedkeuren en de tekst verdwijnt.
                 </div>
             </div>

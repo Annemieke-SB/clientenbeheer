@@ -187,9 +187,9 @@
                         </tr>
                     </table>
 
-                    @if (Auth::user()->usertype==3)
+                    @if (Auth::user()->usertype==3)                      
 
-                          {{ Html::link('/intermediair/edit/'.$intermediair->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button>', 'Wijzig', array(), false)}}
+                          <a href="{{ url('/intermediair/edit/'.$intermediair->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
                     @endif
       </div>
     </div>

@@ -19,7 +19,7 @@
                     </ol>
 
                 <div class="panel-body">
-                <p>{{ Html::link('/home/', '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}</p>
+                <p>                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a></p>
                  Geef hier de korte tekst op voor de email die je wilt sturen. De email wordt meteen verzonden aan alle gebruikers, dus intermediairs <b>en beheerders</b>. </p>
                 <p>Gebruik deze functie <b>niet</b> om de volgende redenen, omdat die mails al automatisch worden verzonden:</p>
                     <ul>

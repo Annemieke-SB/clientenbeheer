@@ -140,11 +140,13 @@
                         @if (Auth::user()->usertype==3)
                             @if(!$kid->family->aangemeld)
                               {{ Html::link('/kids/edit/'.$kid->id, '<button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button>', 'Wijzig', array(), false)}}
+
+                              <a href="{{ url('/kids/edit/'.$kid->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
                             @endif
                         @endif    
-                    @endif
+                    @endif              
 
-                    {{ Html::link('/family/show/'.$kid->family_id, '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+                    <a href="{{ url('/family/show/'.$kid->family_id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 </div>
             </div>    
             

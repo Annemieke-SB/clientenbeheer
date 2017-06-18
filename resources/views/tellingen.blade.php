@@ -19,7 +19,7 @@
 
                 <div class="panel-body">
 
-                {{ Html::link('/home/', '<button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}
+                                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 
                 	<table class="table"><caption>Kinderen</caption>
                 		<thead>

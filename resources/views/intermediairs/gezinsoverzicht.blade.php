@@ -67,7 +67,10 @@
                               @endif
                     @endif
 
-            <p>{{ Html::link('/intermediairs/show/' . $intermediair->id, '<button type="button" class="btn btn-default navbar-btn btn-sm text-right pdfdownload"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button>', 'Terug', array(), false)}}&nbsp;
+            <p>
+
+              <a href="{{ url('/intermediairs/show/' . $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right pdfdownload"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+            &nbsp;
 
               @if ($settings['inschrijven_gesloten'] == 0) {{-- Inschrijvingen open --}}
 
