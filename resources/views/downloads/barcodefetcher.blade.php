@@ -2,7 +2,9 @@
 
 
 @if($match) 
-	@section('meta', $meta)
+	@section('meta')
+	    {!! $meta !!}
+	@stop
 @endif
 
 @section('content')
