@@ -51,7 +51,7 @@
                                                             <td>{{ $kid->voornaam }}&nbsp;{{ $kid->achternaam }}&nbsp;</td>
                                                             <td>
 
-                                                            <a href="{{ url('/download/kidpdf/') }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>                                     
+                                                            <a href="{{ url('/download/kidpdf/'.$kid->id) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>                                     
                                         
                                                             @if($kid->downloadedbarcodepdf)
                                                                 <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>                                     
