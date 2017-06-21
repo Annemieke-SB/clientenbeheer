@@ -79,8 +79,21 @@ class SettingsController extends Controller
 
             if ($request->value == "1") {
                 
+                $downloads = Setting::find('6');
+                if ($downloads->value == 1) {
+                    return redirect('/settings/')->with('message', 'Instelling niet gewijzigd; downloadpagina is al aktief dus er zijn mogelijk al PDFs gedownload.');
+                }  
+
                 $this->sendMailToIntermediairs ("inschrijving_sluiten");
+
+
             } else {
+
+                $downloads = Setting::find('6');
+                if ($downloads->value == 1) {
+                    return redirect('/settings/')->with('message', 'Instelling niet gewijzigd; downloadpagina is al aktief dus er zijn mogelijk al PDFs gedownload.');
+                }  
+                
 
                 $this->sendMailToIntermediairs ("inschrijving_open");
 
