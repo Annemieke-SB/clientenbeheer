@@ -352,6 +352,7 @@
                                         <th>Woonplaats&nbsp;</th>
                                         <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span>&nbsp;</th>
                                         <th><span class="badge" data-toggle="tooltip" title="Als in deze kolom een envelopje staat, dan is de aanmelding voor dat gezin door de sinterklaasbank afgekeurd. Als u met uw muis over het envelopje gaat ziet u de reden van afmelding. Als u het kan aanpassen kunt u het gezin opnieuw aanmelden. Als u het niet kunt oplossen, kunt u het gezin verwijderen door op 'wis' te klikken.">RA</span></th> 
+                                        <th><span class="badge" data-toggle="tooltip" title="Hier staat een kruis als het gezin definitief is afgekeurd. U kunt dit gezin verwijderen.">DA</span></th>                                         
                                         <th>Actie&nbsp;</th> 
                                                                   
                                     </thead>
@@ -370,6 +371,10 @@
                                         @if ($nietaangemelde_familie->redenafkeuren)
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$nietaangemelde_familie->redenafkeuren}}"></span>
                                         @endif</td>
+                                        <td>                                       
+                                        @if ($nietaangemelde_familie->definitiefafkeuren)
+                                            <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Dit gezin is definitief afgekeurd, graag dit gezin verwijderen."></span>
+                                        @endif</td>                                        
                                         <td> 
          
                                           
