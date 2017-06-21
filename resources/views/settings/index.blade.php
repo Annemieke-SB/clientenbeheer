@@ -190,7 +190,7 @@
                     <p>Geef hier aan of de downloadpagina geactiveerd moet zijn. <br><br><b>Let op: Kan alleen wanneer de inschrijvingen zijn gesloten!</b><br><br></p>
 
 
-                    {!! Form::open(['url' => 'settings/update/4', 'id'=>'sluitform2']) !!}
+                    {!! Form::open(['url' => 'settings/update/6', 'id'=>'sluitform2']) !!}
                         <div class="form-group">
                             {!! Form::select('value',[0=>'downloadspagina gesloten',1=>'Downloadspagina open'],$settingarray[6]['value'],  ['class' => 'form-control']) !!}
                             {!! Form::hidden('id', '6') !!}
