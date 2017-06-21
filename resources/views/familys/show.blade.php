@@ -81,7 +81,7 @@
                             @endif
                     @endif
                 @if (Auth::user()->usertype==1)
-                    <a href="{{ url(URL::previous()) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @else
 
                     <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
