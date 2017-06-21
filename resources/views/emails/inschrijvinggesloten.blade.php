@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Verifiëer uw emailadres</title>
+    <title>Inschrijvingen gesloten</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -289,33 +289,11 @@
                     <tr>
                       <td>
                         <p>Beste intermediair,</p>
-                        <p>De inschrijvingen voor de Sinterklaasbank zijn gesloten. Dit betekent dat u op uw persoonlijke downloadpagina de PDF's voor de door u aangemelde kinderen kunt downloaden.</p>
-                        <p>Dit betekent ook dat er geen gegevens meer gewijzigd kunnen worden en dat alles nu in definitieve status is.</p>
+                        <p>De inschrijvingen voor de Sinterklaasbank zijn gesloten. Dit betekent ook dat er geen gegevens meer gewijzigd kunnen worden en dat alles nu in definitieve status is.</p>
                         <p>Wat nu verder?</p>
-                        <p>U kunt de PDF's met barcode downloaden er deze aan de gezinnen verstrekken. Daar bent u zelf verantwoordelijk voor. Let erop dat de barcodes uiterlijk 5 december bij een Intertoys-filiaal zijn verzilverd! Daarna vervalt deze namelijk.</p>
-                        <p>Klik op onderstaande link om naar uw downloadpagina te gaan.</p>
-                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                          <tbody>
-                            <tr>
-                              <td align="center">
-                                <table border="0" cellpadding="0" cellspacing="0">
-                                  <tbody>
-                                    <tr>
-                                      <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                      <td> <a href="{{ url('intermediair/downloads') }}" target="_blank">Ga naar uw downloadpagina</a> </td>
-                                    </tr>
-                                    <tr>
-                                      <td>&nbsp;</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table> 
-                        <p>We wensen u en de gezinnen en kinderen die u geholpen heeft een hele fijne Sinterklaasavond! Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
+                        <p>Wanneer wij alle gegevens hebben gecontroleerd krijgt u van ons bericht dat uw downloadpagina is geopend. Door kunt u de PDF's met barcode downloaden en deze aan de gezinnen verstrekken.</p>
+                        <p>Houdt uw mailbox aankomende periode in de gaten!</p>
+                        <p>Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
                         <p>Met vriendelijke groet,</p>
                         <p>Stichting de Sinterklaasbank</p>
                         <p><small>Deze email is automatisch gegenereerd en u kunt deze niet beantwoorden</small></p>

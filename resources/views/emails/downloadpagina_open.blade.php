@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Verifiëer uw emailadres</title>
+    <title>Downloadpagina geopend</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -289,9 +289,31 @@
                     <tr>
                       <td>
                         <p>Beste intermediair,</p>
-                        <p>Uw downloadpagina is geopend. Dit betekent dat u PDF's kunt downloaden voor kinderen, ga hiervoor naar uw persoonlijke <a href="{{url('/intermediair/downloads')}}">downloadpagina</a>.</p>
-                        <p>U dient zelf te zorgen dat het kind in het bezit komt van de PDF. Let op dat de barcode in de PDF, ter waarde van 25 EUR na 5 december komt te vervallen.</p>
 
+                        <p>U kunt de PDF's met barcode downloaden en deze aan de gezinnen verstrekken. Daar bent u zelf verantwoordelijk voor. Let erop dat de barcodes uiterlijk 5 december bij een Intertoys-filiaal zijn verzilverd! Daarna vervalt deze namelijk.</p>
+                        <p>Klik op onderstaande link om naar uw downloadpagina te gaan.</p>
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td> <a href="{{ url('intermediair/downloads') }}" target="_blank">Ga naar uw downloadpagina</a> </td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table> 
+                        <p>We wensen u en de gezinnen en kinderen die u geholpen heeft een hele fijne Sinterklaasavond! Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
                         <p>Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
                         <p>Met vriendelijke groet,</p>
                         <p>Stichting de Sinterklaasbank</p>
