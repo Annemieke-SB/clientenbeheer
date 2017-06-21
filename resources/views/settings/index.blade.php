@@ -190,14 +190,14 @@
                     <p>Geef hier aan of de downloadpagina geactiveerd moet zijn. <br><br><b>Let op: Kan alleen wanneer de inschrijvingen zijn gesloten!</b><br><br></p>
 
 
-                    {!! Form::open(['url' => 'settings/update/4', 'id'=>'sluitform']) !!}
+                    {!! Form::open(['url' => 'settings/update/4', 'id'=>'sluitform2']) !!}
                         <div class="form-group">
                             {!! Form::select('value',[0=>'downloadspagina gesloten',1=>'Downloadspagina open'],$settingarray[6]['value'],  ['class' => 'form-control']) !!}
                             {!! Form::hidden('id', '6') !!}
                         </div>
                         <div class="form-group">
                            
-                            <input type="button" name="btn" value="Wijzig" id="sluitsubmitbtn" data-toggle="modal" data-target="#confirm-submit-downloads" class="btn btn-primary form-control" />
+                            <input type="button" name="btn" value="Wijzig" id="sluitsubmitbtn2" data-toggle="modal" data-target="#confirm-submit-downloads" class="btn btn-primary form-control" />
                         </div>         
                         @if ($settingarray[6]['value'] == 0) {{--downloads momenteel gesloten--}}
                         <div class="modal fade" id="confirm-submit-downloads" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -212,7 +212,7 @@
 
                           <div class="modal-footer">
                                     <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
-                                    <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, openen maar!</a>
+                                    <a href="#" id="sluitsubmit2" class="btn btn-success success">Ja, openen maar!</a>
                                 </div>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
 
                           <div class="modal-footer">
                                     <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
-                                    <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, sluiten maar!</a>
+                                    <a href="#" id="sluitsubmit2" class="btn btn-success success">Ja, sluiten maar!</a>
                                 </div>
                                 </div>
                             </div>
@@ -287,6 +287,17 @@ $('#sluitsubmit').click(function(){
      /* when the submit button in the modal is clicked, submit the form */
     
     $('#sluitform').submit();
+});
+
+
+$('#sluitsubmitbtn2').click(function() {
+
+});
+
+$('#sluitsubmit2').click(function(){
+     /* when the submit button in the modal is clicked, submit the form */
+    
+    $('#sluitform2').submit();
 });
 
 </script>
