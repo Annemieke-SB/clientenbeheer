@@ -215,10 +215,34 @@ class UserController extends Controller
             
             $user->fill($input)->save();
 
-            $emailmessage = new EmailVerification(new User(['email_token' => $user->email_token, 'name'=>$user->name]));
+            $emailmessage = new ChangeEmailVerification(new User(['email_token' => $user->email_token, 'voornaam'=>$user->voornaam]));
             Mail::to($user->email)->send($emailmessage);
 
-            Custommade::sendUserEmail($oude_mail, 'Uw emailadres is gewijzigd naar '.$request->email1 .'. Als dit niet klopt, neem dan zo spoedig mogelijk contact op met webmaster@sinterklaasbank.nl.');
+            /*
+            * Het oude emailadres krijgt ook een email
+            */
+
+            $maildata = [
+                'titel' => "Uw emailadres is gewijzigd",
+                'voornaam' => $user->voornaam,
+                'nieuweemail' => $request->email1,
+                'email'=>$user->email
+            ];
+            
+
+            Mail::send('emails.notifyEmailChange', $maildata, function ($message) use ($maildata){
+                $message->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank');
+                
+                $message->to($maildata['email']);
+                    
+                $message->subject('Bericht van de Sinterklaasbank: ' . $maildata['titel']);
+            });
+
+            /*
+            * Einde oude emailadres
+            */
+
+            //Custommade::sendUserEmail($oude_mail, 'Uw emailadres is gewijzigd naar '.$request->email1 .'. Als dit niet klopt, neem dan zo spoedig mogelijk contact op met webmaster@sinterklaasbank.nl.');
 
             Auth::logout();
             return redirect('login')->with('message', 'Gegevens gewijzigd. Omdat het emailadres is gewijzigd is er een verificatiemail naar het nieuwe emailadres ('.$request->email1.') gestuurd. Na het klikken op de link kunt u pas weer inloggen.');
