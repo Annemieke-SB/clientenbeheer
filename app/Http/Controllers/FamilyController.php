@@ -435,7 +435,7 @@ class FamilyController extends Controller
 
         $family->redenafkeuren = $request->redenafkeuren;
 
-        if ($request->definitiefafkeuren==1) {
+        if ($request->definitiefafkeuren=="1") {
             $family->definitiefafkeuren = 1;
             $definitieftekst = "De afkeuring is definitief, waardoor u het gezin niet meer opnieuw kunt aanmelden. Wij verzoeken het gezin uit uw lijst te verwijderen.";
         } else {
