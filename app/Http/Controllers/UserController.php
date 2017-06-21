@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\EmailVerification;
+use App\Mail\ChangeEmailVerification;
 use App\Mail\EmailActivationtoggle;
 use App\Family;
 use App\Kid;
