@@ -434,6 +434,14 @@ class FamilyController extends Controller
         $family = Family::findOrFail($request->id);
 
         $family->redenafkeuren = $request->redenafkeuren;
+
+        if ($request->definitiefafkeuren==1) {
+            $family->definitiefafkeuren = 1;
+            $definitieftekst = "De afkeuring is definitief, waardoor u het gezin niet meer opnieuw kunt aanmelden. Wij verzoeken het gezin uit uw lijst te verwijderen.";
+        } else {
+            $definitieftekst = "U kunt het gezin weer terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen of verwijderen.";
+        }     
+
         $family->aangemeld = 0;
         $family->goedgekeurd = 0;
         
@@ -448,7 +456,7 @@ class FamilyController extends Controller
 
         $maildata = [
                 'titel' => "Het gezin ". $family->achternaam. " is zojuist afgekeurd",
-                'mailmessage' => "Het gezin " . $family->achternaam. " is zojuist afgekeurd om deze reden:\n\n " . $request->redenafkeuren . ".\n\n U kunt het gezin weer terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen.\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
+                'mailmessage' => "Het gezin " . $family->achternaam. " is zojuist afgekeurd om deze reden:\n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
                 'voornaam' => $owner->voornaam,
                 'email'=>$owner->email
         ];
