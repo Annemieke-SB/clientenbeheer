@@ -42,7 +42,12 @@
                                   <div class="panel-body bg-danger">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Uw aanmelding voor dit gezin is door de Sinterklaasbank afgekeurd om deze reden:<br><br>
                                     <blockquote>{{$family->redenafkeuren}}</blockquote>
-                                    U kunt het probleem oplossen en het gezin opnieuw aanmelden, of u kunt het gezin verwijderen. 
+                                    @if($family->definitiefafkeuren)
+                                      U kunt het probleem oplossen en het gezin opnieuw aanmelden, of u kunt het gezin verwijderen. 
+                                    @else
+                                        U kunt het probleem niet oplossen omdat het gezin definitief is afgekeurd. Gelieve het gezin te verwijderen. 
+                                    @endif
+                                    
                                   </div>
                                 </div>
                             @endif                    
