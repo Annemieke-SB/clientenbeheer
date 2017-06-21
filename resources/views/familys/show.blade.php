@@ -53,7 +53,7 @@
                                 </div>
                             @endif                    
 
-                            @if($family->aangemeld==0)
+                            @if($family->aangemeld==0 && $family->definitiefafkeuren != 1))
                             <br>
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
