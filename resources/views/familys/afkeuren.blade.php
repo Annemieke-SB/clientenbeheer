@@ -58,7 +58,7 @@
                         <div class="form-group">
 
                             {!! Form::label('definitiefafkeuren', 'Definitief afkeuren?') !!}
-                            {!! Form::checkbox('definitiefafkeuren', $family->definitiefafkeuren, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::checkbox('definitiefafkeuren', $family->definitiefafkeuren, ['class' => 'form-control']) !!}
 
                         </div>                                                 
                         <div class="form-group">

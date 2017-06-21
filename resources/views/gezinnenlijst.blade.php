@@ -133,15 +133,16 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Nog niet aangemelde gezinnen</div>
+                <div class="panel-heading">Nog niet aangemelde (en afgekeurde) gezinnen</div>
                 <div class="panel-body">
-                <p>Ter informatie staat hieronder een lijst met alle <b>niet aangemelde</b> gezinnen in de database. Dat betekent dat het gezin nog door de intermediair moet worden aangemeld.</p>
+                <p>Ter informatie staat hieronder een lijst met alle <b>niet aangemelde</b> gezinnen in de database. Dat betekent dat het gezin nog door de intermediair moet worden aangemeld, of dat het gezin definitief is afgekeurd.</p>
                      <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>                                
                                 <th>Achternaam&nbsp;</th>
                                 <th>Woonplaats&nbsp;</th>
-                                <th><span class="badge" data-toggle="tooltip" title="Als het gezin is afgekeurd, staat hier een enveloppe met de reden afmelding.">RA</span></th>                   
+                                <th><span class="badge" data-toggle="tooltip" title="Als het gezin is afgekeurd, staat hier een enveloppe met de reden afmelding.">RA</span></th>
+                                <th><span class="badge" data-toggle="tooltip" title="Het gezin is definitief afgekeurd.">DA</span></th>                   
                                 <th>Aktie&nbsp;</th> 
                                 
                             </tr>                               
@@ -162,6 +163,11 @@
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$nietaangemeldefamilie->redenafkeuren}}"></span>
                                         @endif
                                 </td>
+                                <td>
+                                        @if ($nietaangemeldefamilie->definitiefafkeuren)
+                                            <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Definitief afgekeurd"></span>
+                                        @endif
+                                </td>                                
                                 <td>
                                   
                                         <a href="{{ url('/intermediairs') }}/show/{{ $nietaangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
