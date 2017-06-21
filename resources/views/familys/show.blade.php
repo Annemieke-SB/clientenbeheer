@@ -246,7 +246,7 @@
                         <p><small>Tip: Ga met je muis over <span class="badge">&nbsp;&nbsp;&nbsp;</span>-balonnen voor extra info.</small></p>
                     </table>
                     @if (Auth::user()->usertype==3)
-                        @if(!$family->aangemeld)
+                        @if(!$family->aangemeld && !$family->definitiefafkeuren)
 
 
                          <a href="{{ url('/kids/toevoegen/'.$family->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-plus"></span>&nbsp;Toevoegen</button></a>
@@ -294,7 +294,7 @@
                                 </div>
                                 @endif
                                 @if (Auth::user()->usertype==3)
-                                    @if (($family->kidsdisqualified && $family->targetkids) || !$family->targetkids)
+                                    @if (($family->kidsdisqualified && $family->targetkids) || !$family->targetkids || $family->definitiefafkeuren == 1)
                                         
                                             
                                             <div class="form-group">
