@@ -126,7 +126,7 @@
                         
                     </table>
                     @if (Auth::user()->usertype==3)
-                        @if(!$family->aangemeld)
+                        @if(!$family->aangemeld && !$family->definitiefafkeuren)
 
 
                                          <a href="{{ url('/family/edit/'.$family->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
