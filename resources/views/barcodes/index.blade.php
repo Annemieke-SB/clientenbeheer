@@ -64,7 +64,7 @@
                                 <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
                                 <tr><td>Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
                                 <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
-                                <tr><td>Nog niet aangemelde kinderen</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
+                                <tr><td>Nog niet aangemelde kinderen (definitief afgekeurde gezinnen niet meegeteld)</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
                                 <tr><td>Aangemelde kinderen (in afwachting van goedkeuring)</td><td>{{ $aangemelde_kinderen }}</td></tr>   
                                 
                                 @if (($aant_barcodes - $uitgegeven_barcodes - $niet_aangemelde_kinderen - $aangemelde_kinderen)<10)
