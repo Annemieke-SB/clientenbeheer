@@ -32,7 +32,6 @@ class EmailActivationtoggle extends Mailable
     public function build()
     {
         return $this->subject('Bericht van de Sinterklaasbank – uw accountstatus is gewijzigd')
-                    ->from(['address' => 'noreply@sinterklaasbank.nl', 'name' => 'Stichting de Sinterklaasbank'])
                     ->view('emails.activationtoggle');
     }
 }
