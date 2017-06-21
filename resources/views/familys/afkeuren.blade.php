@@ -28,10 +28,10 @@
                 
                 <div class="panel-body">
 
-            @if ($settings['inschrijven_gesloten'] == 1) {{-- Inschrijvingen gesloten --}}
+            @if ($settings['downloads_ingeschakeld'] == 1) 
 
-                <h1>De inschrijvingen zijn gesloten</h1>
-                <p>De inschrijvingen zijn gesloten dus het is niet mogelijk om gezinnen af te keuren. Een goedgekeurd gezin kan namelijk al barcodes in het bezit hebben.</p>
+                <h1>De downloads zijn al aktief</h1>
+                <p>De downloads zijn al aktief, dus het is niet mogelijk om gezinnen af te keuren. Een goedgekeurd gezin kan namelijk al barcodes in het bezit hebben.</p>
 
             @else
 
@@ -53,7 +53,14 @@
                             {!! Form::label('redenafkeuren', 'Geef hier de reden van afkeuren.') !!}
                             {!! Form::text('redenafkeuren', $family->redenafkeuren, ['class' => 'form-control', 'required']) !!}
 
-                        </div>                              
+                        </div>      
+
+                        <div class="form-group">
+
+                            {!! Form::label('definitiefafkeuren', 'Definitief afkeuren?') !!}
+                            {!! Form::checkbox('definitiefafkeuren', $family->definitiefafkeuren, ['class' => 'form-control', 'required']) !!}
+
+                        </div>                                                 
                         <div class="form-group">
 
                             {!! Form::submit('Afkeuren', ['class' => 'btn btn-danger form-control']) !!}                            

@@ -24,7 +24,8 @@ class CreateFamilysTable extends Migration
             $table->string('telefoon');
             $table->tinyInteger('andere_alternatieven')->default(0);
             $table->tinyInteger('goedgekeurd')->default(0);
-            $table->longtext('redenafkeuren')->nullable();            
+            $table->longtext('redenafkeuren')->nullable();   
+            $table->tinyInteger('definitiefafkeuren')->nullable();                      
             $table->tinyInteger('aangemeld')->default(0);
             $table->longtext('motivering');
             $table->string('email')->unique();
