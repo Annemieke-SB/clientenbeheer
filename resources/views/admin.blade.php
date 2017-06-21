@@ -69,7 +69,9 @@
                     @elseif ($settings['inschrijven_gesloten'] == 1 && $settings['downloads_ingeschakeld'] == 0) {{-- Downloads aktief --}}
                         <br><br>
                         <div class="panel panel-danger">
-                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De downloadpagina is niet actief!!! De inschrijvingen zijn wel gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs maar ze kunnen nog niets downloaden!.</b></div>                                            
+                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De downloadpagina is niet actief!!! De inschrijvingen zijn wel gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs maar ze kunnen nog niets downloaden!.</b>
+                              </div> 
+                        </div>                                           
                     @endif
 
 
