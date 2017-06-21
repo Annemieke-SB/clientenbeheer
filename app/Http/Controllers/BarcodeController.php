@@ -46,7 +46,7 @@ class BarcodeController extends Controller
 
         $gedownloadde_barcodes = $uitgegeven_barcodes - ($nietgedownloadde_barcodes - $beschikbare_barcodes);        
 
-        $niet_aangemelde_families = Family::where('aangemeld', 0)->get();
+        $niet_aangemelde_families = Family::where(array('aangemeld'=> 0, 'definitiefafkeuren' => NULL))->get();
 
         $aangemelde_families = Family::where(array('aangemeld'=> 1, 'goedgekeurd' => 0))->get();
 
