@@ -207,7 +207,7 @@
                                         Downloadpagina openen?
                                     </div>
                                     <div class="modal-body">
-                        Weet je zeker dat je de downloadpagina wil openen? De intermediairs krijgen automatisch een email dat ze vanaf nu de PDF's kunnen downloaden!
+                        Weet je zeker dat je de downloadpagina wil openen? Let op: de inschrijvingen moeten eerst zijn gesloten voordat deze instelling kan worden gewijzigd!! Als de downloads worden geopend krijgen de intermediairs automatisch een email dat ze vanaf nu de PDF's kunnen downloaden!
                                     </div>
 
                           <div class="modal-footer">
