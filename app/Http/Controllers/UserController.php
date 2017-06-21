@@ -97,7 +97,7 @@ class UserController extends Controller
         
         $user->save();
 
-        return redirect('users/index/')->with('message', 'Gebruikersactivatie van '. $user->name. ' gewijzigd. De gebruiker is automatisch op de hoogte gebracht van deze wijziging. Dit heeft overigens geen invloed op de ingevoerde gezinnen en kinderen. Als je die wilt uitsluiten moet je de gebruiker verwijderen.');
+        return redirect('users/index/')->with('message', 'Gebruikersactivatie van '. $user->voornaam. ' '. $user->achternaam. ' gewijzigd. De gebruiker is automatisch op de hoogte gebracht van deze wijziging. Dit heeft overigens geen invloed op de ingevoerde gezinnen en kinderen. Als je die wilt uitsluiten moet je de gebruiker verwijderen.');
     }
 
     /**
@@ -356,7 +356,7 @@ class UserController extends Controller
 
             User::destroy($id); // 1 way 
 
-            return redirect('users/index')->with('message', 'Gebruiker (en in het geval van intermediair alle bijbehorende families en kinderen) verwijderd');
+            return redirect('users/index')->with('message', 'De gebruiker is verwijderd (en in het geval van een intermediair ook alle bijbehorende families en kinderen)');
 
         } else 
         {
