@@ -42,8 +42,15 @@ class SettingsTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),          
         ],          
         [
-            'setting' => 'henrique@van.huisste.de;harm.super@sinterklaasbank.nl;info@sinterklaasbank.nl;test@van.huisste.de',
+            'setting' => 'henrique@van.huisste.de;harm.super@sinterklaasbank.nl;info@sinterklaasbank.nl',
             'value' => 1,
+            'lastTamperedUser_id' => 1,   
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),          
+        ],           
+        [
+            'setting' => 'downloads_ingeschakeld',
+            'value' => 0,
             'lastTamperedUser_id' => 1,   
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),          

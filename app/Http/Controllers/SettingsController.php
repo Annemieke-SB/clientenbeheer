@@ -87,6 +87,30 @@ class SettingsController extends Controller
             }
         }
 
+
+
+        if ($id==6) {// Downloadpagina openen of sluiten
+
+//dd($request->value);
+            
+
+            if ($request->value == "1") {
+
+                $open_gesloten = Setting::find('4');
+                if ($open_gesloten->value == 1) {
+                    $this->sendMailToIntermediairs ("downloadpagina_open");
+                } else {
+                    return redirect('/settings/')->with('message', 'Instelling niet gewijzigd; downloadpagina kan alleen worden geopend als de inschrijvingen zijn gesloten.');
+                }
+                
+                
+            } else {
+
+                $this->sendMailToIntermediairs ("downloadpagina_sluiten");
+
+            }
+        }
+
         $setting = Setting::find($id);
         $setting->update($request->all());
 
@@ -167,6 +191,43 @@ class SettingsController extends Controller
 
         }      
 
+        if ($type=="downloadpagina_open") {
+            $maildata = [
+                    'mailto' => $emailadressen_intermediairs
+            ];
+            try {
+            Mail::send('emails.downloadpagina_open', $maildata, function ($message) use ($maildata){
+                $message->from('noreply@sinterklaasbank.nl', 'Stichting De Sinterklaasbank');
+                
+                $message->bcc($maildata['mailto']);
+                    
+                $message->subject('Bericht van de Sinterklaasbank: uw downloadpagina is geopend');
+            });
+            } 
+                catch(\Exception $e){
+                // catch code
+            }
+
+        }    
+
+        if ($type=="downloadpagina_sluiten") {
+            $maildata = [
+                    'mailto' => $emailadressen_intermediairs
+            ];
+            try {
+            Mail::send('emails.downloadpagina_sluiten', $maildata, function ($message) use ($maildata){
+                $message->from('noreply@sinterklaasbank.nl', 'Stichting De Sinterklaasbank');
+                
+                $message->bcc($maildata['mailto']);
+                    
+                $message->subject('Bericht van de Sinterklaasbank: uw downloadpagina is gesloten');
+            });
+            } 
+                catch(\Exception $e){
+                // catch code
+            }
+
+        }           
 
 
         /*

@@ -148,9 +148,10 @@
                         Weet je zeker dat je de inschrijvingen wilt sluiten? Er kan dan niets meer gewijzigd worden: alle invoer is dan definitief. De intermediairs krijgen automatisch een email!
                                     </div>
 
-                          <div class="modal-footer">
+                                    <div class="modal-footer">
                                     <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
                                     <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, sluiten maar!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,9 +166,10 @@
                         Weet je zeker dat je de inschrijvingen wilt openen? De intermediairs krijgen automatisch een email!
                                     </div>
 
-                          <div class="modal-footer">
-                                    <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
-                                    <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, openen maar!</a>
+                                    <div class="modal-footer">
+                                     <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
+                                     <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, openen maar!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +182,69 @@
                 </div>
             </div>     
 
-            <!-- Open/gesloten -->
+           <!-- Downloads open -->
+            <div class="panel panel-default">
+                <div class="panel-heading">Downloadpagina open?</div>
+                <div class="panel-body">   
+                    
+                    <p>Geef hier aan of de downloadpagina geactiveerd moet zijn. <br><br><b>Let op: Kan alleen wanneer de inschrijvingen zijn gesloten!</b><br><br></p>
+
+
+                    {!! Form::open(['url' => 'settings/update/4', 'id'=>'sluitform']) !!}
+                        <div class="form-group">
+                            {!! Form::select('value',[0=>'downloadspagina gesloten',1=>'Downloadspagina open'],$settingarray[6]['value'],  ['class' => 'form-control']) !!}
+                            {!! Form::hidden('id', '6') !!}
+                        </div>
+                        <div class="form-group">
+                           
+                            <input type="button" name="btn" value="Wijzig" id="sluitsubmitbtn" data-toggle="modal" data-target="#confirm-submit-downloads" class="btn btn-primary form-control" />
+                        </div>         
+                        @if ($settingarray[6]['value'] == 0) {{--downloads momenteel gesloten--}}
+                        <div class="modal fade" id="confirm-submit-downloads" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        Downloadpagina openen?
+                                    </div>
+                                    <div class="modal-body">
+                        Weet je zeker dat je de downloadpagina wil openen? De intermediairs krijgen automatisch een email dat ze vanaf nu de PDF's kunnen downloaden!
+                                    </div>
+
+                          <div class="modal-footer">
+                                    <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
+                                    <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, openen maar!</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                        <div class="modal fade" id="confirm-submit-downloads" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        Downloadpagina sluiten?
+                                    </div>
+                                    <div class="modal-body">
+                        Weet je zeker dat je de downloadpagina wil sluiten? De intermediairs krijgen automatisch een email!
+                                    </div>
+
+                          <div class="modal-footer">
+                                    <a href="{{ url('/settings') }}"><button type="button" class="btn btn-default">Nee</button></a>
+                                    <a href="#" id="sluitsubmit" class="btn btn-success success">Ja, sluiten maar!</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
+                    {!! Form::close() !!}
+
+                    <small><i>Deze instelling is laatst gewijzigd door {{$userarray[$settingarray[6]['lastTamperedUser_id']]}} op {{ Carbon\Carbon::parse($settingarray[6]['updated_at'])->format('d-m-Y H:i') }} uur.</i></small>
+
+                </div>
+            </div>  
+
+            <!-- Notificatieemail -->
             <div class="panel panel-default">
                 <div class="panel-heading">Notificatie emailadres voor nieuwe gebruikers</div>
                 <div class="panel-body">   
