@@ -96,8 +96,11 @@ class SettingsController extends Controller
 
             if ($request->value == "1") {
 
-                $open_gesloten = Setting::find('4');
-                
+                /*
+                * Check of de inschrijvingen zijn gesloten.  
+                */
+
+                $open_gesloten = Setting::find('4');                
 
                 if ($open_gesloten->value == "1") {
                     $this->sendMailToIntermediairs ("downloadpagina_open");
