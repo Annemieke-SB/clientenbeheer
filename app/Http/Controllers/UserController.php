@@ -97,7 +97,7 @@ class UserController extends Controller
         
         $user->save();
 
-        return redirect('users/index/')->with('message', 'Gebruikersactivatie van '. $user->name. ' gewijzigd. De gebruiker is automatisch op de hoogte gebracht van deze wijziging.');
+        return redirect('users/index/')->with('message', 'Gebruikersactivatie van '. $user->name. ' gewijzigd. De gebruiker is automatisch op de hoogte gebracht van deze wijziging. Dit heeft overigens geen invloed op de ingevoerde gezinnen en kinderen. Als je die wilt uitsluiten moet je de gebruiker verwijderen.');
     }
 
     /**
