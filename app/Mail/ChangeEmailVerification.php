@@ -32,7 +32,6 @@ class ChangeEmailVerification extends Mailable
     public function build()
     {
         return $this->subject('Bericht van de Sinterklaasbank – verifiëer uw emailadres')
-                    ->from(['address' => 'noreply@sinterklaasbank.nl', 'name' => 'Stichting de Sinterklaasbank'])
                     ->view('emails.verifyEmailChange');
     }
 }
