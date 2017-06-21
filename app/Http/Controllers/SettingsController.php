@@ -97,6 +97,7 @@ class SettingsController extends Controller
             if ($request->value == "1") {
 
                 $open_gesloten = Setting::find('4');
+                dd($open_gesloten->value);
 
                 if ($open_gesloten->value == "1") {
                     $this->sendMailToIntermediairs ("downloadpagina_open");
