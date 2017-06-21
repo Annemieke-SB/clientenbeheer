@@ -434,10 +434,10 @@ class FamilyController extends Controller
         $family = Family::findOrFail($request->id);
 
         $family->redenafkeuren = $request->redenafkeuren;
-        
+
         if ($request->definitiefafkeuren=="on") {
             $family->definitiefafkeuren = 1;
-            $definitieftekst = "De afkeuring is definitief, waardoor u het gezin niet meer opnieuw kunt aanmelden. Wij verzoeken het gezin uit uw lijst te verwijderen.";
+            $definitieftekst = "De afkeuring is definitief, waardoor u het gezin niet meer opnieuw kunt aanmelden. Wij verzoeken u het gezin uit uw lijst te verwijderen.";
         } else {
             $definitieftekst = "U kunt het gezin weer terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen of verwijderen.";
         }     
