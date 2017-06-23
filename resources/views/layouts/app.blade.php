@@ -96,6 +96,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li><a href="https://www.sinterklaasbank.nl">Sinterklaasbank.nl</a></li>
 
                                 </ul>
                             </li>
