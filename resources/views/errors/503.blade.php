@@ -39,7 +39,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="content">
+            <div class="content"><img src="{{ url('/img/mijter.gif') }}">
                 <div class="title">Bezig met onderhoud..</div>
                 <emp>Binnenkort zijn we weer tot uw dienst!</emp>
             </div>
