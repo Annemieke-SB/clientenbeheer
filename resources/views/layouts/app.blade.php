@@ -50,8 +50,15 @@
                 <div class="navbar-header" style="background-color: #cada5c;">
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank.png') }}">
+
+                    @if(App::environment('dev')
+                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank_test.png') }}">
                     </a>
+                    @else
+                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank.png') }}">
+                    </a>                
+                    @endif
+
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" style="background-color: #cada5c;">
                         <span class="sr-only">Toggle Navigation</span>
