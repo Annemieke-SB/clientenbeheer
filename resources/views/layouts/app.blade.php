@@ -99,6 +99,7 @@
 
                                 </ul>
                             </li>
+                            <li><a href="https://www.sinterklaasbank.nl">Sinterklaasbank.nl</a></li>
                         @endif
                         @if (!Auth::guest())
                         <a href="#" data-toggle="modal" data-target="#helpbox"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
