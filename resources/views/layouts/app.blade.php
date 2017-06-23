@@ -51,7 +51,7 @@
 
                     <!-- Branding Image -->
 
-                    @if(App::environment('dev')
+                    @if(App::environment('dev'))
                     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank_test.png') }}">
                     </a>
                     @else
