@@ -215,7 +215,7 @@ class UserController extends Controller
             $emailcheck = User::where('email', '=', $request->email1)->first();
 
             if ($emailcheck) {
-                return redirect('user/edit'.$request->id)->with('message', 'Het emailadres is al bij ons bekend. De wijziging is niet doorgevoerd.');
+                return redirect('user/edit/'.$user->id)->with('message', 'Het emailadres is al bij ons bekend. De wijziging is niet doorgevoerd!');
             } 
 
             $user->email_token = str_random(10);
