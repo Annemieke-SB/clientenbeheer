@@ -44,8 +44,8 @@
 
                 <div class="jumbotron">
                 <div class="title">Bezig met onderhoud..</div>
-                  <h1>Hello, world!</h1>
-                  <p>Binnenkort zijn we terug!</p>
+                  <h1>Binnenkort zijn we terug!</h1>
+                  
                   
                 </div>
             </div>
