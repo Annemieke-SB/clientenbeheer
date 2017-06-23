@@ -40,7 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Momenteel zijn we bezig met onderhoud, binnenkort zijn we weer tot uw dienst!</div>
+                <div class="title">Bezig met onderhoud..</div>
+                <emp>Binnenkort zijn we weer tot uw dienst!</emp>
             </div>
         </div>
     </body>
