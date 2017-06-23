@@ -40,8 +40,14 @@
     <body>
         <div class="container">
             <div class="content"><img src="{{ url('/img/mijter.gif') }}">
+
+
+                <div class="jumbotron">
                 <div class="title">Bezig met onderhoud..</div>
-                <emp>Binnenkort zijn we weer tot uw dienst!</emp>
+                  <h1>Hello, world!</h1>
+                  <p>Binnenkort zijn we terug!</p>
+                  
+                </div>
             </div>
         </div>
     </body>
