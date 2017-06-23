@@ -214,7 +214,7 @@ class UserController extends Controller
             // Als het nieuwe emailadres al in de db voorkomt
             $emailcheck = User::where('email', '=', $request->email1)->first();
 
-            if (count($emailcheck) >1) {
+            if ($emailcheck) {
                 return redirect('user/edit'.$request->id)->with('message', 'Het emailadres is al bij ons bekend. De wijziging is niet doorgevoerd.');
             } 
 
