@@ -210,6 +210,14 @@ class UserController extends Controller
         // Als het emailadres is gewijzigd dan moet deze weer geverifieerd worden.
         if ($request->email1 == $request->email2) {
 
+
+            // Als het nieuwe emailadres al in de db voorkomt
+            $emailcheck = User::where('email', '=', $request->email1)->first();
+
+            if (count($emailcheck) >1) {
+                return redirect('user/edit'.$request->id)->with('message', 'Het emailadres is al bij ons bekend. De wijziging is niet doorgevoerd.');
+            } 
+
             $user->email_token = str_random(10);
             $user->emailverified = 0;
             $user->email = $request->email1;
