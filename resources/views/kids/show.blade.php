@@ -19,13 +19,13 @@
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
                       <li><a href="{{ url('/intermediairs') }}/show/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{$family->achternaam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$family->achternaam}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{$family->achternaam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$family->achternaam}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @endif
@@ -109,10 +109,10 @@
                     <table>
 
                         <tr>
-                            <td>Familienaam&nbsp;</td><td> : </td><td>&nbsp;Familie {{ $family->achternaam }}&nbsp;</td>
+                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $family->achternaam }}&nbsp;</td>
                         </tr>
                         <tr>                            
-                            <td>Voor- en achternaam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
+                            <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
                                     @if (!$kid->achternaam)
                                     {{ $family->achternaam }}
                                     @else
@@ -122,8 +122,7 @@
                         </tr>
                         <tr>                                                     
                             <td>geboortedatum&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geboortedatum }}</td></tr><tr>  
-                            <td>Uniek nummer&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->unieknummer }}</td></tr><tr>  
-                            <td>Leeftijd volgend sinterklaas&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->agenextsint }}</td></tr><tr>  
+                            <td>Leeftijd op Sinterklaasavond&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->agenextsint }}</td></tr><tr>  
                             <td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geslacht }}
 
                         </td>

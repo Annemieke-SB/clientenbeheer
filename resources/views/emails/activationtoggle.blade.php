@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Verifiëer uw emailadres</title>
+    <title>Uw accountstatus is gewijzigd</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS

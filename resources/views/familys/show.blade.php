@@ -22,7 +22,7 @@
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Fam {{$family->achternaam}}</li>
+                      <li class="active">Gezin {{$family->achternaam}}</li>
                     </ol>
                 @endif
 

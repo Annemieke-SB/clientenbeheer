@@ -437,7 +437,7 @@ class FamilyController extends Controller
 
         if ($request->definitiefafkeuren=="on") {
             $family->definitiefafkeuren = 1;
-            $definitieftekst = "De afkeuring is definitief, waardoor u het gezin niet meer opnieuw kunt aanmelden. Wij verzoeken u het gezin uit uw lijst te verwijderen.";
+            $definitieftekst = "De afkeuring is definitief, u kunt het gezin niet opnieuw aanmelden. Wij verzoeken u het gezin uit uw lijst te verwijderen.";
         } else {
             $definitieftekst = "U kunt het gezin weer terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen of verwijderen.";
         }     
@@ -455,8 +455,8 @@ class FamilyController extends Controller
         */
 
         $maildata = [
-                'titel' => "Het gezin ". $family->achternaam. " is zojuist afgekeurd",
-                'mailmessage' => "Het gezin " . $family->achternaam. " is zojuist afgekeurd om deze reden:\n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
+                'titel' => "Het gezin ". $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank",
+                'mailmessage' => "Het gezin " . $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank. De reden hiervoor is : \n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
                 'voornaam' => $owner->voornaam,
                 'email'=>$owner->email
         ];

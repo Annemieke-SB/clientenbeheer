@@ -81,7 +81,7 @@ class UserController extends Controller
 
             $maildata = [
                 'titel' => "Uw account is geactiveerd",
-                'mailmessage' => "Uw account in clientenbeheer van de Sinterklaasbank is geactiveerd en kunt nu inloggen.",
+                'mailmessage' => "Uw account in clientenbeheer van de Sinterklaasbank is geactiveerd. Ga naar " . url('/home') . " om in te loggen." ,
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
