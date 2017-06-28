@@ -32,16 +32,20 @@
 							   	<td>Totaal</td>
 							   	<td>{{ $kids_qualified + $kids_disqualified }}</td>
 							</tr>
-						</tfoot>
+						</tfoot>kids_metbarcode
 						<tbody>
 							<tr>
-								<td>Kinderen die meedoen</td>
+								<td>Kinderen die aan eisen voldoen maar nog gekeurd moeten worden</td>
 								<td>{{ $kids_qualified }}</td>
 							</tr>
 							<tr>
-								<td>Kinderen die zijn afgevallen</td>
+								<td>Kinderen die niet aan eisen voldoen</td>
 								<td>{{ $kids_disqualified }}</td>
 							</tr>
+							<tr>
+								<td>Kinderen die zijn goedgekeurd en meedoen</td>
+								<td>{{ $kids_metbarcode }}</td>
+							</tr>							
 						</tbody>
                 	</table>
 

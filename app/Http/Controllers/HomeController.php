@@ -144,6 +144,7 @@ class HomeController extends Controller
     {
         $kids_qualified = 0;
         $kids_disqualified = 0;
+        $kids_metbarcode = 0;
 
         $families_totaal = 0;
         $families_qualified = 0;
@@ -157,6 +158,10 @@ class HomeController extends Controller
         $intermediairs = Intermediair::all();
 
         foreach ($kids as $kid) {
+
+            if ($kid->barcode){
+                $kids_metbarcode++;
+            }
             
             if ($kid->disqualified) {
                 $kids_disqualified++;
@@ -185,7 +190,7 @@ class HomeController extends Controller
         }
 
 
-        return view('tellingen', ['kids_qualified'=>$kids_qualified, 'kids_disqualified'=>$kids_disqualified, 'families_qualified'=>$families_qualified, 'families_disqualified'=>$families_qualified, 'intermediairs_totaal'=>$intermediairs_totaal, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families_totaal'=>$families_totaal]);     
+        return view('tellingen', ['kids_qualified'=>$kids_qualified, 'kids_disqualified'=>$kids_disqualified, 'families_qualified'=>$families_qualified, 'families_disqualified'=>$families_qualified, 'intermediairs_totaal'=>$intermediairs_totaal, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families_totaal'=>$families_totaal, $kids_metbarcode=>'kids_metbarcode']);     
     }
 
     public function kinderlijst()
