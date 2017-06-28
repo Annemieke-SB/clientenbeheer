@@ -32,7 +32,7 @@
 							   	<td>Totaal</td>
 							   	<td>{{ $kids_qualified + $kids_disqualified }}</td>
 							</tr>
-						</tfoot>kids_metbarcode
+						</tfoot>
 						<tbody>
 							<tr>
 								<td>Kinderen die aan eisen voldoen maar nog gekeurd moeten worden</td>
