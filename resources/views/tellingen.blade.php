@@ -63,8 +63,8 @@
 								<td>{{ $families_qualified }}</td>
 							</tr>
 							<tr>
-								<td>Families afgekeurd</td>
-								<td>{{ $families_disqualified }} (waarvan {{$families_definitiefdisqualified}} definitief)</td>
+								<td>Families afgekeurd / waarvan definitief afgekeurd</td>
+								<td>{{ $families_disqualified }} / {{$families_definitiefdisqualified}}</td>
 							</tr>
 							<tr>
 								<td>Families in afwachting aanmelden en beoordelen</td>
