@@ -159,7 +159,7 @@ class HomeController extends Controller
 
         foreach ($kids as $kid) {
 
-            if ($kid->barcode){
+            if ($kid->barcode->id){
                 $kids_metbarcode++;
             }
             
