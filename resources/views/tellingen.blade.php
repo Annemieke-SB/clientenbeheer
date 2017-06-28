@@ -36,7 +36,7 @@
 						<tbody>
 							<tr>
 								<td>Kinderen die aan eisen voldoen maar nog gekeurd moeten worden</td>
-								<td>{{ $kids_qualified }}</td>
+								<td>{{ $kids_qualified - $kids_metbarcode }}</td>
 							</tr>
 							<tr>
 								<td>Kinderen die niet aan eisen voldoen</td>
