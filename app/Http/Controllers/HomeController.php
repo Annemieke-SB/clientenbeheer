@@ -153,7 +153,7 @@ class HomeController extends Controller
 
         $intermediairs_totaal = 0;
 
-        $kids = Kid::all();
+        $kids = Kid::all()->with('barcode');
         $families = Family::all();
         $intermediairs = Intermediair::all();
 
