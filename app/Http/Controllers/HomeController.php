@@ -153,13 +153,13 @@ class HomeController extends Controller
 
         $intermediairs_totaal = 0;
 
-        $kids = Kid::all()->with('barcode');
+        $kids = Kid::all();
         $families = Family::all();
         $intermediairs = Intermediair::all();
 
         foreach ($kids as $kid) {
 
-            if ($kid->barcode->id){
+            if (isset($kid->barcode->id)){
                 $kids_metbarcode++;
             }
             
