@@ -63,17 +63,18 @@
 						</tfoot>
 						<tbody>
 							<tr>
-								<td>Families goedgekeurd</td>
-								<td>{{ $families_qualified }}</td>
+								<td>Families in afwachting aanmelden en beoordelen</td>
+								<td>{{ $families_totaal - $families_definitiefdisqualified - $families_qualified }}</td>
 							</tr>
 							<tr>
 								<td>Families afgekeurd / waarvan definitief afgekeurd</td>
 								<td>{{ $families_disqualified }} / {{$families_definitiefdisqualified}}</td>
 							</tr>
+	
 							<tr>
-								<td>Families in afwachting aanmelden en beoordelen</td>
-								<td>{{ $families_totaal - $families_definitiefdisqualified - $families_qualified }}</td>
-							</tr>							
+								<td>Families goedgekeurd</td>
+								<td>{{ $families_qualified }}</td>
+							</tr>													
 						</tbody>
                 	</table>                	
                     
