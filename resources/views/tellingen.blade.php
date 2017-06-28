@@ -54,17 +54,17 @@
                 		<tfoot>
 							<tr>
 							   	<td>Totaal</td>
-							   	<td>{{ $families_qualified + $families_disqualified}}</td>
+							   	<td>{{ $families_totaal}}</td>
 							</tr>
 						</tfoot>
 						<tbody>
 							<tr>
-								<td>Families die meedoen</td>
+								<td>Families goedgekeurd</td>
 								<td>{{ $families_qualified }}</td>
 							</tr>
 							<tr>
-								<td>Families die zijn afgevallen</td>
-								<td>{{ $families_disqualified }}</td>
+								<td>Families afgekeurd</td>
+								<td>{{ $families_disqualified }} ({{$families_definitiefdisqualified}} definitief)</td>
 							</tr>
 						</tbody>
                 	</table>                	
