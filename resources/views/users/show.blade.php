@@ -48,7 +48,7 @@
                                 Intermediair&nbsp;<a href="{{ url('/user/redirecttointermediair') }}/{{ $user->id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
                             @endif     
                             &nbsp;</td></tr>
-                        <tr><td>Email geverifieerd&nbsp;</td><td> : </td><td>&nbsp;
+                        <tr><td>Email&nbsp;geverifieerd&nbsp;</td><td> : </td><td>&nbsp;
                                     @if ($user->emailverified)
                                         <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>
                                     @else
@@ -65,7 +65,7 @@
                                         @endif
                                     @endif  
                                   </td></tr>
-                        <tr><td>Reden bij inschrijven&nbsp;</td><td> : </td><td>&nbsp;{{ $user->reden }}&nbsp;</td></tr>
+                        <tr><td>Reden&nbsp;bij&nbsp;inschrijven&nbsp;</td><td> : </td><td>&nbsp;{{ $user->reden }}&nbsp;</td></tr>
                         <tr><td>Aangemaakt&nbsp;</td><td> : </td><td>&nbsp;{{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;</td></tr>
                         <tr><td>Gewijzigd&nbsp;</td><td> : </td><td>&nbsp;{{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;</td></tr>
 
