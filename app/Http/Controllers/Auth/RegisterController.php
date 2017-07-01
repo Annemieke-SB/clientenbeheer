@@ -131,7 +131,7 @@ class RegisterController extends Controller
         catch(Exception $e)
         {
             DB::rollback(); 
-            return back();
+            return redirect('login')->with('message', 'Er ging iets fout. Mogelijk heeft u de activatie-link al gebruikt.');    
         }
     }
 }
