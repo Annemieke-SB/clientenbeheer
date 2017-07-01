@@ -36,7 +36,7 @@
                         <tr><td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->geslacht }}&nbsp;</td></tr>
                         <tr><td>Organisatie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->organisatienaam }}&nbsp;</td></tr>
                         <tr><td>Functie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->functie }}&nbsp;</td></tr>
-                        <tr><td>Website&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->website }}&nbsp;<a href="{{ $user->website }}" target="_BLANK"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td></tr>
+                        <tr><td>Website&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->website }}&nbsp;<a href="http://{{ preg_replace('#^https?://#', '', $user->website) }}" target="_BLANK"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td></tr>
                         <tr><td>Telefoon&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->telefoon }}&nbsp;</td></tr>
                         <tr><td>Email&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->email }}&nbsp;<a href="mailto:{{ $user->email }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td></tr>
                         <tr><td>Type&nbsp;</td><td> : </td><td>&nbsp;
