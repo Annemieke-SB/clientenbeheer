@@ -58,7 +58,7 @@
                 @endif
                   
                 </div>
-                {{url()}}
+                {{url()->current()}}
             </div>
         </div>
     </body>
