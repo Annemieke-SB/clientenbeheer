@@ -52,7 +52,7 @@
                                     @if ($user->emailverified)
                                         <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>
                                     @else
-                                        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;<a href="{{ url('/register/verify') }}/{{ $user->email_token }}">Handmatig geverifieerd door beheerder</a>
+                                        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
                                     @endif 
                           &nbsp;</td></tr>
                         <tr><td>Geactiveerd&nbsp;</td><td> : </td><td>&nbsp;
