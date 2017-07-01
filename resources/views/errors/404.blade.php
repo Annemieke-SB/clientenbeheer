@@ -58,6 +58,7 @@
                 @endif
                   
                 </div>
+                {{request()->getQueryString()}}
             </div>
         </div>
     </body>
