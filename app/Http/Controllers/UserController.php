@@ -101,6 +101,35 @@ class UserController extends Controller
         return redirect('users/index/')->with('message', 'Gebruikersactivatie van '. $user->voornaam. ' '. $user->achternaam. ' gewijzigd. De gebruiker is automatisch op de hoogte gebracht van deze wijziging. Dit heeft overigens geen invloed op de ingevoerde gezinnen en kinderen. Als je die wilt uitsluiten moet je de gebruiker verwijderen.');
     }
 
+
+
+    public function manualemailverification($id)
+    {
+
+        
+        $loggedinuser = Auth::user();
+
+        // Intermediairs mogen de activatie niet wijzigen        
+        if(($loggedinuser->usertype == 3)){
+            $juisteintermediair = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
+            Log::info('Een intermediair probeerde de user/manualemailverification te benaderen, userid: '.$loggedinuser->id);
+            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        if(($loggedinuser->usertype == 2)){
+            
+            Log::info('Een raadpleger probeerde de user/manualemailverification te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $user = User::find($id);        
+        $user->verified();
+
+
+        return redirect('users/show/'. $user->id)->with('message', 'Emailverificatie van '. $user->voornaam. ' '. $user->achternaam. ' handmatig bevestigd. De gebruiker is kan nu inloggen (nadat het account is goedgekeurd).');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
