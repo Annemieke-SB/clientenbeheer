@@ -126,7 +126,7 @@ class UserController extends Controller
         $user->verified();
 
 
-        return redirect('users/show/'. $user->id)->with('message', 'Emailverificatie van '. $user->voornaam. ' '. $user->achternaam. ' handmatig bevestigd. De gebruiker is kan nu inloggen (nadat het account is goedgekeurd).');
+        return redirect('user/show/'. $user->id)->with('message', 'Emailverificatie van '. $user->voornaam. ' '. $user->achternaam. ' handmatig bevestigd. De gebruiker is kan nu inloggen (nadat het account is goedgekeurd).');
     }
 
 
