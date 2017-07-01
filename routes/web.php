@@ -39,7 +39,7 @@ Route::get('contacts/edit/{id}', 'ContactController@edit')->middleware('auth');
 
 Route::get('users/index', 'UserController@index')->middleware('auth');
 Route::get('user/toggleactive/{id}', 'UserController@toggleactive')->middleware('auth');
-Route::get('user/manualemailverification/{id}', 'UserController@toggleactive')->middleware('auth');
+Route::get('user/manualemailverification/{id}', 'UserController@manualemailverification')->middleware('auth');
 Route::get('user/show/{id}', 'UserController@show')->middleware('auth');
 Route::get('user/edit/{id}', 'UserController@edit')->middleware('auth');
 Route::post('user/updatename/', 'UserController@updatename')->middleware('auth');
