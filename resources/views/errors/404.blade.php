@@ -44,10 +44,18 @@
 
                 <div class="jumbotron">
                 <div class="title">Oeps!</div>
+                @if (Request::path() == '/verify')
+                  <h1>De verificatielink is al gebruikt!</h1>
+                  <p>Klopt dit niet? Kopieer dan het adres en mail het de <a href="mailto:webmaster@sinterklaasbank.nl">webmaster</a></p>
+                  <a href="{{ url('login') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Log in</button></a>
+
+                @else
                   <h1>De pagina bestaat helemaal niet!</h1>
+
+
                   <p>Klopt dit niet? Kopieer dan het adres en mail het de <a href="mailto:webmaster@sinterklaasbank.nl">webmaster</a></p>
                   <a href="{{ url(URL::previous()) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                  
+                @endif
                   
                 </div>
             </div>
