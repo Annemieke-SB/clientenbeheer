@@ -58,7 +58,7 @@
                 @endif
                   
                 </div>
-                {{url()->method()}}
+                {{request()->method()}}
             </div>
         </div>
     </body>
