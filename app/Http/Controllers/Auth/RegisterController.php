@@ -101,7 +101,12 @@ class RegisterController extends Controller
         */
 
             auth()->logout();
-            User::where('email_token',$token)->firstOrFail()->verified();
+            try {
+                User::where('email_token',$token)->firstOrFail()->verified();
+            } catch (Exception $e) {
+                return redirect('login')->with('message', 'Uw emailverificatie is al voltooid. U kunt nu inloggen.');  
+            }
+            
             return redirect('login')->with('message', 'Bedankt! U heeft zojuist uw email geverifieerd. Als uw account nog niet was goedgekeurd kunt pas inloggen als de Sinterklaasbank uw aanmelding heeft goedgekeurd. Als u een bestaande gebruiker was en uw emailadres heeft gewijzigd, kunt u meteen inloggen.');       
 
     }
