@@ -120,7 +120,10 @@ class HomeController extends Controller
         }
         elseif($user->emailverified == 0)  {
 
-           return view('useremailnotverified'); 
+            auth()->logout();
+            return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
+
+           //return view('useremailnotverified'); 
 
 
         }else {
