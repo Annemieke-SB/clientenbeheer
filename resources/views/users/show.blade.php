@@ -31,7 +31,7 @@
 
                   <table>
 
-                        <tr width="50"><td>Voornaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->voornaam }}&nbsp;</td></tr>
+                        <tr style="min-width: 100px;"><td>Voornaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->voornaam }}&nbsp;</td></tr>
                         <tr><td>Achternaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->achternaam }}&nbsp;</td></tr>
                         <tr><td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->geslacht }}&nbsp;</td></tr>
                         <tr><td>Organisatie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->organisatienaam }}&nbsp;</td></tr>
