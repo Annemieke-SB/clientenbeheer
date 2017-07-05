@@ -15,7 +15,7 @@
 
                 <div class="panel-body">
                     <h1>Een ogenblikje nog..</h1>
-                    <p>Bedankt voor het aanmelden! Uw inschrijving is bijna voltooid. De Sinterklaasbank moet uw aanmelding nog goedkeuren. Hier kan wat tijd overheen gaan omdat we alle aanmeldingen handmatig controleren. We hopen op uw begrip hiervoor...</p><p>U krijgt van ons een email als uw account is goedgekeurd! </p><p>Vind u het te lang duren, neem dan contact met ons op via <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>.</p><p>Met vriendelijke groet, <br><br></p><p>Stichting de Sinterklaasbank</p>
+                    <p>Bedankt voor het aanmelden! Uw inschrijving is bijna voltooid. De Sinterklaasbank moet uw aanmelding nog goedkeuren. Hier kan wat tijd overheen gaan omdat we alle aanmeldingen handmatig controleren. We hopen op uw begrip hiervoor...</p><p>U krijgt van ons een email als uw account is goedgekeurd! </p><p>Vindt u het te lang duren, neem dan contact met ons op via <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>.</p><p>Met vriendelijke groet, <br><br></p><p>Stichting de Sinterklaasbank</p>
                 </div>
             </div>
         </div>
