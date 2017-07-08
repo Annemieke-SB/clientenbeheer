@@ -70,26 +70,15 @@
                                 </td>
 
                                 <td>
-                                        <table style="padding:10px;">
-                                            <tr>
-                                                <td><a href="{{ url('/intermediairs') }}/show/{{ $aangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;&nbsp;</td>
-                                                <td><a href="{{ url('/family') }}/show/{{ $aangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;&nbsp;</td>
-                                            </tr>
-                                            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-                                            <tr>
-                                                <td><a href="{{ url('/family') }}/toggleok/{{ $aangemeldefamilie->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>&nbsp;&nbsp;</td>
-                                                <td><a href="{{ url('/family') }}/afkeuren/{{ $aangemeldefamilie->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>&nbsp;&nbsp; </td>
-                                            </tr>
-                                        </table>
                                   
-                                        
+                                        <a href="{{ url('/intermediairs') }}/show/{{ $aangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
 
-										<br>
+										<a href="{{ url('/family') }}/show/{{ $aangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>
 
                                         
-                                            
+                                            <a href="{{ url('/family') }}/toggleok/{{ $aangemeldefamilie->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>
                                         
-                                              
+                                            <a href="{{ url('/family') }}/afkeuren/{{ $aangemeldefamilie->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                                         
                                         
                                   
