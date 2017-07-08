@@ -86,7 +86,7 @@
                                 
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
-                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode die ook bij een ander gezin voorkomt;<br><br>
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode en huisnummer dat ook bij een ander gezin voorkomt;<br><br>
                                     <table>
                                     @foreach($family->postcodehuisnummerdubbel as $dubbelfam)
                                         @if ($dubbelfam->id != $family->id)
