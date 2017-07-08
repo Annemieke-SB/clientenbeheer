@@ -92,7 +92,11 @@
                                         @if ($dubbelfam->id != $family->id)
                                         <tr>
                                         <td>Gezin {{$dubbelfam->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>&nbsp;&nbsp;</td>
-                                        <td>Intermediair {{$dubbelfam->intermediair->user->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/intermediairs/show/'. $dubbelfam->intermediair->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a></td>
+                                        <td>Intermediair {{$dubbelfam->intermediair->user->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/intermediairs/show/'. $dubbelfam->intermediair->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
+                                        @if($dubbelfam->intermediair->id == $eigenaar->id)
+                                        &nbsp;&nbsp;(zelfde intermediair als dit gezin)
+                                        @endif
+                                        </td>
 
                                         </tr>
                                         @endif
