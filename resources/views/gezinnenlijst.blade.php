@@ -69,7 +69,7 @@
                                         @endif
                                 </td>
 
-                                <td>
+                                <td style="padding:3px;">
                                   
                                         <a href="{{ url('/intermediairs') }}/show/{{ $aangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
 
