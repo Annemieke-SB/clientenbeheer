@@ -35,7 +35,7 @@
                 				<th>Achternaam&nbsp;</th>
                 				<th>Woonplaats&nbsp;</th>
                                 <th><span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI</span></th>       
-                                <th><span class="badge" data-toggle="tooltip" title="Gezin bevat mogelijk een dubbel ingevoerd kind.">DK</span></th>      
+                                <th><span class="badge" data-toggle="tooltip" title="Er is al een gezin op de postcode/huisnummer bekend.">DK</span></th>      
                                 <th><span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></th>
                                 <th>Aktie&nbsp;</th> 
                             </tr>                 				

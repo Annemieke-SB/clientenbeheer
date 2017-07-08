@@ -81,6 +81,17 @@
                             @endif
                     @endif
                 @if (Auth::user()->usertype==1)
+
+                    @if($family->postcodehuisnummerdubbel)
+                                <br><br>
+                                <div class="panel panel-warning">                      
+                                  <div class="panel-body bg-warning">
+                                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;Dit gezin heeft een postcode die ook bij een ander gezin voorkomt.
+                                  </div>
+                                </div>
+                    @endif
+
+
                     <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @else
 
