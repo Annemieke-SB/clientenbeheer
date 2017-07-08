@@ -86,7 +86,12 @@
                                 
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
-                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode die ook bij een ander gezin voorkomt.
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode die ook bij een ander gezin voorkomt;
+                                    <table>
+                                    @foreach($family->postcodehuisnummerdubbel as $dubbelfam)
+                                        <tr><td>Gezin {{$dubbelfam->achternaam}}</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Toon</button></a></td></tr>
+                                    @endforeach
+                                    </table>
                                   </div>
                                 </div>
                     @endif
