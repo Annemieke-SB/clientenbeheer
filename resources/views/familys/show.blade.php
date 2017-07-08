@@ -89,7 +89,7 @@
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode die ook bij een ander gezin voorkomt;<br><br>
                                     <table>
                                     @foreach($family->postcodehuisnummerdubbel as $dubbelfam)
-                                        @if ($dubbelfam-id != $family->id)
+                                        @if ($dubbelfam->id != $family->id)
                                         <tr>
                                         <td>Gezin {{$dubbelfam->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a></td>
                                         <td>Intermediair {{$dubbelfam->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a></td>
