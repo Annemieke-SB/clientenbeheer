@@ -73,7 +73,7 @@
                                   
                                         <a href="{{ url('/intermediairs') }}/show/{{ $aangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
 
-										<a href="{{ url('/family') }}/show/{{ $aangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>
+										<a href="{{ url('/family') }}/show/{{ $aangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a><br>
 
                                         
                                             <a href="{{ url('/family') }}/toggleok/{{ $aangemeldefamilie->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>
