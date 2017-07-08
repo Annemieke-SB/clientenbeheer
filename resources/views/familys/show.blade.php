@@ -83,7 +83,7 @@
                 @if (Auth::user()->usertype==1)
 
                     @if($family->postcodehuisnummerdubbel)
-                                <br><br>
+                                
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Bericht aan de beheerder: Dit gezin heeft een postcode die ook bij een ander gezin voorkomt.
