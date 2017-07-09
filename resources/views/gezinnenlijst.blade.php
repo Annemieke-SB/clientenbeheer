@@ -34,6 +34,7 @@
                             <tr>                				
                 				<th>Achternaam&nbsp;</th>
                 				<th>Woonplaats&nbsp;</th>
+                                <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span>&nbsp;</th>
                                 <th><span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI</span></th>       
                                 <th><span class="badge" data-toggle="tooltip" title="Er is al een gezin op de postcode/huisnummer bekend.">DP</span></th>      
                                 <th><span class="badge" data-toggle="tooltip" title="Dit gezin heeft mogelijk een kind waarvan de voornaam en geboortedatum al een keer voorkomt.">DK</span></th> 
@@ -48,6 +49,7 @@
                   
        							<td>{{ $aangemeldefamilie->achternaam }}&nbsp;</td>
     							<td>{{ $aangemeldefamilie->woonplaats }}&nbsp;</td>
+                                <td>{{ $aangemeldefamilie->kidscount }}&nbsp;</td>
                                 <td>
                                     @if($aangemeldefamilie->andere_alternatieven)
                                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
