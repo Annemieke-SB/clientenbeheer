@@ -22,7 +22,7 @@
                     <p>
                         Hier is het overzicht van gebruikers. Dit overzicht is alleen beschikbaar voor administrators en raadplegers. Het is niet mogelijk gebruikers toe te voegen, zij moeten zichzelf registreren. Als ze dan in dit overzicht komen kan hun rol worden aangepast. 
                     </p>
-                  <small>Tip: Klik op de kolomkoppen om te sorteren. </small>             
+                            
                 </div>
             </div>
 
@@ -44,10 +44,10 @@
                         </div>
 
                     </div>
-                    <p>Gebruikers zijn alfabetisch gesorteerd op achternaam</p>
-                    Filter: 
-                        <a href="{{ url('/users/index') }}/?na=1">Alleen niet geactiveerde accounts</a> | 
-                        <a href="{{ url('/users/index') }}">Verwijder filter</a><br>
+                    <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small>
+                    Filters (<a href="{{ url('/users/index') }}">Verwijder filter</a>): 
+                        <a href="{{ url('/users/index') }}/?na=1">Alleen niet geactiveerde accounts</a> of<br>
+                        
                     Achternaam begint met: 
                         @foreach(range('a','z') as $i)
                             <a href="{{ url('/users/index') }}/?an={{$i}}">{{$i}}</a> |                                        
