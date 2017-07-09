@@ -50,7 +50,12 @@
                     </div>
                     Filter: 
                         <a href="{{ url('/users/index') }}/?na=1">Alleen niet geactiveerde accounts</a> | 
-                        <a href="{{ url('/users/index') }}">Verwijder filter</a>
+                        <a href="{{ url('/users/index') }}">Verwijder filter</a><br>
+                    Achternaam begint met: 
+                        @foreach(range('a','z') as $i)
+                            <a href="{{ url('/users/index') }}/?an=".$i>$i</a> |                                        
+                        @endforeach
+
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
