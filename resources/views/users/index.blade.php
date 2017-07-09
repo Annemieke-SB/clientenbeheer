@@ -50,7 +50,7 @@
                         @foreach(range('a','z') as $i)
                             <a href="{{ url('/users/index') }}/?an={{$i}}">{{$i}}</a> |                                        
                         @endforeach
-                        <a href="{{ url('/users/index') }}">alle</a>
+                        <a href="{{ url('/users/index') }}">alle</a><br><br>
 
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
