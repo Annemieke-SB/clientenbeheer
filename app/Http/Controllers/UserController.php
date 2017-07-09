@@ -41,7 +41,7 @@ class UserController extends Controller
         }
 
         if (request()->has('an')) {
-            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
+            $users = User::where('achternaam', 'like', request('an') . "%")->orderBy('achternaam', 'ASC')->paginate(5)->appends('an', request('an'));
         } else {
             $users = User::orderBy('achternaam', 'ASC')->paginate(5);
         }        
