@@ -40,10 +40,11 @@
                         <div class="col-sm-8 col-md-offset-2">
                             {{$users->render()}}
                         </div>
-                        Filter: 
-                        <a href="/?na=1">Niet geactiveerde accounts</a>
-                        <a href="/">Verwijder filter</a>
+
                     </div>
+                    Filter: 
+                        <a href="/?na=1">Niet geactiveerde accounts</a> | 
+                        <a href="/">Verwijder filter</a>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
