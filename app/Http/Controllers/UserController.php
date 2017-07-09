@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->get();
+        $users = User::orderBy('id', 'DESC')->paginate(15)->get();
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen de index niet zien        
