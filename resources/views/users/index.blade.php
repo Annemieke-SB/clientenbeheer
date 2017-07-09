@@ -37,9 +37,9 @@
                 <div class="panel-body">            
 
                       
-                    <br><br>
+                   
 
-                    <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
+                    
                     Filters (<a href="{{ url('/users/index') }}">verwijder filter</a>): 
                         <a href="{{ url('/users/index') }}/?na=1">toon alleen niet geactiveerde accounts</a> <br>of<br> Achternaam begint met letter (let op; tussenvoegsels als 'van' en 'de' horen ook bij de achternaam):<br> 
                         @foreach(range('a','z') as $i)
@@ -53,7 +53,7 @@
                         </div>
 
                     </div>
-
+<small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
