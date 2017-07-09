@@ -107,7 +107,8 @@
                     @endif
 
 
-                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
+                    <a href="{{ url('/gezinnenlijst') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar gezinnenlijst</button></a>
                 @else
 
                     <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
