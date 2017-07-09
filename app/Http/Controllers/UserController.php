@@ -32,8 +32,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->paginate(5);
         $loggedinuser = Auth::user();
+
+        if (request()->has('na')) {
+            $users = User::where('activated', '0')->orderBy('id', 'DESC')->paginate(5)->appends('na', request('na'));
+        } else {
+            $users = User::orderBy('id', 'DESC')->paginate(5);
+        }
+        
+        
 
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
