@@ -37,7 +37,7 @@
                 <div class="panel-body">                    
                     <br><br>
                     <div class="row">
-                        <div class="col-sm-6 col-md-offset-1">
+                        <div class="col-sm-6">
                             {{$users->render()}}
                         </div>
                     </div>
