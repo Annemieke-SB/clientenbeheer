@@ -53,7 +53,7 @@
                         <a href="{{ url('/users/index') }}">Verwijder filter</a><br>
                     Achternaam begint met: 
                         @foreach(range('a','z') as $i)
-                            <a href="{{ url('/users/index') }}/?an="{{$i}}>{{$i}}</a> |                                        
+                            <a href="{{ url('/users/index') }}/?an={{$i}}">{{$i}}</a> |                                        
                         @endforeach
 
                     <div class="table-responsive">
