@@ -35,10 +35,16 @@ class UserController extends Controller
         $loggedinuser = Auth::user();
 
         if (request()->has('na')) {
-            $users = User::where('activated', '0')->orderBy('id', 'DESC')->paginate(5)->appends('na', request('na'));
+            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
         } else {
-            $users = User::orderBy('id', 'DESC')->paginate(5);
+            $users = User::orderBy('achternaam', 'ASC')->paginate(5);
         }
+
+        if (request()->has('an')) {
+            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
+        } else {
+            $users = User::orderBy('achternaam', 'ASC')->paginate(5);
+        }        
         
         
 
