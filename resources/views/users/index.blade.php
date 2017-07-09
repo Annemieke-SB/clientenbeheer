@@ -35,7 +35,12 @@
             <div class="panel panel-default">   
 
                 <div class="panel-body">            
-                <b>Bericht van Henrique: ik ben op dit moment bezig op deze pagina om het wat overzichtelijker te krijgen. Een ogenblik geduld :)</b>        
+                                <div class="panel panel-warning">                      
+                                  <div class="panel-body bg-warning">
+                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;Bericht van Henrique: ik ben op dit moment bezig op deze pagina om het wat overzichtelijker te krijgen. Een ogenblik geduld :).
+                                  </div>
+                                </div>
+                      
                     <br><br>
                     <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
