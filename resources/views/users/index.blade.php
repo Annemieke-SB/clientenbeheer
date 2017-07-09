@@ -50,7 +50,7 @@
                     </div>
                     Filter: 
                         <a href="{{ url('/users/index') }}/?na=1">Niet geactiveerde accounts</a> | 
-                        <a href="/">Verwijder filter</a>
+                        <a href="{{ url('/users/index') }}">Verwijder filter</a>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
