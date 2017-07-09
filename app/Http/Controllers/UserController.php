@@ -34,18 +34,14 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
-        if (request()->has('na')) {
+        if (request()->has('an')) {
+            $users = User::where('achternaam', 'like', request('an') . "%")->orderBy('achternaam', 'ASC')->paginate(5)->appends('an', request('an'));
+        } elseif (request()->has('na')) {
             $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
         } else {
             $users = User::orderBy('achternaam', 'ASC')->paginate(5);
         }
 
-        if (request()->has('an')) {
-            $users = User::where('achternaam', 'like', request('an') . "%")->orderBy('achternaam', 'ASC')->paginate(5)->appends('an', request('an'));
-        } else {
-            $users = User::orderBy('achternaam', 'ASC')->paginate(5);
-        }        
-        
         
 
         // Intermediairs mogen de index niet zien        
