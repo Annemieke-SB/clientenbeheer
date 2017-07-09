@@ -34,7 +34,8 @@
 
             <div class="panel panel-default">   
 
-                <div class="panel-body">                    
+                <div class="panel-body">            
+                <b>Bericht van Henrique: ik ben op dit moment bezig op deze pagina om het wat overzichtelijker te krijgen. Een ogenblik geduld :)</b>        
                     <br><br>
                     <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
