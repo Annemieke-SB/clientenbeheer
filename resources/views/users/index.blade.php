@@ -44,8 +44,8 @@
                         </div>
 
                     </div>
-                    <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small>
-                    Filters (<a href="{{ url('/users/index') }}">Verwijder filter</a>): 
+                    <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
+                    Filters (<a href="{{ url('/users/index') }}">Verwijder filter</a>): <br>
                         <a href="{{ url('/users/index') }}/?na=1">Alleen niet geactiveerde accounts</a> of<br>
                         
                     Achternaam begint met: 
