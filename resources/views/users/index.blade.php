@@ -37,9 +37,9 @@
                 <div class="panel-body">                    
                     <br><br>
                     <div class="row">
-                        <div class="col-sm-6 col-md-offset-5">
+                        
                             {{$users->render()}}
-                        </div>
+                        
                     </div>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
