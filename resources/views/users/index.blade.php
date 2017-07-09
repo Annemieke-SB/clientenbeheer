@@ -48,6 +48,7 @@
                         </div>
 
                     </div>
+                    <p>Gebruikers zijn alfabetisch gesorteerd op achternaam</p>
                     Filter: 
                         <a href="{{ url('/users/index') }}/?na=1">Alleen niet geactiveerde accounts</a> | 
                         <a href="{{ url('/users/index') }}">Verwijder filter</a><br>
