@@ -35,11 +35,7 @@
             <div class="panel panel-default">   
 
                 <div class="panel-body">            
-                                <div class="panel panel-warning">                      
-                                  <div class="panel-body bg-warning">
-                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;Bericht van Henrique: ik ben op dit moment bezig op deze pagina om het wat overzichtelijker te krijgen. Een ogenblik geduld :).
-                                  </div>
-                                </div>
+
                       
                     <br><br>
                     <div class="row">
@@ -56,6 +52,7 @@
                         @foreach(range('a','z') as $i)
                             <a href="{{ url('/users/index') }}/?an={{$i}}">{{$i}}</a> |                                        
                         @endforeach
+                        <a href="{{ url('/users/index') }}">alle</a>
 
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
