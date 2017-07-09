@@ -45,8 +45,8 @@
 
                     </div>
                     <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
-                    Filters (<a href="{{ url('/users/index') }}">verwijder filter</a>): <br>
-                        <a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerde accounts</a> <br>of<br> Achternaam begint met letter (let op; tussenvoegsels als 'van' en 'de' horen ook bij de achternaam):<br> 
+                    Filters (<a href="{{ url('/users/index') }}">verwijder filter</a>): 
+                        <a href="{{ url('/users/index') }}/?na=1">toon alleen niet geactiveerde accounts</a> <br>of<br> Achternaam begint met letter (let op; tussenvoegsels als 'van' en 'de' horen ook bij de achternaam):<br> 
                         @foreach(range('a','z') as $i)
                             <a href="{{ url('/users/index') }}/?an={{$i}}">{{$i}}</a> |                                        
                         @endforeach
