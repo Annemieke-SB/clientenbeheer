@@ -229,7 +229,11 @@
 
         //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
         $("#verzendknop").click(function(){
-            $('#createform').delay(15000).submit();
+
+                setTimeout( function () { 
+                    $('#createform').submit();
+                }, 2000);
+            
         });
             
         
