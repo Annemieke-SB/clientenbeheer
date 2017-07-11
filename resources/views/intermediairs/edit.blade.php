@@ -39,7 +39,7 @@
                         </ul>
                     @endif
 
-                    {!! Form::open(['url' => 'intermediairs/update']) !!}
+                    {!! Form::open(['url' => 'intermediairs/update', 'id' => 'editform']) !!}
                         
                         <div class="form-group">
 
@@ -87,7 +87,7 @@
 
                         <div class="form-group">
 
-                            {!! Form::submit('Wijzigen', ['class' => 'btn btn-primary form-control']) !!}
+                          <input class="btn btn-primary form-control" type="button" id="verzendknop" value="Wijzigen">
                             
 
                         </div>                   
@@ -198,6 +198,14 @@
           });
         });
 
+       //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
+        $("#verzendknop").click(function(){
+
+                setTimeout( function () { 
+                    $('#editform').submit();
+                }, 2000);
+            
+        });
 
         //Fix: wanneer het formulier terugkomt van verkeerde validatie zijn de zichtbare adresvelden niet te zien.
         $(function(){
