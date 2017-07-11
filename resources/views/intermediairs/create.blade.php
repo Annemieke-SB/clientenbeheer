@@ -220,6 +220,10 @@
             $('input[name="woonplaats_auto"]').val($('input[name="woonplaats"]').val());
         });
 
+        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
+        $("#createform").on("submit", function(){
+            $('#createform').delay(2000).submit();
+        });
 
 
         //haalt met de postcode + huisnummer de adresgegevens op en vult in
