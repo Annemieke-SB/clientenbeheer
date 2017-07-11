@@ -220,9 +220,9 @@
             $('input[name="woonplaats_auto"]').val($('input[name="woonplaats"]').val());
         });
 
-        //delay submit om de postcode-gegevens op te halen
+        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
         $(function() {
-            $('#my_form').delay(2000).submit();
+            $('#createform').delay(2000).submit();
         });
 
 
