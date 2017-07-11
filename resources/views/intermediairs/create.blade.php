@@ -102,7 +102,14 @@
 
                         <div class="form-group">
                             {!! Form::hidden('user_id', $user->id) !!}
-                            {!! Form::submit('Aanmaken', ['class' => 'btn btn-primary form-control']) !!}
+
+                            <div class="form-group">
+                                <input name="user_id" type="hidden" value="173">
+                                <input class="btn btn-primary form-control" type="button" id="verzendknop" value="Aanmaken">
+                                
+
+                            </div> 
+                           
                             
 
                         </div>                   
@@ -221,9 +228,11 @@
         });
 
         //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
-        $("#createform").on("submit", function(){
+        $("#verzendknop").click(function(){
             $('#createform').delay(2000).submit();
         });
+            
+        
 
 
         //haalt met de postcode + huisnummer de adresgegevens op en vult in
