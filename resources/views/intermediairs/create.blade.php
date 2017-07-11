@@ -55,7 +55,7 @@
                         </ul>
                     @endif
 
-                    {!! Form::open(['url' => 'intermediairs']) !!}
+                    {!! Form::open(['url' => 'intermediairs', 'id' => 'createform']) !!}
 
                         <div class="form-group">
 
@@ -218,6 +218,11 @@
         $(function(){
             $('input[name="adres_auto"]').val($('input[name="adres"]').val());
             $('input[name="woonplaats_auto"]').val($('input[name="woonplaats"]').val());
+        });
+
+        //delay submit om de postcode-gegevens op te halen
+        $(function() {
+            $('#my_form').delay(2000).submit();
         });
 
 
