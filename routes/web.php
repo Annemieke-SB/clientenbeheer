@@ -11,10 +11,12 @@
 |
 */
 
+
+/*
+
 Route::get('/', function () {
     return redirect('home');
 });
-/*
 Route::get('/inschrijven', function () {
     return view('inschrijven');
 });
@@ -30,7 +32,7 @@ Route::get('/voorwaarden', function () {
 Route::get('/inschrijven', 'PagesController@inschrijven');
 Route::get('/particulier', 'PagesController@particulier');
 Route::get('/voorwaarden', 'PagesController@voorwaarden');
-
+Route::get('/', 'PagesController@home');
 
 
 //Route::get('maakpdf', 'PdfController@maakpdf');

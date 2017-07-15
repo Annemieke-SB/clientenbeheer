@@ -26,4 +26,9 @@ class PagesController extends Controller
         return view('voorwaarden');        
     }   
 
+    public function home()
+    {
+        return redirect('home');    
+    }   
+
 }
