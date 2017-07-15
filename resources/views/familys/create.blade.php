@@ -46,7 +46,7 @@
 
 
 
-                    {!! Form::open(['url' => 'familys/store', 'id' => 'createform']) !!}
+                    {!! Form::open(['url' => 'familys/store']) !!}
                         
                         <div class="form-group">
 
@@ -140,11 +140,7 @@
                         </div>
                         <div class="form-group">
 
-            
-                                <input class="btn btn-primary form-control" type="button" id="verzendknop" value="Opslaan">
-                                
-
-                          
+                            {!! Form::submit('Opslaan', ['class' => 'btn btn-primary form-control']) !!}
                             
 
                         </div>                   
@@ -261,15 +257,7 @@ $('[data-toggle="tooltip"]').tooltip();
            $('input[name="postcode"]').attr('maxlength','6');
         }); 
 
-        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
-        $("#verzendknop").click(function(){
 
-                setTimeout( function () { 
-                    $('#createform').submit();
-                }, 2000);
-            
-        });
-            
 
         // Als postcodeveld wordt gekozen; adresvelden legen
         $( 'input[name="postcode"]' ).focus(function() {

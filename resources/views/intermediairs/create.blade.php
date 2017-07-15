@@ -55,7 +55,7 @@
                         </ul>
                     @endif
 
-                    {!! Form::open(['url' => 'intermediairs', 'id' => 'createform']) !!}
+                    {!! Form::open(['url' => 'intermediairs']) !!}
 
                         <div class="form-group">
 
@@ -102,14 +102,7 @@
 
                         <div class="form-group">
                             {!! Form::hidden('user_id', $user->id) !!}
-
-                            <div class="form-group">
-                                <input name="user_id" type="hidden" value="173">
-                                <input class="btn btn-primary form-control" type="button" id="verzendknop" value="Aanmaken">
-                                
-
-                            </div> 
-                           
+                            {!! Form::submit('Aanmaken', ['class' => 'btn btn-primary form-control']) !!}
                             
 
                         </div>                   
@@ -226,17 +219,6 @@
             $('input[name="adres_auto"]').val($('input[name="adres"]').val());
             $('input[name="woonplaats_auto"]').val($('input[name="woonplaats"]').val());
         });
-
-        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
-        $("#verzendknop").click(function(){
-
-                setTimeout( function () { 
-                    $('#createform').submit();
-                }, 2000);
-            
-        });
-            
-        
 
 
         //haalt met de postcode + huisnummer de adresgegevens op en vult in
