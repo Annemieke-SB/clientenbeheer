@@ -11,12 +11,21 @@
 |
 */
 
+Route::get('/', function () {
+    return redirect('home');
+});
+Route::get('/inschrijven', function () {
+    return view('inschrijven');
+});
+Route::get('/particulier', function () {
+    return view('particulier');
+});
+Route::get('/voorwaarden', function () {
+    return view('voorwaarden');
+});
 
 //Route::get('maakpdf', 'PdfController@maakpdf');
-Route::get('/', 'HomeController@index');
-Route::get('/inschrijven', 'HomeController@inschrijven');
-Route::get('/particulier', 'HomeController@particulier');
-Route::get('/voorwaarden', 'HomeController@voorwaarden');
+
 
 Route::get('/register/verify/{token}', 'Auth\RegisterController@verify'); 
 
