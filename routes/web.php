@@ -14,9 +14,13 @@
 Route::get('/', function () {
     return redirect('home');
 });
+/*
 Route::get('/inschrijven', function () {
     return view('inschrijven');
 });
+*/
+Route::get('/inschrijven', 'HomeController@inschrijven');
+
 Route::get('/particulier', function () {
     return view('particulier');
 });
