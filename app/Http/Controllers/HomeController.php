@@ -140,9 +140,9 @@ class HomeController extends Controller
         return view('inschrijven');        
     }    
 
-    public function voorwaarden()
+    public function particulier()
     {
-        return view('voorwaarden');        
+        return view('particulier');        
     }
 
     public function voorwaarden()
