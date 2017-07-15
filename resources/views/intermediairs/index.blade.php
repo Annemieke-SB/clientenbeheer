@@ -66,7 +66,7 @@
                                 @if(isset($intermediair->user->achternaam))
                                 {{ $intermediair->user->achternaam }}&nbsp;
                                 @else
-                                !!FOUT!!
+                                !!FOUT!! Im-id: {{$intermediair->id}}
                                 @endif
                                 </td>
                                 
