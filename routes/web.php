@@ -18,15 +18,20 @@ Route::get('/', function () {
 Route::get('/inschrijven', function () {
     return view('inschrijven');
 });
-*/
-Route::get('/inschrijven', 'PagesController@inschrijven');
 
 Route::get('/particulier', function () {
     return view('particulier');
 });
+
 Route::get('/voorwaarden', function () {
     return view('voorwaarden');
 });
+*/
+Route::get('/inschrijven', 'PagesController@inschrijven');
+Route::get('/particulier', 'PagesController@particulier');
+Route::get('/voorwaarden', 'PagesController@voorwaarden');
+
+
 
 //Route::get('maakpdf', 'PdfController@maakpdf');
 

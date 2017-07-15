@@ -21,4 +21,9 @@ class PagesController extends Controller
         return view('particulier');        
     }       
 
+    public function voorwaarden()
+    {
+        return view('voorwaarden');        
+    }   
+
 }
