@@ -26,7 +26,7 @@ class IntermediairController extends Controller
 
     public function index(Request $request)
     {
-        $intermediairs = Intermediair::get();
+        $intermediairs = Intermediair::with('user')->get();
         $user = Auth::user();
 
         // Intermediairs mogen de index niet zien        
