@@ -130,6 +130,26 @@ class HomeController extends Controller
         
     }
 
+
+    public function home()
+    {
+        return view('home');        
+    }
+    public function inschrijven()
+    {
+        return view('inschrijven');        
+    }    
+
+    public function voorwaarden()
+    {
+        return view('voorwaarden');        
+    }
+
+    public function voorwaarden()
+    {
+        return view('voorwaarden');        
+    }
+
     public function docs()
     {
         return view('docs');        
