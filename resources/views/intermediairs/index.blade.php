@@ -61,7 +61,7 @@
                             <tbody>
     					@foreach ($intermediairs as $intermediair)
     						<tr>
-    							{{dd($intermediair)}}
+    							{{dd($intermediair->user)}}
     							<td>{{ $intermediair->user->achternaam }}&nbsp;</td>
                                 
                                 @if ($intermediair->disqualifiedfams == 0)
