@@ -13,7 +13,7 @@
 
 
 //Route::get('maakpdf', 'PdfController@maakpdf');
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@index');
 Route::get('/inschrijven', 'HomeController@inschrijven');
 Route::get('/particulier', 'HomeController@particulier');
 Route::get('/voorwaarden', 'HomeController@voorwaarden');
