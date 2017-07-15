@@ -134,11 +134,7 @@ class HomeController extends Controller
     {
         return view('docs');        
     }
-
-    public function inschrijven()
-    {
-        return view('inschrijven');        
-    }    
+  
 
     public function tellingen()
     {

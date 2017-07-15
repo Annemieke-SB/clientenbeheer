@@ -19,7 +19,7 @@ Route::get('/inschrijven', function () {
     return view('inschrijven');
 });
 */
-Route::get('/inschrijven', 'HomeController@inschrijven');
+Route::get('/inschrijven', 'PagesController@inschrijven');
 
 Route::get('/particulier', function () {
     return view('particulier');
