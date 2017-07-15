@@ -66,7 +66,7 @@
                                 @if(isset($intermediair->user->achternaam))
                                 {{ $intermediair->user->achternaam }}&nbsp;
                                 @else
-                                !!FOUT!! Im-id: {{$intermediair->id}}
+                                !!FOUT!! Im-id: {{$intermediair->id}} 
                                 @endif
                                 </td>
                                 
@@ -123,7 +123,12 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title" id="myModalLabel">Wissen van intermediair 
 
-                                  
+                                                                  @if(isset($intermediair->user->achternaam))
+                                {{ $intermediair->user->achternaam }}&nbsp;
+                                @else
+                                !!FOUT!! Im-id: {{$intermediair->id}} 
+                                @endif
+                                
                                                     ?</h4>
                                               </div>
                                               <div class="modal-body">
