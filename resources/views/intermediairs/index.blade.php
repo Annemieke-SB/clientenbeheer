@@ -62,7 +62,7 @@
     					@foreach ($intermediairs as $intermediair)
     						<tr>
     							
-    							<td>{{ $intermediair->user->organisatienaam }}&nbsp;</td>
+    							<td>{{ $intermediair->woonplaats }}&nbsp;</td>
                                 
                                 @if ($intermediair->disqualifiedfams == 0)
                                 <td>
@@ -115,7 +115,7 @@
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Wissen van intermediair {{ $intermediair->user->organisatienaam }}?</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Wissen van intermediair {{ $intermediair->woonplaats }}?</h4>
                                               </div>
                                               <div class="modal-body">
                                                 <blockquote><p>Let op: als je de instelling van de intermediair wist, worden alle gezinnen en kinderen die eronder hangen ook <b>permanent</b> gewist. De gebruiker (de intermediair zelf) wordt niet gewist! Dat betekent dat de gebruiker nog steeds kan inloggen, maar verplicht een nieuwe instelling moet aanmaken. Is het de bedoeling dat de gebruiker ook wordt gewist, ga dan naar het gebruikersoverzicht en verwijder diegene daar. Alles wat eronder ligt (zoals de instelling, families en kinderen) worden dan automatisch ook gewist.</p></blockquote>
