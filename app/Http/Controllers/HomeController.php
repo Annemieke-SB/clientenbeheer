@@ -62,7 +62,7 @@ class HomeController extends Controller
                     $kids_disqualified = 0;
                     $families_disqualified = 0;
                     $kids_dubbel = 0;
-                    $intermediairzonderfamilies = 0;
+                    $intermediairzonderfamilies = Intermediair::whereDoesntHave('familys')->count();
                     $familieszonderkinderen = 0;
                     $aangemelde_families = 0;
 
@@ -103,12 +103,6 @@ class HomeController extends Controller
                         } 
                     }
 
-                    foreach ($intermediairs as $intermediair) {            
-                        if (!$intermediair->hasfams) {
-                            $intermediairzonderfamilies++;
-                            break;
-                        } 
-                    }
 
 
 
