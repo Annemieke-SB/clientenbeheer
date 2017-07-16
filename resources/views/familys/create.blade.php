@@ -46,7 +46,7 @@
 
 
 
-                    {!! Form::open(['url' => 'familys/store', 'id' => 'createform']]) !!}
+                    {!! Form::open(['url' => 'familys/store', 'id' => 'createform']) !!}
                         
                         <div class="form-group">
 
