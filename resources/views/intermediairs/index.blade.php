@@ -42,8 +42,13 @@
 
                     <br>
                         <p><small>Tip: Ga met je muis over <span class="badge">&nbsp;&nbsp;&nbsp;</span>-balonnen voor extra info.</small><br>
-                        <small>Tip: Klik op de kolomkoppen om te sorteren. </small></p>
-                    
+                        </p>
+                                        <div class="row">
+                        <div class="col-sm-8 col-md-offset-2">
+                            {{$users->render()}}
+                        </div>
+
+                    </div>
                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>
