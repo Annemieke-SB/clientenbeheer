@@ -210,7 +210,7 @@
         $("#verzendknop").click(function(){
 
                 setTimeout( function () { 
-                    $('#createform').submit();
+                    $('#editform').submit();
                 }, 2000);
             
         });
