@@ -64,8 +64,9 @@ class HomeController extends Controller
                     $kids_dubbel = 0;
                     $intermediairzonderfamilies = 0;
                     $familieszonderkinderen = 0;
+                    $aangemelde_families = 0;
 
-                    $aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    //$aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
 
                     $kids = Kid::all();
                     $families = Family::all();
@@ -85,6 +86,10 @@ class HomeController extends Controller
 
                     foreach ($families as $familie) {
             
+                        if ($familie->aangemeld == 1 && $familie->goedgekeurd==0) {
+                            $aangemelde_families++;
+                        }
+
                         if ($familie->disqualified) {
                             $families_disqualified++;
                         } 

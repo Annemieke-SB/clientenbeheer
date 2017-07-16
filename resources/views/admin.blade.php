@@ -103,9 +103,9 @@
                     <a class="btn btn-info" href="{{ url('/kinderlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Kinderlijst</a>     
 
 
-                    @if (count($aangemelde_families)>0) 
+                    @if ($aangemelde_families>0) 
 
-                        <a class="btn btn-info pulse" href="{{ url('/gezinnenlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Gezinnenlijst&nbsp;<span class="badge" data-toggle="tooltip" title="Er zijn aangemeldde gezinnen!">{{count($aangemelde_families)}}</span></a>
+                        <a class="btn btn-info pulse" href="{{ url('/gezinnenlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Gezinnenlijst&nbsp;<span class="badge" data-toggle="tooltip" title="Er zijn aangemeldde gezinnen!">{{$aangemelde_families}}</span></a>
 
                     @else
 
