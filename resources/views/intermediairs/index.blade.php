@@ -69,7 +69,7 @@
     							
     							<td>
                                 @if(isset($intermediair->user->organisatienaam))
-                                {{ $intermediair->user->achternaam }}&nbsp;
+                                {{ $intermediair->user->organisatienaam }}&nbsp;
                                 @else
                                 !!FOUT!! Im-id: {{$intermediair->id}} 
                                 @endif
