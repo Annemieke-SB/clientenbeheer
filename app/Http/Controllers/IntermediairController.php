@@ -28,7 +28,7 @@ class IntermediairController extends Controller
     {
 
 
-        $intermediairs = Intermediair::with('user')->orderBy('id', 'ASC')->paginate(5);
+        $intermediairs = Intermediair::with('user')->orderBy('user.organisatienaam', 'ASC')->paginate(20);
         $user = Auth::user();
 
         // Intermediairs mogen de index niet zien        
