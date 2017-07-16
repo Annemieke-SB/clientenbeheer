@@ -48,7 +48,7 @@
                             {{$intermediairs->render()}}
                         </div>
 
-                    </div><small>Sortering: Laatste komt al eerste</small>
+                    </div><small>Sortering: Laatste komt als eerste</small>
                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>
