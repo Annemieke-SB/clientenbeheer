@@ -39,7 +39,7 @@
                         </ul>
                     @endif
 
-                    {!! Form::open(['url' => 'intermediairs/update']) !!}
+                    {!! Form::open(['url' => 'intermediairs/update', 'id' => 'editform']) !!}
                         
                         <div class="form-group">
 

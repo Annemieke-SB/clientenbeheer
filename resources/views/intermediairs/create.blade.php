@@ -55,7 +55,7 @@
                         </ul>
                     @endif
 
-                    {!! Form::open(['url' => 'intermediairs']) !!}
+                    {!! Form::open(['url' => 'intermediairs', 'id' => 'createform']]) !!}
 
                         <div class="form-group">
 
