@@ -88,6 +88,7 @@ class HomeController extends Controller
                         }
                     }
 
+
                     foreach ($families as $familie) {
                         if ($familie->disqualified) {
                             $families_disqualified++;
