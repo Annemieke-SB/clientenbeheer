@@ -52,7 +52,7 @@ class HomeController extends Controller
         */
         
 
-        $intermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
+        
 
         if($user->activated == 1 && $user->emailverified == 1) {
 
@@ -109,6 +109,7 @@ class HomeController extends Controller
                 }elseif($user->usertype == 2){
                     return view('raadpleger');
                 }elseif($user->usertype == 3){
+                    $intermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
                     if ($intermediair) {
                         return redirect('intermediairs/show/'.$intermediair->id);
                     }
