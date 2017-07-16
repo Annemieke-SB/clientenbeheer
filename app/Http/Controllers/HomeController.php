@@ -75,33 +75,46 @@ class HomeController extends Controller
                     foreach ($kids as $kid) {
             
                         if ($kid->disqualified) {
-                            $kids_disqualified++;
+                            $kids_disqualified=1;
+                            break;
                         }
-
-                        if ($kid->geboortedatumvoornaamdubbel){
-                            $kids_dubbel++;
-                        }
-
                     }
 
+                    foreach ($kids as $kid) {
+            
+                        if ($kid->geboortedatumvoornaamdubbel) {
+                            $kids_dubbel=1;
+                            break;
+                        }
+                    }
+
+                
                     foreach ($families as $familie) {
             
                         if ($familie->aangemeld == 1 && $familie->goedgekeurd==0) {
                             $aangemelde_families++;
+                            break;
                         }
+                    }
 
+                    foreach ($families as $familie) {
                         if ($familie->disqualified) {
                             $families_disqualified++;
+                            break;
                         } 
+                    }
 
+                    foreach ($families as $familie) {
                         if ($familie->kidscount == 0) {
                             $familieszonderkinderen++;
+                            break;
                         } 
                     }
 
                     foreach ($intermediairs as $intermediair) {            
                         if (!$intermediair->hasfams) {
                             $intermediairzonderfamilies++;
+                            break;
                         } 
                     }
 
