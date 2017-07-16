@@ -62,10 +62,8 @@ class HomeController extends Controller
                     $kids_disqualified = 0;
                     $families_disqualified = 0;
                     $kids_dubbel = 0;
-                    $intermediairzonderfamilies = Intermediair::whereDoesntHave('familys')->count();
-                    $familieszonderkinderen = Family::whereDoesntHave('kids')->count();
-                    $aangemelde_families = 0;
-
+                    $intermediairzonderfamilies = Intermediair::whereDoesntHave('familys')->first();
+                    $familieszonderkinderen = Family::whereDoesntHave('kids')->first();
                     $aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->count();
 
                     $kids = Kid::all();
