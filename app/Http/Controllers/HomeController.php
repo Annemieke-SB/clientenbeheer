@@ -70,7 +70,7 @@ class HomeController extends Controller
 
                     $kids = Kid::all();
                     $families = Family::all();
-                    $intermediairs = Intermediair::all();
+                    
 
                     foreach ($kids as $kid) {
             
