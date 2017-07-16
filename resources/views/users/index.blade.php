@@ -49,7 +49,7 @@
 
                     <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
-                            {{$intermediairs->render()}}
+                            {{$users->render()}}
                         </div>
 
                     </div>
