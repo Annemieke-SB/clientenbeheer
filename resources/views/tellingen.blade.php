@@ -35,7 +35,7 @@
 						</tfoot>
 						<tbody>
 							<tr>
-								<td>Kinderen die aan eisen voldoen maar nog gekeurd moeten worden</td>
+								<td>Kinderen die aan eisen voldoen maar nog gekeurd (of aangemeld) moeten worden</td>
 								<td>{{ $kids_qualified - $kids_metbarcode }}</td>
 							</tr>
 							<tr>
