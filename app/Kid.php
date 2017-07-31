@@ -143,7 +143,7 @@ class Kid extends Model
 
             return true;
 
-        } elseif ($family->aangemeld && $family->definitiefafkeuren != 1 && $family->redenafkeuren != NULL && $family->goedgekeurd==0) {
+        } elseif ($family->aangemeld && $family->definitiefafkeuren != 1 && $family->goedgekeurd==0) {
             return true;
         } elseif(!$this->targetsibling && !$this->targetkid) {
 
