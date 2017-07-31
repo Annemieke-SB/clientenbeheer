@@ -143,7 +143,7 @@ class Kid extends Model
 
             return true;
 
-        } elseif ($family->motivering && $family->goedgekeurd==0) {
+        } elseif ($family->redenafkeuren != NULL && $family->goedgekeurd==0) {
             return true;
         } elseif(!$this->targetsibling && !$this->targetkid) {
 
