@@ -131,7 +131,7 @@ class RegisterController extends Controller
             Mail::to($user->email)->send($email);
             DB::commit();
             auth()->logout();
-            return redirect('login')->with('message', 'Er is zojuist een email gestuurd om uw emailadres te verifieren. Nadat u op de link in de email heeft geklikt kan de Sinterklaasbank uw inschrijving beoordelen. Daarna kunt u inloggen.');
+            return redirect('login')->with('message', 'Er is zojuist een email gestuurd om uw emailadres te verifieren. Nadat u op de link in de email heeft geklikt kan de Sinterklaasbank uw inschrijving beoordelen. Daarna kunt u inloggen. <b>Heeft u de mail niet gehad? Controleer dan uw spam-mappen in uw email!</b>');
         }
         catch(Exception $e)
         {
