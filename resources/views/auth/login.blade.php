@@ -10,6 +10,9 @@
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
             @endif
 
+<div class="alert alert-primary" role="alert">
+  U kunt tot 10 november 2017 blijven inschrijven. Lees <a href"">meer</a>.  
+</div>
             
             <div class="panel panel-default">
                 <div class="panel-heading">Inloggen</div>
