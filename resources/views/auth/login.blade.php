@@ -16,8 +16,8 @@
                 <div class="panel-heading">Inloggen</div>
                 <div class="panel-body">
 
-                    <div class="alert alert-primary" role="alert">
-                      U kunt tot 10 november 2017 blijven inschrijven. Lees <a href"">meer</a>.  
+                    <div class="alert alert-primary fade in">
+                      U kunt tot 10 november 2017 inschrijven. Lees <a href"">meer</a>.  
                     </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
