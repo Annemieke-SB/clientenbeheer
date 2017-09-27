@@ -25,7 +25,7 @@
                         {{ csrf_field() }}
 
                     <div class="alert alert-primary" role="alert">
-                      U kunt tot 10 november 2017 inschrijven. Lees <a href="https://www.sinterklaasbank.nl/inschrijven-tot-10-november-2017/" class="alert-link">meer</a>.
+                      U kunt tot 10 november 2017 inschrijven. Lees <a target="_BLANK" href="https://www.sinterklaasbank.nl/inschrijven-tot-10-november-2017/" class="alert-link">meer</a>.
                     </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Email</label>
