@@ -16,24 +16,17 @@
                 <div class="panel-heading">Inloggen</div>
                 <div class="panel-body">
 
-                    <div class="alert alert-primary fade in">
-                      U kunt tot 10 november 2017 inschrijven. Lees <a href"">meer</a>.  
-                    </div>
-
-                    <div class="alert alert-primary" role="alert">
-  This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-</div>
 
 
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-</div>
+
+
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
+                    <div class="alert alert-primary" role="alert">
+                      U kunt tot 10 november 2017 inschrijven. Lees <a href"" class="alert-link">meer</a>.
+                    </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Email</label>
 
