@@ -19,12 +19,12 @@
 
                 <div class="panel-body">
                                  <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                
+                    <!--
                                  <br>Filters (<a href="{{ url('/kinderlijst') }}">verwijder filter(s)</a>): <br>
                                  <a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen AI</a> | <a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen AI</a><br>
                                  <a href="{{ url('/kinderlijst') }}/?a=1">Toon alleen A</a> | <a href="{{ url('/kinderlijst') }}/?a=0">Toon juist geen A</a><br>
                                  <a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen PDF</a> | <a href="{{ url('/kinderlijst') }}/?p=0">Toon juist geen PDF</a><br> <br>                                
-
+-->
                                 <p>Hieronder staat een lijst met alle {{$kids->total()}} kinderen in de database (met toepassing van het filter).</p>
 
 
