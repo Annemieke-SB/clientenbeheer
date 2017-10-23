@@ -206,9 +206,9 @@ class HomeController extends Controller
             $kids = Kid::where('Family.andere_alternatieven', '1')->orderBy('achternaam', 'ASC')->paginate(100)->appends('wai', request('wai'));
         } else {
 
-        */
+        
             $kids = Kid::orderBy('id', 'ASC')->paginate(100);
-        /*}*/
+        }
 
 
         return view('kinderlijst', ['kids'=>$kids]);     
