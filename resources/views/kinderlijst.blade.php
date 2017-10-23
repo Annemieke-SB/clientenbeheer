@@ -25,12 +25,14 @@
                                  <a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a> | <a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a><br>
                                  <a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a> | <a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a><br> <br>                                
 
-<form action="{{ url('/kinderlijst') }}" method="get">
-  Achternaam bevat: <input type="text" name="achternaam"><br>
 
-  <input type="submit" value="Zoek">
+<form action="{{ url('/kinderlijst') }}" method="get" class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">Achternaam bevat</label>
+    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jansen">
+  </div>
+  <button type="submit" class="btn btn-default">Zoek</button>
 </form>
-
 
                                 <p>Hieronder staat een lijst met alle <b>{{$kids->total()}}</b> kinderen in de database (met toepassing van het filter).</p>
 
