@@ -58,7 +58,7 @@
 
             <p class="navbar-text">Filter: </p>
 
-            @if (Route::input('wai'))
+            @if (Request::input('wai'))
                 wel <span class="badge" data-toggle="tooltip">AI<span>
             @elseif(Route::input('gai'))
                 geen <span class="badge" data-toggle="tooltip">AI<span>
