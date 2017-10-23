@@ -191,8 +191,16 @@ class HomeController extends Controller
 
     public function kinderlijst()
     {
-        $kids = Kid::orderBy('achternaam', 'ASC')->paginate(100);
         
+        
+        if (request()->has('gai')) {
+            $kids = Kid::where('familyanderealternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('gai', request('gai'));
+        } elseif (request()->has('wai')) {
+            $kids = Kid::where('familyanderealternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('wai', request('wai'));
+        } else {
+            $kids = Kid::orderBy('achternaam', 'ASC')->paginate(100);
+        }
+
 
         return view('kinderlijst', ['kids'=>$kids]);     
     }    
