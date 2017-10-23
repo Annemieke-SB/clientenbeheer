@@ -21,9 +21,9 @@
                                  <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                     
                                  <br>Filters (<a href="{{ url('/kinderlijst') }}">verwijder filter(s)</a>): <br>
-                                 <a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen AI</a> | <a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI<span></a><br>
-                                 <a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen A</a> | <a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen A</a><br>
-                                 <a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen PDF</a> | <a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen PDF</a><br> <br>                                
+                                 <a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI<span></a> | <a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI<span></a><br>
+                                 <a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a> | <a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a><br>
+                                 <a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a> | <a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a><br> <br>                                
 
                                 <p>Hieronder staat een lijst met alle {{$kids->total()}} kinderen in de database (met toepassing van het filter).</p>
 
