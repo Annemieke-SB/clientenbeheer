@@ -54,7 +54,8 @@
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Filter</p></li>
+        <li><p class="navbar-text">Filter: </p></li>
+        <li><p class="navbar-text">Aantal: <b>{{$kids->total()}}</b></p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
