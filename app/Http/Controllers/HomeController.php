@@ -228,7 +228,7 @@ class HomeController extends Controller
         } elseif (request()->has('gp')) { // pdf niet gedownload
 
             $kids = Kid::whereHas('barcode', function ($query) {
-                $query->where('downloadedpdf', '0');
+                $query->where('downloadedpdf', NULL);
             })->paginate(100)->appends('ngg', request('ngg'));   
 
         } else {
