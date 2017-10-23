@@ -20,6 +20,13 @@
                 <div class="panel-body">
                                  <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 <p>Hieronder staat een lijst met alle kinderen in de database.</p>
+
+                                    <div class="row">
+                        <div class="col-sm-8 col-md-offset-2">
+                            {{$kids->render()}}
+                        </div>
+
+                    </div>
                      <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>
