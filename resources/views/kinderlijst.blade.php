@@ -28,7 +28,7 @@
 
 <form action="{{ url('/kinderlijst') }}" method="get" class="form-inline">
   <div class="form-group">
-    <label for="exampleInputName2">Achternaam</label>
+    <label for="exampleInputName2">Achternaam bevat (mag fragment zijn)</label>
     <input type="text" class="form-control" id="exampleInputName2" name="achternaam" placeholder="Jansen">
   </div>
   <button type="submit" class="btn btn-default">Zoek</button>
