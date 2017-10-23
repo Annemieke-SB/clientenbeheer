@@ -200,7 +200,7 @@ class HomeController extends Controller
         } else {
 
         */
-            $kids = Kid::orderBy('achternaam', 'ASC')->paginate(100);
+            $kids = Kid::orderBy('id', 'ASC')->paginate(100);
         /*}*/
 
 
