@@ -54,7 +54,7 @@
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li>Filter: </li>
+        <li><div>Filter</div></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
