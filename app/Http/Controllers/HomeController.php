@@ -194,9 +194,9 @@ class HomeController extends Controller
         
         
         if (request()->has('gai')) {
-            $kids = Kid::where('Family.familyanderealternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('gai', request('gai'));
+            $kids = Kid::where('Family.andere_alternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('gai', request('gai'));
         } elseif (request()->has('wai')) {
-            $kids = Kid::where('Family.familyanderealternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('wai', request('wai'));
+            $kids = Kid::where('Family.andere_alternatieven', '1')->orderBy('achternaam', 'ASC')->paginate(100)->appends('wai', request('wai'));
         } else {
             $kids = Kid::orderBy('achternaam', 'ASC')->paginate(100);
         }
