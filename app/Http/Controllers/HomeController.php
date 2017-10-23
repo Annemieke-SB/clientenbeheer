@@ -196,7 +196,7 @@ class HomeController extends Controller
        if (request()->has('gai')) {
 
 
-            $kids = Kid::whereHas('familys', function ($query) {
+            $kids = Kid::whereHas('family', function ($query) {
                 $query->where('andere_alternatieven', '0');
             })->get();
 
