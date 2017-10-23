@@ -56,7 +56,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
 
-            <p class="navbar-text">Filter: </p>
+            <p class="navbar-text">Filter: 
 
             @if (Request::input('wai'))
                 wel <span class="badge" data-toggle="tooltip">AI<span>
@@ -65,7 +65,7 @@
             @elseif(Route::input('gg'))
                 wel <span class="badge" data-toggle="tooltip">A<span>
             @endif
-
+</p>
         </li>
         <li><p class="navbar-text">Aantal: <b>{{$kids->total()}}</b></p></li>
       </ul>
