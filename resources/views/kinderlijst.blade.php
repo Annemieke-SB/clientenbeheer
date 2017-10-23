@@ -34,13 +34,13 @@
         
         <li><a href="{{ url('/kinderlijst') }}">Reset</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI<span></a></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI<span></a></li>
+            <li><a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip">AI<span></a></li>
+            <li><a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip">AI<span></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a></li>            
-            <li><a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a></li>
+            <li><a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip">A<span></a></li>            
+            <li><a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip">A<span></a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
             <li><a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
@@ -54,14 +54,26 @@
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Filter: </p></li>
+        <li>
+
+            <p class="navbar-text">Filter: </p>
+
+            @if (Route::input('wai'))
+                wel <span class="badge" data-toggle="tooltip">AI<span>
+            @elseif(Route::input('gai'))
+                geen <span class="badge" data-toggle="tooltip">AI<span>
+            @elseif(Route::input('gg'))
+                wel <span class="badge" data-toggle="tooltip">A<span>
+            @endif
+
+        </li>
         <li><p class="navbar-text">Aantal: <b>{{$kids->total()}}</b></p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-                                <p>Hieronder staat een lijst met alle <b>{{$kids->total()}}</b> kinderen in de database (met toepassing van het filter).</p>
+                                
 
 
                                     <div class="row">
