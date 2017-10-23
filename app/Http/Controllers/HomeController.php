@@ -193,20 +193,31 @@ class HomeController extends Controller
     {
         
         
-       if (request()->has('gai')) {
+       if (request()->has('gai')) { // geen andere alternatieven
 
 
             $kids = Kid::whereHas('family', function ($query) {
                 $query->where('andere_alternatieven', '0');
             })->paginate(100)->appends('gai', request('gai'));
 
-
-           // $kids = Kid::where('Family.andere_alternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('gai', request('gai'));
-        } elseif (request()->has('wai')) {
+           
+        } elseif (request()->has('wai')) { // wel andere alternatieven
 
             $kids = Kid::whereHas('family', function ($query) {
                 $query->where('andere_alternatieven', '1');
             })->paginate(100)->appends('wai', request('wai'));
+
+        } elseif (request()->has('gg')) { // goedgekeurde familie
+
+            $kids = Kid::whereHas('family', function ($query) {
+                $query->where('goedgekeurd', '1');
+            })->paginate(100)->appends('gg', request('gg'));
+
+        } elseif (request()->has('ngg')) { // niet goedgekeurde familie
+
+            $kids = Kid::whereHas('family', function ($query) {
+                $query->where('goedgekeurd', '0');
+            })->paginate(100)->appends('ngg', request('ngg'));    
 
         } else {
 
