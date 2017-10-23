@@ -219,6 +219,18 @@ class HomeController extends Controller
                 $query->where('goedgekeurd', '0');
             })->paginate(100)->appends('ngg', request('ngg'));    
 
+        } elseif (request()->has('p')) { // pdf gedownload
+
+            $kids = Kid::whereHas('barcode', function ($query) {
+                $query->where('downloadedpdf', '1');
+            })->paginate(100)->appends('p', request('p'));   
+
+        } elseif (request()->has('gp')) { // pdf niet gedownload
+
+            $kids = Kid::whereHas('barcode', function ($query) {
+                $query->where('downloadedpdf', '0');
+            })->paginate(100)->appends('ngg', request('ngg'));   
+
         } else {
 
         
