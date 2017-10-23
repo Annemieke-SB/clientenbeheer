@@ -198,7 +198,7 @@ class HomeController extends Controller
 
             $kids = Kid::whereHas('family', function ($query) {
                 $query->where('andere_alternatieven', '0');
-            })->get();
+            })->paginate(100);
 
 
            // $kids = Kid::where('Family.andere_alternatieven', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('gai', request('gai'));
