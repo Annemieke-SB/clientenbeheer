@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use DB;
+use Route;
 use App\Intermediair;
 use App\Family;
 use App\Kid;
