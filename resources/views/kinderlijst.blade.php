@@ -49,7 +49,7 @@
       </ul>
       <form class="navbar-form navbar-left" action="{{ url('/kinderlijst') }}" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gezin (niet kind)">
+          <input type="text" class="form-control" name="achternaam"  placeholder="Achtern gezin (niet kind)">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
