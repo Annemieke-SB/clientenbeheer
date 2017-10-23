@@ -231,6 +231,12 @@ class HomeController extends Controller
                 $query->where('downloadedpdf', NULL);
             })->paginate(100)->appends('ngg', request('ngg'));   
 
+        } elseif (request()->has('achternaam')) { // achternaam
+
+            $kids = Kid::whereHas('family', function ($query) {
+                $query->('achternaam', 'like', "%" . request('achternaam') . "%")->orderBy('achternaam', 'ASC')->paginate(100)->appends('achternaam', request('achternaam'));     
+
+
         } else {
 
         
