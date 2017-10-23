@@ -25,6 +25,13 @@
                                  <a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a> | <a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">A<span></a><br>
                                  <a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a> | <a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a><br> <br>                                
 
+<form action="{{ url('/kinderlijst') }}" method="get">
+  Achternaam bevat: <input type="text" name="naam"><br>
+
+  <input type="submit" value="Zoek">
+</form>
+
+
                                 <p>Hieronder staat een lijst met alle <b>{{$kids->total()}}</b> kinderen in de database (met toepassing van het filter).</p>
 
 
