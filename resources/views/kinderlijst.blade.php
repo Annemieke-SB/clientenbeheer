@@ -57,7 +57,7 @@
         <li>
 
             <p class="navbar-text">Filter: </p>
-
+{{Route::input('wai')}}
             @if (Route::input('wai'))
                 wel <span class="badge" data-toggle="tooltip">AI<span>
             @elseif(Route::input('gai'))
