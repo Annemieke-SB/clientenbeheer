@@ -114,9 +114,9 @@
     						<tr>
     						@endif
 
-    							<td>{{ str_limit($kid->voornaam, 10) }}&nbsp;</td>
-    							<td>{{ $kid->achternaam }}&nbsp;</td>
-    							<td>{{ $kid->family->woonplaats }}&nbsp;</td>
+    							<td>{{ str_limit($kid->voornaam, 8) }}&nbsp;</td>
+    							<td>{{ str_limit($kid->achternaam, 8) }}&nbsp;</td>
+    							<td>{{ str_limit($kid->family->woonplaats, 8) }}&nbsp;</td>
                                 <td>
                                     @if($kid->familyanderealternatieven)
                                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
