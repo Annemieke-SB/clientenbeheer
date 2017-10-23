@@ -191,8 +191,8 @@ class HomeController extends Controller
 
     public function kinderlijst()
     {
-
-        $kids = Kid::all();
+        $kids = Kid::orderBy('achternaam', 'ASC')->paginate(15);
+        
 
         return view('kinderlijst', ['kids'=>$kids]);     
     }    
