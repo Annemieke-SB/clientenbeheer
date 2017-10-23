@@ -114,7 +114,7 @@
     						<tr>
     						@endif
 
-    							<td>{{ str_limit($kid->nextPost()['voornaam'], 10) }}&nbsp;</td>
+    							<td>{{ str_limit($kid->voornaam, 10) }}&nbsp;</td>
     							<td>{{ $kid->achternaam }}&nbsp;</td>
     							<td>{{ $kid->family->woonplaats }}&nbsp;</td>
                                 <td>
