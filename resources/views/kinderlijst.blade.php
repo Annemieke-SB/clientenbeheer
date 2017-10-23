@@ -38,7 +38,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      <div class="navbar-brand"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
