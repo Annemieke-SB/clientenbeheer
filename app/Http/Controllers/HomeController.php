@@ -234,8 +234,8 @@ class HomeController extends Controller
         } elseif (request()->has('achternaam')) { // achternaam
 
             $kids = Kid::whereHas('family', function ($query) {
-                $query->('achternaam', 'like', "%" . request('achternaam') . "%")->paginate(100)->appends('achternaam', request('achternaam')));     
-
+                            $query->where('achternaam', 'like', "%" . request('achternaam') . "%");
+                        })->paginate(100)->appends('achternaam', request('achternaam'));
 
         } else {
 
