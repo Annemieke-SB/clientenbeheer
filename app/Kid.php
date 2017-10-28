@@ -138,6 +138,7 @@ class Kid extends Model
     {
         $family = Family::find($this->family_id);
 
+/*
 
         if ($family->targetkids==0) {
 
@@ -153,6 +154,20 @@ class Kid extends Model
 
             return false;
         }
+ */
+
+
+       if ($family->definitiefafkeuren == 1) {
+            return true;
+        } elseif(!$this->targetsibling && !$this->targetkid) {
+
+            return true;
+
+        } elseif ($this->targetkid){
+
+            return false;
+        }        
+
     }
 
 
