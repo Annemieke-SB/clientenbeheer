@@ -172,7 +172,7 @@ class HomeController extends Controller
 
         foreach ($families as $familie) {
             $families_totaal++;
-            if ($familie->redenafkeuren != NULL && $familie->goedgekeurd==0) {
+            if ($familie->goedgekeurd==0) {
                 $families_disqualified++;
                 if ($familie->definitiefafkeuren) {
                     $families_definitiefdisqualified++;

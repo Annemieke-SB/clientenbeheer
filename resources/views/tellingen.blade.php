@@ -65,17 +65,9 @@
 							<tr>
 								<td>Families in afwachting aanmelden en beoordelen</td>
 								<td>{{ $families_totaal - $families_definitiefdisqualified - $families_qualified }}</td>
-							</tr>
+							</tr>						
 							<tr>
-								<td>Families in aanmerking</td>
-								<td>{{ $families_qualified }}</td>
-							</tr>							
-							<tr>
-								<td>Families totaal</td>
-								<td>{{ $families_totaal }}</td>
-							</tr>
-							<tr>
-								<td>Families afgekeurd / waarvan definitief afgekeurd</td>
+								<td>Families nog niet goedgekeurd / waarvan definitief afgekeurd</td>
 								<td>{{ $families_disqualified }} / {{$families_definitiefdisqualified}}</td>
 							</tr>
 	
