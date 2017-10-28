@@ -172,13 +172,13 @@ class HomeController extends Controller
 
         foreach ($families as $familie) {
             $families_totaal++;
-            if ($familie->goedgekeurd==0) {
+            if ($familie->goedgekeurd == 0) {
                 $families_disqualified++;
                 if ($familie->definitiefafkeuren) {
                     $families_definitiefdisqualified++;
                 }
             } else {
-                if($familie->goedgekeurd==1){
+                if($familie->goedgekeurd == 1){
                     $families_qualified++;
                 }
                 
@@ -192,7 +192,7 @@ class HomeController extends Controller
         }
 */
 
-        return view('tellingen', ['kids_qualified'=>$kids_qualified, 'kids_disqualified'=>$kids_disqualified, 'families_qualified'=>$families_qualified, 'families_disqualified'=>$families_qualified, 'intermediairs_totaal'=>$intermediairs_totaal, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families_totaal'=>$families_totaal, 'kids_metbarcode'=>$kids_metbarcode]);     
+        return view('tellingen', ['kids_qualified'=>$kids_qualified, 'kids_disqualified'=>$kids_disqualified, 'families_qualified'=>$families_qualified, 'families_disqualified'=>$families_disqualified, 'intermediairs_totaal'=>$intermediairs_totaal, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families_totaal'=>$families_totaal, 'kids_metbarcode'=>$kids_metbarcode]);     
     }
 
     public function kinderlijst()
