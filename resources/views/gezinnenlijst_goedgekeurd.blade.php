@@ -17,9 +17,7 @@
                       <li class="active">Gezinnenlijst</li>
                     </ol>
 
-
-
-<div class="panel-body">
+                <div class="panel-body">
                                  <a href="{{ url('/gezinnenlijst/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                                 
 
@@ -97,19 +95,6 @@
                     </div>
 
 
-
-
-
-                <div class="panel-body">
-                <p>                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                </p>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Definitief aangemelde gezinnen</div>
-                <div class="panel-body">
-                <p>Hieronder staan alle (in principe) definitief goedgekeurde gezinnen. Deze gezinnen kunnen echter nog wel worden aangepast door de intermediair, of alsnog worden afgekeurd door de beheerder. Het gezin moet dan opnieuw worden aangemeld.</p>
                      <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>                                

@@ -20,11 +20,7 @@
                 <div class="panel-body">
                                  <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                                 
-            <div class="panel panel-default">
-                <div class="panel-heading">Definitief aangemelde gezinnen</div>
-                <div class="panel-body">
-                <p>Hieronder staan alle (in principe) definitief goedgekeurde gezinnen. Deze gezinnen kunnen echter nog wel worden aangepast door de intermediair, of alsnog worden afgekeurd door de beheerder. Het gezin moet dan opnieuw worden aangemeld.</p>
-                
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
