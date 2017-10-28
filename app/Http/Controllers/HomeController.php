@@ -158,17 +158,17 @@ class HomeController extends Controller
 
 
         foreach ($kids as $kid) {
-/*
+
             if (isset($kid->barcode->id)){
                 $kids_metbarcode++;
             }
-  */          
-            if ($kid->disqualified) {
+            
+ /*           if ($kid->disqualified) {
                 $kids_disqualified++;
             } else {
                 $kids_qualified++;
             }
-        }
+  */      }
 
         foreach ($families as $familie) {
             $families_totaal++;
