@@ -268,7 +268,7 @@ class HomeController extends Controller
 
         $goedgekeurde_families = Family::where('goedgekeurd', 1)->paginate(100);
 
-        return view('gezinnenlijst', ['goedgekeurdefamilies'=>$goedgekeurde_families]);     
+        return view('gezinnenlijst_goedgekeurd', ['goedgekeurdefamilies'=>$goedgekeurde_families]);     
     }    
 
 
