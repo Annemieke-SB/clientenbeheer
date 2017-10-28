@@ -166,7 +166,7 @@ class HomeController extends Controller
                 $kids_qualified++;
             }
         }
-
+/*
         foreach ($families as $familie) {
             $families_totaal++;
             if ($familie->redenafkeuren != NULL && $familie->goedgekeurd==0) {
@@ -181,7 +181,7 @@ class HomeController extends Controller
                 
             }
         }
-
+*/
         foreach ($intermediairs as $intermediair) {
             $intermediairs_totaal++;
         }
