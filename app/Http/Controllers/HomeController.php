@@ -139,6 +139,11 @@ class HomeController extends Controller
 
     public function tellingen()
     {
+
+        $kids = Kid::all();
+        $families = Family::all();
+        $intermediairs = Intermediair::all();
+
         $kids_qualified = 0;
         $kids_disqualified = 0;
         $kids_metbarcode = 0;
@@ -148,11 +153,9 @@ class HomeController extends Controller
         $families_disqualified = 0;
         $families_definitiefdisqualified = 0;
 
-        $intermediairs_totaal = 0;
+        $intermediairs_totaal = count($intermediairs);
 
-        $kids = Kid::all();
-        $families = Family::all();
-        $intermediairs = Intermediair::all();
+
 
         foreach ($kids as $kid) {
 
@@ -166,7 +169,6 @@ class HomeController extends Controller
                 $kids_qualified++;
             }
         }
-/*
         foreach ($families as $familie) {
             $families_totaal++;
             if ($familie->redenafkeuren != NULL && $familie->goedgekeurd==0) {
@@ -181,11 +183,12 @@ class HomeController extends Controller
                 
             }
         }
-*/
+/*
+
         foreach ($intermediairs as $intermediair) {
             $intermediairs_totaal++;
         }
-
+*/
 
         return view('tellingen', ['kids_qualified'=>$kids_qualified, 'kids_disqualified'=>$kids_disqualified, 'families_qualified'=>$families_qualified, 'families_disqualified'=>$families_qualified, 'intermediairs_totaal'=>$intermediairs_totaal, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families_totaal'=>$families_totaal, 'kids_metbarcode'=>$kids_metbarcode]);     
     }
