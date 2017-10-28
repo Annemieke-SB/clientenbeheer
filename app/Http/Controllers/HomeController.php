@@ -157,7 +157,19 @@ class HomeController extends Controller
 
 
 
-        
+        foreach ($kids as $kid) {
+/*
+            if (isset($kid->barcode->id)){
+                $kids_metbarcode++;
+            }
+  */          
+            if ($kid->disqualified) {
+                $kids_disqualified++;
+            } else {
+                $kids_qualified++;
+            }
+        }
+
         foreach ($families as $familie) {
             $families_totaal++;
             if ($familie->redenafkeuren != NULL && $familie->goedgekeurd==0) {
@@ -174,18 +186,7 @@ class HomeController extends Controller
         }
 /*
 
-        foreach ($kids as $kid) {
 
-            if (isset($kid->barcode->id)){
-                $kids_metbarcode++;
-            }
-            
-            if ($kid->disqualified) {
-                $kids_disqualified++;
-            } else {
-                $kids_qualified++;
-            }
-        }
         foreach ($intermediairs as $intermediair) {
             $intermediairs_totaal++;
         }
