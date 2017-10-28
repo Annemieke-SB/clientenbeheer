@@ -263,6 +263,13 @@ class HomeController extends Controller
         return view('gezinnenlijst', ['goedgekeurdefamilies'=>$goedgekeurde_families,'aangemeldefamilies'=>$aangemelde_families, 'nietaangemeldefamilies'=>$nietaangemelde_families]);     
     }    
 
+    public function gezinnenlijst_goedgekeurd()
+    {
+
+        $goedgekeurde_families = Family::where('goedgekeurd', 1)->paginate(100);
+
+        return view('gezinnenlijst', ['goedgekeurdefamilies'=>$goedgekeurde_families]);     
+    }    
 
 
     public function emailtest()

@@ -108,6 +108,7 @@ Route::post('/sendmail/', 'SettingsController@sendmail')->middleware('auth');
 Route::get('/tellingen/', 'HomeController@tellingen'); 
 Route::get('/kinderlijst/', 'HomeController@kinderlijst'); 
 Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst'); 
+Route::get('/gezinnenlijst_goedgekeurd/', 'HomeController@gezinnenlijst_goedgekeurd'); 
 
 Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs'); 
 
