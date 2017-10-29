@@ -36,7 +36,7 @@
         <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
         
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_goedgekeurd') }}" method="get">
+      <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_nogaantemelden') }}" method="get">
         <div class="form-group">
           <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gezin">
         </div>
