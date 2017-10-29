@@ -70,6 +70,8 @@
 
                 @if (Request::input('achternaam'))
                     <b>bevat "{{Request::input('achternaam')}}"</b>          
+                @elseif (Request::input('na'))
+                    <b>niet aktief</b>  
                 @else
                     Geen filter
                 @endif
