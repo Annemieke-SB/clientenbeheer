@@ -270,14 +270,19 @@ class HomeController extends Controller
 
 
                     $goedgekeurde_families = Kid::whereHas('family', function ($query) {
-                        $query->where('redenafkeuren', NULL)->where('goedgekeurd', 1);
+                        $query->where([
+                            ['redenafkeuren', NULL],
+                            ['goedgekeurd', 1]
+                        ]);
                     })->paginate(100)->appends('ra', request('ra'));
 
                    
                 } elseif (request()->has('gra')) { // wel reden afkeuren
 
                     $goedgekeurde_families = Kid::whereHas('family', function ($query) {
-                        $query->where('redenafkeuren', NULL)->where('goedgekeurd', 1);
+                        $query->where([
+                            ['goedgekeurd', 1]
+                        ])->whereNotNull('redenafkeuren');
                     })->paginate(100)->appends('gra', request('gra'));
 
                 } else {
