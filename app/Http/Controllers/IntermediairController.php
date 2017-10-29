@@ -31,10 +31,10 @@ class IntermediairController extends Controller
 
             $intermediairs = Intermediair::whereHas('user', function ($query) {
                             $query->where('organisatienaam', 'like', "%" . request('naam') . "%");
-                        })->paginate(75)->appends('naam', request('naam'));
+                        })->paginate(50)->appends('naam', request('naam'));
             
         } else {
-            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(75);
+            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(50);
         }
 
         
