@@ -31,10 +31,17 @@ class IntermediairController extends Controller
 
             $intermediairs = Intermediair::whereHas('user', function ($query) {
                             $query->where('organisatienaam', 'like', "%" . request('naam') . "%");
-                        })->paginate(50)->appends('naam', request('naam'));
+                        })->paginate(100)->appends('naam', request('naam'));
             
-        } else {
-            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(50);
+        } elseif(request()->has('af')) {
+
+            $intermediairs = Intermediair::doesntHave('families')->paginate(100)->appends('df', request('df'));
+
+            //$intermediairs->disqualifiedfams
+
+        }
+        else {
+            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(20);
         }
 
         

@@ -61,7 +61,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/intermediairs') }}/?df=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Hier staat het aantal gediskwaliceerde families aangetroffen bij deze intermediair. Dat zijn familie's zonder kinderen in de doelgroep. Klik op 'Toon' voor meer info.">DF</span></a></li>       
+            <li><a href="{{ url('/intermediairs') }}/?af=1">Toon alleen intermediairs zonder gezinnen</a></li>       
           </ul>
         </li>
       </ul>
@@ -78,8 +78,8 @@
 
                 @if (Request::input('naam'))
                     <b>bevat "{{Request::input('naam')}}"</b>          
-                @elseif (Request::input('df'))
-                    <span class="badge" data-toggle="tooltip" title="Hier staat het aantal gediskwaliceerde families aangetroffen bij deze intermediair. Dat zijn familie's zonder kinderen in de doelgroep. Klik op 'Toon' voor meer info.">DF</span>
+                @elseif (Request::input('af'))
+                    Zonder gezinnen
                 @else      
                     Geen filter
                 @endif
