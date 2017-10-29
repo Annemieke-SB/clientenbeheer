@@ -266,7 +266,25 @@ class HomeController extends Controller
     public function gezinnenlijst_goedgekeurd()
     {
 
-        $goedgekeurde_families = Family::where('goedgekeurd', 1)->paginate(100);
+        if (request()->has('ra')) { // reden afkeuren
+
+
+                    $goedgekeurde_families = Kid::whereHas('family', function ($query) {
+                        $query->where('redenafkeuren', NOT NULL);
+                    })->paginate(100)->appends('ra', request('ra'));
+
+                   
+                } elseif (request()->has('gra')) { // wel reden afkeuren
+
+                    $goedgekeurde_families = Kid::whereHas('family', function ($query) {
+                        $query->where('andere_alternatieven', NULL);
+                    })->paginate(100)->appends('gra', request('gra'));
+
+                } else {
+                    $goedgekeurde_families = Family::where('goedgekeurd', 1)->paginate(100);
+        }
+
+        
 
         return view('gezinnenlijst_goedgekeurd', ['goedgekeurdefamilies'=>$goedgekeurde_families]);     
     }    
