@@ -77,7 +77,7 @@
             @endif
 </p>
         </li>
-        <li><p class="navbar-text">Aantal: <b>{{$kids->total()}}</b></p></li>
+        <li><p class="navbar-text"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <b>{{$kids->total()}}</b></p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
