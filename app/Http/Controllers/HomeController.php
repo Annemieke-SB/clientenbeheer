@@ -270,7 +270,7 @@ class HomeController extends Controller
 
 
                     $goedgekeurde_families = Kid::whereHas('family', function ($query) {
-                        $query->where('redenafkeuren', NOT NULL);
+                        $query->where('redenafkeuren', NULL);
                     })->paginate(100)->appends('ra', request('ra'));
 
                    
