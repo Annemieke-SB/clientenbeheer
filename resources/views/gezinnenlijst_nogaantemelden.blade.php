@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/gezinnenlijst') }}">Gezinnenlijst</a></li>
-                      <li class="active">Niet aangemelde gezinnen</li>
+                      <li class="active">Nog aan te melden gezinnen</li>
                     </ol>
 
                 <div class="panel-body">
