@@ -14,7 +14,8 @@
                                   
                 <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Gezinnenlijst</li>
+                      <li><a href="{{ url('/gezinnenlijst') }}">Gezinnenlijst</a></li>
+                      <li class="active">Goedgekeurde gezinnen</li>
                     </ol>
 
                 <div class="panel-body">
