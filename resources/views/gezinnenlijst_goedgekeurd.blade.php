@@ -32,24 +32,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-        <li class="active"><a href="{{ url('/kinderlijst') }}">Reset</a></li>
+        <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip">AI<span></a></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip">AI<span></a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip">A<span></a></li>            
-            <li><a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip">A<span></a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
-            <li><a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
+            <li><a href="{{ url('/gezinnenlijst_goedgekeurd') }}/?ra=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA<span></a></li>
+            <li><a href="{{ url('/gezinnenlijst_goedgekeurd') }}/?gra=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA<span></a></li>         
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/kinderlijst') }}" method="get">
+      <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_goedgekeurd') }}" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Achtern gezin (niet kind)">
+          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gezin">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
@@ -58,20 +52,10 @@
 
             <p class="navbar-text">
 
-            @if (Request::input('wai'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">AI</span></b>
-            @elseif(Request::input('gai'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">AI</span></b>
-            @elseif(Request::input('gg'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">A</span></b>
-            @elseif(Request::input('ngg'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">A</span></b>
-            @elseif(Request::input('ngg'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">PDF</span></b>
-            @elseif(Request::input('ngg'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">PDF</span></b>
-            @elseif(Request::input('achternaam'))
-                Filter: <b>bevat "{{Request::input('achternaam')}}"</b>
+            @if (Request::input('ra'))
+                Filter: <b>wel <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></b>
+            @elseif(Request::input('gra'))
+                Filter: <b>geen <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></b>            
             @else
                 Geen filter
             @endif
