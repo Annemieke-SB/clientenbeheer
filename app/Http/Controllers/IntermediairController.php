@@ -34,7 +34,7 @@ class IntermediairController extends Controller
                         })->paginate(100)->appends('naam', request('naam'));
             
         } else {
-            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(20);
+            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(100);
         }
 
         
