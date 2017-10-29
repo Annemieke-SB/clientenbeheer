@@ -274,7 +274,7 @@ class HomeController extends Controller
                             ['achternaam', 'like', "%" . request('achternaam') . "%"],
                             ['goedgekeurd', 1]
                         ]);
-                    })->paginate(100)->appends('ra', request('ra'));
+                    })->paginate(100)->appends('achternaam', request('achternaam'));
 
                    
         } else {
