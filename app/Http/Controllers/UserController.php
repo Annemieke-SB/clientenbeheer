@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
-        if (request()->has('an')) {
+        if (request()->has('achternaam')) {
             $users = User::where('achternaam', "%" . 'like', request('an') . "%")->orderBy('achternaam', 'ASC')->paginate(5)->appends('achternaam', request('achternaam'));
         } elseif (request()->has('na')) {
             $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
