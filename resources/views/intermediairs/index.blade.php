@@ -86,7 +86,7 @@
 
             </p>
         </li>
-        <li><p class="navbar-text"><p class="navbar-text"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></p></li>
+        <li><p class="navbar-text"><p class="navbar-text"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <b>{{$intermediairs->total()}}</b></p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -97,7 +97,7 @@
 
                                         <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
-                            
+                            {{$intermediairs->render()}}
                         </div>
 
                     </div><small>Sortering: Laatste komt als eerste</small>
