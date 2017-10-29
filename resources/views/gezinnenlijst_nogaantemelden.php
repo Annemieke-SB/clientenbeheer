@@ -14,136 +14,66 @@
                                   
                 <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Gezinnenlijst</li>
+                      <li><a href="{{ url('/gezinnenlijst') }}">Gezinnenlijst</a></li>
+                      <li class="active">Niet aangemelde gezinnen</li>
                     </ol>
 
                 <div class="panel-body">
-                <p>                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                </p>
-                </div>
-            </div>
+                                 <a href="{{ url('/gezinnenlijst/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                                
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Te beoordelen aanmeldingen</div>
-                <div class="panel-body">
-                <p>Hieronder staat een lijst met alle <b>aangemelde</b> gezinnen. Dat betekent dat deze gezinnen door de intermediair zijn aangemeld voor goedkeuring. Ook de gezinnen die eerst waren afgekeurd, maar opnieuw zijn aangemeld kunnen ertussen staan. De reden van de vorige afkeuring staat er nog bij vermeld (zie RA).</p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="navbar-brand"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_goedgekeurd') }}" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gezin">
+        </div>
+        <button type="submit" class="btn btn-default">Zoek</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
 
-                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                            <thead>
-                            <tr>                				
-                				<th>Achternaam&nbsp;</th>
-                				<th>Woonplaats&nbsp;</th>
-                                <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span></th>
-                                <th><span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">AI</span></th>       
-                                <th><span class="badge" data-toggle="tooltip" title="Er is al een gezin op de postcode/huisnummer bekend.">DP</span></th>      
-                                <th><span class="badge" data-toggle="tooltip" title="Dit gezin heeft mogelijk een kind waarvan de voornaam en geboortedatum al een keer voorkomt.">DK</span></th> 
-                                <th><span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></th>
-                                <th>Aktie&nbsp;</th> 
-                            </tr>                 				
-                			</thead>
-                            <tbody>
-    					@foreach ($aangemeldefamilies as $aangemeldefamilie)
+            <p class="navbar-text">
 
-                                <tr>
-                  
-       							<td>{{ $aangemeldefamilie->achternaam }}&nbsp;</td>
-    							<td>{{ $aangemeldefamilie->woonplaats }}&nbsp;</td>
-                                <td>{{ $aangemeldefamilie->kidscount }}&nbsp;</td>
-                                <td>
-                                    @if($aangemeldefamilie->andere_alternatieven)
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    @endif
-                                    &nbsp;</td>                       
-                                <td>
-                                    @if($aangemeldefamilie->postcodehuisnummerdubbel)
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    @endif
-                                    &nbsp;</td>
-                                <td>
-                                    @if($aangemeldefamilie->heeftkindmogelijkdubbel)
-                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    @endif
-                                    &nbsp;</td>
-                                <td>
-                                        @if ($aangemeldefamilie->redenafkeuren)
-                                            <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$aangemeldefamilie->redenafkeuren}}"></span>
-                                        @endif
-                                </td>
+                @if (Request::input('achternaam'))
+                    <b>bevat "{{Request::input('achternaam')}}"</b>          
+                @else
+                    Geen filter
+                @endif
 
-                                <td>
-                                  
-                                        <a href="{{ url('/intermediairs') }}/show/{{ $aangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
+            </p>
+        </li>
+        <li><p class="navbar-text"><p class="navbar-text"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <b>{{$nietaangemeldefamilie->total()}}</b></p></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-										<a href="{{ url('/family') }}/show/{{ $aangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>
-
-                                        
-                                            <a href="{{ url('/family') }}/toggleok/{{ $aangemeldefamilie->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>
-                                        
-                                            <a href="{{ url('/family') }}/afkeuren/{{ $aangemeldefamilie->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
-                                        
-                                        
-                                  
-                                </td>
-    						</tr>
-
-    					@endforeach
-                            </tbody>
-                	</table>
+                                
 
 
-                </div>
-            </div>
+                                    <div class="row">
+                        <div class="col-sm-8 col-md-offset-2">
+                            {{$nietaangemeldefamilies->render()}}
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Definitief aangemelde gezinnen</div>
-                <div class="panel-body">
-                <p>Hieronder staan alle (in principe) definitief goedgekeurde gezinnen. Deze gezinnen kunnen echter nog wel worden aangepast door de intermediair, of alsnog worden afgekeurd door de beheerder. Het gezin moet dan opnieuw worden aangemeld.</p>
-                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                            <thead>
-                            <tr>                                
-                                <th>Achternaam&nbsp;</th>
-                                <th>Woonplaats&nbsp;</th>     
-                                <th><span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></th>                                             
-                                <th>Aktie&nbsp;</th>                                 
-                            </tr>                               
-                            </thead>
-                            <tbody>
-                        @foreach ($goedgekeurdefamilies as $goedgekeurdefamilie)
+                        </div>
 
-                                <tr>
+                    </div>
 
 
-                                <td>{{ $goedgekeurdefamilie->achternaam }}&nbsp;</td>
-                                <td>{{ $goedgekeurdefamilie->woonplaats }}&nbsp;</td>
-                                <td>
-                                        @if ($goedgekeurdefamilie->redenafkeuren)
-                                            <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$goedgekeurdefamilie->redenafkeuren}}"></span>
-                                        @endif
-                                </td>
-                                <td>
-                                  
-                                        <a href="{{ url('/intermediairs') }}/show/{{ $goedgekeurdefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
-
-                                        <a href="{{ url('/family') }}/show/{{ $goedgekeurdefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>        
-
-                                        <a href="{{ url('/family') }}/afkeuren/{{ $goedgekeurdefamilie->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>                                                  
-                                  
-                                </td>
-                            </tr>
-
-                        @endforeach
-                            </tbody>
-                    </table>
-                    
-                    
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Nog niet aangemelde (en afgekeurde) gezinnen</div>
-                <div class="panel-body">
-                <p>Ter informatie staat hieronder een lijst met alle <b>niet aangemelde</b> gezinnen in de database. Dat betekent dat het gezin nog door de intermediair moet worden aangemeld, of dat het gezin definitief is afgekeurd.</p>
+                     <p>Ter informatie staat hieronder een lijst met alle <b>niet aangemelde</b> gezinnen in de database. Dat betekent dat het gezin nog door de intermediair moet worden aangemeld, of dat het gezin definitief is afgekeurd.</p>
                      <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                             <thead>
                             <tr>                                
@@ -192,6 +122,7 @@
                     
                 </div>
             </div>
+
         </div>
     </div>
 </div>

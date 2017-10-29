@@ -109,7 +109,7 @@ Route::get('/tellingen/', 'HomeController@tellingen');
 Route::get('/kinderlijst/', 'HomeController@kinderlijst'); 
 Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst'); 
 Route::get('/gezinnenlijst_goedgekeurd/', 'HomeController@gezinnenlijst_goedgekeurd'); 
-
+Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaantemelden'); 
 Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs'); 
 
 /*

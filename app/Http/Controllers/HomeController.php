@@ -285,6 +285,28 @@ class HomeController extends Controller
     }    
 
 
+    public function gezinnenlijst_nogaantemelden()
+    {
+
+        if (request()->has('achternaam')) { // achternaam
+
+
+                    $nietaangemeldefamilie = Family::where([
+                            ['achternaam', 'like', "%" . request('achternaam') . "%"],
+                            ['goedgekeurd', '0']
+                        ])->paginate(100)->appends('achternaam', request('achternaam'));
+
+                   
+        } else {
+                    $nietaangemeldefamilie = Family::where('goedgekeurd', 0)->paginate(100);
+        }
+
+        
+
+        return view('gezinnenlijst_nogaantemelden', ['nietaangemeldefamilies'=>$nietaangemeldefamilies]);     
+    }    
+
+
     public function emailtest()
     {
 
