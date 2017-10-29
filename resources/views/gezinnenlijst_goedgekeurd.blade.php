@@ -52,14 +52,15 @@
 
             <p class="navbar-text">
 
-            @if (Request::input('ra'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">RA</span></b>
-            @elseif(Request::input('gra'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">RA</span></b>            
-            @else
-                Geen filter
-            @endif
-</p>
+                @if (Request::input('ra'))
+                    Filter: <b>wel <span class="badge" data-toggle="tooltip">RA</span></b>
+                @elseif(Request::input('gra'))
+                    Filter: <b>geen <span class="badge" data-toggle="tooltip">RA</span></b>            
+                @else
+                    Geen filter
+                @endif
+            
+            </p>
         </li>
         <li><p class="navbar-text">Aantal: <b>{{$goedgekeurdefamilies->total()}}</b></p></li>
       </ul>
