@@ -49,22 +49,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-        <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
+        <li class="active"><a href="{{ url('/users/index') }}">Reset</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip">AI<span></a></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip">AI<span></a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip">A<span></a></li>            
-            <li><a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip">A<span></a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
-            <li><a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
+            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>       
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_goedgekeurd') }}" method="get">
+      <form class="navbar-form navbar-left" action="{{ url('/users/index') }}" method="get">
         <div class="form-group">
           <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gebruiker">
         </div>
