@@ -94,8 +94,8 @@
                                 <tr>
                                 @endif
 
-                                <td>{{ $nietaangemeldefamilie->achternaam }}&nbsp;</td>
-                                <td>{{ $nietaangemeldefamilie->woonplaats }}&nbsp;</td>
+                                <td>{{ str_limit($nietaangemeldefamilie->achternaam, 20) }}&nbsp;</td>
+                                <td>{{ str_limit($nietaangemeldefamilie->woonplaats, 20) }}&nbsp;</td>
                                 <td>
                                         @if ($nietaangemeldefamilie->redenafkeuren)
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$nietaangemeldefamilie->redenafkeuren}}"></span>
