@@ -60,7 +60,7 @@
         <li class="active"><a href="{{ url('/intermediairs') }}">Reset</a></li>
 
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/intermediairs/index') }}" method="get">
+      <form class="navbar-form navbar-left" action="{{ url('/intermediairs') }}" method="get">
         <div class="form-group">
           <input type="text" class="form-control" name="achternaam"  placeholder="Naam instelling">
         </div>
