@@ -272,7 +272,7 @@ class HomeController extends Controller
                     $goedgekeurde_families = Family::whereHas('family', function ($query) {
                         $query->where([
                             ['achternaam', 'like', "%" . request('achternaam') . "%"],
-                            ['goedgekeurd', 1]
+                            ['goedgekeurd', '1']
                         ]);
                     })->paginate(100)->appends('achternaam', request('achternaam'));
 
