@@ -62,7 +62,7 @@
       </ul>
       <form class="navbar-form navbar-left" action="{{ url('/intermediairs') }}" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Naam instelling">
+          <input type="text" class="form-control" name="naam"  placeholder="Naam instelling">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
@@ -73,8 +73,6 @@
 
                 @if (Request::input('naam'))
                     <b>bevat "{{Request::input('naam')}}"</b>          
-                @elseif (Request::input('na'))
-                    <b>niet aktief</b>  
                 @else
                     Geen filter
                 @endif
