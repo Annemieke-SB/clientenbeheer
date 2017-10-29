@@ -298,7 +298,7 @@ class HomeController extends Controller
 
                    
         } else {
-                    $nietaangemeldefamilie = Family::where('goedgekeurd', 0)->paginate(100);
+                    $nietaangemeldefamilies = Family::where('goedgekeurd', 0)->paginate(100);
         }
 
         
