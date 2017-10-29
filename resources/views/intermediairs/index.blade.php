@@ -114,7 +114,7 @@
     							
     							<td>
                                 @if(isset($intermediair->user->organisatienaam))
-                                {{ str_limit($intermediair->user->organisatienaam, 30) }}&nbsp;
+                                {{ str_limit($intermediair->user->organisatienaam, 40) }}&nbsp;
                                 @else
                                 !!FOUT!! Im-id: {{$intermediair->id}} 
                                 @endif
