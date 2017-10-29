@@ -27,8 +27,18 @@ class IntermediairController extends Controller
     public function index(Request $request)
     {
 
+        if (request()->has('naam')) {
 
-        $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(20);
+            $intermediairs = Intermediair::whereHas('user', function ($query) {
+                            $query->where('organisatienaam', 'like', "%" . request('naam') . "%");
+                        })->paginate(100)->appends('naam', request('naam'));
+            
+        } else {
+            $intermediairs = Intermediair::with('user')->orderBy('id', 'DESC')->paginate(20);
+        }
+
+        
+
         $user = Auth::user();
 
         // Intermediairs mogen de index niet zien        
