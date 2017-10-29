@@ -53,9 +53,9 @@
             <p class="navbar-text">
 
                 @if (Request::input('ra'))
-                    Filter: <b>wel <span class="badge" data-toggle="tooltip">RA</span></b>
+                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> <b>wel <span class="badge" data-toggle="tooltip">RA</span></b>
                 @elseif(Request::input('gra'))
-                    Filter: <b>geen <span class="badge" data-toggle="tooltip">RA</span></b>            
+                    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> <b>geen <span class="badge" data-toggle="tooltip">RA</span></b>            
                 @else
                     Geen filter
                 @endif
