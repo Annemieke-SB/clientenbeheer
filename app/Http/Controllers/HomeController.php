@@ -269,8 +269,7 @@ class HomeController extends Controller
         if (request()->has('achternaam')) { // achternaam
 
 
-                    $goedgekeurde_families = Family::whereHas('family', function ($query) {
-                        $query->where([
+                    $goedgekeurde_families = Family::where([
                             ['achternaam', 'like', "%" . request('achternaam') . "%"],
                             ['goedgekeurd', '1']
                         ]);
