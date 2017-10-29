@@ -47,8 +47,8 @@
 
                                 <tr>
                   
-       							<td>{{ str_limit($aangemeldefamilie->achternaam, 8) }}&nbsp;</td>
-    							<td>{{ str_limit($aangemeldefamilie->woonplaats, 8) }}&nbsp;</td>
+       							<td>{{ str_limit($aangemeldefamilie->achternaam, 6) }}&nbsp;</td>
+    							<td>{{ str_limit($aangemeldefamilie->woonplaats, 6) }}&nbsp;</td>
                                 <td>{{ $aangemeldefamilie->kidscount }}&nbsp;</td>
                                 <td>
                                     @if($aangemeldefamilie->andere_alternatieven)
