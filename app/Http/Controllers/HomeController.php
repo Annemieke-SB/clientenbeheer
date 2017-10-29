@@ -291,7 +291,7 @@ class HomeController extends Controller
         if (request()->has('achternaam')) { // achternaam
 
 
-                    $nietaangemeldefamilie = Family::where([
+                    $nietaangemeldefamilies = Family::where([
                             ['achternaam', 'like', "%" . request('achternaam') . "%"],
                             ['goedgekeurd', '0']
                         ])->paginate(100)->appends('achternaam', request('achternaam'));
