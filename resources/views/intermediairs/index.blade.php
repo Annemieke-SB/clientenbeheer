@@ -57,10 +57,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-        <li class="active"><a href="{{ url('/users/index') }}">Reset</a></li>
+        <li class="active"><a href="{{ url('/intermediairs') }}">Reset</a></li>
 
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/users/index') }}" method="get">
+      <form class="navbar-form navbar-left" action="{{ url('/intermediairs/index') }}" method="get">
         <div class="form-group">
           <input type="text" class="form-control" name="achternaam"  placeholder="Naam instelling">
         </div>
@@ -71,8 +71,8 @@
 
             <p class="navbar-text">
 
-                @if (Request::input('achternaam'))
-                    <b>bevat "{{Request::input('achternaam')}}"</b>          
+                @if (Request::input('naam'))
+                    <b>bevat "{{Request::input('naam')}}"</b>          
                 @elseif (Request::input('na'))
                     <b>niet aktief</b>  
                 @else
