@@ -97,7 +97,7 @@
 
                                         <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
-                            {{$intermediairs->render()}}
+                            
                         </div>
 
                     </div><small>Sortering: Laatste komt als eerste</small>
