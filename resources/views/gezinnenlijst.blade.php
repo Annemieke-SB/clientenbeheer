@@ -47,8 +47,8 @@
 
                                 <tr>
                   
-       							<td>{{ $aangemeldefamilie->achternaam }}&nbsp;</td>
-    							<td>{{ $aangemeldefamilie->woonplaats }}&nbsp;</td>
+       							<td>{{ str_limit($aangemeldefamilie->achternaam, 8) }}&nbsp;</td>
+    							<td>{{ str_limit($aangemeldefamilie->woonplaats, 8) }}&nbsp;</td>
                                 <td>{{ $aangemeldefamilie->kidscount }}&nbsp;</td>
                                 <td>
                                     @if($aangemeldefamilie->andere_alternatieven)
@@ -114,8 +114,8 @@
                                 <tr>
 
 
-                                <td>{{ $goedgekeurdefamilie->achternaam }}&nbsp;</td>
-                                <td>{{ $goedgekeurdefamilie->woonplaats }}&nbsp;</td>
+                                <td>{{ str_limit($goedgekeurdefamilie->achternaam, 8) }}&nbsp;</td>
+                                <td>{{ str_limit($goedgekeurdefamilie->woonplaats, 8) }}&nbsp;</td>
                                 <td>
                                         @if ($goedgekeurdefamilie->redenafkeuren)
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$goedgekeurdefamilie->redenafkeuren}}"></span>
@@ -164,8 +164,8 @@
                                 <tr>
                                 @endif
 
-                                <td>{{ $nietaangemeldefamilie->achternaam }}&nbsp;</td>
-                                <td>{{ $nietaangemeldefamilie->woonplaats }}&nbsp;</td>
+                                <td>{{ str_limit($nietaangemeldefamilie->achternaam, 8) }}&nbsp;</td>
+                                <td>{{ str_limit($nietaangemeldefamilie->woonplaats, 8) }}&nbsp;</td>
                                 <td>
                                         @if ($nietaangemeldefamilie->redenafkeuren)
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$nietaangemeldefamilie->redenafkeuren}}"></span>
