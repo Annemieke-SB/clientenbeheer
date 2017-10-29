@@ -59,10 +59,10 @@
                 @else
                     Geen filter
                 @endif
-            
+
             </p>
         </li>
-        <li><p class="navbar-text">Aantal: <b>{{$goedgekeurdefamilies->total()}}</b></p></li>
+        <li><p class="navbar-text">Aant: <b>{{$goedgekeurdefamilies->total()}}</b></p></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
