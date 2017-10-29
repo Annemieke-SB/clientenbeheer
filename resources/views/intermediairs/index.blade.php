@@ -13,7 +13,7 @@
                       <li class="active">Intermediairs</li>
                     </ol> 
 
-                <div class="panel-body"><h1>Ik ben hier even aan het werk, groet Henrique!</h1>
+                <div class="panel-body">
                                                 <p>
 
 
