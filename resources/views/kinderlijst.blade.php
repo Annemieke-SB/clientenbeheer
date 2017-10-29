@@ -59,19 +59,19 @@
             <p class="navbar-text">
 
             @if (Request::input('wai'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">AI</span></b>
+                <b>wel <span class="badge" data-toggle="tooltip">AI</span></b>
             @elseif(Request::input('gai'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">AI</span></b>
+                <b>geen <span class="badge" data-toggle="tooltip">AI</span></b>
             @elseif(Request::input('gg'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">A</span></b>
+                <b>wel <span class="badge" data-toggle="tooltip">A</span></b>
             @elseif(Request::input('ngg'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">A</span></b>
+                <b>geen <span class="badge" data-toggle="tooltip">A</span></b>
             @elseif(Request::input('ngg'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip">PDF</span></b>
+                <b>wel <span class="badge" data-toggle="tooltip">PDF</span></b>
             @elseif(Request::input('ngg'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip">PDF</span></b>
+                <b>geen <span class="badge" data-toggle="tooltip">PDF</span></b>
             @elseif(Request::input('achternaam'))
-                Filter: <b>bevat "{{Request::input('achternaam')}}"</b>
+                <b>bevat "{{Request::input('achternaam')}}"</b>
             @else
                 Geen filter
             @endif
