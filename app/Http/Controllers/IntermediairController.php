@@ -35,7 +35,7 @@ class IntermediairController extends Controller
             
         } elseif(request()->has('af')) {
 
-            $intermediairs = Intermediair::doesntHave('families')->paginate(100)->appends('df', request('df'));
+            $intermediairs = Intermediair::doesntHave('familys')->paginate(100)->appends('df', request('df'));
 
             //$intermediairs->disqualifiedfams
 
