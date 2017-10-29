@@ -50,11 +50,23 @@
       <ul class="nav navbar-nav">
         
         <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
-        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/kinderlijst') }}/?wai=1">Toon alleen <span class="badge" data-toggle="tooltip">AI<span></a></li>
+            <li><a href="{{ url('/kinderlijst') }}/?gai=1">Toon juist geen <span class="badge" data-toggle="tooltip">AI<span></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ url('/kinderlijst') }}/?gg=1">Toon alleen <span class="badge" data-toggle="tooltip">A<span></a></li>            
+            <li><a href="{{ url('/kinderlijst') }}/?ngg=1">Toon juist geen <span class="badge" data-toggle="tooltip">A<span></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ url('/kinderlijst') }}/?p=1">Toon alleen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
+            <li><a href="{{ url('/kinderlijst') }}/?gp=1">Toon juist geen <span class="badge" data-toggle="tooltip" title="Gezin is aangemeld bij andere initiatieven.">PDF<span></a></li>            
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_goedgekeurd') }}" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gezin">
+          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gebruiker">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
