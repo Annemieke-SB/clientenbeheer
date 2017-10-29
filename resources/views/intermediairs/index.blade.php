@@ -58,16 +58,11 @@
       <ul class="nav navbar-nav">
         
         <li class="active"><a href="{{ url('/users/index') }}">Reset</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>       
-          </ul>
-        </li>
+
       </ul>
       <form class="navbar-form navbar-left" action="{{ url('/users/index') }}" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gebruiker">
+          <input type="text" class="form-control" name="achternaam"  placeholder="Naam instelling">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
