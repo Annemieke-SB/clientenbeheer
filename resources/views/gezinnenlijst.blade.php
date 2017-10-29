@@ -19,6 +19,8 @@
 
                 <div class="panel-body">
                 <p>                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/gezinnenlijst_goedgekeurd/') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Goedgekeurde gezinnen</button></a>
+                    <a href="{{ url('/gezinnenlijst_nogaantemelden/') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Nog aan te melden gezinnen</button></a>
                 </p>
                 </div>
             </div>
