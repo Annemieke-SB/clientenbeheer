@@ -88,8 +88,8 @@
                                 <tr>
 
 
-                                <td>{{ str_limit($goedgekeurdefamilie->achternaam, 9)  }}&nbsp;</td>
-                                <td>{{ str_limit($goedgekeurdefamilie->woonplaats, 9)  }}&nbsp;</td>
+                                <td>{{ str_limit($goedgekeurdefamilie->achternaam, 12)  }}&nbsp;</td>
+                                <td>{{ str_limit($goedgekeurdefamilie->woonplaats, 12)  }}&nbsp;</td>
                                 <td>
                                         @if ($goedgekeurdefamilie->redenafkeuren)
                                             <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="{{$goedgekeurdefamilie->redenafkeuren}}"></span>
