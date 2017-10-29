@@ -53,9 +53,9 @@
             <p class="navbar-text">
 
             @if (Request::input('ra'))
-                Filter: <b>wel <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></b>
+                Filter: <b>wel <span class="badge" data-toggle="tooltip">RA</span></b>
             @elseif(Request::input('gra'))
-                Filter: <b>geen <span class="badge" data-toggle="tooltip" title="Dit gezin was afgekeurd, maar is opnieuw aangemeld. Mogelijk heeft de intermediair eea aangepast. De reden van de vorige afmelding staat in het envelopje. Als deze aanmelding weer niet goed is keur hem dan weer af. Je kunt dan de reden aanpassen.">RA</span></b>            
+                Filter: <b>geen <span class="badge" data-toggle="tooltip">RA</span></b>            
             @else
                 Geen filter
             @endif
