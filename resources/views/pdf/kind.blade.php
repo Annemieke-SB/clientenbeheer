@@ -13,24 +13,10 @@
 
 <div id="textbody">
 		<p>
-		Aan de ouders/verzorgers van<br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
+		Aan de ouders/verzorgers van<br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
 		{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 		{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
-		</p>
-
-
-		Beste ouders/verzorgers van Japie,
-		Alstublieft, Japie mag ter waarde van maximaal 25 euro een cadeau uitkiezen uit de collectie van Intertoys.
-		Ga uiterlijk 5 december 2017 met het volledig ingevulde verlanglijstje en met deze brief naar de Intertoys
-		vestiging van uw keuze om de cadeaus te ontvangen.
-		Cadeaus die niet passen bij de leeftijd van Japie kunnen worden geweigerd. Gekozen cadeaus kunnen niet
-		worden geruild of ingewisseld voor contant geld. Na 5 december 2017 vervalt dit aanbod. Zonder deze brief
-		kan Intertoys u de cadeaus helaas niet overhandigen.
-		Wij wensen Japie, u en uw gezin een hele fijne sinterklaasavond.
-		Hartelijke groet,
-
-
-
+		</p><br><br>
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 		<p>
