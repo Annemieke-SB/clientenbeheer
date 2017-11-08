@@ -74,13 +74,13 @@
 		<p><br>
 			Groetjes van Sint</p>
 
-			<p style="font-size: 10px; text-align: center;">Plak hier de kadootjes die je graag wilt hebben. Plak bij nr. 1 het kadootje dat je het allerliefste wilt hebben
+			<p style="font-size: 12px; text-align: center;">Plak hier de kadootjes die je graag wilt hebben. Plak bij nr. 1 het kadootje dat je het allerliefste wilt hebben
 			en bij nr. 2 wat je daarna het liefste wilt hebben. De Sint zoekt dan een mooi kadootje voor je uit.</p>
 	</div>
 
 
 <div id="verlanglijstholder">{{ Html::image('img/sintbankpics/hokjes_brief2.png', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
 
-<div id="bottom" style="margin-top: -20px;">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
+<div id="bottom" style="margin-top: -50px;">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
 </body>
 </html>
