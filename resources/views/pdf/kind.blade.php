@@ -50,7 +50,7 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
-			<p>Madrid, november {{date('Y')}}</p>
+			<p>Madrid, november {{date('Y')}}</p><div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
 		<p>	
 		Lieve {{ ucfirst($kid->voornaam) }},
 		</p>
@@ -80,6 +80,6 @@
 
 <div id="verlanglijstholder">{{ Html::image('img/sintbankpics/hokjes_brief2.png', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
 
-<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+
 </body>
 </html>
