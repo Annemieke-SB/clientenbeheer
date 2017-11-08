@@ -101,12 +101,8 @@ div#barcodenumber {
     page-break-after: always;
 }
 
-#verlanglijsttextholder {
-	width: 400px;
-}
-
-
 #verlanglijstholder{
+	margin-top: -20px;
 	width: 600px;
 }
 

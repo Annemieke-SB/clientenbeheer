@@ -54,7 +54,7 @@
 			<p>Madrid, november {{date('Y')}}</p>
 		<p>	
 		Lieve {{ ucfirst($kid->voornaam) }},
-		</p><br>
+		</p>
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
 		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
@@ -71,7 +71,7 @@
 
 		<p>
 			Als je je verlanglijstje hebt ingevuld mag je het in je schoen doen. Piet komt het dan bij je ophalen. We gaan dan in de pakjesboot kijken of het cadeauthe dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
-		<p>
+		<p><br>
 			Groetjes van Sint</p>
 	</div>
 
