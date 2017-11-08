@@ -47,7 +47,8 @@ div#bottom {
 }
 
 div#footernotes {
-	margin:20px;
+	margin-top:50px;
+	font-size: 12px;
 }
 
 #wrapper {
