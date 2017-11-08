@@ -11,19 +11,33 @@
 <div id="content">
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
-<p class="inspring">
-<b>Aan de ouders/verzorgers van</b><br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
+<p>
+Aan de ouders/verzorgers van<br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
 {{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 {{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
 </p>
+
+
+Beste ouders/verzorgers van Japie,
+Alstublieft, Japie mag ter waarde van maximaal 25 euro een cadeau uitkiezen uit de collectie van Intertoys.
+Ga uiterlijk 5 december 2017 met het volledig ingevulde verlanglijstje en met deze brief naar de Intertoys
+vestiging van uw keuze om de cadeaus te ontvangen.
+Cadeaus die niet passen bij de leeftijd van Japie kunnen worden geweigerd. Gekozen cadeaus kunnen niet
+worden geruild of ingewisseld voor contant geld. Na 5 december 2017 vervalt dit aanbod. Zonder deze brief
+kan Intertoys u de cadeaus helaas niet overhandigen.
+Wij wensen Japie, u en uw gezin een hele fijne sinterklaasavond.
+Hartelijke groet,
+
+
+
 <p>
-Beste blade/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
+Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 <p>
 Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een cadeau uitkiezen uit de collectie van
 Intertoys.</p>
-<p>Ga uiterlijk 5 december {{date('Y')}} met <b><u>het volledig ingevulde verlanglijstje en met deze brief</u></b> naar de Intertoys vestiging van  uw keuze om de cadeaus te ontvangen.</p>
+<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje en met deze brief naar de Intertoys vestiging van  uw keuze om de cadeaus te ontvangen.</p>
 
-<p class="inspring">Cadeaus die niet passen bij de leeftijd van {{ ucfirst($kid->voornaam) }} kunnen worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod. Zonder deze brief kan Intertoys u de cadeaus helaas niet overhandigen.</p>
+<p>Cadeaus die niet passen bij de leeftijd van {{ ucfirst($kid->voornaam) }} kunnen worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod. Zonder deze brief kan Intertoys u de cadeaus helaas niet overhandigen.</p>
 
 <div id=wrapper>
 	<div id='afsluiting'>
@@ -34,14 +48,14 @@ Intertoys.</p>
 
 	
 	</div>
-	<div id="plaatholder">{{ Html::image('img/sintbankpics/plaatje.jpg', 'logo', array('class' => 'plaatje')) }}&nbsp;</div>
+	<!-- <div id="plaatholder">{{ Html::image('img/sintbankpics/plaatje.jpg', 'logo', array('class' => 'plaatje')) }}&nbsp;</div> -->
 </div>
 <p>
 P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!
 <br><br>Volg ons op facebook (facebook.com/DeSinterklaasbank/) om op de hoogte te blijven van alle activiteiten van de Sinterklaasbank.
 	
 </p>
-<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+
 <div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank'<br>Postbus 1007, 1400 BA Bussum<br>KvK 52115885 | IBAN NL40 RABO 0106 7550 13<br><br></div></div>
 
 <div class="page-break"></div>
@@ -80,5 +94,7 @@ P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasb
 
 
 <div id="verlanglijstholder">{{ Html::image('img/sintbankpics/vakjes.gif', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
+
+<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
 </body>
 </html>
