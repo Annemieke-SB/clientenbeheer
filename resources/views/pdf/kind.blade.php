@@ -73,9 +73,6 @@
 	Als je je verlanglijstje hebt ingevuld mag je het in je schoen doen. Piet komt het dan bij je ophalen. We gaan dan in de pakjesboot kijken of het cadeauthe dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
 <p>
 	Groetjes van Sint</p>
-
-	<p>Plak hier de kadootjes die je graag wilt hebben. Plak bij nr. 1 het kadootje dat je het allerliefste wilt hebben
-en bij nr. 2 wat je daarna het liefste wilt hebben. De Sint zoekt dan een mooi kadootje voor je uit.</p>
 </div>
 
 
