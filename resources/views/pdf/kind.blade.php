@@ -49,31 +49,31 @@
 <div class="page-break"></div>
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 <div class="mijter">{{ Html::image('img/mijter.gif', '-', array('class' => 'mijter')) }}&nbsp;</div>
-<div class="verlanglijsttextholder">
-	
-		<p>Madrid, november {{date('Y')}}</p>
-	<p>	
-	Lieve {{ ucfirst($kid->voornaam) }},
-	</p><br>
-	<p>Hier een brief van Sinterklaas.</p>
-	<p>
-	Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
-	kindjes blij maken met een cadeau.<br>En één van die kindjes ben jij! </p>
-	<p>
-	Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend maar gelukkig is het weer
-	allemaal goed gegaan met de stoomboot.<br>
-	Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
-	<p>
-	Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben vraag ik je het verlanglijstje hieronder in te
-	vullen. Je mag plaatjes uitknippen, bijvoorbeeld uit het grote Intertoysboek en die erop plakken.
-	Maar je mag ook een tekening maken of, als je dat al kunt, opschrijven wat je graag wilt hebben.
-	</p>
 
-<p>
-	Als je je verlanglijstje hebt ingevuld mag je het in je schoen doen. Piet komt het dan bij je ophalen. We gaan dan in de pakjesboot kijken of het cadeauthe dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
-<p>
-	Groetjes van Sint</p>
-</div>
+	<div id="textbody">	
+			<p>Madrid, november {{date('Y')}}</p>
+		<p>	
+		Lieve {{ ucfirst($kid->voornaam) }},
+		</p><br>
+		<p>Hier een brief van Sinterklaas.</p>
+		<p>
+		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
+		kindjes blij maken met een cadeau.<br>En één van die kindjes ben jij! </p>
+		<p>
+		Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend maar gelukkig is het weer
+		allemaal goed gegaan met de stoomboot.<br>
+		Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
+		<p>
+		Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben vraag ik je het verlanglijstje hieronder in te
+		vullen. Je mag plaatjes uitknippen, bijvoorbeeld uit het grote Intertoysboek en die erop plakken.
+		Maar je mag ook een tekening maken of, als je dat al kunt, opschrijven wat je graag wilt hebben.
+		</p>
+
+		<p>
+			Als je je verlanglijstje hebt ingevuld mag je het in je schoen doen. Piet komt het dan bij je ophalen. We gaan dan in de pakjesboot kijken of het cadeauthe dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
+		<p>
+			Groetjes van Sint</p>
+	</div>
 
 
 <div id="verlanglijstholder">{{ Html::image('img/sintbankpics/hokjes_brief2.png', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
