@@ -39,6 +39,7 @@ div#content {
 }
 
 div#bottom {
+	margin-top:-10px;
 	min-height: 150px;
 	width:100%;
 	/* background-color: #CADA3C; */

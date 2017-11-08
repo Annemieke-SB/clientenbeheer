@@ -44,7 +44,7 @@
 		</p>
 </div>
 
-<div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank'<br>Postbus 1007, 1400 BA Bussum<br>KvK 52115885 | IBAN NL40 RABO 0106 7550 13<br><br></div></div>
+<div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank'<br>Postbus 1007, 1400 BA Bussum<br>KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
 
 <div class="page-break"></div>
 <center><div>{{ Html::image('img/sintbankpics/verlanglijst_titel.gif', '-', array('class' => 'verlanglijst_titel')) }}</div></center>
