@@ -9,7 +9,7 @@
 <body>
 
 <div id="content">
-<div id="top">{{ Html::image('img/sintbankpics/logo-Sinterklaasbank_klein.png', 'logo', array('class' => 'logo')) }}&nbsp;<div id=slogan>"Ieder kind heeft recht op Sint"</div></div>
+<div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;<div id=slogan>"Ieder kind heeft recht op Sint"</div></div>
 
 <p class="inspring">
 <b>Aan de ouders/verzorgers van</b><br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
