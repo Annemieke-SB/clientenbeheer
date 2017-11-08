@@ -9,7 +9,7 @@
 <body>
 
 <div id="content">
-<div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;<div id=slogan>"Ieder kind heeft recht op Sint"</div></div>
+<div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 <p class="inspring">
 <b>Aan de ouders/verzorgers van</b><br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
@@ -17,7 +17,7 @@
 {{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
 </p>
 <p>
-Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
+Beste blade/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 <p>
 Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een cadeau uitkiezen uit de collectie van
 Intertoys.</p>
