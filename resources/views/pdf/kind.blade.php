@@ -81,6 +81,6 @@
 
 <div id="verlanglijstholder">{{ Html::image('img/sintbankpics/hokjes_brief2.png', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
 
-<div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
+<div id="bottom" style="margin-top: -20px;">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
 </body>
 </html>
