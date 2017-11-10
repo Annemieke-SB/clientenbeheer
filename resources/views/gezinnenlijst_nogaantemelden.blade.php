@@ -33,11 +33,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-        <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
+        <li class="active"><a href="{{ url('/gezinnenlijst_nogaantemelden') }}">Reset</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/gezinnenlijst_goedgekeurd') }}/?NDA=1">Toon niet <span class="badge" data-toggle="tooltip">DA<span></a></li>                   
+            <li><a href="{{ url('/gezinnenlijst_nogaantemelden') }}/?NDA=1">Toon niet <span class="badge" data-toggle="tooltip">DA<span></a></li>                   
           </ul>
         </li>
       </ul>
