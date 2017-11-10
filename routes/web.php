@@ -105,14 +105,14 @@ Route::get('/sendmailform/', 'SettingsController@sendmailform')->middleware('aut
 Route::post('/sendmail/', 'SettingsController@sendmail')->middleware('auth');
 
 
-Route::get('/tellingen/', 'HomeController@tellingen'); 
-Route::get('/kinderlijst/', 'HomeController@kinderlijst'); 
-Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst'); 
-Route::get('/gezinnenlijst_goedgekeurd/', 'HomeController@gezinnenlijst_goedgekeurd'); 
+Route::get('/tellingen/', 'HomeController@tellingen')->middleware('auth');; 
+Route::get('/kinderlijst/', 'HomeController@kinderlijst')->middleware('auth');; 
+Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst')->middleware('auth');; 
+Route::get('/gezinnenlijst_goedgekeurd/', 'HomeController@gezinnenlijst_goedgekeurd')->middleware('auth');; 
 
-Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaantemelden'); 
+Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaantemelden')->middleware('auth');; 
 
-Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs'); 
+Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs')->middleware('auth');; 
 
 /*
 *
