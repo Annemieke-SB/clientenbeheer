@@ -117,12 +117,12 @@
                                 </td>   
                                 <td>
                                         
-                                            {{ $nietaangemeldefamilie->kidscount - $nietaangemeldefamilie->kidscount }}
+                                            {{ $nietaangemeldefamilie->kidscount }}
                                         
                                 </td>   
                                 <td>
                                         
-                                            {{ $nietaangemeldefamilie->kidsdisqualified }}
+                                            {{ $nietaangemeldefamilie->kidsdisqualified - $nietaangemeldefamilie->kidscount }}
                                         
                                 </td>                                                             
                                 <td>
