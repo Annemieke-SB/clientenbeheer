@@ -197,7 +197,12 @@ class HomeController extends Controller
 
     public function kinderlijst()
     {
-        
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de kinderlijst te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
         
        if (request()->has('gai')) { // geen andere alternatieven
 
@@ -255,6 +260,12 @@ class HomeController extends Controller
 
     public function gezinnenlijst()
     {
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de kinderlijst te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
 
         $aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
         $goedgekeurde_families = Family::where('goedgekeurd', 1)->get();
@@ -265,6 +276,12 @@ class HomeController extends Controller
 
     public function gezinnenlijst_goedgekeurd()
     {
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de kinderlijst te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
 
         if (request()->has('achternaam')) { // achternaam
 
@@ -287,6 +304,12 @@ class HomeController extends Controller
 
     public function gezinnenlijst_nogaantemelden()
     {
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de kinderlijst te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
 
         if (request()->has('achternaam')) { // achternaam
 
