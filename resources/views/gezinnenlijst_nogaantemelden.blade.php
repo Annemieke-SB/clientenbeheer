@@ -88,7 +88,8 @@
                                 <th>Woonplaats&nbsp;</th>
                                 <th><span class="badge" data-toggle="tooltip" title="Als het gezin is afgekeurd, staat hier een enveloppe met de reden afmelding.">RA</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Het gezin is definitief afgekeurd.">DA</span></th>  
-                                <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span></th>                 
+                                <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span></th>    
+                                <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:green;" data-toggle="tooltip" title="Aantal in aanmerking."></span></th>               
                                 <th>Aktie&nbsp;</th> 
                                 
                             </tr>                               
@@ -116,9 +117,14 @@
                                 </td>   
                                 <td>
                                         
-                                            {{ $nietaangemeldefamilie->kidscount }}
+                                            {{ $nietaangemeldefamilie->kidscount - $nietaangemeldefamilie->kidscount }}
                                         
-                                </td>                              
+                                </td>   
+                                <td>
+                                        
+                                            {{ $nietaangemeldefamilie->kidsdisqualified }}
+                                        
+                                </td>                                                             
                                 <td>
                                   
                                         <a href="{{ url('/intermediairs') }}/show/{{ $nietaangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
