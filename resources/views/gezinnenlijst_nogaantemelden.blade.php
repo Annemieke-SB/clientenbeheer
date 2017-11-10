@@ -34,7 +34,12 @@
       <ul class="nav navbar-nav">
         
         <li class="active"><a href="{{ url('/gezinnenlijst_goedgekeurd') }}">Reset</a></li>
-        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('/kinderlijst') }}/?NDA=1">Toon niet <span class="badge" data-toggle="tooltip">DA<span></a></li>                   
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" action="{{ url('/gezinnenlijst_nogaantemelden') }}" method="get">
         <div class="form-group">
@@ -49,6 +54,8 @@
 
                 @if (Request::input('achternaam'))
                     <b>bevat "{{Request::input('achternaam')}}"</b>          
+                @elseif (Request::input('nda'))
+                    <b>Niet <span class="badge" data-toggle="tooltip">DA<span></b>          
                 @else
                     Geen filter
                 @endif

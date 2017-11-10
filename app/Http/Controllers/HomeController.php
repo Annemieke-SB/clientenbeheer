@@ -321,7 +321,15 @@ class HomeController extends Controller
                         ])->paginate(100)->appends('achternaam', request('achternaam'));
 
                    
-        } else {
+        } elseif (request()->has('nda')) {
+                    $nietaangemeldefamilies = Family::where([
+                            ['definitiefafkeuren', NULL],
+                            ['goedgekeurd', '0']
+                        ])->paginate(100)->appends('nda', request('nda'));
+        }
+
+
+        else {
                     $nietaangemeldefamilies = Family::where('goedgekeurd', 0)->paginate(100);
         }
 
