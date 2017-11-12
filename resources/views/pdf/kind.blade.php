@@ -14,9 +14,8 @@
 <div id="textbody">
 		<p>
 		Aan de ouders/verzorgers van<br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
-		{{-- $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging --}}
-		<br>
-		{{-- $kid->family->postcode }} {{ $kid->family->woonplaats --}}
+		{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
+		{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
 		</p><br><br>
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
@@ -55,7 +54,7 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
-		<table style="width: 100%;"><tr><td style="width: 350px;">Madrid, november {{date('Y')}}</td><td><div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div></td></tr></table>
+		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div></td></tr></table>
 			
 		<p>	
 		Lieve {{ ucfirst($kid->voornaam) }},
