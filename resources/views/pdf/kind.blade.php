@@ -14,8 +14,9 @@
 <div id="textbody">
 		<p>
 		Aan de ouders/verzorgers van<br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
-		{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
-		{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
+		{{-- $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging --}}
+		<br>
+		{{-- $kid->family->postcode }} {{ $kid->family->woonplaats --}}
 		</p><br><br>
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
