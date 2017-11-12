@@ -20,7 +20,7 @@
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 		<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
-		<p>Print het verlanglijstje uit en laat {{ ucfirst($kid->voornaam) }} deze invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
+		<p>U ontvang van ons deze brief en een apart verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
 		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigd namelijk een waarde van 25 euro! 
 		Met het uitgeprintte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u de cadeaus betalen. 
 		Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
