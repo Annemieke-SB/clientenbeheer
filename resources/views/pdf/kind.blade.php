@@ -21,13 +21,13 @@
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 		<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
 		<p>U ontvang van ons deze brief en een apart verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
-		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigd namelijk een waarde van 25 euro! 
-		Met het uitgeprintte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u de cadeaus betalen. 
+		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigt namelijk een waarde van 25 euro! 
+		Met het uitgeprinte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u het cadeau betalen. 
 		Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
 
-		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om de cadeaus te ontvangen.</p>
+		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen.</p>
 
-		<p>Cadeaus die niet passen bij de leeftijd van {{ ucfirst($kid->voornaam) }} kunnen worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod. Zonder deze brief kan Intertoys u de cadeaus helaas niet overhandigen.</p>
+		<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
 
 		<div id=wrapper>
 			<div id='afsluiting'>
