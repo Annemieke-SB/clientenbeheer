@@ -20,7 +20,7 @@
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 		<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
-		<p>Print deze brief uit en laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wilt hebben van Sinterklaas.  
+		<p>Print het verlanglijstje uit en laat {{ ucfirst($kid->voornaam) }} deze invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
 		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigd namelijk een waarde van 25 euro! 
 		Met het uitgeprintte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u de cadeaus betalen. 
 		Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
@@ -62,24 +62,24 @@
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
 		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
-		kindjes blij maken met een cadeau.<br>En één van die kindjes ben jij! </p>
+		kindjes blij maken met een cadeau.<br>En één van die kindjes dat ben jij! </p>
 		<p>
-		Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend maar gelukkig is het weer
+		Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend, maar gelukkig is het weer
 		allemaal goed gegaan met de stoomboot.<br>
 		Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
 		<p>
-		Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben vraag ik je het verlanglijstje hieronder in te
+		Omdat ik heel graag wil weten wat jij van Sinterklaas wil hebben, vraag ik je het verlanglijstje hieronder in te
 		vullen. Je mag plaatjes uitknippen, bijvoorbeeld uit het grote Intertoysboek en die erop plakken.
-		Maar je mag ook een tekening maken of, als je dat al kunt, opschrijven wat je graag wilt hebben.
+		Maar je mag ook een tekening maken of, als je dat al kunt, opschrijven wat je graag wil hebben.
 		</p>
 
 		<p>
-			Als je je verlanglijstje hebt ingevuld mag je het in je schoen doen. Piet komt het dan bij je ophalen. We gaan dan in de pakjesboot kijken of het cadeauthe dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
+			Als je je verlanglijstje hebt ingevuld, mag je het in je schoen doen. Piet komt het dan bij je ophalen. Wij gaan dan in de pakjesboot kijken of het cadeautje dat jij graag wil hebben is meegekomen uit Spanje. Spannend he!</p>	
 		<p><br>
 			Groetjes van Sint</p><br><br>
 
-			<p style="font-size: 12px; text-align: center;">Plak hier de kadootjes die je graag wilt hebben. Plak bij nr. 1 het kadootje dat je het allerliefste wilt hebben
-			en bij nr. 2 wat je daarna het liefste wilt hebben. De Sint zoekt dan een mooi kadootje voor je uit.</p>
+			<p style="font-size: 12px; text-align: center;">Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben
+			en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</p>
 	</div>
 
 
