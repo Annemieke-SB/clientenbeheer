@@ -77,6 +77,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        
+        /*
+            Hieronder de profisorische oplossing om de inschrijvingen tegen te houden. Dit moet worden opgelost. 
+        */
+
+            return redirect('inschrijvinggesloten'); 
+
+        /*
+            ---
+        */  
+
         return User::create([
             'voornaam' => $data['voornaam'],
             'achternaam' => $data['achternaam'],
@@ -114,16 +126,6 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         
-
-        /*
-            Hieronder de profisorische oplossing om de inschrijvingen tegen te houden. Dit moet worden opgelost. 
-        */
-
-            return redirect('inschrijvinggesloten'); 
-
-        /*
-            ---
-        */  
 
 
 

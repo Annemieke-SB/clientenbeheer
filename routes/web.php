@@ -37,17 +37,6 @@ Route::get('/', 'PagesController@home');
 
 Route::get('/register/verify/{token}', 'Auth\RegisterController@verify'); 
 
-
-        /*
-            Hieronder de profisorische oplossing om de inschrijvingen tegen te houden. Dit moet worden opgelost. 
-        */
-			Route::get('/register/', 'Auth\RegisterController@register'); 
-            
-
-        /*
-            ---
-        */  
-
 Auth::routes();
 
 Route::get('contacts/index', 'ContactController@index')->middleware('auth');
