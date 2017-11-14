@@ -114,6 +114,19 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         
+
+        /*
+            Hieronder de profisorische oplossing om de inschrijvingen tegen te houden. Dit moet worden opgelost. 
+        */
+
+            return redirect('inschrijvinggesloten'); 
+
+        /*
+            ---
+        */  
+
+
+
         // Laravel validation
         $validator = $this->validator($request->all());
         if ($validator->fails()) 
