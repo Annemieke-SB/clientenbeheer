@@ -290,9 +290,9 @@
                       <td>
                         <p>Beste intermediair,</p>
 
-                        <p>U kunt de PDF's met barcode downloaden en deze aan de gezinnen verstrekken. Daar bent u zelf verantwoordelijk voor. Let erop dat de barcodes uiterlijk 5 december bij een Intertoys-filiaal zijn verzilverd! Daarna vervalt deze namelijk.</p>
+                        <p>U kunt de PDF's met de barcode downloaden en deze aan de gezinnen verstrekken. Belangrijk is dat de barcodes uiterlijk 5 december bij een Intertoys-filiaal zijn verzilverd! Daarna vervalt deze namelijk.</p>
 
-                        <p>U als intermediair bent verantwoordelijk voor het tijdig verzenden van de instructiebrief en verlanglijstje naar het juiste gezin. Een belangrijk aandachtspunt hierbij is dat het gezin het verlanglijstje ( de instructiebrief hoeft niet ) uitgeprint en ingevuld bij zich moet hebben om de aankopen te kunnen bij een Intertoys filiaal. Houdt hier alstublieft rekening mee, zodat het gezin tijd genoeg heeft om inkopen te doen. </p>
+                        <p>U als intermediair bent verantwoordelijk voor het tijdig verzenden van de instructiebrief en verlanglijstje naar het juiste gezin. Een belangrijk aandachtspunt hierbij is dat het gezin het verlanglijstje ( de instructiebrief hoeft niet ) uitgeprint en ingevuld bij zich moet hebben om de aankopen te kunnen doen bij een Intertoys filiaal naar keuze. <u>Houdt u hier alstublieft rekening mee, zodat het gezin tijd genoeg heeft om inkopen te doen voor Sinterklaasavond.</u></p>
 <p>
 De Sinterklaasbank draagt geen verantwoording voor het niet tijdig aanleveren en/of onvolledig ingevulde lijstjes. 
 </p>
