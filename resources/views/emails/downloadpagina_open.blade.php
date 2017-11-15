@@ -304,13 +304,7 @@ De Sinterklaasbank draagt geen verantwoording voor het niet tijdig aanleveren en
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
                                       <td> <a href="{{ url('intermediair/downloads') }}" target="_blank">Ga naar uw downloadpagina</a> </td>
-                                    </tr>
-                                    <tr>
-                                      <td>&nbsp;</td>
                                     </tr>
                                   </tbody>
                                 </table>
