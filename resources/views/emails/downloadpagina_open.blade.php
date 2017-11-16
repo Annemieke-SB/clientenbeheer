@@ -312,7 +312,7 @@ De Sinterklaasbank draagt geen verantwoording voor het niet tijdig aanleveren en
                             </tr>
                           </tbody>
                         </table> 
-                        <p>We wensen u en de gezinnen en kinderen die u geholpen heeft een hele fijne Sinterklaasavond! Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
+                        <p>We wensen u en de gezinnen en kinderen die u geholpen heeft een hele fijne Sinterklaasavond!</p>
                         <p>Heeft u vragen, stel deze dan via info@sinterklaasbank.nl.</p>
                         <p>Met vriendelijke groet,</p>
                         <p>Stichting de Sinterklaasbank</p>
