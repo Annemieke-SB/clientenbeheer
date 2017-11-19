@@ -30,6 +30,7 @@ Route::get('/voorwaarden', function () {
 Route::get('/inschrijven', 'PagesController@inschrijven');
 Route::get('/particulier', 'PagesController@particulier');
 Route::get('/voorwaarden', 'PagesController@voorwaarden');
+Route::get('/extrabarcodes', 'PagesController@extrabarcodes');
 Route::get('/', 'PagesController@home');
 
 //Route::get('maakpdf', 'PdfController@maakpdf');
