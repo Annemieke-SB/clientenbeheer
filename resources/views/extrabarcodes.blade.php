@@ -52,7 +52,7 @@
                                                             
                                                             <td>
 
-                                                            <a href="{{ url('/download/extrapdf/'.$extrabarcodes->id) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>                                     
+                                                            <a href="{{ url('/download/extrapdf/'.$extrabarcode->id) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>                                     
                                         
                                                             @if($extrabarcode->downloadedbarcodepdf)
                                                                 <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>                                     
