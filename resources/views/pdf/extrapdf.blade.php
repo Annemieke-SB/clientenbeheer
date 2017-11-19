@@ -53,10 +53,9 @@
 		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($barcode->htmlbarcode) !!}</div></td></tr></table>
 			
 		<p>	
-		Dag lieverd,
-		</p>
-		<p>Hier een brief van Sinterklaas.</p>
+		Hallo, hier een brief van Sinterklaas!</p>
 		<p>
+		<br>	
 		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
 		kindjes blij maken met een cadeau.<br>En één van die kindjes dat ben jij! </p>
 		<p>
