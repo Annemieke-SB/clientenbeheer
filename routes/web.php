@@ -96,8 +96,10 @@ Route::post('settings/update/{id}', 'SettingsController@update')->middleware('au
 Route::get('/postcode-nl/address/{postcode}/{houseNumber}/{houseNumberAddition?}', 'AddressController@get')->middleware('auth');
 
 Route::get('/download/pdfvoorkind/{id}', 'DownloadController@pdfvoorkind')->middleware('auth');
+Route::get('/download/extrapdf/{id}', 'DownloadController@extrapdf')->middleware('auth');
 
 Route::get('/download/kidpdf/{id}', 'DownloadController@barcodefetcher')->middleware('auth');
+
 
 Route::get('/template/', 'SettingsController@emailpreview')->middleware('auth');
 Route::get('/sendmailform/', 'SettingsController@sendmailform')->middleware('auth');
