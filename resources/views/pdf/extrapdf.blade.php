@@ -51,7 +51,7 @@
 		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($barcode->htmlbarcode) !!}</div></td></tr></table>
 			
 		<p>	
-		Dag lief kind,
+		Dag lieverd,
 		</p>
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
