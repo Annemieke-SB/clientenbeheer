@@ -69,6 +69,19 @@ class DownloadController extends Controller
 
     }
 
+    public function extrapdf($id) {
+
+
+            $barcode = Barcode::find($id);    
+            $barcode->downloadedpdf = 1;
+
+
+            $pdf = PDF::loadView('pdf.extrapdf', ['barcode' => $barcode]);
+            $barcode->save();  
+            return $pdf->download('Extra Barcode Sinterklaasbank-' .date('ymdhis') . '.pdf');      
+        }
+
+    }
 
 
 }

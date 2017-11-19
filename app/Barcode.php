@@ -3,14 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DNS1D;
+use Custommade;
 
 class Barcode extends Model
 {
 
 	protected $table = 'barcodes';
 
-    protected $appends = array('voorraad', 'totaal', 'uitgegeven', 'availablebarcode');
+    protected $appends = array('voorraad', 'totaal', 'uitgegeven', 'availablebarcode', 'htmlbarcode');
 
     protected $fillable = [
             'barcode',
@@ -49,5 +50,19 @@ class Barcode extends Model
     }
 
 
+    public function getHtmlbarcodeAttribute()
+    {
+
+         if ($this->barcode) {
+
+            return DNS1D::getBarcodeHTML($this->barcode, "C128") . '<br><div id="barcodenumber">' . $this->barcode . '</div>';
+
+         } else {
+
+            return 'Er ging iets fout';
+
+         }
+
+    }   
 
 }
