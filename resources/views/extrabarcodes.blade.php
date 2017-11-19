@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('meta')
+    <meta http-equiv="refresh" content="5" >
+@stop
 @section('content')
 <div class="container">
     <div class="row">
