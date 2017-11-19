@@ -63,6 +63,7 @@
                             <tbody>
                                 <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
                                 <tr><td>Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
+                                <tr><td>Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
                                 <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
                                 <tr><td>Nog niet aangemelde kinderen (definitief afgekeurde gezinnen niet meegeteld)</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
                                 <tr><td>Aangemelde kinderen (in afwachting van goedkeuring)</td><td>{{ $aangemelde_kinderen }}</td></tr>   

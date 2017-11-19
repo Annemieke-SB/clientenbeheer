@@ -40,6 +40,8 @@ class BarcodeController extends Controller
         
         $beschikbare_barcodes = Barcode::where('kid_id', NULL)->count();
 
+        $losse_barcodes = Barcode::where('kid_id', '0')->count();
+
         $uitgegeven_barcodes = $aant_barcodes - $beschikbare_barcodes;
 
         $nietgedownloadde_barcodes = Barcode::where('downloadedpdf', NULL)->count();
@@ -63,7 +65,7 @@ class BarcodeController extends Controller
         }
 
 
-        return view('barcodes.index', ['aant_barcodes' => $aant_barcodes, 'uitgegeven_barcodes' => $uitgegeven_barcodes, 'niet_aangemelde_kinderen' => $niet_aangemelde_kinderen, 'aangemelde_kinderen' => $aangemelde_kinderen, 'gedownloadde_barcodes'=>$gedownloadde_barcodes]);
+        return view('barcodes.index', ['aant_barcodes' => $aant_barcodes, 'uitgegeven_barcodes' => $uitgegeven_barcodes, 'niet_aangemelde_kinderen' => $niet_aangemelde_kinderen, 'aangemelde_kinderen' => $aangemelde_kinderen, 'gedownloadde_barcodes'=>$gedownloadde_barcodes, 'losse_barcodes'=$losse_barcodes]);
     }
 
     public function store()
