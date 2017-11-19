@@ -62,7 +62,7 @@
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
 		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
-		kindjes blij maken met een cadeau.<br>En één van die kindjes dat ben jij! </p>
+		kinderen blij maken met een cadeau. En één van die kinderen dat ben jij! </p>
 		<p>
 		Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend, maar gelukkig is het weer
 		allemaal goed gegaan met de stoomboot.<br>
