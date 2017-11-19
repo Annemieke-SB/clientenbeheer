@@ -4,7 +4,7 @@
 <link href="{{ url('/css/pdf.css') }}" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>Barcode voor {{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}</title>
+	<title>Extra Barcode van de Sinterklaasbank</title>
 </head>
 <body>
 
@@ -12,26 +12,20 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 <br><br>
 <div id="textbody">
-		<p>
-		Aan de ouders/verzorgers van<br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
-		{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
-		{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
-		</p><br><br>
-		<p>
-		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
-		<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
-		<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
+
+		<p>Alstublieft, uw kind mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
+		<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat uw kind het verlanglijstje invullen. Hierbij mag uw kind plakken en knippen of tekenen wat hij of zij graag wil hebben van Sinterklaas.  
 		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigt namelijk een waarde van 25 euro! 
 		Met het uitgeprinte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u het cadeau betalen. 
 		Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
 
 		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen.</p>
 
-		<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
+		<p>Een cadeau dat niet past bij de leeftijd van uw kind kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
 
 		<div id=wrapper>
 			<div id='afsluiting'>
-				Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br><br><br>
+				Wij wensen u en uw gezin een hele fijne sinterklaasavond.<br><br><br>
 
 			Hartelijke groet,<br><br><br>
 			Stichting de Sinterklaasbank&nbsp;
@@ -54,10 +48,10 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
-		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div></td></tr></table>
+		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($barcode->htmlbarcode) !!}</div></td></tr></table>
 			
 		<p>	
-		Lieve {{ ucfirst($kid->voornaam) }},
+		Dag lief kind,
 		</p>
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
