@@ -54,7 +54,7 @@
 
                                                             <a href="{{ url('/download/extrapdf/'.$extrabarcode->id) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>                                     
                                         
-                                                            @if($extrabarcode->downloadedbarcodepdf)
+                                                            @if($extrabarcode->downloadedpdf)
                                                                 <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>                                     
                                                             @endif
                                                             </td>
