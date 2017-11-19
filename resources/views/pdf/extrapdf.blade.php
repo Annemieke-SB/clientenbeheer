@@ -43,7 +43,7 @@
 		</p>
 		</div>
 </div>
-
+<br><br><br>
 <div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
 
 <div class="page-break"></div>
