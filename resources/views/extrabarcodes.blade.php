@@ -37,7 +37,7 @@
 
                                     <br>
                                         <p><small>Tip: Waar een <span class="glyphicon glyphicon-ok-sign"></span> bij staat is al gedownload.</small><br></p>
-                                    @foreach ($extrabarcodes as $extrabarcode)                       
+                                                        
                                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                             <thead>
                                             <tr>                                
@@ -47,7 +47,7 @@
                                             </thead>
                                             <tbody>                                
 
-                                                       
+                                     @foreach ($extrabarcodes as $extrabarcode)                     
                                                         <tr>                                        
                                                             
                                                             <td>
@@ -59,11 +59,11 @@
                                                             @endif
                                                             </td>
                                                         </tr>
-                                                        
+                                        @endforeach                 
                                                 
                                             </tbody>
                                     </table>
-                                    @endforeach
+                                   
                       
 
                                 </div>
