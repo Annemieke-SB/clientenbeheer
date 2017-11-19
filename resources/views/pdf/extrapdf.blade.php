@@ -13,7 +13,7 @@
 <br><br>
 <div id="textbody">
 
-	<p>Beste heer/mevrouw,</p><br><br><br>
+	<p>Beste heer/mevrouw,</p><br><br>
 
 		<p>Alstublieft, uw kind mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
 		<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat uw kind het verlanglijstje invullen. Hierbij mag uw kind plakken en knippen of tekenen wat hij of zij graag wil hebben van Sinterklaas.  
@@ -36,7 +36,7 @@
 			</div>
 			<!-- <div id="plaatholder">{{ Html::image('img/sintbankpics/plaatje.jpg', 'logo', array('class' => 'plaatje')) }}&nbsp;</div> -->
 		
-		<p>
+		<p><br><br>
 		P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!
 		<br><br>Volg ons op facebook (facebook.com/DeSinterklaasbank/) om op de hoogte te blijven van alle activiteiten van de Sinterklaasbank.
 			
