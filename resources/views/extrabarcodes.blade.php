@@ -47,7 +47,7 @@
                                             </thead>
                                             <tbody>                                
 
-                                                        @if ($extrabarcodes->barcode)
+                                                       
                                                         <tr>                                        
                                                             
                                                             <td>
@@ -59,8 +59,7 @@
                                                             @endif
                                                             </td>
                                                         </tr>
-                                                        @endif
-                                                 
+                                                        
                                                 
                                             </tbody>
                                     </table>
