@@ -19,7 +19,7 @@
 
                 <div class="panel-body">
                         <p>
-                        <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                        <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;<a href="{{ url('extrabarcodes') }}"><button type="button" class="btn btn-warning navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;Extra barcodes</button></a>
                         </p>
                     <p>Hier is het overzicht tbv barcodes.</p>
 
