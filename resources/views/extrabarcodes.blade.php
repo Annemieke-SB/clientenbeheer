@@ -26,7 +26,7 @@
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
             @endif
                         
-                    @if ($settings['downloads_ingeschakeld'] == 1) {{-- Downloads open --}}
+                    
                         
 
 
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
 
-                    @endif
+                    
         </div>
     </div>
 </div>
