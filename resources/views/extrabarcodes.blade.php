@@ -18,9 +18,7 @@
 
                 <div class="panel-body">
 
-                    <div class="alert alert-warning" role="alert">
-  Let op: je moet de pagina handmatig verversen om de nieuwe vinkjes te zien!!
-</div>
+
                 Hier staan extra downloads. Je kunt hier de PDF's downloaden die extra zijn vrijgemaakt.  
 
 
@@ -43,8 +41,10 @@
                                     
                       
 
-                                    <br>
-                                        <p><small>Tip: Waar een <span class="glyphicon glyphicon-ok-sign"></span> bij staat is al gedownload.</small><br></p>
+                                    <br>                    <div class="alert alert-warning" role="alert">
+  <small>Tip: Waar een <span class="glyphicon glyphicon-ok-sign"></span> bij staat is al gedownload.</small><br><b>Let op: je moet de pagina handmatig verversen om de nieuwe vinkjes te zien!!</b>
+</div>
+                                        
                                                         
                                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                             <thead>
