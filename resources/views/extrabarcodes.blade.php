@@ -17,7 +17,13 @@
                 </ol> 
 
                 <div class="panel-body">
+
+                    <div class="alert alert-warning" role="alert">
+  Let op: je moet de pagina handmatig verversen om de nieuwe vinkjes te zien!!
+</div>
                 Hier staan extra downloads. Je kunt hier de PDF's downloaden die extra zijn vrijgemaakt.  
+
+
                 <br><br>
 <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 </div>
