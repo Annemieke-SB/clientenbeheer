@@ -13,6 +13,8 @@
 <br><br>
 <div id="textbody">
 
+	<p>Beste heer/mevrouw,</p><br><br><br>
+
 		<p>Alstublieft, uw kind mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
 		<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat uw kind het verlanglijstje invullen. Hierbij mag uw kind plakken en knippen of tekenen wat hij of zij graag wil hebben van Sinterklaas.  
 		Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigt namelijk een waarde van 25 euro! 
