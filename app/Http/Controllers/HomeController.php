@@ -268,7 +268,7 @@ class HomeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $extrabarcodes = Barcode::where('user_id', '=', '0')->get();
+        $extrabarcodes = Barcode::where('kid_id', '=', '0')->get();
 
         return view('extrabarcodes', ['extrabarcodes'=>$extrabarcodes]);  
     }
