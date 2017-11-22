@@ -396,12 +396,12 @@ class IntermediairController extends Controller
                             $query->where('downloadedpdf', '=', NULL);
                         })->get();
 
-        $emails = array();
-
+        $emails = array('jaap@japio.nl', 'bolle@bkk.nl');
+/*
         foreach ($kids_zonder_downloaded_pdf as $kid) {
             $email[] = $kid->family->intermediair->email;
         }
-/*
+
                     $intermediairs = Intermediair::whereHas('user', function ($query) {
                             $query->where('organisatienaam', 'like', "%" . request('naam') . "%");
                         })->paginate(100)->appends('naam', request('naam'));
