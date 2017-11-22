@@ -404,7 +404,7 @@ class IntermediairController extends Controller
         foreach ($barcodes as $barcode) {
 
             $kid = Kid::find($barcode->kid_id);
-            $emails[] = $kid->fam->intermediair->user->email;
+            $emails[] = $kid->family->intermediair->user->email;
 
         }
 /*
