@@ -397,7 +397,7 @@ class IntermediairController extends Controller
 
         $barcodes = DB::table('barcodes')
             ->where([
-                ['kid_id', '>', '0']
+                ['kid_id', '>', 0]
             ])->whereNull('downloadedpdf')
         ->get();
 
