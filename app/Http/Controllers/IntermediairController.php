@@ -396,10 +396,10 @@ class IntermediairController extends Controller
         $emails = array();
 
         $barcodes = DB::table('barcodes')
-            ->where([
-                ['kid_id', '>', 0]
-            ])->whereNull('downloadedpdf')
-        ->get();
+            ->where(['kid_id', '>', 0])
+            ->whereNotNull('kid_id')
+            ->whereNull('downloadedpdf')
+            ->get();
 
         foreach ($barcodes as $barcode) {
 
