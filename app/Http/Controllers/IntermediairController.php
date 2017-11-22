@@ -395,11 +395,17 @@ class IntermediairController extends Controller
 
         $emails = array('jaap@japio.nl', 'bolle@bkk.nl');
 
+        $barcodes = Barcode::where([
+                ['kid_id', '>', '0']
+            ])->whereNull('downloadedpdf')
+        ->get();
+/*
+
         $kids_zonder_downloaded_pdf = Kid::whereHas('barcode', function ($query) {
                             $query->whereNull('downloadedpdf');
                         })->get();
 
-/*
+
         foreach ($kids_zonder_downloaded_pdf as $kidzd) {
             $fam = DB::table('familys')->where('id', $kidzd->family_id)->first();
             $email[] = $fam->intermediair->user->email;
@@ -411,7 +417,7 @@ class IntermediairController extends Controller
 */
 
 
-        return view('intermediairs.zonderdownloads', ['emails' => $kids_zonder_downloaded_pdf]);
+        return view('intermediairs.zonderdownloads', ['emails' => $barcodes]);
     }
 
 
