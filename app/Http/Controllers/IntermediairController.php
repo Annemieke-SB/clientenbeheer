@@ -411,7 +411,7 @@ class IntermediairController extends Controller
 */
 
 
-        return view('intermediairs.zonderdownloads', ['kids_zonder_downloaded_pdf' => $emails]);
+        return view('intermediairs.zonderdownloads', ['emails' => $kids_zonder_downloaded_pdf]);
     }
 
 
