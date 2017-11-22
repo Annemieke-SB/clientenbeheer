@@ -409,6 +409,7 @@ class IntermediairController extends Controller
             }
             else {
                 $foutebarcodes[] = $barcode->id;
+                $fouteintermediairs[] = $barcode->id;
             }
             
 
@@ -430,7 +431,7 @@ class IntermediairController extends Controller
 */
 
 
-        return view('intermediairs.zonderdownloads', ['foutebarcodes' => $foutebarcodes, 'emails'=>$emails]);
+        return view('intermediairs.zonderdownloads', ['foutebarcodes' => $foutebarcodes, 'emails'=>array_unique($emails)]);
     }
 
 
