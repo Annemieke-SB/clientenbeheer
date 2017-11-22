@@ -395,7 +395,7 @@ class IntermediairController extends Controller
 
         $emails = array('jaap@japio.nl', 'bolle@bkk.nl');
 
-        $barcodes = Barcodes::where([
+        $barcodes = Barcode::where([
                 ['kid_id', '>', '0']
             ])->whereNull('downloadedpdf')
         ->get();
