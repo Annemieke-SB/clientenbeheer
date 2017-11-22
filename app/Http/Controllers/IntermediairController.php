@@ -392,12 +392,14 @@ class IntermediairController extends Controller
             return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
+
+        $emails = array('jaap@japio.nl', 'bolle@bkk.nl');
+ /*       
         $kids_zonder_downloaded_pdf = Kid::whereHas('barcode', function ($query) {
                             $query->where('downloadedpdf', '=', NULL);
                         })->get();
 
-        $emails = array('jaap@japio.nl', 'bolle@bkk.nl');
-/*
+
         foreach ($kids_zonder_downloaded_pdf as $kid) {
             $email[] = $kid->family->intermediair->email;
         }
