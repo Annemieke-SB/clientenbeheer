@@ -16,7 +16,6 @@ use App\Intertoys;
 use App\Setting;
 use App\Barcode;
 use DB;
-use App\DB;
 use Html;
 use Custommade;
 use App\Intermediair;
