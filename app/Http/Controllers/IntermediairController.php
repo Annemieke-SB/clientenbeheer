@@ -379,5 +379,24 @@ class IntermediairController extends Controller
     }
 
 
+    public function zonderdownloads()
+    {
+    
+
+        $user = Auth::user();
+
+        // Intermediairs mogen de index niet zien        
+        if(($user->usertype == 3)){
+            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
+            Log::info('Een intermediair probeerde de intermediair-indexpagina te laden, userid: '.$user->id);
+            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+
+
+        return view('intermediairs.zonderdownloads', ['intermediairs' => $intermediairs]);
+    }
+
+
 
 }

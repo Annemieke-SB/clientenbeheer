@@ -67,6 +67,7 @@ Route::get('/intermediairs/destroy/{id}', 'IntermediairController@destroy')->mid
 Route::get('/intermediair/edit/{id}', 'IntermediairController@edit')->middleware('auth');
 Route::get('/intermediair/downloads/', 'IntermediairController@downloads')->middleware('auth');
 Route::post('intermediairs/update', 'IntermediairController@update')->middleware('auth');
+Route::get('intermediairs/zonderdownloads', 'IntermediairController@zonderdownloads')->middleware('auth');
 
 Route::get('/familie/toevoegen/{id}', 'FamilyController@create')->middleware('auth');
 Route::post('familys/store', 'FamilyController@store')->middleware('auth');
