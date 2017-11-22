@@ -28,10 +28,6 @@
                   @endforeach
 
 
-                  @foreach ($goedeintermediairs as $goedeintermediair)
-                  <a href="{{ url('/intermediairs/show/'.$goedeintermediair) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;check</button></a>&nbsp;
-                  @endforeach
-
 
                 </div>
             </div>
