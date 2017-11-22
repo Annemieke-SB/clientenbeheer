@@ -397,14 +397,16 @@ class IntermediairController extends Controller
 
         $barcodes = DB::table('barcodes')
             ->where('kid_id', '>', 0)
-            ->whereNotNull('kid_id')
+            ->WhereNotNull('kid_id')
             ->whereNull('downloadedpdf')
             ->get();
 
         foreach ($barcodes as $barcode) {
-
             $kid = Kid::find($barcode->kid_id);
-            $emails[] = $kid->family->intermediair->user->email;
+            if ($kid) {
+                $emails[] = $kid->family->intermediair->user->email;
+            }
+            
 
         }
 /*
