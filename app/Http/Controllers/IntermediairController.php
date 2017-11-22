@@ -396,7 +396,7 @@ class IntermediairController extends Controller
         $emails = array();
 
         $barcodes = DB::table('barcodes')
-            ->where(['kid_id', '>', '0'])
+            ->where('kid_id', '>', 0)
             ->whereNotNull('kid_id')
             ->whereNull('downloadedpdf')
             ->get();
