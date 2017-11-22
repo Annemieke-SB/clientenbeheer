@@ -2,16 +2,34 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-@foreach ($emails as $email)
-{{ $email }}; 
-@endforeach
+            <!-- Flashmessage -->
+            @if (count(Session::get('message')) > 0)
+            <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+            @endif
+                        
+            <div class="panel panel-default">
+                <div class="panel-heading">Standaard dashboard</div>
 
-<hr>
+                <div class="panel-body">
+                    
 
-@foreach ($foutebarcodes as $foutebarcode)
-{{ $foutebarcode }}; 
-@endforeach
+                  @foreach ($emails as $email)
+                  {{ $email }}; 
+                  @endforeach
 
+                  <hr>
 
+                  @foreach ($foutebarcodes as $foutebarcode)
+                  {{ $foutebarcode }}; 
+                  @endforeach
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
