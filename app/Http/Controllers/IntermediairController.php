@@ -381,7 +381,7 @@ class IntermediairController extends Controller
 
     public function zonderdownloads()
     {
-    
+      
 
         $user = Auth::user();
 
@@ -392,9 +392,23 @@ class IntermediairController extends Controller
             return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
+        $kids_zonder_downloaded_pdf = Kid::whereHas('barcode', function ($query) {
+                            $query->where('downloadedpdf', '=', NULL);
+                        })->get();
+
+        $emails = array();
+
+        foreach ($kids_zonder_downloaded_pdf as $kid) {
+            $email[] = $kid->family->intermediair->email;
+        }
+/*
+                    $intermediairs = Intermediair::whereHas('user', function ($query) {
+                            $query->where('organisatienaam', 'like', "%" . request('naam') . "%");
+                        })->paginate(100)->appends('naam', request('naam'));
+*/
 
 
-        return view('intermediairs.zonderdownloads', ['intermediairs' => $intermediairs]);
+        return view('intermediairs.zonderdownloads', ['emails' => $emails]);
     }
 
 
