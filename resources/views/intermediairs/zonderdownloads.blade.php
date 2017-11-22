@@ -3,8 +3,8 @@
 
 @section('content')
 
-@foreach ($emails as $email)
-{{ $email }}; 
-@endforeach
+
+{{ $emails }}; 
+
 
 @endsection
