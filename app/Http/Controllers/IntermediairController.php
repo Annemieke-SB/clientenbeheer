@@ -402,7 +402,7 @@ class IntermediairController extends Controller
 
         foreach ($kids_zonder_downloaded_pdf as $kidzd) {
             $fam = DB::table('familys')->where('id', $kidzd->family_id)->first();
-            $email[] = $fam->intermediair->email;
+            $email[] = $fam->intermediair->user->email;
         }
  /* 
                     $intermediairs = Intermediair::whereHas('user', function ($query) {
@@ -411,7 +411,7 @@ class IntermediairController extends Controller
 */
 
 
-        return view('intermediairs.zonderdownloads', ['emails' => $emails]);
+        return view('intermediairs.zonderdownloads', ['kids_zonder_downloaded_pdf' => $emails]);
     }
 
 
