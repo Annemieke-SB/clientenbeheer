@@ -395,6 +395,7 @@ class IntermediairController extends Controller
 
         $emails = array();
         $foutebarcodes = array();
+        $goedeintermediairs = array();
 
         $barcodes = DB::table('barcodes')
             ->where('kid_id', '>', 0)
@@ -406,6 +407,7 @@ class IntermediairController extends Controller
             $kid = Kid::find($barcode->kid_id);
             if ($kid) {
                 $emails[] = $kid->family->intermediair->user->email;
+                $goedeintermediairs[] = $kid->family->intermediair->id;
             }
             else {
                 $foutebarcodes[] = $barcode->id;
@@ -431,7 +433,7 @@ class IntermediairController extends Controller
 */
 
 
-        return view('intermediairs.zonderdownloads', ['foutebarcodes' => $foutebarcodes, 'emails'=>array_unique($emails)]);
+        return view('intermediairs.zonderdownloads', ['foutebarcodes' => $foutebarcodes, 'emails'=>array_unique($emails), 'goedeintermediairs'=>array_unique($goedeintermediairs)]);
     }
 
 

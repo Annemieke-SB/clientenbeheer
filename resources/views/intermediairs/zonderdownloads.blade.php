@@ -12,7 +12,7 @@
             @endif
                         
             <div class="panel panel-default">
-                <div class="panel-heading">Standaard dashboard</div>
+                <div class="panel-heading">Hier de emaiadressen van de intermediair die nog niet alles hebben gedownload</div>
 
                 <div class="panel-body">
                     
@@ -26,6 +26,12 @@
                   @foreach ($foutebarcodes as $foutebarcode)
                   {{ $foutebarcode }}; 
                   @endforeach
+
+
+                  @foreach ($goedeintermediairs as $goedeintermediair)
+                  <a href="{{ url('/intermediairs/show/'.$goedeintermediair) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;check</button></a>&nbsp;
+                  @endforeach
+
 
                 </div>
             </div>
