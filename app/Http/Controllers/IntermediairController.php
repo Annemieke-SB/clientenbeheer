@@ -401,7 +401,7 @@ class IntermediairController extends Controller
 
 
         foreach ($kids_zonder_downloaded_pdf as $kidzd) {
-            $fam = DB::table('familys')->where('id', $kid->family_id)->first();
+            $fam = DB::table('familys')->where('id', $kidzd->family_id)->first();
             $email[] = $fam->intermediair->email;
         }
  /* 
