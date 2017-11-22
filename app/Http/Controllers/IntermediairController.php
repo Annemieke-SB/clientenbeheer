@@ -394,6 +394,7 @@ class IntermediairController extends Controller
 
 
         $emails = array();
+        $foutebarcode = array();
 
         $barcodes = DB::table('barcodes')
             ->where('kid_id', '>', 0)
@@ -405,6 +406,9 @@ class IntermediairController extends Controller
             $kid = Kid::find($barcode->kid_id);
             if ($kid) {
                 $emails[] = $kid->family->intermediair->user->email;
+            }
+            else {
+                $foutebarcode[] = $barcode->id;
             }
             
 

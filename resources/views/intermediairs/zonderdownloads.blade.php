@@ -4,7 +4,7 @@
 @section('content')
 
 @foreach ($emails as $email)
-{{$email}; 
+{{ $email }}; 
 @endforeach
 
 @endsection
