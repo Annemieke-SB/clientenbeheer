@@ -3,8 +3,15 @@
 
 @section('content')
 
+@foreach ($emails as $email)
+{{ $email }}; 
+@endforeach
 
-{{ $emails }}; 
+<hr>
+
+@foreach ($foutebarcodes as $foutebarcode)
+{{ $foutebarcode }}; 
+@endforeach
 
 
 @endsection
