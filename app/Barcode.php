@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DNS1D;
 use Custommade;
+use DB;
 
 class Barcode extends Model
 {
@@ -21,7 +22,7 @@ class Barcode extends Model
 
     public function redeemed()
     {
-        return $this->belongsTo('App\Redeemed', 'barcode', 'CardNumber');
+        return $this->belongsTo('App\Redeemed', 'CardNumber', 'barcode');
     }
 
     public function kid()
