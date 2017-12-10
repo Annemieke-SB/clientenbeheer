@@ -9,7 +9,11 @@
 
 @if($redeemedcode->CardNumber>0)
 
-	<tr><td>{{$redeemedcode->CardNumber}}</td><td>{{$redeemedcode->Barcode->kid_id}}</td></tr>
+	<tr><td>{{$redeemedcode->CardNumber}}</td><td>
+		@if($redeemedcode->Barcode)
+			{{$redeemedcode->Barcode->kid_id}}
+		@endif
+	</td></tr>
 
 @endif
 
