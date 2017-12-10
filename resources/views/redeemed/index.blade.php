@@ -2,11 +2,16 @@
 
 @section('content')
 <div class="container">
-
-	<div class="row">
+<div class="row">
         <div class="col-md-8 col-md-offset-2">
 
 
+
+            <div class="panel panel-default">              
+                          <ol class="breadcrumb">
+                      <li><a href="{{ url('/home') }}">Home</a></li>
+                      <li class="active">Intermediairs</li>
+                    </ol> 
 
                 <div class="panel-body">
 <table>
