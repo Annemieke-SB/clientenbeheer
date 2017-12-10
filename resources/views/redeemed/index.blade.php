@@ -13,7 +13,7 @@
                       <li class="active">Intermediairs</li>
                     </ol> 
 
-                <div class="panel-body"><p>
+                <div class="panel-body"><p>Totale kosten: </p>{{$totalpay}}<p>
                 	Klik op de kolomkop om te sorteren (duurt even, check of je kan scrollen, dan is het klaar)
                 </p>
 <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
