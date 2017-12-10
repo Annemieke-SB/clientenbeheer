@@ -16,7 +16,7 @@
 	</td>
 		<td>
 			@if($redeemedcode->barcode)
-				{{$redeemedcode->barcode->kid->intermediair_id}}
+				{{$redeemedcode->barcode->kid->family->intermediair_id}}
 			@endif
 			
 		</td>
