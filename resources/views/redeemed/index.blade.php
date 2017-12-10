@@ -1,5 +1,5 @@
 <table>
-<thead><tr><td>Barcode</td><td>Kind</td><td>Intermediair</td><td>Uitgegeven</td></thead>
+<thead><tr><td>Barcode</td><td>Kind</td><td>Uitgegeven</td></thead>
 
 
 
@@ -14,12 +14,7 @@
 			{{$redeemedcode->barcode->kid_id}}
 		@endif
 	</td>
-		<td>
-			@if($redeemedcode->barcode)
-				{{$redeemedcode->barcode->kid->family->intermediair_id}}
-			@endif
-			
-		</td>
+
 	<td>{{$redeemedcode->ValueOfRedemptions}}</td></tr>
 
 @endif
