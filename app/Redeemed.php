@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DNS1D;
 use Custommade;
+use Kid;
 
 class Redeemed extends Model
 {
