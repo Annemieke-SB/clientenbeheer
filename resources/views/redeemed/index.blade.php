@@ -13,7 +13,7 @@
 		@if($redeemedcode->barcode)
 			{{$redeemedcode->barcode->kid_id}}
 		@endif
-	</td><td>{{$redeemedcode->ValueOfRedemptions}}/td></tr>
+	</td><td>{{$redeemedcode->ValueOfRedemptions}}</td></tr>
 
 @endif
 
