@@ -30,7 +30,7 @@
 
 
 @if($redeemedcode->CardNumber>0)
-	@if($redeemedcode->barcode->kid_id)
+	@if(isset($redeemedcode->barcode->kid_id)
 		<tr>
 			<td>
 				{{$redeemedcode->CardNumber}}
