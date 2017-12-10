@@ -15,7 +15,7 @@
                             <tbody>
 
 @foreach ($redeemedcodes as $redeemedcode)
-<tr><td>{{$redeemedcode->CardNumber}}</td></tr>
+<tr><td>{{$redeemedcode->barcode->kid->voornaam}}</td></tr>
 
 @endforeach
 
