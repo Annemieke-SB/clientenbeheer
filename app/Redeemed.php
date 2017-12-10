@@ -16,7 +16,6 @@ class Redeemed extends Model
     protected $fillable = [
     ];
 
-    protected $primaryKey = 'CardNumber';
 
     public function barcode()
     {
