@@ -36,7 +36,9 @@
 				{{$redeemedcode->CardNumber}}
 			</td>
 			<td>
-				@if($redeemedcode->barcode)
+				@if($redeemedcode->barcode->kid_id==0)
+					losse download
+				@else
 					{{$redeemedcode->barcode->kid_id}}
 				@endif
 			</td>
