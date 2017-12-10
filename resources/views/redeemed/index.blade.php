@@ -5,7 +5,7 @@
 
 @foreach ($redeemedcodes as $redeemedcode)
 
-{{dd($redeemedcode->Barcode)}}
+{{dd($redeemedcode->barcode)}}
 
 @if($redeemedcode->CardNumber>0)
 
