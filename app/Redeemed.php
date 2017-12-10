@@ -19,7 +19,7 @@ class Redeemed extends Model
 
     public function barcode()
     {
-        return $this->belongsTo('App\Barcode', 'CardNumber', 'barcode');
+        return $this->belongsTo('App\Barcode', 'barcode', 'CardNumber');
     }
 
 
