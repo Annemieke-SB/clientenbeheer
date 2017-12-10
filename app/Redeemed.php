@@ -20,7 +20,7 @@ class Redeemed extends Model
 
     public function barcode()
     {
-        return $this->hasOne('App\Barcode', 'barcode', 'CardNumber');
+        return $this->hasOne('App\Barcode', 'barcode');
     }
 
 
