@@ -10,7 +10,7 @@
             <div class="panel panel-default">              
                           <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Intermediairs</li>
+                      <li class="active">Verzilverd</li>
                     </ol> 
 
                 <div class="panel-body"><p>Totale kosten: </p>{{$totalpay}}<p>
