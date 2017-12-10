@@ -38,7 +38,7 @@ class RedeemedController extends Controller
         }
 
         //$redeemedcodes = Redeemed::with('Redeemed','Barcode', 'Kid');
-        $redeemedcodes = Redeemed::with('Barcode')->find(6299939005400000011);
+        $redeemedcodes = Redeemed::with('Barcode')->get();
 
         return view('redeemed.index', ['redeemedcodes' => $redeemedcodes]);
     }
