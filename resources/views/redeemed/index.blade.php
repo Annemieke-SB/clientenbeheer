@@ -15,7 +15,7 @@
 
                 <div class="panel-body">
 <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-<thead><tr><td>Barcode</td><td>Kind</td><td>Uitgegeven</td></thead>
+<thead><th><td>Barcode</td><td>Kind</td><td>Uitgegeven</td></th></thead>
 
 
 
