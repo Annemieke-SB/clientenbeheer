@@ -19,7 +19,7 @@
 @foreach ($redeemedcodes as $redeemedcode)
 
 
-<tr><td>{{$redeemedcode->CardNumber}}</td><td>{{$redeemedcode->Barcode->kid_id}}</td></tr>
+<tr><td>{{$redeemedcode->CardNumber}}</td><td>{{$redeemedcode->barcode->kid_id}}</td></tr>
 
 @endforeach
 
