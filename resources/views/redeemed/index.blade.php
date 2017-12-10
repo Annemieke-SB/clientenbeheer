@@ -5,6 +5,8 @@
 
 @foreach ($redeemedcodes as $redeemedcode)
 
+{{dd($redeemedcode->Barcode)}}
+
 @if($redeemedcode->CardNumber>0)
 
 	<tr><td>{{$redeemedcode->CardNumber}}</td><td>{{$redeemedcode->Barcode->kid_id}}</td></tr>
