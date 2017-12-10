@@ -40,7 +40,10 @@ class RedeemedController extends Controller
         //$redeemedcodes = Redeemed::with('Redeemed','Barcode', 'Kid');
         $redeemedcodes = Redeemed::with('barcode')->get();
 
-        return view('redeemed.index', ['redeemedcodes' => $redeemedcodes]);
+        $totalpay = DB::table('redeemed')->select('ValueOfRedemptions')count();
+
+
+        return view('redeemed.index', ['redeemedcodes' => $redeemedcodes, 'totalpay'=>$totalpay]);
     }
 
 }
