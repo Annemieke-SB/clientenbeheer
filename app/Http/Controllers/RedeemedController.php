@@ -43,7 +43,7 @@ class RedeemedController extends Controller
         $totalpay = DB::table('redeemed')->sum('ValueOfRedemptions');
 
 
-        return view('redeemed.index', ['redeemedcodes' => $redeemedcodes, 'totalpay'=>number_format($totalpay, 2)]);
+        return view('redeemed.index', ['redeemedcodes' => $redeemedcodes, 'totalpay'=>$totalpay]);
     }
 
 }
