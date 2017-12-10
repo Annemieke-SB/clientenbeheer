@@ -37,7 +37,8 @@ class RedeemedController extends Controller
             return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $redeemedcodes = Redeemed::with('Redeemed','Barcode', 'Kid');
+        //$redeemedcodes = Redeemed::with('Redeemed','Barcode', 'Kid');
+        $redeemedcodes = Redeemed::get();
 
         return view('redeemed.index', ['redeemedcodes' => $redeemedcodes]);
     }
