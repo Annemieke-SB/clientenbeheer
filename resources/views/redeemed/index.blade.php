@@ -16,7 +16,7 @@
                 <div class="panel-body">
 <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
 <thead><tr><th>Barcode</th><th>Kind</th><th>Uitgegeven</th></tr></thead>
-
+<tbody>
 
 
 @foreach ($redeemedcodes as $redeemedcode)
@@ -37,7 +37,7 @@
 
 @endforeach
 
-
+</tbody>
 </table>
 
                 </div>
