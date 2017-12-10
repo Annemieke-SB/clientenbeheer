@@ -15,7 +15,13 @@
 
                 <div class="panel-body">
 <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-<thead><tr><th>Barcode</th><th>Kind</th><th>Uitgegeven</th></tr></thead>
+<thead>
+	<tr>
+		<th>Barcode</th>
+		<th>Kind</th>
+		<th>Uitgegeven</th>
+	</tr>
+</thead>
 <tbody>
 
 
@@ -45,6 +51,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
 
 // Dit script zorgt voor sorteren in de lijst
@@ -63,5 +70,13 @@ function comparer(index) {
 }
 function getCellValue(row, index){ return $(row).children('td').eq(index).html() }
 
+$(document).ready(function() {
+// Hier om de tooltips te activeren
+$('[data-toggle="tooltip"]').tooltip();
+});
+
+
+
+</script>
 
 @endsection
