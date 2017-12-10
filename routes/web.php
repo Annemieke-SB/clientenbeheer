@@ -56,7 +56,7 @@ Route::get('user/destroy/{id}', 'UserController@destroy')->middleware('auth');
 Route::get('user/redirecttointermediair/{id}', 'UserController@redirecttointermediair')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->middleware('auth');
-
+Route::get('/redeemed', 'RedeemedController@index')->middleware('auth');
 Route::get('/docs', 'HomeController@docs')->middleware('auth');
 
 Route::get('intermediairs', 'IntermediairController@index')->middleware('auth');

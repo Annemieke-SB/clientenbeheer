@@ -19,6 +19,10 @@ class Barcode extends Model
             'downloadedpdf'
     ];
 
+    public function redeemed()
+    {
+        return $this->belongsTo('App\Redeemed', 'barcode', 'CardNumber');
+    }
 
     public function kid()
     {

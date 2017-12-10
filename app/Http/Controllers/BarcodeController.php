@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\File;
 
 use DB;
 use App\Barcode;
+use App\Redeemed;
 use App\Family;
 use App\Kid;
 use App\User;
