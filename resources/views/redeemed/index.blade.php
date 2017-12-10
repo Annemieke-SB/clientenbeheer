@@ -13,11 +13,14 @@
                       <li class="active">Intermediairs</li>
                     </ol> 
 
-                <div class="panel-body">
+                <div class="panel-body"><p>
+                	Klik op de kolomkop om te sorteren (duurt even)
+                </p>
 <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
 <thead>
 	<tr>
 		<th>Barcode</th>
+		<th>Gedownload</th>
 		<th>Kind</th>
 		<th>Uitgegeven</th>
 	</tr>
@@ -34,6 +37,14 @@
 		<tr>
 			<td>
 				{{$redeemedcode->CardNumber}}
+			</td>
+			<td>
+				@if($redeemedcode->barcode->downloadedpdf==1)
+				<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;
+				@else
+				<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;
+				@endif
+
 			</td>
 			<td>
 				@if($redeemedcode->barcode->kid_id==0)
