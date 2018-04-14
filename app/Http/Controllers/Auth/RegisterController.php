@@ -79,6 +79,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'voornaam' => $data['voornaam'],
+            'tussenvoegsel' => $data['tussenvoegsel'],
             'achternaam' => $data['achternaam'],
             'geslacht' => $data['geslacht'],
             'organisatienaam' => $data['organisatienaam'],
