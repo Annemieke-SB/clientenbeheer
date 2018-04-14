@@ -50,6 +50,12 @@
                         
                         <div class="form-group">
 
+                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel achternaam') !!}
+                            {!! Form::text('tussenvoegsel', null, ['class' => 'form-control', 'autofocus']) !!}
+
+                        </div>
+                        <div class="form-group">
+
                             {!! Form::label('achternaam', 'Achternaam van het gezin (kind mag straks afwijken)') !!}
                             {!! Form::text('achternaam', null, ['class' => 'form-control', 'required','autofocus']) !!}
 

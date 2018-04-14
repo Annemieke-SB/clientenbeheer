@@ -12,7 +12,8 @@ class FamilysTableSeeder extends Seeder
     public function run()
     {
         DB::table('familys')->insert([[
-            'achternaam' => 'vd Putten',
+            'achternaam' => 'Putten',
+            'tussenvoegsel' => 'van den',
             'adres' => 'Schepenweg',
             'huisnummer' => 14,
             'huisnummertoevoeging' => '',
@@ -29,6 +30,7 @@ class FamilysTableSeeder extends Seeder
         ],
         [
             'achternaam' => 'Grabijn',
+            'tussenvoegsel' => '',
             'adres' => 'de Krimpen',
             'huisnummer' => 29,
             'huisnummertoevoeging' => '',
@@ -45,6 +47,7 @@ class FamilysTableSeeder extends Seeder
         ],
         [
             'achternaam' => 'Bladibla',
+            'tussenvoegsel' => 'van',
             'adres' => 'Hoofdstraat',
             'huisnummer' => 9,
             'huisnummertoevoeging' => 'a',
@@ -60,7 +63,8 @@ class FamilysTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),       
         ],
         [
-            'achternaam' => 'de Vries',
+            'achternaam' => 'Vries',
+            'tussenvoegsel' => 'de',
             'adres' => 'Dorpstraat',
             'huisnummer' => 124,
             'huisnummertoevoeging' => '3 hoog',
@@ -77,6 +81,7 @@ class FamilysTableSeeder extends Seeder
         ],        
         [
             'achternaam' => 'Basou',
+            'tussenvoegsel' => '',
             'adres' => 'Vettumse Kleffen',
             'huisnummer' => 123,
             'huisnummertoevoeging' => '',
@@ -92,7 +97,8 @@ class FamilysTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),        
         ],
         [
-            'achternaam' => 'vd Putten',
+            'achternaam' => 'Putten',
+            'tussenvoegsel' => 'van den',
             'adres' => 'Deken Berdenstraat',
             'huisnummer' => 3,
             'huisnummertoevoeging' => '',

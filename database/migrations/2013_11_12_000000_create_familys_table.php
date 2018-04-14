@@ -16,6 +16,7 @@ class CreateFamilysTable extends Migration
         Schema::create('familys', function (Blueprint $table) {
             $table->increments('id');
             $table->string('achternaam');
+            $table->string('tussenvoegsel');
             $table->string('adres');
             $table->integer('huisnummer');
             $table->string('huisnummertoevoeging');

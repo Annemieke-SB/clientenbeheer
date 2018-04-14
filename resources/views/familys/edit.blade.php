@@ -17,15 +17,15 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->tussenvoegsel }} {{ $eigenaar->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
                       <li class="active">Wijzigen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
 
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
                       <li class="active">Wijzigen</li>
                     </ol>
                 @endif
@@ -46,6 +46,13 @@
                     @endif
 
                     {!! Form::open(['url' => 'family/update', 'id' => 'editform']) !!}
+                         
+                      <div class="form-group">
+
+                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel achternaam') !!}
+                            {!! Form::text('tussenvoegsel', $family->tussenvoegsel, ['class' => 'form-control' ]) !!}
+
+                        </div>
                         
                       <div class="form-group">
 
