@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('organisatienaam');
             $table->string('voornaam');
+            $table->string('tussenvoegsel');
             $table->string('achternaam');
             $table->string('geslacht')->default('-');
             $table->string('email')->unique();

@@ -58,6 +58,20 @@
                                 @endif
                             </div>
                         </div>
+ 
+                        <div class="form-group{{ $errors->has('tussenvoegsel') ? ' has-error' : '' }}">
+                            <label for="tussenvoegsel" class="col-md-5 control-label">Tussenvoegsel</label>
+
+                            <div class="col-md-6">
+                                <input id="tussenvoegsel" type="text" class="form-control" name="tussenvoegsel" value="{{ old('tussenvoegsel') }}" required>
+
+                                @if ($errors->has('tussenvoegsel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tussenvoegsel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('achternaam') ? ' has-error' : '' }}">
                             <label for="achternaam" class="col-md-5 control-label">Uw achternaam</label>
 

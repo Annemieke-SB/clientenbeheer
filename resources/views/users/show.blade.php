@@ -16,7 +16,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
-                      <li class="active">{{$user->voornaam}} {{$user->achternaam}}</li>
+                      <li class="active">{{{$user->voornaam}} {$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
 
                 <div class="panel-body">
@@ -33,6 +33,7 @@
 
                         <tr style="min-width: 100px;"><td>Voornaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->voornaam }}&nbsp;</td></tr>
                         <tr><td>Achternaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->achternaam }}&nbsp;</td></tr>
+                        <tr><td>Tussenvoegsel&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->tussenvoegsel }}&nbsp;</td></tr>
                         <tr><td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->geslacht }}&nbsp;</td></tr>
                         <tr><td>Organisatie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->organisatienaam }}&nbsp;</td></tr>
                         <tr><td>Functie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->functie }}&nbsp;</td></tr>

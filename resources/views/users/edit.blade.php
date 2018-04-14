@@ -18,7 +18,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
-                      <li class="active">{{$user->voornaam}} {{$user->achternaam}}</li>
+                      <li class="active">{{{$user->voornaam}} {$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
 
@@ -61,6 +61,14 @@
                             {!! Form::text('voornaam', $user->voornaam, ['class' => 'form-control', 'required']) !!}
 
                         </div>
+
+                        <div class="form-group">
+
+                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel') !!}
+                            {!! Form::text('tussenvoegsel', $user->tussenvoegsel, ['class' => 'form-control', 'required']) !!}
+
+                        </div>                        
+
 
                         <div class="form-group">
 

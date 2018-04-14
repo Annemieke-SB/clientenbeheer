@@ -18,7 +18,7 @@
                         <ol class="breadcrumb">
                           <li><a href="{{ url('/home') }}">Home</a></li>
                           <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                          <li class="active">{{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->achternaam }}</li>
+                          <li class="active">{{{ $eigenaar->voornaam }}&nbsp;{ $eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}</li>
                         </ol>                
                 @endif
 
@@ -144,7 +144,7 @@
                                 Mevr.&nbsp;                                
                                 @endif
 
-                                {{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;
+                                {{  $eigenaar->voornaam }}&nbsp;$eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;
                                 @if (Auth::user()->usertype != 3)
                                     <a href="{{ url('/user/show') }}/{{ $eigenaar->id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
                                 @endif

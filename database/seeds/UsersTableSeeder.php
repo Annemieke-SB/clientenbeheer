@@ -16,7 +16,8 @@ class UsersTableSeeder extends Seeder
         [//1
             'organisatienaam' => 'Sinterklaasbank',
             'voornaam' => 'Henrique',
-            'achternaam' => 'van Huisstede',
+            'tussenvoegsel' => 'van',
+            'achternaam' => 'Huisstede',
             'email' => 'henrique@van.huisste.de',  
             'geslacht' => 'm',  
             'functie' => 'Webmaster',         
@@ -33,6 +34,7 @@ class UsersTableSeeder extends Seeder
         [//2
             'organisatienaam' => 'Voetbalvereniging VJKJKSJ',
             'voornaam' => 'Annette',
+            'tussenvoegsel' => '',
             'achternaam' => 'schipper',
             'email' => 'm.kolder1@van.huisste.de',
             'geslacht' => 'v',   
@@ -50,6 +52,7 @@ class UsersTableSeeder extends Seeder
         [//3
             'organisatienaam' => 'Stichting De Geldmachine',
             'voornaam' => 'Sandra',
+            'tussenvoegsel' => '',
             'achternaam' => 'Nagel',
             'email' => 's.nagel@van.huisste.de',
             'geslacht' => 'v',  
@@ -67,6 +70,7 @@ class UsersTableSeeder extends Seeder
         [//4
             'organisatienaam' => 'Vriend in barre tijden',
             'voornaam' => 'Test',
+            'tussenvoegsel' => '',
             'achternaam' => 'intermediair',
             'email' => 'intermediair@sinterklaasbank.nl',
             'geslacht' => 'v',
@@ -85,6 +89,7 @@ class UsersTableSeeder extends Seeder
             'organisatienaam' => 'Sinterklaasbank',
             'voornaam' => 'Elisa',
             'achternaam' => 'Nuij',
+            'tussenvoegsel' => '',
             'email' => 'elisa@sinterklaasbank.nl',
             'geslacht' => 'v',
             'functie' => 'Voorzitter',
@@ -101,6 +106,7 @@ class UsersTableSeeder extends Seeder
         [//6
             'organisatienaam' => 'De Oplossing',
             'voornaam' => 'Test',
+            'tussenvoegsel' => '',
             'achternaam' => 'Raadpleger',
             'email' => 'raadpleger@sinterklaasbank.nl',
             'geslacht' => 'v',
@@ -118,6 +124,7 @@ class UsersTableSeeder extends Seeder
         [//7
             'organisatienaam' => 'Schuldhulpverlening Het Hoekje',
             'voornaam' => 'Intermed',
+            'tussenvoegsel' => '',
             'achternaam' => 'z instell',
             'email' => 'intzin@sinterklaasbank.nl',
             'geslacht' => 'v',
@@ -135,6 +142,7 @@ class UsersTableSeeder extends Seeder
         [//8
             'organisatienaam' => 'Blabla Hulpverleners',
             'voornaam' => 'Intermed m',
+            'tussenvoegsel' => '',
             'achternaam' => 'instell z fam',
             'email' => 'intminzfam@sinterklaasbank.nl',
             'geslacht' => 'v',
@@ -152,7 +160,8 @@ class UsersTableSeeder extends Seeder
         [//8
             'organisatienaam' => 'Sinterklaasbank',
             'voornaam' => 'Annemieke',
-            'achternaam' => 'vd Heijden',
+            'tussenvoegsel' => 'van den',
+            'achternaam' => 'Heijden',
             'email' => 'annemieke@sinterklaasbank.nl',
             'functie' => 'Coordinator',
             'geslacht' => 'v',
@@ -169,6 +178,7 @@ class UsersTableSeeder extends Seeder
         [//8
             'organisatienaam' => 'Sinterklaasbank',
             'voornaam' => 'Harm',
+            'tussenvoegsel' => '',
             'achternaam' => 'Super',
             'email' => 'harm.super@sinterklaasbank.nl',
             'functie' => 'Clientenbeheer',
