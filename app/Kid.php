@@ -16,6 +16,7 @@ class Kid extends Model
 
     protected $fillable = [
             'achternaam',
+	    'tussenvoegsel'
             'voornaam',
             'family_id',
             'geslacht',

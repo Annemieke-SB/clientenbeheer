@@ -13,7 +13,8 @@ class KidsTableSeeder extends Seeder
     {
         DB::table('kids')->insert([[
             'voornaam' => 'Jaap',
-            'achternaam' => 'de Vries',
+            'tussenvoegsel' => 'de',
+            'achternaam' => 'Vries',
             'geslacht' => 'm',
             'geboortedatum' => '03-03-2003',
             'family_id' => 1,       
@@ -22,6 +23,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Achmed',
+            'tussenvoegsel' => '',
             'achternaam' => '',
             'geslacht' => 'm',
             'geboortedatum' => '11-04-1999',
@@ -31,6 +33,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Swetlana',
+            'tussenvoegsel' => '',
             'achternaam' => 'Bubbelmans',
             'geslacht' => 'v',
             'geboortedatum' => '05-02-2006',
@@ -40,6 +43,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Joop',
+            'tussenvoegsel' => '',
             'achternaam' => 'Janssen',
             'geslacht' => 'm',
             'geboortedatum' => '13-07-2006',
@@ -49,6 +53,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Bordiashanti',
+            'tussenvoegsel' => '',
             'achternaam' => '',
             'geslacht' => 'v',
             'geboortedatum' => '11-02-1972',
@@ -58,6 +63,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Cornelis',
+            'tussenvoegsel' => '',
             'achternaam' => 'Kraam',
             'geslacht' => 'm',
             'geboortedatum' => '13-03-2010',
@@ -67,7 +73,8 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Kim',
-            'achternaam' => 'de Wilde',
+            'tussenvoegsel' => 'de',
+            'achternaam' => 'Wilde',
             'geslacht' => 'v',
             'geboortedatum' => '06-02-2010',
             'family_id' => 4,       
@@ -76,6 +83,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Bassie',
+            'tussenvoegsel' => '',
             'achternaam' => '',
             'geslacht' => 'm',
             'geboortedatum' => '03-03-2011',
@@ -85,6 +93,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Blop',
+            'tussenvoegsel' => '',
             'achternaam' => '',
             'geslacht' => 'm',
             'geboortedatum' => '03-03-2015',
@@ -94,6 +103,7 @@ class KidsTableSeeder extends Seeder
         ],
         [
             'voornaam' => 'Adriaan',
+            'tussenvoegsel' => '',
             'achternaam' => '',
             'geslacht' => 'm',
             'geboortedatum' => '05-03-2007',

@@ -17,15 +17,15 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->tussenvoegsel }} {{ $eigenaar->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
 
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} { $family->achternaam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
                 @endif
@@ -52,6 +52,12 @@
 
                             {!! Form::label('voornaam', 'Voornaam') !!}
                             {!! Form::text('voornaam', null, ['class' => 'form-control', 'required']) !!}
+
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel') !!}&nbsp;<small>(alleen invullen als deze afwijkt van de familienaam)</small>
+                            {!! Form::text('tussenvoegsel', null, ['class' => 'form-control']) !!}
 
                         </div>
                         <div class="form-group">

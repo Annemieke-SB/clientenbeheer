@@ -17,6 +17,7 @@ class CreateKidsTable extends Migration
             $table->increments('id');
             $table->string('voornaam');
             $table->string('achternaam');
+            $table->string('tussenvoegsel');
             $table->string('geslacht');
             $table->string('geboortedatum');
             $table->string('family_id');
