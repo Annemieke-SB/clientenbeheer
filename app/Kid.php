@@ -15,9 +15,9 @@ class Kid extends Model
     protected $appends = array('unieknummer','targetkid', 'targetsibling', 'agenextsint', 'reasontargetkid', 'reasontargetsibling', 'disqualified', 'geboortedatumvoornaamdubbel', 'intermediairgegevens', 'familyanderealternatieven', 'htmlbarcode', 'downloadedbarcodepdf');
 
     protected $fillable = [
+            'voornaam',
             'achternaam',
 	    'tussenvoegsel'
-            'voornaam',
             'family_id',
             'geslacht',
             'geboortedatum'
