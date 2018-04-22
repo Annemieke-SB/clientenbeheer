@@ -97,10 +97,9 @@
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
                                 <tr>
-                    				<th>Gebruiker&nbsp;</th>
+                    				<th style="max-width: 300px;">Gebruiker&nbsp;</th>
                     				<th>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true" data-toggle="tooltip" title="Email geverifieerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
-                                    <th style="max-width: 300px;">Instelling</th>
                                     <th>Rol&nbsp;</th>
                                     <th>Actie&nbsp;</th> 
                                 </tr>                 				
@@ -113,10 +112,9 @@
                                                     <tr>
                                                 @endif
 
-									<td>
-							@if (!$user->activated)
-							@endif
+						<td>
                                                     {{ $user->voornaam[0] }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
+                                                    <br><i>{{ $user->organisatienaam}} </i>
                                                 </td>
                     							<td>
                                                     @if ($user->emailverified)
@@ -134,7 +132,6 @@
                                                     @endif                                               
                                                 </td>
                                                 <td style="max-width: 300px;">                                
-                                                    &nbsp;{{ $user->organisatienaam }} 
                                                 </td>                                                
                                                 <td>
                                                     @if ($user->usertype==1)
