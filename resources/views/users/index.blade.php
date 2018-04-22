@@ -100,7 +100,7 @@
                     				<th>Gebruiker&nbsp;</th>
                     				<th>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true" data-toggle="tooltip" title="Email geverifieerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
-                                    <th style="max-width: 300px;">Instelling / reden</th>
+                                    <th style="max-width: 300px;">Instelling</th>
                                     <th>Rol&nbsp;</th>
                                     <th>Actie&nbsp;</th> 
                                 </tr>                 				
@@ -135,7 +135,7 @@
                                                     @endif                                               
                                                 </td>
                                                 <td style="max-width: 300px;">                                
-                                                    &nbsp;{{ $user->organisatienaam }} / <br> {{ $user->reden }}
+                                                    &nbsp;{{ $user->organisatienaam }} 
                                                 </td>                                                
                                                 <td>
                                                     @if ($user->usertype==1)
@@ -218,7 +218,11 @@ function getCellValue(row, index){ return $(row).children('td').eq(index).html()
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
-$('[data-toggle="popover"]').popover('show');
+$('[data-toggle="popover"]').popover([
+
+		trigger='hover'
+
+	]);
 
 });
 
