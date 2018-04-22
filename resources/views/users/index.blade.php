@@ -114,9 +114,11 @@
                                                 @endif
 
 									<td>
-@if (!$user->activated)
-						{{ $user->reden }}
-@endif
+							@if (!$user->activated)
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+								<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
+								{{ $user->reden }}
+							@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
                     							<td>
