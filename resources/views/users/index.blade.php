@@ -219,7 +219,7 @@ function getCellValue(row, index){ return $(row).children('td').eq(index).html()
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
-//$('[data-toggle="redentip"]').tooltip();
+$('[data-toggle="popover"]').popover();
 
 });
 
