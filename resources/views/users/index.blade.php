@@ -131,8 +131,6 @@
                                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;
                                                     @endif                                               
                                                 </td>
-                                                <td style="max-width: 300px;">                                
-                                                </td>                                                
                                                 <td>
                                                     @if ($user->usertype==1)
                                                         Admin&nbsp;
