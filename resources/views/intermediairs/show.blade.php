@@ -18,7 +18,7 @@
                         <ol class="breadcrumb">
                           <li><a href="{{ url('/home') }}">Home</a></li>
                           <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                          <li class="active">{{{ $eigenaar->voornaam }}&nbsp;{ $eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}</li>
+                          <li class="active">{{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}</li>
                         </ol>                
                 @endif
 
