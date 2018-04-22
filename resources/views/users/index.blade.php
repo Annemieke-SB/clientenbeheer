@@ -115,8 +115,7 @@
 
 									<td>
 							@if (!$user->activated)
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-								<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></span></th>
+								<span class="glyphicon glyphicon-thumbs-up" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></span></th>
 							@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
