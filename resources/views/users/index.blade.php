@@ -116,8 +116,7 @@
 									<td>
 							@if (!$user->activated)
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-								<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
-								{{ $user->reden }}
+								<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="redentip" title="{{ $user->reden }}"></span></th>
 							@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
@@ -220,6 +219,8 @@ function getCellValue(row, index){ return $(row).children('td').eq(index).html()
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="redentip"]').tooltip();
+
 });
 
 
