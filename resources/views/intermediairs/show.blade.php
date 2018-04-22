@@ -144,7 +144,7 @@
                                 Mevr.&nbsp;                                
                                 @endif
 
-                                {{  $eigenaar->voornaam }}&nbsp;$eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;
+                                {{  $eigenaar->voornaam }}&nbsp;{{ $eigenaar->tussenvoegsel }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;
                                 @if (Auth::user()->usertype != 3)
                                     <a href="{{ url('/user/show') }}/{{ $eigenaar->id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
                                 @endif
