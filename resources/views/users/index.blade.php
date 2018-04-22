@@ -115,7 +115,7 @@
 
 									<td>
 							@if (!$user->activated)
-								<span class="glyphicon glyphicon-thumbs-up" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></span></th>
+								<span class="glyphicon glyphicon-thumbs-up" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></span></th>
 							@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
@@ -218,11 +218,7 @@ function getCellValue(row, index){ return $(row).children('td').eq(index).html()
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
-$('[data-toggle="popover"]').popover([
-
-		trigger='hover'
-
-	]);
+$('[data-toggle="popover"]').popover();
 
 });
 
