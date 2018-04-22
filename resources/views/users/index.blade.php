@@ -116,7 +116,7 @@
 									<td>
 							@if (!$user->activated)
 							@endif
-                                                    {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
+                                                    {{ $user->voornaam[0] }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
                     							<td>
                                                     @if ($user->emailverified)
