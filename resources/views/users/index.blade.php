@@ -101,7 +101,7 @@
                     				<th>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true" data-toggle="tooltip" title="Email geverifieerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
                                     <th>Rol&nbsp;</th>
-                                    <th style="width: 250px;">Actie&nbsp;</th> 
+                                    <th style="width: 240px;">Actie&nbsp;</th> 
                                 </tr>                 				
                     			</thead>
                                 <tbody>
