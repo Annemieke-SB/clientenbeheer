@@ -113,7 +113,10 @@
                                                     <tr>
                                                 @endif
 
-                    							<td>
+									<td>
+@if (!$user->activated)
+						{{ $user->reden }}
+@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
                     							<td>
