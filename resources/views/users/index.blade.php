@@ -108,14 +108,13 @@
                                 <tbody>
                     					@foreach ($users as $user)
                                                 @if (!$user->emailverified || !$user->activated)
-                                                    <tr class="danger">
+                                                    <tr class="danger" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></th>
                                                 @else
                                                     <tr>
                                                 @endif
 
 									<td>
 							@if (!$user->activated)
-								<span class="glyphicon glyphicon-thumbs-up" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden" data-content="{{ $user->reden }}"></span></th>
 							@endif
                                                     {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
                                                 </td>
