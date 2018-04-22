@@ -114,7 +114,7 @@
 
 						<td>
                                                     {{ $user->voornaam[0] }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
-                                                    <br><i>{{ $user->organisatienaam}} </i>
+                                                    <br><b><i>{{ $user->organisatienaam}} </i></b>
                                                 </td>
                     							<td>
                                                     @if ($user->emailverified)
