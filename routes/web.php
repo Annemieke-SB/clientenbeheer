@@ -59,6 +59,7 @@ Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::get('/redeemed', 'RedeemedController@index')->middleware('auth');
 Route::get('/docs', 'HomeController@docs')->middleware('auth');
 
+/*
 Route::get('intermediairs', 'IntermediairController@index')->middleware('auth');
 Route::post('intermediairs', 'IntermediairController@store')->middleware('auth');
 Route::get('/intermediairs/create', 'IntermediairController@create')->middleware('auth');
@@ -68,6 +69,7 @@ Route::get('/intermediair/edit/{id}', 'IntermediairController@edit')->middleware
 Route::get('/intermediair/downloads/', 'IntermediairController@downloads')->middleware('auth');
 Route::post('intermediairs/update', 'IntermediairController@update')->middleware('auth');
 Route::get('intermediairs/zonderdownloads', 'IntermediairController@zonderdownloads')->middleware('auth');
+ */
 
 Route::get('/familie/toevoegen/{id}', 'FamilyController@create')->middleware('auth');
 Route::post('familys/store', 'FamilyController@store')->middleware('auth');

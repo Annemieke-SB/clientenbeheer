@@ -161,6 +161,50 @@
                                 @endif
                             </div>
                         </div>
+
+                      <div class="form-group">
+
+                            {!! Form::label('type', 'Soort instelling') !!}
+                            {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
+
+                        </div>                        
+
+
+                        <div class="form-group">
+
+                            {!! Form::label('postcode', 'Postcode (zonder spaties: 1234AA)') !!}
+                            {!! Form::text('postcode', null, ['class' => 'form-control', 'required']) !!}
+
+                        </div>                        
+                        <div class="form-group">
+
+                            {!! Form::label('huisnummer', 'Huisnummer (postbusnummer mag ook)') !!}
+                            {!! Form::text('huisnummer', null, ['class' => 'form-control', 'required']) !!}
+
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('huisnummertoevoeging', 'Huisnummertoevoeging') !!}
+                            {!! Form::text('huisnummertoevoeging', null, ['class' => 'form-control']) !!}
+
+                        </div>
+
+                        <div class="form-group">
+
+                            {!! Form::label('adres_auto', 'Adres (wordt automatisch ingevuld op basis van postcode)') !!}
+                            {!! Form::text('adres_auto', null, ['class' => 'form-control', 'disabled', 'required']) !!}
+                            {!! Form::hidden('adres', null) !!}
+
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('woonplaats_auto', 'Woonplaats (wordt automatisch ingevuld op basis van postcode)') !!}
+                            {!! Form::text('woonplaats_auto', null, ['class' => 'form-control', 'disabled', 'required']) !!}
+                            {!! Form::hidden('woonplaats', null) !!}
+
+                        </div>
+                        
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-5 control-label">Wachtwoord</label>
 
