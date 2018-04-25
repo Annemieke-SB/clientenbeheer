@@ -28,6 +28,12 @@ class CreateUsersTable extends Migration
             $table->longtext('reden');            
             $table->string('website');
             $table->string('telefoon');
+            $table->integer('type')->default(0);
+            $table->string('adres');
+            $table->string('huisnummer');
+            $table->string('huisnummertoevoeging');
+            $table->string('postcode');
+            $table->string('woonplaats');                       
             $table->integer('activated')->default(0);
             $table->integer('usertype')->default(3); // 1 = admin, 2 = raadpleger, 3 = intermediair
             $table->rememberToken();
