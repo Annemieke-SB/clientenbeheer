@@ -134,7 +134,6 @@
                                     </tbody>
                             </table>
 <p>
-<a href="{{ url('familie/toevoegen/'.$user->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Gezin toevoegen</a>
 </p>
                         </div>
                         </div>
