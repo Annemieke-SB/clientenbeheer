@@ -23,7 +23,7 @@
 <div>
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Wijzig gegevens</a></li>
+  <li role="presentation"><a href="#">Wijzig uw gegevens</a></li>
   <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
   <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
 </ul>
@@ -90,6 +90,9 @@
     </div>
 
  </div>
+<div class="row">
+	<p>Op deze pagina staat alle informatie die voor u nodig is. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden. De Sinterklaasbank controleert namelijk alle aanmeldingen of ze aan onze eisen voldoen. </p>
+</div>
      <div class="row">  
         <div class="col-md-10 col-md-offset-1">
          
