@@ -171,24 +171,55 @@
                             {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
                                 </div>
 
-                                @if ($errors->has('telefoon'))
+                                @if ($errors->has('type'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('telefoon') }}</strong>
+                                        <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
 
-                      <div class="form-group">
+                        <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
 
-                            {!! Form::label('type', 'Soort instelling') !!}
+                            <label for="postcode" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
+			    <div class="col-md-6">
+				<input class="form-control" required name="postcode" type="text" id="postcode">
+			    </div>
 
-                            {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
                         </div>                        
+                        <div class="form-group">
 
+                            <label for="huisnummer">Huisnummer (postbusnummer mag ook)</label>
+                            <input class="form-control" required name="huisnummer" type="text" id="huisnummer">
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="huisnummertoevoeging">Huisnummertoevoeging</label>
+                            <input class="form-control" name="huisnummertoevoeging" type="text" id="huisnummertoevoeging">
+
+                        </div>
 
                         <div class="form-group">
+
+                            <label for="adres_auto">Adres (wordt automatisch ingevuld op basis van postcode)</label>
+                            <input class="form-control" disabled required name="adres_auto" type="text" id="adres_auto">
+                            <input name="adres" type="hidden">
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="woonplaats_auto">Woonplaats (wordt automatisch ingevuld op basis van postcode)</label>
+                            <input class="form-control" disabled required name="woonplaats_auto" type="text" id="woonplaats_auto">
+                            <input name="woonplaats" type="hidden">
+
+                        </div>
+                        
+
+                        <div class="form-group">
+
+
 
                             {!! Form::label('postcode', 'Postcode (zonder spaties: 1234AA)') !!}
                             {!! Form::text('postcode', null, ['class' => 'form-control', 'required']) !!}
