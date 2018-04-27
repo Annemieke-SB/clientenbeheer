@@ -86,7 +86,7 @@
                             </div>
                         </div>  
                         <div class="form-group{{ $errors->has('organisatienaam') ? ' has-error' : '' }}">
-                            <label for="organisatienaam" class="col-md-5 control-label">De naam van uw instelling&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="De gegevens van de instelling vult u later in."></span></label>
+                            <label for="organisatienaam" class="col-md-5 control-label">De naam van uw instelling&nbsp;</label>
 
                             <div class="col-md-6">
                                 <input id="organisatienaam" type="text" class="form-control" name="organisatienaam" value="{{ old('organisatienaam') }}" required>
