@@ -192,7 +192,7 @@
                                         <strong>{{ $errors->first('postcode') }}</strong>
                                     </span>
                                 @endif
-
+                           </div>                        
                         </div>                        
                         <div class="form-group">
 
