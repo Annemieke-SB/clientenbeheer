@@ -8,7 +8,7 @@ class Family extends Model
 {
 
 	protected $table = 'familys';
-    protected $appends = array('targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'intermediairgegevens', 'heeftkindmogelijkdubbel');
+    protected $appends = array('targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
             'achternaam',
@@ -24,16 +24,16 @@ class Family extends Model
             'bezoek_sintpiet',
             'motivering',
             'andere_alternatieven',
-            'intermediair_id',
+            'user_id',
             'intertoy_id',
             'aangemeld',
             'goedgekeurd'
     ];
 
 	
-    public function intermediair()
+    public function user()
     {
-        return $this->belongsTo('App\Intermediair');
+        return $this->belongsTo('App\User');
     }
 
     public function kids()
@@ -141,16 +141,5 @@ class Family extends Model
         return $count;        
     
     }
-
-    public function getIntermediairgegevensAttribute()
-    {
-
-
-     $intermediair = Intermediair::where('id', $this->intermediair_id)->first();
-     $user = User::where('id', $intermediair->user_id)->first();
-
-     return $user->name . " (" . $intermediair->type . ") - " . $user->email . " | " . $intermediair->telefoon;  
-    }
-
 
 }

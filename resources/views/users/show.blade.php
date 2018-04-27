@@ -20,69 +20,114 @@
                     </ol>
 
                 <div class="panel-body">
-                 Op deze pagina staan alle gegevens die betrekking hebben deze gebruiker. Dit overzicht is alleen toegankelijk voor admins en raadplegers. 
-                </div>
-            </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Gebruikersgegevens</div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @if($user->geslacht == "v")
+                        Mevr.&nbsp;
+                    @else
+                        Dhr.&nbsp;
+                    @endif
 
-                <div class="panel-body">
+                    {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}&nbsp;
 
-                  <table>
+                            <span class="badge badge-info">
 
-                        <tr style="min-width: 100px;"><td>Voornaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->voornaam }}&nbsp;</td></tr>
-                        <tr><td>Achternaam&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->achternaam }}&nbsp;</td></tr>
-                        <tr><td>Tussenvoegsel&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->tussenvoegsel }}&nbsp;</td></tr>
-                        <tr><td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->geslacht }}&nbsp;</td></tr>
-                        <tr><td>Organisatie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->organisatienaam }}&nbsp;</td></tr>
-                        <tr><td>Functie&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->functie }}&nbsp;</td></tr>
-                        <tr><td>Website&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->website }}&nbsp;<a href="http://{{ preg_replace('#^https?://#', '', $user->website) }}" target="_BLANK"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td></tr>
-                        <tr><td>Telefoon&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->telefoon }}&nbsp;</td></tr>
-                        <tr><td>Email&nbsp;</td><td> : </td><td>&nbsp;&nbsp;{{ $user->email }}&nbsp;<a href="mailto:{{ $user->email }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td></tr>
-                        <tr><td>Type&nbsp;</td><td> : </td><td>&nbsp;
-                          @if ($user->usertype==1)
+                            @if ($user->usertype==1)
                                 Admin
                             @elseif ($user->usertype==2)
                                 Raadpleger
                             @elseif ($user->usertype==3)    
-                                Intermediair&nbsp;<a href="{{ url('/user/redirecttointermediair') }}/{{ $user->id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                                Intermediair
                             @endif     
-                            &nbsp;</td></tr>
-                        <tr><td>Email&nbsp;geverifieerd&nbsp;</td><td> : </td><td>&nbsp;
+                            </span></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ $user->functie }}&nbsp;bij&nbsp;{{ $user->organisatienaam }}&nbsp;</h6>
+                <p class="card-text">
+                <span class="glyphicon glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"></span> {{ $user->telefoon }}<br>
+                <span class="glyphicon glyphicon glyphicon-globe" aria-hidden="true"></span> <a href="http://{{ preg_replace('#^https?://#', '', $user->website) }}" target="_BLANK" class="card-link">{{ $user->website }}</a> <br> 
+                <span class="glyphicon glyphicon glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:{{ $user->email }}" class="card-link">{{ $user->email }}</a>&nbsp;
+
+                
                                     @if ($user->emailverified)
-                                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>
+                                        <span class="badge badge-success">geverifieerd</span>
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
-                                    @endif 
-                          &nbsp;</td></tr>
-                        <tr><td>Geactiveerd&nbsp;</td><td> : </td><td>&nbsp;
-                                    @if ($user->activated)
+                                    @endif  
+                                    <br><br>
+                                    {{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;aangemaakt<br>
+                                    {{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;gewijzigd
+            </p></div>
+         </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reden aanmelden</h5>
+            <p class="card-text">{{ $user->reden }}</p>
+                                    Gebruiker geactiveerd: @if ($user->activated)
                                         <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
                                         @if ($user->emailverified)
-                                            <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
+                                            <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
                                         @endif
-                                    @endif  
-                                  </td></tr>
-                        <tr><td>Reden&nbsp;bij&nbsp;inschrijven&nbsp;</td><td> : </td><td>&nbsp;{{ $user->reden }}&nbsp;</td></tr>
-                        <tr><td>Aangemaakt&nbsp;</td><td> : </td><td>&nbsp;{{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;</td></tr>
-                        <tr><td>Gewijzigd&nbsp;</td><td> : </td><td>&nbsp;{{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;</td></tr>
-
-                    </table>
-                    
-                
-
-                    <a href="{{ url('/user/edit/'.$user->id) }}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Wijzig</button></a>
-                    
-                </div>
-            </div>    
+                                    @endif 
             
+          </div>
         </div>
     </div>
-</div>
 
+ </div>
+     <div class="row">  
+        <div class="col-md-10 col-md-offset-1">
+         
+<h2>Gezinnen</h2>
+
+                      <div class="table-responsive">
+                            <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Naam&nbsp;</th>
+                                        <th>Woonplaats&nbsp;</th>
+                                        <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span>&nbsp;</th>
+                                        <th>Status&nbsp;</th> 
+                                        <th>Actie&nbsp;</th> 
+                                    </tr>                               
+                                    </thead>
+                                    <tbody>
+@if (count($user->familys) == 0)
+<tr>
+	<td colspan=5><center>Nog geen gezinnen ingevoerd</center></td>
+</tr>
+@endif
+
+@foreach ($user->familys as $family)
+				      <tr>
+                                        <td>{{$family->achternaam }} &nbsp;</td>
+                                        
+                                        <td>{{$family->woonplaats }}&nbsp;</td>
+                                        <td>2&nbsp;</td>
+                                        <td>Goedgekeurd&nbsp;</td>
+                                        <td>
+
+         
+                                          
+                                                
+                                                <a href="{{ url('/family') }}/show/1"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
+
+                                                
+                                        </td>
+				    </tr>
+@endforeach
+                                    </tbody>
+                            </table>
+<p>
+<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Gezin toevoegen</a>
+</p>
+                        </div>
+                        </div>
 
 <script type="text/javascript">
 

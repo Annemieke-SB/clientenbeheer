@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use DB;
 use Route;
-use App\Intermediair;
+use App\User;
 use App\Family;
 use App\Kid;
 use App\Setting;
@@ -64,7 +64,7 @@ class HomeController extends Controller
                     $kids_disqualified = 0;
                     $families_disqualified = 0;
                     $kids_dubbel = 0;
-                    $intermediairzonderfamilies = Intermediair::whereDoesntHave('familys')->first();
+                    $intermediairzonderfamilies = User::whereDoesntHave('familys')->first();
                     $familieszonderkinderen = Family::whereDoesntHave('kids')->first();
                     $aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->count();
 

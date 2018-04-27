@@ -30,7 +30,7 @@ class CreateFamilysTable extends Migration
             $table->tinyInteger('aangemeld')->default(0);
             $table->longtext('motivering');
             $table->string('email')->unique();
-            $table->integer('intermediair_id');
+            $table->integer('user_id');
             $table->tinyInteger('bezoek_sintpiet')->default(0);
             $table->rememberToken();
             $table->timestamps();

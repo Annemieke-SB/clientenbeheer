@@ -31,9 +31,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function intermediair()
+    public function familys()
     {
-        return $this->hasOne('App\Intermediair');
+        return $this->hasMany('App\Family');
     }
 
     public function verified()

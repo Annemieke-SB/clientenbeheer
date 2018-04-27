@@ -137,7 +137,7 @@
                                                     @elseif ($user->usertype==2)
                                                         Raadpleger&nbsp;
                                                     @elseif ($user->usertype==3)    
-                                                        Interm..&nbsp;<a href="{{ url('/user/redirecttointermediair') }}/{{ $user->id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                                                        Intermediair&nbsp;
                                                     @endif                       
                                                 </td>
                                                 <td>                                                
