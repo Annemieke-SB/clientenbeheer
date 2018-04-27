@@ -106,14 +106,7 @@ class HomeController extends Controller
                 }elseif($user->usertype == 2){
                     return view('raadpleger');
                 }elseif($user->usertype == 3){
-                    $intermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
-                    if ($intermediair) {
-                        return redirect('intermediairs/show/'.$intermediair->id);
-                    }
-                    else {
-                        return redirect('intermediairs/create/');
-                    }
-                    
+                        return redirect('user/show/'.$user->id);
                 }   
         }
         elseif($user->emailverified == 0)  {
