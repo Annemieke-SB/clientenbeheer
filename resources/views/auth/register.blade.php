@@ -160,13 +160,33 @@
                                     </span>
                                 @endif
                             </div>
+			</div>
+
+
+
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-5 control-label">Soort instelling</label>
+
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1" style="font-family: sans-serif; font-size:15px;"><span class="glyphicon glyphicon-earphone"></span></span>
+                            {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
+                                </div>
+
+                                @if ($errors->has('telefoon'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telefoon') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
+
 
                       <div class="form-group">
 
                             {!! Form::label('type', 'Soort instelling') !!}
-                            {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
 
+                            {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
                         </div>                        
 
 
