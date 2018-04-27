@@ -63,6 +63,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'functie' => 'required|min:5',
+            'type' => 'required',
             'telefoon' => 'required|numeric|min:10',
             'postcode' => 'required|min:6|max:6',
             'huisnummer' => 'required|nummeric',
