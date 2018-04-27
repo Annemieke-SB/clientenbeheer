@@ -184,7 +184,6 @@
                             <label for="postcode" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
 			    <div class="col-md-6">
 				<input class="form-control" required name="postcode" type="text" id="postcode">
-			    </div>
 
                                 @if ($errors->has('postcode'))
                                     <span class="help-block">
