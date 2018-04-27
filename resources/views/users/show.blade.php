@@ -91,7 +91,7 @@
 
  </div>
      <div class="row">  
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-0">
          
 <h2>Gezinnen</h2>
 
