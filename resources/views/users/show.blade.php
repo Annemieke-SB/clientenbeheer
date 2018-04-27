@@ -21,7 +21,7 @@
 
                 <div class="panel-body">
 <div>
-<ul class="nav nav-pills">
+<ul class="nav nav-pills justified">
   <li role="presentation" class="active"><a href="#">Home</a></li>
   <li role="presentation"><a href="#">Wijzig gegevens</a></li>
   <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
