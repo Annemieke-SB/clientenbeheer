@@ -20,13 +20,15 @@
                     </ol>
 
                 <div class="panel-body">
-
+<div>
 <ul class="nav nav-pills">
   <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
+  <li role="presentation"><a href="#">Wijzig gegevens</a></li>
+  <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
 </ul>
 
+
+</div>
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
