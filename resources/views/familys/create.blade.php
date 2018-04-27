@@ -14,8 +14,8 @@
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>                      
+                      <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $intermediair->voornaam }} {{$intermediair->tussenvoegsel}} {{ $intermediair->achternaam }}</a></li>                      
                       <li class="active">Familie toevoegen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)

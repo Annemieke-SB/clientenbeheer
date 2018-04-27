@@ -100,6 +100,7 @@
                     				<th style="max-width: 300px;">Gebruiker&nbsp;</th>
                     				<th>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true" data-toggle="tooltip" title="Email geverifieerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
+                                    <th>&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Aantal gezinnen"></span></th>
                                     <th>Rol&nbsp;</th>
                                     <th style="width: 240px;">Actie&nbsp;</th> 
                                 </tr>                 				
@@ -130,7 +131,10 @@
                                                     @else
                                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;
                                                     @endif                                               
-                                                </td>
+						</td>
+						<td>
+							{{ count($user->familys) }}
+						</td>
                                                 <td>
                                                     @if ($user->usertype==1)
                                                         Admin&nbsp;
@@ -154,10 +158,10 @@
                                                             <div class="modal-content">
                                                               <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gebruiker {{ $user->achternaam }}?</h4>
+                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gebruiker {{ $user->tussenvoegsel}} {{ $user->achternaam }}?</h4>
                                                               </div>
                                                               <div class="modal-body">
-                                                                <p>Let op: als je de gebruiker wist, worden (als de gebruiker een intermediair is) de instelling en alle gezinnen en kinderen die eronder hangen ook <b>permanent</b> gewist.</p></blockquote>
+                                                                <p>Let op: als je de gebruiker wist, worden alle gezinnen en kinderen die eronder hangen ook <b>permanent</b> gewist.</p></blockquote>
                                                               </div>
                                                               <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>

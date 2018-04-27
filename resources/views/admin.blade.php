@@ -44,7 +44,8 @@
 
 
 
-@section('content')
+
+@section ('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -57,8 +58,6 @@
                     </ol>                
 
                 <div class="panel-body">
-                 Welkom op de administrator-pagina. Klik op de knoppen hieronder voor de gewenste overzichten of pagina's. 
-
 
 
                     @if ($settings['inschrijven_gesloten'] == 1 && $settings['downloads_ingeschakeld'] == 1) {{-- Inschrijvingen gesloten downloads aktief --}}
@@ -75,63 +74,11 @@
                     @endif
 
 
-                </div>
-            </div>
-
             <!-- Flashmessage -->
             @if (count(Session::get('message')) > 0)
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
             @endif
                         
-
-
-                        
-            <div class="panel panel-default">    
-                <div class="panel-heading">Sitebeheer</div>
-
-                <div class="panel-body">
-                    <a class="btn btn-warning" href="{{ url('/settings/') }}" role="button"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Instellingen</a>
-                    <a class="btn btn-warning" href="{{ url('/users/index') }}" role="button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Gebruikersbeheer</a>        
-                    <a class="btn btn-info" href="/docs/" role="button"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;Documentatie</a>  
-                </div>
-            </div>
-
-            <div class="panel panel-default">    
-            <div class="panel-heading">Overzichten</div>
-                <div class="panel-body">
-                    <a class="btn btn-info" href="{{ url('/tellingen/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Tellingen</a>      
-                    <a class="btn btn-info" href="{{ url('/kinderlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Kinderlijst</a>     
-
-
-                    @if ($aangemelde_families>0) 
-
-                        <a class="btn btn-info pulse" href="{{ url('/gezinnenlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Gezinnenlijst&nbsp;<span class="badge" data-toggle="tooltip" title="Er zijn aangemeldde gezinnen!">{{$aangemelde_families}}</span></a>
-
-                    @else
-
-                        <a class="btn btn-info" href="{{ url('/gezinnenlijst/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Gezinnenlijst&nbsp;</a>
-
-                    @endif
-                    
-                    <a class="btn btn-info" href="{{ url('/intermediairs/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Intermediairs</a>
-                    <a class="btn btn-info" href="{{ url('/barcodes/') }}" role="button"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Barcodes</a>
-                    </div>
-            </div>
-
-            <div class="panel panel-default">    
-            <div class="panel-heading">Email naar alle gebruikers (intermediairs en beheerders)</div>
-                <div class="panel-body">
-                    <p>Met deze knop kan je een email aan alle gebruikers sturen. Klik op template om een voorbeeld te bekijken. Je hoeft zelf alleen de tekst in te voeren voor het tekstveld in te voeren, daar verschijnt de tekst. Alles eromheen staat er al.</p>
-
-                    <blockquote>Dit is alleen bedoeld voor eenvoudige tekst, zonder 'enters' en opmaak.</blockquote>
-                    <a class="btn btn-info" href="{{ url('/template/') }}" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Template</a>
-                    <a class="btn btn-default" href="{{ url('/sendmailform/') }}" role="button"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;Maak email</a>
-                    </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Waarschuwingen</div>
-                <div class="panel-body">            
                 @if($kids_disqualified)
                     <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
                 @endif 
@@ -157,4 +104,5 @@
         </div>
     </div>
 </div>
+
 @endsection

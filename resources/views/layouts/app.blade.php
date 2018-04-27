@@ -73,79 +73,18 @@
     </style>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header" style="background-color: #cada5c;">
 
-                    <!-- Branding Image -->
 
-                    @if(App::environment('dev'))
-                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank_test.png') }}">
-                    </a>
-                    @else
-                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('/img/sintbankpics/logo-Sinterklaasbank.png') }}">
-                    </a>                
-                    @endif
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" style="background-color: #cada5c;">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
-                </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse" style="background-color: #cada5c;">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+<div id="app">
+@include('layouts.nav')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Inloggen</a></li>
-                            <li><a href="{{ url('/inschrijven') }}">Inschrijven</a></li>
-                            <li><a href="https://www.sinterklaasbank.nl">Sinterklaasbank.nl</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->voornaam }}&nbsp;{{ Auth::user()->tussenvoegsel }}&nbsp;{{ Auth::user()->achternaam }} <span class="caret"></span>
-                                </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/user/edit') }}/{{ Auth::user()->id }}">Wijzig gegevens</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Uitloggen
-                                        </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    <li><a href="https://www.sinterklaasbank.nl">Sinterklaasbank.nl</a></li>
 
-                                </ul>
-                            </li>
-                        @endif
-                        @if (!Auth::guest())
-                        <a href="#" data-toggle="modal" data-target="#helpbox"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
+        @yield ('content')
 
 <!-- Hieronder de modal met help over het toevoegen van gezin-->
 

@@ -20,7 +20,6 @@ use Mail;
 use DB;
 use Html;
 use Custommade;
-use App\Intermediair;
 
 
 class UserController extends Controller
@@ -35,11 +34,11 @@ class UserController extends Controller
         $loggedinuser = Auth::user();
 
         if (request()->has('achternaam')) {
-            $users = User::where('achternaam', 'like', "%" . request('achternaam') . "%")->orderBy('achternaam', 'ASC')->paginate(5)->appends('achternaam', request('achternaam'));
+            $users = User::where('achternaam', 'like', "%" . request('achternaam') . "%")->orderBy('achternaam', 'ASC')->paginate(10)->appends('achternaam', request('achternaam'));
         } elseif (request()->has('na')) {
-            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(5)->appends('na', request('na'));
+            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(10)->appends('na', request('na'));
         } else {
-            $users = User::orderBy('achternaam', 'ASC')->paginate(5);
+            $users = User::orderBy('achternaam', 'ASC')->paginate(10);
         }
 
         
@@ -364,10 +363,9 @@ class UserController extends Controller
             $user = User::findOrFail($id);
 
             if ($user->usertype==3){
-                $intermediair = Intermediair::where('user_id', '=', $user->id)->first(); 
+                //$intermediair = Intermediair::where('user_id', '=', $user->id)->first(); 
 
-                if ($intermediair) {
-                    $familys = Family::where('intermediair_id', '=', $intermediair->id)->get(); 
+                    $familys = Family::where('user_id', '=', $user->id)->get(); 
                     
 
                      foreach($familys as $family) {
@@ -395,10 +393,10 @@ class UserController extends Controller
                         DB::table('kids')->where('family_id', '=', $family->id)->delete();
                     } 
 
-                    DB::table('familys')->where('intermediair_id', '=', $intermediair->id)->delete();                  
-                }
+                    DB::table('familys')->where('user_id', '=', $user->id)->delete();                  
+                
 
-               DB::table('intermediairs')->where('user_id', '=', $user->id)->delete();
+               //DB::table('intermediairs')->where('user_id', '=', $user->id)->delete();
             }
 
             User::destroy($id); // 1 way 

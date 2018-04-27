@@ -12,7 +12,6 @@ use App\Family;
 use App\Kid;
 use App\Barcode;
 use App\Setting;
-use App\Intermediair;
 use Custommade;
 use Mail;
 
@@ -58,9 +57,9 @@ class FamilyController extends Controller
         
         //$family = DB::table('familys')->where('id', $id)->first();
         $family = Family::find($id);
-        $intermediair = Family::find($id)->intermediair;
+        $intermediair = Family::find($id)->user;
         $kids = Family::find($id)->kids;
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
+        //$eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
         $min_leeftijd_target = Setting::find(1);
         $max_leeftijd_target = Setting::find(2);
         $max_leeftijd_sibling = Setting::find(3);
@@ -72,7 +71,7 @@ class FamilyController extends Controller
             return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }        
 
-        return view('familys.show', ['intermediair' => $intermediair, 'family' => $family, 'kids' => $kids, 'eigenaar'=>$eigenaar, 'min_leeftijd_target'=>$min_leeftijd_target, 'max_leeftijd_target'=>$max_leeftijd_target, 'max_leeftijd_sibling'=>$max_leeftijd_sibling, 'settings'=>$settings_arr]);
+        return view('familys.show', ['intermediair' => $intermediair, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min_leeftijd_target, 'max_leeftijd_target'=>$max_leeftijd_target, 'max_leeftijd_sibling'=>$max_leeftijd_sibling, 'settings'=>$settings_arr]);
     }    
 
 
@@ -85,10 +84,10 @@ class FamilyController extends Controller
         */
 
         $loggedinuser = Auth::user(); 
-        $intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
+        //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
         // Intermediairs mogen alleen familys aanmaken onder eigen id       
-        if(($loggedinuser->usertype == 3)&&($intermediair_vanloggedinuser->id != $id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
             
             Log::info('Een intermediair probeerde de een familie aan te maken (family.create) bij een andere intermediair: '.$loggedinuser->id);
             return redirect('intermediairs/show/'.$intermediair_vanloggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
@@ -96,9 +95,8 @@ class FamilyController extends Controller
 
 
 
-        $intermediair = DB::table('intermediairs')->where('id', $id)->first();
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
-        return view('familys.create', ['intermediair'=>$intermediair, 'eigenaar'=>$eigenaar]);
+        $intermediair = DB::table('users')->where('id', $id)->first();
+        return view('familys.create', ['intermediair'=>$intermediair]);
     }
 
     /**

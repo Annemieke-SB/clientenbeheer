@@ -108,14 +108,14 @@
                                         <td>{{$family->achternaam }} &nbsp;</td>
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
-                                        <td>2&nbsp;</td>
+                                        <td>{{count($family->kids)}}&nbsp;</td>
                                         <td>Goedgekeurd&nbsp;</td>
                                         <td>
 
          
                                           
                                                 
-                                                <a href="{{ url('/family') }}/show/1"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
+                                                <a href="{{ url('/family') }}/show/{{$family->id}}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
 
                                                 
                                         </td>
@@ -124,7 +124,7 @@
                                     </tbody>
                             </table>
 <p>
-<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Gezin toevoegen</a>
+<a href="{{ url('familie/toevoegen/'.$user->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Gezin toevoegen</a>
 </p>
                         </div>
                         </div>

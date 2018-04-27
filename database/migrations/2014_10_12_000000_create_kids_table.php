@@ -21,6 +21,7 @@ class CreateKidsTable extends Migration
             $table->string('geslacht');
             $table->string('geboortedatum');
             $table->string('family_id');
+            $table->string('user_id');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,8 +15,8 @@
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>
+                      <li><a href="{{ url('/users') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $intermediair->voornaam }} {{ $intermediair->tussenvoegsel }} {{ $intermediair->achternaam }}</a></li>
                       <li class="active">Fam {{$family->achternaam}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
@@ -107,13 +107,13 @@
                     @endif
 
 
-                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
+                    <a href="{{ url('/user/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
                     <a href="{{ url('/gezinnenlijst') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar gezinnenlijst</button></a>
                     <a href="{{ url('/family') }}/toggleok/{{ $family->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>                  
                     <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                 @else
 
-                    <a href="{{ url('/intermediairs/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/user/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @endif
                 </div>
             </div>
@@ -139,7 +139,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $eigenaar->voornaam }}&nbsp;{{ $eigenaar->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($intermediair->type) }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $intermediair->voornaam }}&nbsp;{{ $intermediair->tussenvoegsel }} {{ $intermediair->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($intermediair->type) }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
@@ -198,8 +198,10 @@
                                 
                                 <td>
                                     @if (!$kid->achternaam)
+                                    {{ $family->tussenvoegsel }}
                                     {{ $family->achternaam }}
                                     @else
+                                    {{ $kid->tussenvoegsel }}
                                     {{ $kid->achternaam }}
                                     @endif
 
