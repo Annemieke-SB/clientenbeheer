@@ -187,6 +187,12 @@
 				<input class="form-control" required name="postcode" type="text" id="postcode">
 			    </div>
 
+                                @if ($errors->has('postcode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('postcode') }}</strong>
+                                    </span>
+                                @endif
+
                         </div>                        
                         <div class="form-group">
 
