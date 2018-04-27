@@ -183,7 +183,7 @@
 
                             <label for="postcode" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
 			    <div class="col-md-6">
-				<input class="form-control" required name="postcode" type="text" id="postcode">
+				<input class="form-control" required name="postcode" type="text" maxlength="6" length="6" id="postcode">
 
                                 @if ($errors->has('postcode'))
                                     <span class="help-block">
@@ -211,7 +211,7 @@
  
                         <div class="form-group{{ $errors->has('huisnummertoevoeging') ? ' has-error' : '' }}">
 
-                            <label for="huisnummertoevoeging" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
+                            <label for="huisnummertoevoeging" class="col-md-5 control-label">Huisnummertoevoeging</label>
 			    <div class="col-md-6">
 				<input class="form-control" name="huisnummertoevoeging" type="text" id="huisnummertoevoeging">
 
