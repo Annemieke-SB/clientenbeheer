@@ -193,71 +193,73 @@
                                 @endif
                            </div>                        
                         </div>                        
-                        <div class="form-group">
 
-                            <label for="huisnummer">Huisnummer (postbusnummer mag ook)</label>
-                            <input class="form-control" required name="huisnummer" type="text" id="huisnummer">
+ 
+                        <div class="form-group{{ $errors->has('huisnummer') ? ' has-error' : '' }}">
 
-                        </div>
-                        <div class="form-group">
+                            <label for="huisnummer" class="col-md-5 control-label">Huisnummer (postbusnummer mag ook)</label>
+			    <div class="col-md-6">
+				<input class="form-control" required name="huisnummer" type="text" id="huisnummer">
+			    </div>
 
-                            <label for="huisnummertoevoeging">Huisnummertoevoeging</label>
-                            <input class="form-control" name="huisnummertoevoeging" type="text" id="huisnummertoevoeging">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="adres_auto">Adres (wordt automatisch ingevuld op basis van postcode)</label>
-                            <input class="form-control" disabled required name="adres_auto" type="text" id="adres_auto">
-                            <input name="adres" type="hidden">
-
-                        </div>
-                        <div class="form-group">
-
-                            <label for="woonplaats_auto">Woonplaats (wordt automatisch ingevuld op basis van postcode)</label>
-                            <input class="form-control" disabled required name="woonplaats_auto" type="text" id="woonplaats_auto">
-                            <input name="woonplaats" type="hidden">
-
-                        </div>
-                        
-
-                        <div class="form-group">
-
-
-
-                            {!! Form::label('postcode', 'Postcode (zonder spaties: 1234AA)') !!}
-                            {!! Form::text('postcode', null, ['class' => 'form-control', 'required']) !!}
-
+                                @if ($errors->has('huisnummer'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('huisnummer') }}</strong>
+                                    </span>
+                                @endif
+                           </div>                        
                         </div>                        
-                        <div class="form-group">
 
-                            {!! Form::label('huisnummer', 'Huisnummer (postbusnummer mag ook)') !!}
-                            {!! Form::text('huisnummer', null, ['class' => 'form-control', 'required']) !!}
+ 
+                        <div class="form-group{{ $errors->has('huisnummertoevoeging') ? ' has-error' : '' }}">
 
-                        </div>
-                        <div class="form-group">
+                            <label for="huisnummertoevoeging" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
+			    <div class="col-md-6">
+				<input class="form-control" name="huisnummertoevoeging" type="text" id="huisnummertoevoeging">
+			    </div>
 
-                            {!! Form::label('huisnummertoevoeging', 'Huisnummertoevoeging') !!}
-                            {!! Form::text('huisnummertoevoeging', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('huisnummertoevoeging'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('huisnummertoevoeging') }}</strong>
+                                    </span>
+                                @endif
+                           </div>                        
+                        </div>                        
 
-                        </div>
+ 
+                        <div class="form-group{{ $errors->has('adres_auto') ? ' has-error' : '' }}">
 
-                        <div class="form-group">
+                            <label for="adres_auto" class="col-md-5 control-label">Adres (automatisch)</label>
+			    <div class="col-md-6">
+				<input class="form-control" name="adres_auto" disabled required type="text" id="adres_auto">
+			    </div>
 
-                            {!! Form::label('adres_auto', 'Adres (wordt automatisch ingevuld op basis van postcode)') !!}
-                            {!! Form::text('adres_auto', null, ['class' => 'form-control', 'disabled', 'required']) !!}
-                            {!! Form::hidden('adres', null) !!}
+                                @if ($errors->has('adres_auto'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('adres_auto') }}</strong>
+                                    </span>
+                                @endif
+                            <input name="adres" type="hidden">
+                           </div>                        
+                        </div>                        
 
-                        </div>
-                        <div class="form-group">
+ 
+                        <div class="form-group{{ $errors->has('woonplaats_auto') ? ' has-error' : '' }}">
 
-                            {!! Form::label('woonplaats_auto', 'Woonplaats (wordt automatisch ingevuld op basis van postcode)') !!}
-                            {!! Form::text('woonplaats_auto', null, ['class' => 'form-control', 'disabled', 'required']) !!}
-                            {!! Form::hidden('woonplaats', null) !!}
+                            <label for="woonplaats_auto" class="col-md-5 control-label">Woonplaats (automatisch)</label>
+			    <div class="col-md-6">
+				<input class="form-control" name="woonplaats_auto" disabled required type="text" id="woonplaats_auto">
+			    </div>
 
-                        </div>
-                        
+                                @if ($errors->has('woonplaats_auto'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('woonplaats_auto') }}</strong>
+                                    </span>
+                                @endif
+                            <input name="woonplaats" type="hidden">
+                           </div>                        
+                        </div>                        
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-5 control-label">Wachtwoord</label>
