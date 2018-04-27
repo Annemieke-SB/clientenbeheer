@@ -21,6 +21,12 @@
 
                 <div class="panel-body">
 
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
@@ -58,7 +64,9 @@
                                     <br><br>
                                     {{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;aangemaakt<br>
                                     {{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;gewijzigd
-            </p></div>
+
+
+	    </p></div>
          </div>
     </div>
     <div class="col-sm-6">
