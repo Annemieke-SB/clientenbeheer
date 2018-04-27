@@ -26,7 +26,7 @@
   <li role="presentation"><a href="#">Wijzig gegevens</a></li>
   <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
 </ul>
-
+<hr>
 
 </div>
     <div class="col-sm-6">
