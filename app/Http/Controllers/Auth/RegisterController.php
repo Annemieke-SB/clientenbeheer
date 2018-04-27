@@ -66,7 +66,7 @@ class RegisterController extends Controller
             'type' => 'required',
             'telefoon' => 'required|numeric|min:10',
             'postcode' => 'required|min:6|max:6',
-            'huisnummer' => 'required|nummeric',
+            'huisnummer' => 'required|numeric',
             'adres' => 'required',
             'woonplaats' => 'required',
             'website' => array('required', 'regex:'.$regex),
