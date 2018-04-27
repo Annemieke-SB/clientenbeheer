@@ -169,7 +169,6 @@
 
                             <div class="col-md-6">
                             {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
-                                </div>
 
                                 @if ($errors->has('type'))
                                     <span class="help-block">
