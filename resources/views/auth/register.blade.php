@@ -169,7 +169,7 @@
 
                             <div class="col-md-6">
                                 <div class="input-group">
-                                <span class="input-group-addon" id="basic-addon1" style="font-family: sans-serif; font-size:15px;"><span class="glyphicon glyphicon-earphone"></span></span>
+                                <span class="input-group-addon" id="basic-addon1" style="font-family: sans-serif; font-size:15px;"></span></span>
                             {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
                                 </div>
 
