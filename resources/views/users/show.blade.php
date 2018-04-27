@@ -90,8 +90,11 @@
     </div>
 
 
+<div class="row">
 	<p>Op deze pagina staat alle informatie die voor u nodig is. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden. De Sinterklaasbank controleert namelijk alle aanmeldingen of ze aan onze eisen voldoen. </p>
+</div>
 
+     <div class="row">  
         <div class="col-md-10 col-md-offset-1">
          
 <h2>Gezinnen</h2>
