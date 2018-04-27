@@ -25,8 +25,8 @@
   <li role="presentation" class="active"><a href="#">Home</a></li>
   <li role="presentation"><a href="#">Wijzig gegevens</a></li>
   <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
+  <li role="presentation" class="disabled"><a href="#">Downloads</a></li>
 </ul>
-<hr>
 
 </div>
     <div class="col-sm-6">
