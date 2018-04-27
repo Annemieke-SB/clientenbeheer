@@ -144,6 +144,8 @@
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="popover"]').popover();
+
 });
 
 
