@@ -199,7 +199,6 @@
                             <label for="huisnummer" class="col-md-5 control-label">Huisnummer (postbusnummer mag ook)</label>
 			    <div class="col-md-6">
 				<input class="form-control" required name="huisnummer" type="text" id="huisnummer">
-			    </div>
 
                                 @if ($errors->has('huisnummer'))
                                     <span class="help-block">
@@ -215,7 +214,6 @@
                             <label for="huisnummertoevoeging" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
 			    <div class="col-md-6">
 				<input class="form-control" name="huisnummertoevoeging" type="text" id="huisnummertoevoeging">
-			    </div>
 
                                 @if ($errors->has('huisnummertoevoeging'))
                                     <span class="help-block">
@@ -231,7 +229,6 @@
                             <label for="adres_auto" class="col-md-5 control-label">Adres (automatisch)</label>
 			    <div class="col-md-6">
 				<input class="form-control" name="adres_auto" disabled required type="text" id="adres_auto">
-			    </div>
 
                                 @if ($errors->has('adres_auto'))
                                     <span class="help-block">
@@ -248,7 +245,6 @@
                             <label for="woonplaats_auto" class="col-md-5 control-label">Woonplaats (automatisch)</label>
 			    <div class="col-md-6">
 				<input class="form-control" name="woonplaats_auto" disabled required type="text" id="woonplaats_auto">
-			    </div>
 
                                 @if ($errors->has('woonplaats_auto'))
                                     <span class="help-block">
