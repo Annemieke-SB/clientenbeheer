@@ -130,7 +130,12 @@
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
-                                        <td>Goedgekeurd&nbsp;</td>
+					<td>
+					@if ($family->aangemeld == 0)
+						Nog niet aangemeld
+					@endif
+
+					&nbsp;</td>
                                         <td>
 
          
