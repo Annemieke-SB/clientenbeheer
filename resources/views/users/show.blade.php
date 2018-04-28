@@ -23,7 +23,7 @@
 <div>
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Wijzig uw gegevens</a></li>
+  <li role="presentation"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
   <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
   <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
 </ul>
@@ -61,8 +61,11 @@
                                     @if ($user->emailverified)
                                         <span class="badge badge-success">geverifieerd</span>
                                     @else
-                                        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
-                                    @endif  
+					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>
+					@if (Auth::user()->usertype==1)
+					&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
+				    	@endif
+				    @endif  
                                     <br><br>
                                     {{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;aangemaakt<br>
                                     {{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;gewijzigd
@@ -81,7 +84,9 @@
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
                                         @if ($user->emailverified)
+					@if (Auth::user()->usertype==1)
                                             <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
+                                        @endif
                                         @endif
                                     @endif 
             

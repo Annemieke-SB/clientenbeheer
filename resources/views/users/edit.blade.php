@@ -29,15 +29,20 @@
                 @endif
 
                 <div class="panel-body">
-                 Op deze pagina staan alle gegevens die betrekking hebben de op de gebruiker.<br>
+ <div>
+<ul class="nav nav-tabs nav-justified">
+  <li role="presentation"><a href="{{url('user/show')."/$user->id"}}">Home</a></li>
+  <li role="presentation" class="active"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
+  <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
+  <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
+</ul>
 
-                 <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+</div>
+<br />
+<br />
 
-                </div>
-            </div>
-            <div class="panel panel-default">   
-                <div class="panel-heading"><h3 class="panel-title">Naam</h3></div>
-                <div class="panel-body">
+
+
 
                     @if ($errors->any())
                         <ul class="alert alert-danger">
@@ -98,7 +103,7 @@
                             {!! Form::text('website', $user->website, ['class' => 'form-control', 'required']) !!}
                             </div>
                         </div>  
-                        <div class="form-group">
+                          <div class="form-group">
 
                             {!! Form::label('telefoon', 'Telefoon (zonder streepjes; 0612345678)') !!}
                             <div class="input-group">
@@ -107,6 +112,44 @@
                             {!! Form::text('telefoon', $user->telefoon, ['class' => 'form-control', 'required']) !!}                            
                             </div>  
                         </div>                                                  
+                        <div class="form-group">
+
+                            {!! Form::label('type', 'Soort instelling') !!}
+                            {!! Form::select('type', Custommade::typenIntermediairs(), $user->type,  ["class"=>"form-control", 'autofocus']) !!}
+                        </div>                                                     
+                        <div class="form-group">
+
+                            {!! Form::label('postcode', 'Postcode') !!}
+                            {!! Form::text('postcode', $user->postcode, ['class' => 'form-control', 'required']) !!}                            
+                        </div>                                                  
+                        <div class="form-group">
+
+                            {!! Form::label('huisnummer', 'Huisnummer') !!}
+                            {!! Form::text('huisnummer', $user->huisnummer, ['class' => 'form-control', 'required']) !!}                            
+                        </div>                                                  
+                        <div class="form-group">
+
+                            {!! Form::label('huisnummertoevoeging', 'Huisnummertoevoeging') !!}
+                                 
+                            {!! Form::text('huisnummertoevoeging', $user->huisnummertoevoeging, ['class' => 'form-control', 'required']) !!}                            
+                        </div>                                                   
+                        <div class="form-group">
+
+                            {!! Form::label('adres_auto', 'Adres (wordt automatisch ingevuld op basis van postcode)') !!}
+                            {!! Form::text('adres_auto', $user->adres, ['class' => 'form-control', 'disabled', 'required']) !!}
+                            {!! Form::hidden('adres', $user->adres) !!}
+
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('woonplaats_auto', 'Woonplaats (wordt automatisch ingevuld op basis van postcode)') !!}
+                            {!! Form::text('woonplaats_auto', $user->woonplaats, ['class' => 'form-control', 'disabled', 'required']) !!}
+                            {!! Form::hidden('woonplaats', $user->woonplaats) !!}
+                            {!! Form::hidden('id', $user->id) !!}
+
+                        </div>                    
+
+
                         <div class="form-group">
                             {!! Form::hidden('id', $user->id) !!}
                             {!! Form::submit('Bovenstaande gegevens wijzigen', ['class' => 'btn btn-primary form-control']) !!}
