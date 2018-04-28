@@ -18,22 +18,16 @@
                       <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $intermediair->voornaam }} {{$intermediair->tussenvoegsel}} {{ $intermediair->achternaam }}</a></li>                      
                       <li class="active">Familie toevoegen</li>
                     </ol>
-                @elseif (Auth::user()->usertype==3)
-
-                    <ol class="breadcrumb">
-                      <li><a href="{{ url('/home') }}">Home</a></li>                     
-                      <li class="active">Gezin toevoegen</li>
-                    </ol>
                 @endif
 
                 <div class="panel-body">
-                 Op deze pagina staan alle gegevens die betrekking hebben de op de gezinnen en kinderen van het gezin.
-                 <a href="{{ url(URL::previous()) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                </div>
-            </div>
-<div class="panel panel-default">
-                
-                <div class="panel-body">
+ <ul class="nav nav-tabs nav-justified">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
+  <li role="presentation"><a href="{{url('familie/toevoegen')."/$user->id"}}">Gezinnen toevoegen</a></li>
+  <li role="presentation" class="disabled" data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
+</ul>
+
 
                     @if ($errors->any())
                         <ul class="alert alert-danger">
