@@ -82,7 +82,8 @@ class FamilyController extends Controller
             Getest en werkt: 
             - intermediairs kunnen alleen families onder eigen ID toevoegen 
         */
-
+	
+        $user = DB::table('users')->where('id', $id)->first();
         $loggedinuser = Auth::user(); 
         //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
@@ -90,13 +91,12 @@ class FamilyController extends Controller
         if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
             
             Log::info('Een intermediair probeerde de een familie aan te maken (family.create) bij een andere intermediair: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair_vanloggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
 
 
-        $intermediair = DB::table('users')->where('id', $id)->first();
-        return view('familys.create', ['intermediair'=>$intermediair]);
+        return view('familys.create', ['user'=>$user]);
     }
 
     /**

@@ -15,7 +15,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $intermediair->voornaam }} {{$intermediair->tussenvoegsel}} {{ $intermediair->achternaam }}</a></li>                      
+                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $user->voornaam }} {{$user->tussenvoegsel}} {{ $user->achternaam }}</a></li>                      
                       <li class="active">Familie toevoegen</li>
                     </ol>
                 @endif
@@ -116,7 +116,7 @@
 
                         <div class="form-group">
                             
-                            {!! Form::hidden('intermediair_id', $intermediair->id) !!}
+                            {!! Form::hidden('user_id', $user->id) !!}
                         </div>
                         <div class="form-group{{ $errors->has('motivering') ? ' has-error' : '' }}">
                             <label for="reden" class="control-label">Geef een duidelijke motivatie waarom dit gezin in aanmerking moet komen:</label>

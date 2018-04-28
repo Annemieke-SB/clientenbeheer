@@ -11,6 +11,7 @@ class Family extends Model
     protected $appends = array('targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
+            'tussenvoegsel',
             'achternaam',
             'adres',
             'huisnummer',
@@ -25,7 +26,6 @@ class Family extends Model
             'motivering',
             'andere_alternatieven',
             'user_id',
-            'intertoy_id',
             'aangemeld',
             'goedgekeurd'
     ];
