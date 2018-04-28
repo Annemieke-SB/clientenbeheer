@@ -84,9 +84,10 @@
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
                                         @if ($user->emailverified)
-					@if (Auth::user()->usertype==1)
-                                            <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
-                                        @endif
+						@if (Auth::user()->usertype==1)
+							{{ Auth::user()->usertype }}
+                                            		<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
+                                        	@endif
                                         @endif
                                     @endif 
             
