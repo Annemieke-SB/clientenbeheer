@@ -15,7 +15,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $user->voornaam }} {{$user->tussenvoegsel}} {{ $user->achternaam }}</a></li>                      
+                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->voornaam }} {{$user->tussenvoegsel}} {{ $user->achternaam }}</a></li>                      
                       <li class="active">Familie toevoegen</li>
                     </ol>
                 @endif
@@ -23,8 +23,8 @@
                 <div class="panel-body">
  <ul class="nav nav-tabs nav-justified">
   <li role="presentation"><a href="#">Home</a></li>
-  <li role="presentation"><a href="{{ url('/user/edit/')."/$intermediair->id" }}">Wijzig uw gegevens</a></li>
-  <li role="presentation" class="active"><a href="{{url('familie/toevoegen')."/$intermediair->id"}}">Gezinnen toevoegen</a></li>
+  <li role="presentation"><a href="{{ url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
+  <li role="presentation" class="active"><a href="{{url('familie/toevoegen')."/$user->id"}}">Gezinnen toevoegen</a></li>
   <li role="presentation" class="disabled" data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
 </ul>
 
