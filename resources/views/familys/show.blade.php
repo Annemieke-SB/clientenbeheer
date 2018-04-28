@@ -139,7 +139,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }} {{ $user->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($user->type) }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }} {{ $user->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
