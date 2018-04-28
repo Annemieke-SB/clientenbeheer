@@ -37,6 +37,9 @@
                         </ul>
                     @endif
 
+<br />
+<br />
+<p>Hieronder kunt u de gegevens van het gezin invoeren.</p>
 
 
 
