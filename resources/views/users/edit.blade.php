@@ -131,7 +131,7 @@
 
                             {!! Form::label('huisnummertoevoeging', 'Huisnummertoevoeging') !!}
                                  
-                            {!! Form::text('huisnummertoevoeging', $user->huisnummertoevoeging, ['class' => 'form-control', 'required']) !!}                            
+                            {!! Form::text('huisnummertoevoeging', $user->huisnummertoevoeging, ['class' => 'form-control' ]) !!}                            
                         </div>                                                   
                         <div class="form-group">
 
