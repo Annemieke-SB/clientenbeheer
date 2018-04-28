@@ -16,7 +16,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $intermediair->id }}">{{ $intermediair->voornaam }} {{ $intermediair->tussenvoegsel }} {{ $intermediair->achternaam }}</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->voornaam }} {{ $user->tussenvoegsel }} {{ $user->achternaam }}</a></li>
                       <li class="active">Fam {{$family->achternaam}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
@@ -92,8 +92,8 @@
                                         @if ($dubbelfam->id != $family->id)
                                         <tr>
                                         <td>Gezin {{$dubbelfam->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>&nbsp;&nbsp;</td>
-                                        <td>Intermediair {{$dubbelfam->intermediair->user->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/intermediairs/show/'. $dubbelfam->intermediair->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
-                                        @if($dubbelfam->intermediair->id == $intermediair->id)
+                                        <td>Intermediair {{$dubbelfam->user->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/user/show/'. $dubbelfam->user->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
+                                        @if($dubbelfam->user->id == $user->id)
                                         &nbsp;&nbsp;(zelfde intermediair als dit gezin)
                                         @endif
                                         </td>
@@ -107,13 +107,13 @@
                     @endif
 
 
-                    <a href="{{ url('/user/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
+                    <a href="{{ url('/user/show/'. $user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
                     <a href="{{ url('/gezinnenlijst') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar gezinnenlijst</button></a>
                     <a href="{{ url('/family') }}/toggleok/{{ $family->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>                  
                     <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                 @else
 
-                    <a href="{{ url('/user/show/'. $intermediair->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/user/show/'. $user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @endif
                 </div>
             </div>
@@ -139,7 +139,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $intermediair->voornaam }}&nbsp;{{ $intermediair->tussenvoegsel }} {{ $intermediair->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($intermediair->type) }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }} {{ $user->achternaam }}&nbsp;({{ Custommade::typenIntermediairs($user->type) }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
