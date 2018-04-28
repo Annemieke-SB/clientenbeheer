@@ -81,7 +81,10 @@
 							bla: {{ Auth::user()->usertype }}
             <p class="card-text">{{ $user->reden }}</p>
                                     Gebruiker geactiveerd: @if ($user->activated)
-                                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
+					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>
+						@if ( Auth::user()->usertype == 1)
+						&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
+                                        	@endif
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
                                         @if ($user->emailverified)
