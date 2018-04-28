@@ -57,21 +57,21 @@ class FamilyController extends Controller
         
         //$family = DB::table('familys')->where('id', $id)->first();
         $family = Family::find($id);
-        $intermediair = Family::find($id)->user;
-        $kids = Family::find($id)->kids;
+        $user = $family->user;
+        $kids = $family->kids;
         //$eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
         $min_leeftijd_target = Setting::find(1);
         $max_leeftijd_target = Setting::find(2);
         $max_leeftijd_sibling = Setting::find(3);
 
         // Intermediairs mogen geen andere familys zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $intermediair->user_id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $user->id)){
             
             Log::info('Een intermediair probeerde de een andere familie te bekijken (family.show) te laden, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }        
 
-        return view('familys.show', ['intermediair' => $intermediair, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min_leeftijd_target, 'max_leeftijd_target'=>$max_leeftijd_target, 'max_leeftijd_sibling'=>$max_leeftijd_sibling, 'settings'=>$settings_arr]);
+        return view('familys.show', ['user' => $user, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min_leeftijd_target, 'max_leeftijd_target'=>$max_leeftijd_target, 'max_leeftijd_sibling'=>$max_leeftijd_sibling, 'settings'=>$settings_arr]);
     }    
 
 
