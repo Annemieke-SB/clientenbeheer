@@ -13,12 +13,13 @@
                         
             <div class="panel panel-default">    
 
+		@if ( Auth::user()->usertype == 1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
                       <li class="active">{{$user->voornaam}} {{$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
-
+		@endif
                 <div class="panel-body">
 <div>
 <ul class="nav nav-tabs nav-justified">
