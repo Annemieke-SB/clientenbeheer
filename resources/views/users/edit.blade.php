@@ -20,12 +20,6 @@
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
                       <li class="active">{{$user->voornaam}} {{$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
-                @elseif (Auth::user()->usertype==3)
-
-                    <ol class="breadcrumb">
-                      <li><a href="{{ url('home') }}">Home</a></li>
-                      <li class="active">Wijzig gegevens</li>
-                    </ol>
                 @endif
 
                 <div class="panel-body">
