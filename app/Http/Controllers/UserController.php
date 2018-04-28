@@ -184,7 +184,7 @@ class UserController extends Controller
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $user->id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
             
             Log::info('Een intermediair probeerde een andere gebruiker te bekijken (user.show) te laden, userid: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
