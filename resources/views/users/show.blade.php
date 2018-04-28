@@ -133,6 +133,8 @@
 					<td>
 					@if ($family->aangemeld == 0)
 						Nog niet aangemeld
+					@else
+						?
 					@endif
 
 					&nbsp;</td>
