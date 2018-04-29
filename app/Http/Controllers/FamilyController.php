@@ -179,11 +179,12 @@ class FamilyController extends Controller
         }
 
 	foreach($family->kids as $kid){
-	 
-		$barcode = $kid->barcode;
-		$barcode->kid_id = null;
-		$barcode->save();	
-	
+
+		if ($kid->barcode) {
+			$barcode = $kid->barcode;
+			$barcode->kid_id = null;
+			$barcode->save();	
+		}	
 	}
 
         DB::table('kids')->where('family_id', '=', $id)->delete();
