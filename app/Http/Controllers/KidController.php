@@ -150,22 +150,17 @@ class KidController extends Controller
     public function edit($id)
     {
         $kid = Kid::find($id);
-
-        $family = Family::find($kid->family_id);
-        $intermediair = $family->intermediair;
-        
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $intermediair->user_id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $kid->user->id)){
             
             Log::info('Een intermediair probeerde een ander kind te wijzigen (kid.edit) te laden, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('intermediairs/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
         
 
-        return view('kids.edit', ['intermediair' => $intermediair, 'family' => $family, 'kid' => $kid, 'eigenaar'=>$eigenaar]);
+        return view('kids.edit', ['kid' => $kid]);
     }
 
 

@@ -14,15 +14,15 @@
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs/show') }}/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->tussenvoegsel }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $kid->user->id }}">{{ $kid->user->voornaam }} {{ $kid->user->tussenvoegsel }} {{ $eigenaar->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->tussenvoegsel }} {{ $kid->family->achternaam }}</a></li>
                       <li class="active">{{ $kid->voornaam }} wijzigen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->tussenvoegsel }} {{ $kid->family->achternaam }}</a></li>
                       <li class="active">{{ $kid->voornaam }} wijzigen</li>
                     </ol>
                 @endif
