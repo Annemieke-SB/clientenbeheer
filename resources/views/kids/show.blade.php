@@ -109,7 +109,7 @@
                     <table>
 
                         <tr>
-                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
+                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->tussenvoegsel }}&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
                         </tr>
                         <tr>                            
                             <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
