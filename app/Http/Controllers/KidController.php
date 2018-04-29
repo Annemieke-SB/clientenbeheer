@@ -46,22 +46,17 @@ class KidController extends Controller
         */
 
         $kid = Kid::find($id);
-
-        $family = Family::find($kid->family_id);
-        $intermediair = $family->intermediair;
-        
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $intermediair->user_id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $kid->user->id)){
             
             Log::info('Een intermediair probeerde een ander kind te bekijken (kid.show) te laden, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
 
-        return view('kids.show', ['intermediair' => $intermediair, 'family' => $family, 'kid' => $kid, 'eigenaar'=>$eigenaar, 'settings'=>$settings_arr]);
+        return view('kids.show', ['kid' => $kid, 'settings'=>$settings_arr]);
     }  
 
     /**
@@ -73,7 +68,7 @@ class KidController extends Controller
     {
         //$family = DB::table('familys')->where('id', $id)->first();
 	$family = Family::find($id);    
-	return view('kids.create', ['family'=>$family, 'user'=>$family->user]);
+	return view('kids.create', ['family'=>$family]);
     }
 
         /**

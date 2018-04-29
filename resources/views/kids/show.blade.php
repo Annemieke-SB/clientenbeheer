@@ -17,15 +17,15 @@
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/intermediairs') }}">Intermediairs</a></li>
-                      <li><a href="{{ url('/intermediairs') }}/show/{{ $intermediair->id }}">{{ $eigenaar->voornaam }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$family->achternaam}}</a></li>
+                      <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/user') }}/show/{{ $kid->user->id }}">{{ $kid->user->voornaam }} {{ $kid->user->tussenvoegsel }} {{ $kid->user->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$family->achternaam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @endif
@@ -99,7 +99,7 @@
                         Er is al een kind met deze voornaam en geboortedatum ingevoerd. Neem contact op met de andere intermediair(s) om dit op te lossen;<br>
                             @foreach($kid->geboortedatumvoornaamdubbel as $ander)
                                 @if ($kid->id != $ander->id)
-                                <br>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;<b>Betreft een kind met achternaam {{$ander->achternaam}}</b> <br>&nbsp;&nbsp;&nbsp;{{$ander->intermediairgegevens}}<br>
+                                <br>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;<b>Betreft een kind met achternaam {{$ander->achternaam}}</b> <br>&nbsp;&nbsp;&nbsp;<a href="{{ url('user/show'). "/$ander->id"}}">klik hier om die intermediair te zien</a><br>
                                 @endif
                             @endforeach
                       </div>
@@ -109,12 +109,12 @@
                     <table>
 
                         <tr>
-                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $family->achternaam }}&nbsp;</td>
+                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
                         </tr>
                         <tr>                            
                             <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
                                     @if (!$kid->achternaam)
-                                    {{ $family->achternaam }}
+                                    {{ $kid->family->achternaam }}
                                     @else
                                     {{ $kid->achternaam }}
                                     @endif
