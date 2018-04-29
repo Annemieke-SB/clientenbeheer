@@ -19,7 +19,7 @@ class Kid extends Model
             'achternaam',
 	    'tussenvoegsel',
             'family_id',
-	    'user_id'
+	    'user_id',
             'geslacht',
             'geboortedatum'
     ];
