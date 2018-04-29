@@ -126,7 +126,7 @@
                     <table>
 
                         <tr>
-                            <td>Gezin {{ $family->achternaam }}&nbsp;</td></tr><tr>                            
+                            <td>Gezin {{ $family->tussenvoegsel }} {{ $family->achternaam }}&nbsp;</td></tr><tr>                            
                             <td>{{ $family->adres }}&nbsp;{{ $family->huisnummer }}&nbsp;{{ $family->huisnummertoevoeging }}</td></tr><tr>                                                     
                             <td>{{ $family->postcode }}&nbsp;{{ $family->woonplaats }}</td></tr><tr>                            
                             <td>{{ $family->telefoon }}&nbsp;/&nbsp;{{ $family->email }}</td></tr><tr> 
