@@ -23,15 +23,7 @@
                 @endif
 
                 <div class="panel-body">
- <div>
-<ul class="nav nav-tabs nav-justified">
-  <li role="presentation"><a href="{{url('user/show')."/$user->id"}}">Home</a></li>
-  <li role="presentation" class="active"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
-  <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
-  <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
-</ul>
-
-</div>
+@include ('layouts.intermediairnav')
 <br />
 <br />
 
