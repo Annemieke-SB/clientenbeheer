@@ -72,7 +72,7 @@ class KidController extends Controller
     public function create($id)
     {
         $family = DB::table('familys')->where('id', $id)->first();
-        return view('kids.create', ['family'=>$family']);
+        return view('kids.create', ['family'=>$family]);
     }
 
         /**
