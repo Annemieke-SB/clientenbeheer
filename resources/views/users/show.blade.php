@@ -13,12 +13,13 @@
                         
             <div class="panel panel-default">    
 
+                @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
                       <li class="active">{{$user->voornaam}} {{$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
-
+		@endif
                 <div class="panel-body">
 @include ('layouts.intermediairnav',['page'=>'home'])
 
@@ -183,7 +184,6 @@
 $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
-$('[data-toggle="popover"]').popover();
 
 });
 
