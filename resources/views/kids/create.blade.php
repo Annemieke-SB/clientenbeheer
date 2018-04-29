@@ -25,7 +25,7 @@
 
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->user->achternaam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
                 @endif
