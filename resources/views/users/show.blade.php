@@ -135,7 +135,7 @@
 					<td>
 						@if (!$family->aangemeld)
 						Nog niet aangemeld
-						@elsif
+						@else
 						Onbekend
 						@endif
 					&nbsp;
