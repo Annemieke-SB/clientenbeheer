@@ -125,7 +125,6 @@ class FamilyController extends Controller
         */
 
         $loggedinuser = Auth::user();
-        $intermediair = Family::find($id)->intermediair;
         $family = Family::find($id);
 
 
@@ -148,7 +147,7 @@ class FamilyController extends Controller
         
 
         if ($settings_arr['inschrijven_gesloten'] == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
-            return redirect('intermediairs')->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben. Je zou wel de gebruiker (intermediair) kunnen deactiveren in het gebruikersoverzicht.'); 
+            return redirect('user/home'."/$family->user->id")->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben.'); 
         }
 
 
@@ -161,7 +160,7 @@ class FamilyController extends Controller
         if ($family->aangemeld == 1 && $loggedinuser->usertype == 3){
 
             Log::warning('Een intermediair probeerde een aangemeld gezin te verwijderen (family.destroy), userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een gezin geprobeerd te wissen, maar het gezin is al aangemeld.');          
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een gezin geprobeerd te wissen, maar het gezin is al aangemeld.');          
         }
 
 
@@ -169,7 +168,7 @@ class FamilyController extends Controller
         if(($loggedinuser->usertype == 2)){
             
             Log::info('Een raadpleger probeerde de een familie te verwijderen (family.destroy), userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft iets geprobeerd te wissen, maar dat mag niet als raadpleger.');
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft iets geprobeerd te wissen, maar dat mag niet als raadpleger.');
         }
 
         // Intermediairs mogen geen andere familys deleten dan diegene die ze zelf beheren        
@@ -179,11 +178,17 @@ class FamilyController extends Controller
             return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
+	foreach($family->kids as $kid){
+	 
+		$barcode = $kid->barcode;
+		$barcode->kid_id = null;
+		$barcdoe->save();	
+	
+	}
 
-        $family = DB::table('familys')->where('id', $id)->first();
         DB::table('kids')->where('family_id', '=', $id)->delete();
         Family::destroy($id); // 1 way 
-        return redirect('intermediairs/show/'.$family->intermediair_id)->with('message', 'Gezin verwijderd');
+        return redirect('user/show/'.$family->user->id)->with('message', 'Gezin verwijderd');
     }
 
 
