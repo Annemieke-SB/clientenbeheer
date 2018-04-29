@@ -56,13 +56,13 @@
                         </div>
                         <div class="form-group">
 
-                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel') !!}&nbsp;<small>(alleen invullen als deze afwijkt van de familienaam)</small>
+                            {!! Form::label('tussenvoegsel', 'Tussenvoegsel') !!}
                             {!! Form::text('tussenvoegsel', $family->tussenvoegsel, ['class' => 'form-control']) !!}
 
                         </div>
                         <div class="form-group">
 
-                            {!! Form::label('achternaam', 'Achternaam') !!}&nbsp;<small>(alleen invullen als deze afwijkt van de familienaam)</small>
+                            {!! Form::label('achternaam', 'Achternaam') !!}
                             {!! Form::text('achternaam', $family->achternaam, ['class' => 'form-control']) !!}
 
                         </div>
