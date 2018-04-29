@@ -28,6 +28,7 @@ Route::get('/voorwaarden', function () {
 });
 */
 Route::get('/inschrijven', 'PagesController@inschrijven');
+Route::get('/faq', 'FaqController@index');
 Route::get('/particulier', 'PagesController@particulier');
 Route::get('/voorwaarden', 'PagesController@voorwaarden');
 Route::get('/extrabarcodes', 'HomeController@extrabarcodes');
@@ -39,6 +40,9 @@ Route::get('/', 'PagesController@home');
 Route::get('/register/verify/{token}', 'Auth\RegisterController@verify'); 
 
 Auth::routes();
+Route::get('/faq/toevoegen', 'FaqController@create');
+Route::get('/faq/wijzigen/{id}', 'FaqController@edit');
+Route::get('/faq/verwijderen/{id}', 'FaqController@destroy');
 
 Route::get('contacts/index', 'ContactController@index')->middleware('auth');
 Route::get('contacts/show/{id}', 'ContactController@show')->middleware('auth');
