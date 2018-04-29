@@ -78,8 +78,9 @@
 
                             {!! Form::label('geboortedatum', 'Geboortedatum') !!}&nbsp;<small>(bv 13-12-2015)</small>
                             <input class="form-control" required="required" name="geboortedatum" type="date" id="geboortedatum" data-date-end-date="0d">
-                            {!! Form::hidden('family_id', $family->id) !!}
                         </div>   
+                            {!! Form::hidden('family_id', $family->id) !!}
+                            {!! Form::hidden('user_id', $family->user->id) !!}
 
                         <div class="form-group">
 

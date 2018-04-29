@@ -19,6 +19,7 @@ class Kid extends Model
             'achternaam',
 	    'tussenvoegsel',
             'family_id',
+	    'user_id'
             'geslacht',
             'geboortedatum'
     ];
@@ -27,6 +28,12 @@ class Kid extends Model
     public function family()
     {
         return $this->belongsTo('App\Family');
+    }
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
 
@@ -218,18 +225,6 @@ class Kid extends Model
         $num_str = sprintf("%05d", $this->id);
         return $this->agenextsint . $num_str;
     }    
-
-
-    public function getIntermediairgegevensAttribute()
-    {
-
-         $fam = Family::where('id', $this->family_id)->first();
-         $intermediair = Intermediair::where('id', $fam->intermediair_id)->first();
-         $user = User::where('id', $intermediair->user_id)->first();
-
-         //return $user->name . " (" . $intermediair->type . ") - " . $user->email . " | " . $intermediair->telefoon;  
-         return $intermediair;
-    }
 
 
     public function getAchternaamAttribute($value)

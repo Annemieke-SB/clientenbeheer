@@ -31,6 +31,7 @@ class CreateKidRequest extends FormRequest
             'geboortedatum' => 'required|before:'. date("Y-m-d"),
             'geslacht' => 'required',
             'family_id' => 'required|numeric',
+            'user_id' => 'required|numeric',
         ];
     }
 
