@@ -115,5 +115,11 @@
 
     <!-- Scripts -->
     <script src="{{ url('/js') }}/app.js"></script>
+
+<script type="text/javascript">
+
+$('[data-toggle="popover"]').popover();
+</script>
+
 </body>
 </html>
