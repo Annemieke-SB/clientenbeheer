@@ -137,7 +137,7 @@
 
                                           
                                                 
-                                                <a href="{{ url('/family') }}/destroy/{{$family->id}}"><button class="btn btn-alert btn-xs" type="button"><span class="glyphicon glyphicon-eye-remove" aria-hidden="true"></span>&nbsp;Wis</button></a>
+                                                <a href="{{ url('/family') }}/destroy/{{$family->id}}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-eye-remove" aria-hidden="true"></span>&nbsp;Wis</button></a>
 
                                                 
                                         </td>
