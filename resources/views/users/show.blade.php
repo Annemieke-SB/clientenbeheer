@@ -24,8 +24,8 @@
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" class="active"><a href="#">Home</a></li>
   <li role="presentation"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
-  <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
-  <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
+  <li role="presentation"><a href="{{url('/family/add')}}/{{$user->id}}">Gezinnen toevoegen</a></li>
+  <li role="presentation" class="disabled" data-trigger="hover" data-placement="below" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
 </ul>
 
 </div>
@@ -78,7 +78,6 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Reden aanmelden</h5>
-							{{ Auth::user()->usertype }}
             <p class="card-text">{{ $user->reden }}</p>
                                     Gebruiker geactiveerd: @if ($user->activated)
                                         <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
@@ -131,36 +130,10 @@
                                         <td>
 
          
-                                           
+                                          
                                                 
                                                 <a href="{{ url('/family') }}/show/{{$family->id}}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
 
-                                          
-                                                
-                                                        
-                                                        <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
-                                               
-
-                                                        <!-- Modal om te deleten -->
-                                                        <div class="modal fade" id="deleteModal{{ $family->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                                          <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                              <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->tussenvoegsel}} {{ $family->achternaam }}?</h4>
-                                                              </div>
-                                                              <div class="modal-body">
-                                                                <p>Let op: als u het gezin wist, worden alle kinderen die eronder vallen ook <b>permanent</b> gewist.</p></blockquote>
-                                                              </div>
-                                                              <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
-                                                                <a id="deletehref" href="{{ url('/family') }}/destroy/{{ $family->id }}"><button type="button" class="btn btn-primary">Doorgaan</button></a>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-
- 
                                                 
                                         </td>
 				    </tr>
