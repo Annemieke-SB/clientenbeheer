@@ -172,7 +172,7 @@ class FamilyController extends Controller
         }
 
         // Intermediairs mogen geen andere familys deleten dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family-user->id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family->user->id)){
             
             Log::info('Een intermediair probeerde de een andere familie te verwijderen (family.destroy), userid: '.$loggedinuser->id);
             return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
