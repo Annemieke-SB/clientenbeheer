@@ -17,7 +17,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->voornaam }} {{ $user->tussenvoegsel }} {{ $user->achternaam }}</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $family->user->id }}">{{ $family->user->voornaam }} {{ $family->user->tussenvoegsel }} {{ $family->user->achternaam }}</a></li>
                       <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->tussenvoegsel }} {{ $family->achternaam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
