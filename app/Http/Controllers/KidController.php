@@ -100,9 +100,6 @@ class KidController extends Controller
 
         $kid = Kid::find($id);
         $loggedinuser = Auth::user();
-        $intermediair = Family::find($kid->family_id)->intermediair;
-
-
 
 
         /*
@@ -113,7 +110,7 @@ class KidController extends Controller
         if ($kid->family->aangemeld == 1 && $loggedinuser->usertype == 3){
 
             Log::warning('Een intermediair probeerde de een kind uit een aangemeld gezin te verwijderen (kid.destroy), userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een kind geprobeerd te wissen, maar het gezin is al aangemeld.');          
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een kind geprobeerd te wissen, maar het gezin is al aangemeld.');          
         }
 
 
@@ -125,10 +122,10 @@ class KidController extends Controller
         }
 
         // Intermediairs mogen geen andere familys deleten dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $intermediair->user_id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $kid->user->id)){
             
             Log::info('Een intermediair probeerde de een andere kind te verwijderen (kid.destroy), userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('intermediairs/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         if($kid->barcode){
@@ -138,7 +135,7 @@ class KidController extends Controller
         }
 
         Kid::destroy($id); // 1 way 
-        return redirect('family/show/'.$kid->family_id)->with('message', 'Kind verwijderd');
+        return redirect('family/show/'.$kid->family->id)->with('message', 'Kind verwijderd');
     }
 
     /**
