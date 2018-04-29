@@ -23,7 +23,7 @@
                 @endif
 
                 <div class="panel-body">
-@include ('layouts.intermediairnav')
+@include ('layouts.intermediairnav', ['page'=>'edit'])
 <br />
 <br />
 
