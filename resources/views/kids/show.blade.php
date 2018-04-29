@@ -99,7 +99,7 @@
                         Er is al een kind met deze voornaam en geboortedatum ingevoerd. Neem contact op met de andere intermediair(s) om dit op te lossen;<br>
                             @foreach($kid->geboortedatumvoornaamdubbel as $ander)
                                 @if ($kid->id != $ander->id)
-                                <br>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;<b>Betreft een kind met achternaam {{$ander->achternaam}}</b> <br>&nbsp;&nbsp;&nbsp;<a href="{{ url('user/show'). "/$ander->id"}}">klik hier om die intermediair te zien</a><br>
+                                <br>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;<b>Betreft een kind met achternaam {{$ander->tussenvoegsel}} {{$ander->achternaam}}</b> <br>&nbsp;&nbsp;&nbsp;<a href="{{ url('user/show'). "/$ander->id"}}">klik hier om die intermediair te zien</a><br>
                                 @endif
                             @endforeach
                       </div>
@@ -114,8 +114,10 @@
                         <tr>                            
                             <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
                                     @if (!$kid->achternaam)
+                                    {{ $kid->family->tussenvoegsel }}
                                     {{ $kid->family->achternaam }}
                                     @else
+                                    {{ $kid->tussenvoegsel }}
                                     {{ $kid->achternaam }}
                                     @endif
                             &nbsp;</td>
