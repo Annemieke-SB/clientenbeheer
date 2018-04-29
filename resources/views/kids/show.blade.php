@@ -25,7 +25,7 @@
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @endif
