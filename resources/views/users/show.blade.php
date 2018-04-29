@@ -138,7 +138,6 @@
                                           
                                                 
                                                         
-                                                        @if ( Auth::user()->usertype == 1 ) 
                                                         <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
                                                
 
@@ -160,7 +159,6 @@
                                                             </div>
                                                           </div>
                                                         </div>
-                                                        @endif
 
  
                                                 
