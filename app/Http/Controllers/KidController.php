@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Log;
 use DB;
 use App\Family;
 use App\Kid;
-use App\Intermediair;
 use App\Intertoys;
 use App\Setting;
 
@@ -73,9 +72,7 @@ class KidController extends Controller
     public function create($id)
     {
         $family = DB::table('familys')->where('id', $id)->first();
-        $intermediair = DB::table('intermediairs')->where('id', $family->intermediair_id)->first();
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
-        return view('kids.create', ['family'=>$family, 'intermediair'=>$intermediair, 'eigenaar'=>$eigenaar]);
+        return view('kids.create', ['family'=>$family']);
     }
 
         /**
