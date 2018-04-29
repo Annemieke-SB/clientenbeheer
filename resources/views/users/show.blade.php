@@ -78,11 +78,22 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Reden aanmelden</h5>
+							{{ Auth::user()->usertype }}
             <p class="card-text">{{ $user->reden }}</p>
-                                    Gebruiker geactiveerd: @if ($user->activated)
-                                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
-                                    @else
+				    Gebruiker geactiveerd: 
+				    @if ($user->activated)
+					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;
+
+						@if (Auth::user()->usertype==1)
+							<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
+						@endif			
+				     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
+                                        @if ($user->emailverified)
+						@if (Auth::user()->usertype==1)
+                                            		<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
+                                        	@endif
+                                        @endif
                                     @endif 
             
           </div>
