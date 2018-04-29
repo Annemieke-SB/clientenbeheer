@@ -20,7 +20,7 @@
                     </ol>
 
                 <div class="panel-body">
-@include ('intermediairnav')
+@include ('layouts.intermediairnav')
 
     <div class="col-sm-6">
         <div class="card">
