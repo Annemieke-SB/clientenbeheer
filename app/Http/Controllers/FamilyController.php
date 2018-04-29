@@ -182,7 +182,7 @@ class FamilyController extends Controller
 	 
 		$barcode = $kid->barcode;
 		$barcode->kid_id = null;
-		$barcdoe->save();	
+		$barcode->save();	
 	
 	}
 
