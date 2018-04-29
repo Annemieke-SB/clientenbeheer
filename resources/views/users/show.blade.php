@@ -13,20 +13,19 @@
                         
             <div class="panel panel-default">    
 
-		@if ( Auth::user()->usertype == 1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
                       <li class="active">{{$user->voornaam}} {{$user->tussenvoegsel}} {{$user->achternaam}}</li>
                     </ol>
-		@endif
+
                 <div class="panel-body">
 <div>
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" class="active"><a href="#">Home</a></li>
   <li role="presentation"><a href="{{url('/user/edit/')."/$user->id" }}">Wijzig uw gegevens</a></li>
-  <li role="presentation"><a href="{{url('familie/toevoegen')."/$user->id"}}">Gezinnen toevoegen</a></li>
-  <li role="presentation" class="disabled" data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
+  <li role="presentation"><a href="#">Gezinnen toevoegen</a></li>
+  <li role="presentation" class="disabled" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
 </ul>
 
 </div>
@@ -79,16 +78,14 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Reden aanmelden</h5>
+							{{ Auth::user()->usertype }}
             <p class="card-text">{{ $user->reden }}</p>
                                     Gebruiker geactiveerd: @if ($user->activated)
-					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>
-						@if ( Auth::user()->usertype == 1)
-						&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
-                                        	@endif
+                                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
                                     @else
                                         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
                                         @if ($user->emailverified)
-						@if ( Auth::user()->usertype == 1)
+						@if (Auth::user()->usertype==1)
                                             		<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
                                         	@endif
                                         @endif
@@ -130,20 +127,17 @@
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
-					<td>
-					@if ($family->aangemeld == 0)
-						Nog niet aangemeld
-					@else
-						?
-					@endif
-
-					&nbsp;</td>
+                                        <td>Goedgekeurd&nbsp;</td>
                                         <td>
 
          
-                                          
+                                           
                                                 
                                                 <a href="{{ url('/family') }}/show/{{$family->id}}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
+
+                                          
+                                                
+                                                <a href="{{ url('/family') }}/destroy/{{$family->id}}"><button class="btn btn-alert btn-xs" type="button"><span class="glyphicon glyphicon-eye-remove" aria-hidden="true"></span>&nbsp;Wis</button></a>
 
                                                 
                                         </td>
