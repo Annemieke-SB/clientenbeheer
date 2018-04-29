@@ -3,9 +3,9 @@
 <ul class="nav nav-tabs nav-justified">
 
 @if ($page == "home")
-  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation" class="active"><a href="{{url('user/show'). "/$user->id"}}">Home</a></li>
 @else
-  <li role="presentation"><a href="#">Home</a></li>
+  <li role="presentation"><a href="{{url('user/show'). "/$user->id"}}">Home</a></li>
 
 @endif
 
