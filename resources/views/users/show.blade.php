@@ -137,8 +137,32 @@
 
                                           
                                                 
-                                                <a href="{{ url('/family') }}/destroy/{{$family->id}}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Wis</button></a>
+                                                        
+                                                        @if ( Auth::user()->usertype == 1 ) 
+                                                        <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
+                                               
 
+                                                        <!-- Modal om te deleten -->
+                                                        <div class="modal fade" id="deleteModal{{ $family->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                          <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                              <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->tussenvoegsel}} {{ $family->achternaam }}?</h4>
+                                                              </div>
+                                                              <div class="modal-body">
+                                                                <p>Let op: als u het gezin wist, worden alle kinderen die eronder vallen ook <b>permanent</b> gewist.</p></blockquote>
+                                                              </div>
+                                                              <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                                                                <a id="deletehref" href="{{ url('/family') }}/destroy/{{ $family->id }}"><button type="button" class="btn btn-primary">Doorgaan</button></a>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                        @endif
+
+ 
                                                 
                                         </td>
 				    </tr>
