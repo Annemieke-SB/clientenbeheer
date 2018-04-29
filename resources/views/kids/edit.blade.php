@@ -65,7 +65,8 @@
 
                             {!! Form::label('geboortedatum', 'Geboortedatum') !!}&nbsp;<small>(bv 13-12-2015)</small>
                             {!! Form::date('geboortedatum', \Carbon\Carbon::createFromFormat('d-m-Y', $kid->geboortedatum)->format('Y-m-d'), ['class' => 'form-control', 'required']) !!}
-                            {!! Form::hidden('family_id', $family->id) !!}
+                            {!! Form::hidden('family_id', $kid->family->id) !!}
+                            {!! Form::hidden('user_id', $kid->user->id) !!}
                             {!! Form::hidden('id', $kid->id) !!}
                         </div>   
 
