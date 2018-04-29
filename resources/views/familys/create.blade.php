@@ -21,7 +21,7 @@
                 @endif
 
                 <div class="panel-body">
-@include ('layouts.intermediairnav',['page'=>'home'])
+@include ('layouts.intermediairnav',['page'=>'add'])
 
                     @if ($errors->any())
                         <ul class="alert alert-danger">
