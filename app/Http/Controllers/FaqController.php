@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Faq;
+use App\Faqs;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +33,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        return view('faqs.index', ['users' => 'bla']);
+	$faqs = Faqs::all();
+        return view('faqs.index', ['faqs' => $faqs]);
     }
 
     /**

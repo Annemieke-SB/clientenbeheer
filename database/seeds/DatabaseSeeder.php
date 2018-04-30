@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
     	$this->call(SintbankemailsTableSeeder::class);
         $this->call(ContactsTableSeeder::class);
+        $this->call(FaqsTableSeeder::class);
         $this->call(FamilysTableSeeder::class);
         $this->call(KidsTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
