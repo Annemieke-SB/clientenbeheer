@@ -13,9 +13,12 @@
  
     <h1>FAQ <small>Veelgestelde vragen</small></h1>
 
+                        <a href="{{ url('faq/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Vraag toevoegen</button></a>
     <!-- Bootstrap FAQ - START -->
-        <br />
-	    <br />
+                                     <!-- Flashmessage -->
+                        @if (count(Session::get('message')) > 0)
+                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+                        @endif
 	        <br />
 
 		    <div class="alert alert-warning alert-dismissible" role="alert">
@@ -23,7 +26,6 @@
 Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applicatie van de Sinterklaasbank. Mocht uw vraag er niet tussenstaan, neem dan contact op met ons; <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>. 
 					        </div>
 
-    <br />
 
     <div class="panel-group" id="accordion">
       <div class="faqHeader">Algemene vragen</div>
@@ -34,7 +36,12 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
-                </h4>
+
+                        <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+
+                        <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+
+</h4>
             </div>
             <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -53,7 +60,14 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
-                </h4>
+
+                        <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+
+                        <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+
+
+
+		</h4>
             </div>
             <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -73,7 +87,15 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
-                </h4>
+
+
+                        <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+
+                        <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+
+
+
+		</h4>
             </div>
             <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">

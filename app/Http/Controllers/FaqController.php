@@ -44,6 +44,8 @@ class FaqController extends Controller
      */
     public function create()
     {
+        $loggedinuser = Auth::user();
+        return view('faqs.create', ['user_id'=> $loggedinuser->id]);
         //
     }
 
@@ -55,6 +57,10 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
+ 
+        $id = Faqs::create($request->all())->id;
+
+        return redirect('faq')->with('message', 'Vraag toegevoegd');
         //
     }
 
@@ -64,7 +70,7 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show(Faq $faq)
+    public function show(Faqs $faq)
     {
         //
     }
@@ -75,8 +81,12 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
-    {
+    public function edit($id)
+	{
+		$f = Faqs::find($id);
+
+        $loggedinuser = Auth::user();
+        return view('faqs.edit', ['user_id'=> $loggedinuser->id, 'faq'=>$f]);
         //
     }
 
@@ -87,9 +97,16 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(Request $request, Faqs $faq)
     {
-        //
+        $faq = Faqs::findOrFail($request->id);
+
+        $input = $request->all();
+
+        $faq->fill($input)->save();
+
+
+        return redirect('faq')->with('message', 'Vraag gewijzigd');
     }
 
     /**
@@ -98,8 +115,9 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy($id)
     {
-        //
+	    Faqs::destroy($id);
+        return redirect('faq')->with('message', 'Vraag gewist');
     }
 }

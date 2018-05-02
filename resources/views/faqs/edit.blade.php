@@ -3,9 +3,6 @@
 @section('content')
 <div class="container">
 
-@if(!empty($new_barcodes))
-{{dd($new_barcodes)}}
-@endif
 
     <div class="row">
 
@@ -14,99 +11,56 @@
 
                 <ol class="breadcrumb">
                   <li><a href="{{ url('/home') }}">Home</a></li>
-                  <li class="active">Barcodes</li>
+                  <li class="active">Faq wijzigen</li>
                 </ol> 
 
                 <div class="panel-body">
                         <p>
-                        <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;<a href="{{ url('extrabarcodes') }}"><button type="button" class="btn btn-warning navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;Extra barcodes</button></a>
+                        <a href="{{ url('faq') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                         </p>
-                    <p>Hier is het overzicht tbv barcodes.</p>
 
-                </div>
-            </div>
 
             <!-- Flashmessage -->
             @if (count(Session::get('message')) > 0)
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-            @endif       
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Status van barcode-downloads</div>  
-                <div class="panel-body">           
-                    <p>Wanneer de inschrijvingen zijn gesloten kun je hier de voortgang zien van de barcode-downloads.</p>
+	    @endif      
 
 
-                    
-                        <table class="table table-condensed table-hover">
-                            <thead>
-                                <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
-                            <tbody>
-                                
-                                <tr><td>Uitgegeven barcodes</td><td>{{ $uitgegeven_barcodes }}</td></tr>
-                                <tr><td>Waarvan gedownload</td><td>{{ $gedownloadde_barcodes }}</td></tr>   
-                                <tr><td>Nog te downloaden</td><td>{{ $uitgegeven_barcodes - $gedownloadde_barcodes }}</td></tr>   
-                                
-                                                               
-                            </tbody>
-                        </table>                    
-                </div>
-            </div>                            
 
-            <div class="panel panel-default">  
-                <div class="panel-heading">Status van barcode-voorraad</div> 
-                <div class="panel-body">      
-                     
-                        <table class="table table-condensed table-hover">
-                            <thead>
-                                <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
-                            <tbody>
-                                <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
-                                <tr><td>Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
-                                <tr><td><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span>Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
-                                <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
-                                <tr><td>Nog niet aangemelde kinderen (definitief afgekeurde gezinnen niet meegeteld)</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
-                                <tr><td>Aangemelde kinderen (in afwachting van goedkeuring)</td><td>{{ $aangemelde_kinderen }}</td></tr>   
-                                
-                                @if (($aant_barcodes - $uitgegeven_barcodes - $niet_aangemelde_kinderen - $aangemelde_kinderen)<10)
 
-                                    <tr class="danger">
-                                @else
-                                    <tr class="success">
-                                @endif
+                    {!! Form::open(['url' => 'faq/update', 'id' => 'createform']) !!}
+                        
+                        <div class="form-group">
 
-                                <td>Geschatte toekomstige voorraad</td><td>{{ $aant_barcodes - $uitgegeven_barcodes - $niet_aangemelde_kinderen - $aangemelde_kinderen }}</td></tr>                               
-                            </tbody>
-                        </table>                    
-                </div>
-            </div>
-            <div class="panel panel-default">   
-                <div class="panel-heading">Nieuwe codes uploaden
-                </div>           
-                <div class="panel-body"> 
+                            {!! Form::label('vraag', 'Vraag') !!}
+                            {!! Form::text('vraag', $faq->vraag, ['class' => 'form-control','required', 'autofocus']) !!}
 
-                <p>Hieronder kun je nieuwe codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv). Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
-                    <pre>Voorbeeld<br>
-    6299930034000122339=49120000000000000,4621
-    6299930034000122347=49120000000000000,8055
-    6299930034000122354=49120000000000000,3271
-    6299930034000122362=49120000000000000,0377
-    6299930034000122370=49120000000000000,1066
-                    </pre>
-                    
-                    {!! Form::open(array('url'=>'/barcodes/upload', 'method'=>'POST', 'files'=>true)) !!}
-              
-                    {{ csrf_field() }}
-                      <div class="form-group">
-                        <label for="file">Selecteer hier het bestand: </label>
-                        <input type="file" name="uploadedfilename">                
-                      </div>
-                    
-                        <button type="submit" class="btn btn-primary">Uploaden</button>
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('antwoord', 'Antwoord') !!}
+                            {!! Form::textarea('antwoord', $faq->antwoord, ['class' => 'form-control', 'required','autofocus']) !!}
+
+                        </div>
+                        <div class="form-group">
+
+                            {!! Form::label('category', 'Categorie') !!}
+                            {!! Form::select('category', [''=>'-', 1 =>'Algemeen', 2 =>'Privacy', 3 => 'Gebruik'], $faq->category,  ["class"=>"form-control", 'autofocus required']) !!}
+
+			</div>
+         		<div class="form-group">
+                            {!! Form::hidden('user_id', $user_id) !!}
+                            {!! Form::hidden('id', $faq->id) !!}
+
+                            <input class="btn btn-primary form-control" type="submit" id="verzendknop" value="Opslaan">
+                            
+
+                        </div>                   
                     {!! Form::close() !!}
-                    
-                </div>
-                
+
+
+
+
             </div>
         </div>
     </div>

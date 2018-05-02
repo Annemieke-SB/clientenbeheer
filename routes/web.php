@@ -41,8 +41,10 @@ Route::get('/register/verify/{token}', 'Auth\RegisterController@verify');
 
 Auth::routes();
 Route::get('/faq/toevoegen', 'FaqController@create');
-Route::get('/faq/wijzigen/{id}', 'FaqController@edit');
-Route::get('/faq/verwijderen/{id}', 'FaqController@destroy');
+Route::post('/faq/store', 'FaqController@store');
+Route::post('/faq/update', 'FaqController@update');
+Route::get('/faq/edit/{id}', 'FaqController@edit');
+Route::get('/faq/destroy/{id}', 'FaqController@destroy');
 
 Route::get('contacts/index', 'ContactController@index')->middleware('auth');
 Route::get('contacts/show/{id}', 'ContactController@show')->middleware('auth');
