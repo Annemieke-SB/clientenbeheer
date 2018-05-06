@@ -16,6 +16,7 @@ use App\User;
 use App\Intertoys;
 use App\Setting;
 use App\Barcode;
+use App\Blacklist;
 use Mail;
 use DB;
 use Html;

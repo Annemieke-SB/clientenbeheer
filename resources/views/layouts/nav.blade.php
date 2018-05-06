@@ -43,6 +43,7 @@
           <ul class="dropdown-menu">
     <li><a href="{{ url('/settings/') }}">Instellingen</a></li>
     <li><a href="{{ url('/faq/') }}">Faq aanpassen</a></li>
+    <li><a href="{{ url('/blacklist/') }}">Blacklist</a></li>
   </ul>
   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Overzichten <span class="caret"></span></a>

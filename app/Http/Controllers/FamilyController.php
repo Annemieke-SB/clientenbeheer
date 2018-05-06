@@ -13,6 +13,7 @@ use App\Kid;
 use App\Barcode;
 use App\Setting;
 use Custommade;
+use App\Blacklist;
 use Mail;
 
 class FamilyController extends Controller

@@ -8,7 +8,7 @@ class Family extends Model
 {
 
 	protected $table = 'familys';
-    protected $appends = array('targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
+    protected $appends = array('blacklisted', 'targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
             'tussenvoegsel',
@@ -57,6 +57,11 @@ class Family extends Model
     	}
     }
 
+    public function getBlacklistedAttribute() {
+	
+	    return blacklist::check($this->email);	    
+
+    }
 
     public function getTargetkidsAttribute()
     {

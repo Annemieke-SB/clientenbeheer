@@ -46,6 +46,13 @@ Route::post('/faq/update', 'FaqController@update');
 Route::get('/faq/edit/{id}', 'FaqController@edit');
 Route::get('/faq/destroy/{id}', 'FaqController@destroy');
 
+Route::get('/blacklist', 'BlacklistController@index');
+Route::get('/blacklist/toevoegen', 'BlacklistController@create');
+Route::post('/blacklist/store', 'BlacklistController@store');
+Route::post('/blacklist/update', 'BlacklistController@update');
+Route::get('/blacklist/edit/{id}', 'BlacklistController@edit');
+Route::get('/blacklist/destroy/{id}', 'BlacklistController@destroy');
+
 Route::get('contacts/index', 'ContactController@index')->middleware('auth');
 Route::get('contacts/show/{id}', 'ContactController@show')->middleware('auth');
 Route::get('contacts/edit/{id}', 'ContactController@edit')->middleware('auth');

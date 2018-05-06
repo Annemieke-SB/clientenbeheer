@@ -18,6 +18,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $appends = array('blacklisted');
+
     protected $fillable = [
         'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'type', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats',
     ];
@@ -34,6 +37,12 @@ class User extends Authenticatable
     public function familys()
     {
         return $this->hasMany('App\Family');
+    }
+
+
+    public function getBlacklistedAttribute() {
+	
+	    return blacklist::check($this->email);
     }
 
 

@@ -35,7 +35,7 @@
 
                     {{ $user->getNaam() }}&nbsp;
 
-                            <span class="badge badge-info">
+                            <span class="label label-info">
 
                             @if ($user->usertype==1)
                                 Admin
@@ -44,7 +44,13 @@
                             @elseif ($user->usertype==3)    
                                 Intermediair
                             @endif     
-                            </span></h5>
+			    </span>
+
+		@if (Auth::user()->usertype == 1 && $user->blacklisted)
+		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+
+		@endif
+				</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $user->functie }}&nbsp;bij&nbsp;{{ $user->organisatienaam }}&nbsp;</h6>
                 <p class="card-text">
                 <span class="glyphicon glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"></span> {{ $user->telefoon }}<br>
@@ -53,7 +59,7 @@
 
                 
                                     @if ($user->emailverified)
-                                        <span class="badge badge-success">geverifieerd</span>
+                                        <span class="label label-success">geverifieerd</span>
                                     @else
 					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>
 					@if (Auth::user()->usertype==1)
@@ -127,6 +133,13 @@
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
 					<td>
+					
+					
+					@if (Auth::user()->usertype == 1 && $family->blacklisted)
+
+		                         	&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+
+		                        @endif
 						@if (!$family->aangemeld)
 						Nog niet aangemeld
 						@else
