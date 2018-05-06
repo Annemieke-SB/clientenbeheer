@@ -46,6 +46,18 @@ class Family extends Model
         return $this->hasOne('App\Intertoys', 'id', 'intertoy_id');
     }
 
+    public function getNaam() {
+	
+	if (isset($this->tussenvoegsel)) {
+	
+	    return strtolower($this->tussenvoegsel) . ' ' . ucfirst($this->achternaam); 
+
+	} else {
+	    return ucfirst($this->achternaam); 
+    	}
+    }
+
+
     public function getTargetkidsAttribute()
     {
         $kids = $this->kids;
@@ -140,6 +152,20 @@ class Family extends Model
         }
         return $count;        
     
+    }
+
+    public function destroyKids(){
+    	if ($this->kids) {
+		foreach ($this->kids as $kid){
+			try{
+				$kid->detachBarcode();
+			}
+			catch(\Exception $e){
+		    		throw new \Exception($e);	
+			}
+			$kid->delete();
+		}
+	}
     }
 
 }

@@ -136,7 +136,7 @@ class HomeController extends Controller
 
         $kids = Kid::all();
         $families = Family::all();
-        $intermediairs = Intermediair::all();
+        $intermediairs = User::where('usertype', 3);
 
         $kids_qualified = 0;
         $kids_disqualified = 0;

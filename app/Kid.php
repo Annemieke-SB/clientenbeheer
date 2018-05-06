@@ -41,15 +41,24 @@ class Kid extends Model
     {
         return $this->hasOne('App\Barcode');
     }
-   
+ 
+    public function getNaam() {
+	
+	if (isset($this->tussenvoegsel)) {
+	
+	    return ucfirst($this->voornaam) . ' ' . strtolower($this->tussenvoegsel) . ' ' . ucfirst($this->achternaam); 
+
+	} else {
+	    return ucfirst($this->voornaam) . ' ' . ucfirst($this->achternaam); 
+    	}
+    }
+
+  
 
     public function getTargetkidAttribute()
     {
-        $setting = Setting::find(1); // Haal de minimum leeftijd voor een kind op.
-        $min_leeftijd =  $setting->getValue();
-
-        $setting = Setting::find(2); // Haal de maximum leeftijd voor een kind op.
-        $max_leeftijd =  $setting->getValue();
+        $min_leeftijd = Setting::get('min_leeftijd');
+        $max_leeftijd = Setting::get('max_leeftijd');
 
         if ($this->agenextsint > $max_leeftijd) {
           
@@ -67,12 +76,8 @@ class Kid extends Model
 
     public function getReasontargetkidAttribute()
     {
-
-        $setting = Setting::find(1); // Haal de minimum leeftijd voor een kind op.
-        $min_leeftijd =  $setting->getValue();
-
-        $setting = Setting::find(2); // Haal de maximum leeftijd voor een kind op.
-        $max_leeftijd =  $setting->getValue();
+        $min_leeftijd = Setting::get('min_leeftijd');
+        $max_leeftijd = Setting::get('max_leeftijd');
 
         if ($this->agenextsint > $max_leeftijd) {
             return "Dit kind is te oud.";
@@ -103,11 +108,9 @@ class Kid extends Model
 
    public function getTargetsiblingAttribute()
     {
-        $setting = Setting::find(2); // Haal de minimum leeftijd voor sibling kind op.
-        $min_leeftijd =  $setting->getValue();
+        $min_leeftijd = Setting::get('min_leeftijd'); // Haal de minimum leeftijd voor sibling kind op.
 
-        $setting = Setting::find(3); // Haal de maximum leeftijd voor een broer/zus op.
-        $max_leeftijd =  $setting->getValue();
+        $max_leeftijd = Setting::get('max_leeftijd_broer_zus'); // Haal de maximum leeftijd voor een broer/zus op.
 
         if ($this->agenextsint > $max_leeftijd) {          
             return false;
@@ -121,12 +124,8 @@ class Kid extends Model
 
     public function getReasontargetsiblingAttribute()
     {
-
-        $setting = Setting::find(1); // Haal de minimum leeftijd voor een kind op.
-        $min_leeftijd =  $setting->getValue();
-
-        $setting = Setting::find(2); // Haal de maximum leeftijd voor een kind op.
-        $max_leeftijd =  $setting->getValue();
+        $min_leeftijd = Setting::get('min_leeftijd');
+        $max_leeftijd = Setting::get('max_leeftijd');
 
         if ($this->agenextsint > $max_leeftijd) {
             return "Dit kind is te oud.";
@@ -263,6 +262,20 @@ class Kid extends Model
          }
 
     }    
+
+
+    public function detachBarcode()
+    {
+
+         if ($this->barcode) {
+		 try{
+		    $this->barcode->detach(); // try code
+		} 
+		 catch(\Exception $e){
+		    throw new \Exception($e);	
+		}	 
+         }
+    }  
 
 
     public function getDownloadedbarcodepdfAttribute()

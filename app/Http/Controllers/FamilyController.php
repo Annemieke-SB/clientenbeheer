@@ -28,26 +28,6 @@ class FamilyController extends Controller
 
     public function show($id)
     {
-
-
-        /*
-        *
-        * Settings leesbaar maken
-        * Om deze in de view te krijgen: $settings['inschrijven_gesloten']
-        *
-        */
-
-            $settings = Setting::all();
-            $settings_arr=array();
-            foreach ($settings as $setting) {
-                $settings_arr[$setting->setting] = $setting->value;
-            }
-
-        /*
-        * --
-        */
-
-
         /* 
             Getest en werkt: 
             - intermediairs kunnen alleen eigen families bekijken 
@@ -60,9 +40,10 @@ class FamilyController extends Controller
         $user = $family->user;
         $kids = $family->kids;
         //$eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
-        $min_leeftijd_target = Setting::find(1);
-        $max_leeftijd_target = Setting::find(2);
-        $max_leeftijd_sibling = Setting::find(3);
+        $min = Setting::get('min_leeftijd');
+        $max = Setting::get('max_leeftijd');
+        $maxbz = Setting::get('max_leeftijd_broer_zus');
+        $g = Setting::get('inschrijven_gesloten');
 
         // Intermediairs mogen geen andere familys zien dan diegene die ze zelf beheren        
         if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $user->id)){
@@ -71,7 +52,7 @@ class FamilyController extends Controller
             return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }        
 
-        return view('familys.show', ['user' => $user, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min_leeftijd_target, 'max_leeftijd_target'=>$max_leeftijd_target, 'max_leeftijd_sibling'=>$max_leeftijd_sibling, 'settings'=>$settings_arr]);
+        return view('familys.show', ['user' => $user, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min, 'max_leeftijd_target'=>$max, 'max_leeftijd_sibling'=>$maxbz, 'gesloten'=>$g ]);
     }    
 
 

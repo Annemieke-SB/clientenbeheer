@@ -115,7 +115,8 @@
     						@endif
 
     							<td>{{ str_limit($kid->voornaam, 8) }}&nbsp;</td>
-    							<td>{{ str_limit($kid->achternaam, 8) }}&nbsp;</td>
+							<td>
+							{{ str_limit($kid->achternaam, 8) }}&nbsp;</td>
     							<td>{{ str_limit($kid->family->woonplaats, 8) }}&nbsp;</td>
                                 <td>
                                     @if($kid->familyanderealternatieven)
@@ -142,7 +143,7 @@
 
                                 <td>
                                   
-                                        <a href="{{ url('/intermediairs') }}/show/{{ $kid->family->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
+                                        <a href="{{ url('/user') }}/show/{{ $kid->family->user_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
 
 										<a href="{{ url('/family') }}/show/{{ $kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Familie</button></a>
                                         

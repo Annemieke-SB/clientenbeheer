@@ -16,20 +16,20 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->voornaam }} {{ $user->tussenvoegsel }} {{ $user->achternaam }}</a></li>
-                      <li class="active">Fam {{$family->achternaam}}</li>
+                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->getNaam() }}</a></li>
+                      <li class="active">Gezin {{$family->getNaam()}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Gezin {{$family->tussenvoegsel}} {{$family->achternaam}}</li>
+                      <li class="active">Gezin {{$family->getNaam()}}</li>
                     </ol>
                 @endif
 
                 <div class="panel-body">
                  <p>Op deze pagina staan alle gegevens die betrekking hebben de op het gezin en kinderen van het gezin.</p>
 
-                    @if ($settings['inschrijven_gesloten'] == 1) {{-- Inschrijvingen gesloten --}}
+                    @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
                         <br><br>
                         <div class="panel panel-danger">
                               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs.</b></div>
@@ -126,7 +126,7 @@
                     <table>
 
                         <tr>
-                            <td>Gezin {{ $family->tussenvoegsel }} {{ $family->achternaam }}&nbsp;</td></tr><tr>                            
+                            <td>Gezin {{ $family->getNaam() }}&nbsp;</td></tr><tr>                            
                             <td>{{ $family->adres }}&nbsp;{{ $family->huisnummer }}&nbsp;{{ $family->huisnummertoevoeging }}</td></tr><tr>                                                     
                             <td>{{ $family->postcode }}&nbsp;{{ $family->woonplaats }}</td></tr><tr>                            
                             <td>{{ $family->telefoon }}&nbsp;/&nbsp;{{ $family->email }}</td></tr><tr> 
@@ -139,7 +139,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }} {{ $user->achternaam }}&nbsp;({{Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->getNaam() }}&nbsp;({{Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
@@ -293,7 +293,7 @@
 
                 <div class="panel-body">
 
-                    @if ($settings['inschrijven_gesloten'] == 1) {{-- Inschrijvingen gesloten --}}
+                    @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
                         <br><br>
                         <div class="panel panel-danger">
                               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs.</b></div>
@@ -305,7 +305,7 @@
                                 <div class="panel panel-danger">
                                   <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | Dit gezin komt niet in aanmerking voor de sinterklaasbank!</b></div>
                                   <div class="panel-body bg-danger">
-                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{$min_leeftijd_target->value}} en {{$max_leeftijd_target->value}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{$min_leeftijd_target->value}} en {{$max_leeftijd_sibling->value}} doen dan ook mee. &nbsp;
+                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{$min_leeftijd_target}} en {{$max_leeftijd_target}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{$min_leeftijd_target}} en {{$max_leeftijd_sibling}} doen dan ook mee. &nbsp;
                                   </div>
                                 </div>
                                 @endif

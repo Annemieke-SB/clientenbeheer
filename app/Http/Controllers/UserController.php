@@ -159,18 +159,6 @@ class UserController extends Controller
         //
     }
 
-
-    public function redirecttointermediair($id)
-    {
-        
-        $intermediair = DB::table('intermediairs')->where('user_id', $id)->first();
-        if (!isset($intermediair->id)) {
-            return redirect()->back()->with('message','De instelling van de intermediair bestaat (nog) niet.');
-        }
-        return redirect('intermediairs/show/'. $intermediair->id);
-
-    }    
-
     /**
      * Display the specified resource.
      *
@@ -334,27 +322,7 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
-
-        /*
-        *
-        * Settings leesbaar maken
-        * Om deze in de view te krijgen: $settings['inschrijven_gesloten']
-        *
-        */
-
-            $settings = Setting::all();
-            $settings_arr=array();
-            foreach ($settings as $setting) {
-                $settings_arr[$setting->setting] = $setting->value;
-            }
-
-        /*
-        * --
-        */
-        
-
-
-        if ($settings_arr['inschrijven_gesloten'] == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
+       if (Setting::get('inschrijven_gesloten') == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
             return redirect('users/index')->with('message', 'Het is niet mogelijk om gebruikers te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben. Je zou wel de gebruiker (intermediair) kunnen deactiveren in het gebruikersoverzicht.'); 
         }
 
@@ -362,44 +330,14 @@ class UserController extends Controller
 
             $user = User::findOrFail($id);
 
-            if ($user->usertype==3){
-                //$intermediair = Intermediair::where('user_id', '=', $user->id)->first(); 
-
-                    $familys = Family::where('user_id', '=', $user->id)->get(); 
-                    
-
-                     foreach($familys as $family) {
-
-                        /* 
-                        * Routine om de evt barcodes los te koppelen
-                        *
-                        */
-                        //$kids = DB::table('kids')->where('family_id', '=', $family->id)->get();
-                        $kids = Kid::where('family_id', '=', $family->id)->get(); 
-                        
-
-                        foreach ($kids as $kid) {
-                            if ($kid->barcode) {
-                                $barcode = Barcode::findOrFail($kid->barcode->id);
-                                $barcode->kid_id = NULL;
-                                $barcode->save();  
-                            }
-                        }
-
-                        /*
-                        * Einde barcode routine
-                        */
-
-                        DB::table('kids')->where('family_id', '=', $family->id)->delete();
-                    } 
-
-                    DB::table('familys')->where('user_id', '=', $user->id)->delete();                  
-                
-
-               //DB::table('intermediairs')->where('user_id', '=', $user->id)->delete();
-            }
-
-            User::destroy($id); // 1 way 
+		try{
+			$user->destroyFamilys(); // De familie en kinderen worden gewist, barcodes losgekoppeld
+			$user->delete();
+		}                    
+		catch (\Exception $e){
+            		return redirect('users/index')->with('message', 'De gebruiker kon niet worden verwijderd, er waren al barcodes gedownload.');
+			
+		}
 
             return redirect('users/index')->with('message', 'De gebruiker is verwijderd (en in het geval van een intermediair ook alle bijbehorende families en kinderen)');
 

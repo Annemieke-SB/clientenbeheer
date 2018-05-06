@@ -27,24 +27,6 @@ class KidController extends Controller
     public function show($id)
     {
 
-
-        /*
-        *
-        * Settings leesbaar maken
-        * Om deze in de view te krijgen: $settings['inschrijven_gesloten']
-        *
-        */
-
-            $settings = Setting::all();
-            $settings_arr=array();
-            foreach ($settings as $setting) {
-                $settings_arr[$setting->setting] = $setting->value;
-            }
-
-        /*
-        * --
-        */
-
         $kid = Kid::find($id);
         $loggedinuser = Auth::user();
 
@@ -55,8 +37,7 @@ class KidController extends Controller
             return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-
-        return view('kids.show', ['kid' => $kid, 'settings'=>$settings_arr]);
+        return view('kids.show', ['kid' => $kid, 'gesloten'=>Setting::get('inschrijven_gesloten')]);
     }  
 
     /**

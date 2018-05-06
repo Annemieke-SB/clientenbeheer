@@ -39,6 +39,18 @@ class Barcode extends Model
     }
 
 
+    public function detach()
+    {
+	    if ($this->downloadedpdf){
+		   throw new \Exception("Kan barcode niet ontkoppelen, hij is al gedownload!");
+	    }else {	    
+	    	$this->kid_id = NULL;
+		$this->save();
+		return true;
+	    }
+    }
+
+
     public function getUitgegevenAttribute()
     {
         return $this->getTotaalAttribute - $this->getVoorraadAttribute;

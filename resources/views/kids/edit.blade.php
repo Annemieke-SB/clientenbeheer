@@ -15,15 +15,15 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $kid->user->id }}">{{ $kid->user->voornaam }} {{ $kid->user->tussenvoegsel }} {{ $eigenaar->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->tussenvoegsel }} {{ $kid->family->achternaam }}</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $kid->user->id }}">{{ $kid->user->getNaam() }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->getNaam() }}</a></li>
                       <li class="active">{{ $kid->voornaam }} wijzigen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->tussenvoegsel }} {{ $kid->family->achternaam }}</a></li>
-                      <li class="active">{{ $kid->voornaam }} wijzigen</li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Fam {{ $kid->family->getNaam() }}</a></li>
+                      <li class="active">{{ $kid->getNaam() }} wijzigen</li>
                     </ol>
                 @endif
                 <div class="panel-body">

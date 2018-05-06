@@ -36,6 +36,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Family');
     }
 
+
+    public function getNaam() {
+	
+	if (isset($this->tussenvoegsel)) {
+	
+	    return ucfirst($this->voornaam) . ' ' . strtolower($this->tussenvoegsel) . ' ' . ucfirst($this->achternaam); 
+
+	} else {
+	    return ucfirst($this->voornaam) . ' ' . ucfirst($this->achternaam); 
+    	}
+    }
+
     public function verified()
     {
 
@@ -48,5 +60,19 @@ class User extends Authenticatable
             $to = Setting::find(5)->setting;
             Custommade::sendNewUserNotificationEmailToAdmin($to);
         }
+    }
+
+    public function destroyFamilys() {
+    	if($this->familys) {
+		foreach($this->familys as $family) {
+			try{
+				$family->destroyKids(); // Koppelt ook de barcodes los
+			}
+			catch(\Exception $e){
+				throw new \Exception($e);	
+			}
+			$family->delete();
+		}
+	}
     }
 }

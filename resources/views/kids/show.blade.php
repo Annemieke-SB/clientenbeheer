@@ -18,14 +18,14 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user') }}/show/{{ $kid->user->id }}">{{ $kid->user->voornaam }} {{ $kid->user->tussenvoegsel }} {{ $kid->user->achternaam }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
-                      <li class="active">{{$kid->voornaam}}</li>
+                      <li><a href="{{ url('/user') }}/show/{{ $kid->user->id }}">{{ $kid->user->getNaam() }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->getNaam() }}</a></li>
+                      <li class="active">{{$kid->getNaam()}}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->tussenvoegsel}} {{$kid->family->achternaam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->getNaam()}}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @endif
@@ -112,15 +112,8 @@
                             <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->tussenvoegsel }}&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
                         </tr>
                         <tr>                            
-                            <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->voornaam }}&nbsp;
-                                    @if (!$kid->achternaam)
-                                    {{ $kid->family->tussenvoegsel }}
-                                    {{ $kid->family->achternaam }}
-                                    @else
-                                    {{ $kid->tussenvoegsel }}
-                                    {{ $kid->achternaam }}
-                                    @endif
-                            &nbsp;</td>
+                            <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->getNaam() }}&nbsp;
+                            </td>
                         </tr>
                         <tr>                                                     
                             <td>geboortedatum&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geboortedatum }}</td></tr><tr>  
@@ -132,7 +125,7 @@
 
                     </table>
 
-                    @if ($settings['inschrijven_gesloten'] == 1) {{-- Inschrijvingen gesloten --}}
+                    @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
                         <br><br>
                         <div class="panel panel-danger">
                               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs.</b></div>

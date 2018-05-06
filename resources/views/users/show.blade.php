@@ -17,7 +17,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
-                      <li class="active">{{$user->voornaam}} {{$user->tussenvoegsel}} {{$user->achternaam}}</li>
+                      <li class="active">{{$user->getNaam()}}</li>
                     </ol>
 		@endif
                 <div class="panel-body">
@@ -33,7 +33,7 @@
                         Dhr.&nbsp;
                     @endif
 
-                    {{ $user->voornaam }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}&nbsp;
+                    {{ $user->getNaam() }}&nbsp;
 
                             <span class="badge badge-info">
 
@@ -122,7 +122,7 @@
 
 @foreach ($user->familys as $family)
 				      <tr>
-                                        <td>{{$family->achternaam }} &nbsp;</td>
+                                        <td>{{$family->getNaam() }} &nbsp;</td>
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
@@ -153,7 +153,7 @@
                                                             <div class="modal-content">
                                                               <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->tussenvoegsel}} {{ $family->achternaam }}?</h4>
+                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->getNaam() }}?</h4>
                                                               </div>
                                                               <div class="modal-body">
                                                                 <p>Let op: als u het gezin wist, worden alle kinderen die eronder vallen ook <b>permanent</b> gewist.</p></blockquote>
