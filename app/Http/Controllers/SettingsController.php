@@ -18,7 +18,19 @@ use Custommade;
 
 class SettingsController extends Controller
 {
-    /**
+    
+	public function value($id) {
+		try{
+			$setting = Setting::where('setting', $id);
+			return $setting->value;
+		}
+		catch (\Exception $e) {
+			throw new \Exception('De opgevraagde setting bestaat niet.');
+		}
+	}
+
+
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

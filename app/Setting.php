@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
 
-
 	protected $fillable = [
             'value',
 	];
 
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+        const CREATED_AT = 'created_at';
+        const UPDATED_AT = 'updated_at';
 
-	public function getValue()
+	static function get($key) // bv Setting::get('inschrijven_gesloten');
 	{
-	    return $this->value;
+	    $setting = self::where('setting', $key)->first();
+	    return $setting->value;
 	}
 
 }
