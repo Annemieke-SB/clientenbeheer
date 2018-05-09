@@ -34,7 +34,7 @@ Geen gebruikers gevonden.
         <tr>
 	    <td>{{ $user->getNaam() }}
 		@if ($user->blacklisted)
-		<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 		@endif
 
 		</td>
