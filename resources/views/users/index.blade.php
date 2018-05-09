@@ -117,8 +117,6 @@
 						    {{ $user->voornaam[0] }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
 							@if ($user->blacklisted)
 								<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
-							@else
-								NOT
 							@endif
                                                     <br><b><i>{{ $user->organisatienaam}} </i></b>
                                                 </td>
