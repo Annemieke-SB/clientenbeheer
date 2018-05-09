@@ -32,7 +32,7 @@ Geen gebruikers gevonden.
       @foreach ($users as $user)
 
         <tr>
-	    <td>{{ $user->getNaam() }}
+	    <td class="width:80%">{{ $user->getNaam() }}
 		@if ($user->blacklisted)
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 		@endif
@@ -59,7 +59,7 @@ Geen gezinnen gevonden.
       @foreach ($familys as $family)
 
         <tr>
-	    <td>{{ $family->getNaam() }}
+	    <td class="width:80%">{{ $family->getNaam() }}
 		@if ($family->blacklisted)
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 		@endif
@@ -84,7 +84,7 @@ Geen kinderen gevonden.
       @foreach ($kids as $kid)
 
         <tr>
-            <td>{{ $kid->getNaam() }}</td>
+            <td class="width:80%">{{ $kid->getNaam() }}</td>
             <td>
                         <a href="{{ url('kids/show') }}/{{$kid->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
             </td>
