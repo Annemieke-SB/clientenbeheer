@@ -26,7 +26,7 @@ Geen gebruikers gevonden.
 @else
       <table class="table table-striped">
         <thead>
-            <th>Naam</th>
+            <th style="width: 80%;">Naam</th>
             <th>Aktie</th>
         </thead>
   
@@ -34,7 +34,7 @@ Geen gebruikers gevonden.
 	@foreach ($users as $user)
 
         <tr>
-	    <td class="width:80%">{{ $user->getNaam() }}
+	    <td>{{ $user->getNaam() }}
 		@if ($user->blacklisted)
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 		@endif
@@ -57,7 +57,7 @@ Geen gezinnen gevonden.
 @else
      <table class="table table-striped">
         <thead>
-            <th>Naam</th>
+            <th style="width: 80%;">Naam</th>
             <th>Aktie</th>
         </thead>
   
@@ -65,7 +65,7 @@ Geen gezinnen gevonden.
 	@foreach ($familys as $family)
 
         <tr>
-	    <td class="width:80%">{{ $family->getNaam() }}
+	    <td>{{ $family->getNaam() }}
 		@if ($family->blacklisted)
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 		@endif
@@ -86,7 +86,7 @@ Geen gezinnen gevonden.
 Geen kinderen gevonden.
 @else     <table class="table table-striped">
         <thead>
-            <th>Naam</th>
+            <th style="width: 80%;">Naam</th>
             <th>Aktie</th>
         </thead>
   
@@ -94,7 +94,7 @@ Geen kinderen gevonden.
 	@foreach ($kids as $kid)
 
         <tr>
-            <td class="width:80%">{{ $kid->getNaam() }}</td>
+            <td>{{ $kid->getNaam() }}</td>
             <td>
                         <a href="{{ url('kids/show') }}/{{$kid->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
             </td>
