@@ -15,7 +15,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->getNaam() }}</a></li>                      
+                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->naam }}</a></li>                      
                       <li class="active">Familie toevoegen</li>
                     </ol>
                 @endif

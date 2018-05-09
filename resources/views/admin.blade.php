@@ -79,64 +79,10 @@
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
 
 	    @endif
- 
-                @if(count($nogtekeuren_users)>0)
 
-
-    <div class="panel-group" id="accordion">
-      
-        <div class="panel panel-danger">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($nogtekeuren_users) }}</span>&nbsp;nieuwe gebruikers moeten worden geactiveerd.</a>
-
-
-</h4>
-            </div>
-            <div id="collapseKnia" class="panel-collapse collapse">
-                <div class="panel-body">
-		
-
-		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
-                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
-
-		</div>
-            </div>
-	</div>
-<br />
-
-                @endif                    
-
-
-                @if(count($nogtekeuren_families)>0)
-
-
-    <div class="panel-group" id="accordion">
-      
-        <div class="panel panel-danger">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>
-
-
-</h4>
-            </div>
-            <div id="collapseKnia" class="panel-collapse collapse">
-                <div class="panel-body">
-		
-
-		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
-                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
-
-		</div>
-            </div>
-	</div>
-<br />
-
-                @endif                    
 
                        
-            @if (count($intermediairzonderfamilies)>0)
+@if (count($nogtekeuren_users)>0)
 
 
     <div class="panel-group" id="accordion">
@@ -144,51 +90,200 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>
-
-
-</h4>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>
+		</h4>
             </div>
-            <div id="collapseKnia" class="panel-collapse collapse">
-                <div class="panel-body">
-		
+            <div id="collapse1" class="panel-collapse collapse">
+		<div class="panel-body">
 
-		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
-                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+      		<table class="table table-striped">
+        	<thead>
+            		<th style="width: 40%;">Naam</th>
+            		<th style="width: 38%;">Email</th>
+            		<th>Aktie</th>
+        	</thead>
+  
+		<tbody>
+
+
+		@foreach ($nogtekeuren_users as $ntku)
+
+                <tr data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Reden van inschrijven" data-content="{{ $ntku->reden }}">
+			<td>
+				{{ $ntku->naam }}
+				@if ($ntku->blacklisted)
+					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+				@endif
+                                <br><b><i>{{ $ntku->organisatienaam}} </i></b>
+			</td>
+			<td>{{$ntku->email}}</td>
+            		<td>
+                        	<a href="{{ url('user/show') }}/{{$ntku->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                        	<a href="{{ url('user/toggleactive') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Activeer</button></a>
+            		</td>
+        	</tr>
+		
+		@endforeach	
+		
+		</tbody>
+		</table>
 
 		</div>
             </div>
 	</div>
 <br />
 
-                @endif 
+@endif 
+ 
+@if (count($nogtekeuren_families)>0)
 
-                @if(count($familieszonderkinderen)>0)
 
     <div class="panel-group" id="accordion">
       
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($familieszonderkinderen) }}</span> families hebben geen kinderen.</a>
-
-
-</h4>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>
+		</h4>
             </div>
-            <div id="collapseKnia" class="panel-collapse collapse">
-                <div class="panel-body">
-		
+            <div id="collapse2" class="panel-collapse collapse">
+		<div class="panel-body">
 
-		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
-                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+      		<table class="table table-striped">
+        	<thead>
+            		<th style="width: 80%;">Naam</th>
+            		<th>Aktie</th>
+        	</thead>
+  
+		<tbody>
+
+
+		@foreach ($nogtekeuren_families as $ntkf)
+
+        	<tr>
+			<td>
+				{{ $ntkf->naam }}
+				@if ($ntkf->blacklisted)
+					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+				@endif
+			</td>
+            		<td>
+                        	<a href="{{ url('family/show') }}/{{$ntkf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+            		</td>
+        	</tr>
+		
+		@endforeach	
+		
+		</tbody>
+		</table>
 
 		</div>
             </div>
 	</div>
 <br />
 
+@endif 
+                       
+@if (count($intermediairzonderfamilies)>0)
 
-                @endif  
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>
+		</h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+		<div class="panel-body">
+
+      		<table class="table table-striped">
+        	<thead>
+            		<th style="width: 80%;">Naam</th>
+            		<th>Aktie</th>
+        	</thead>
+  
+		<tbody>
+
+
+		@foreach ($intermediairzonderfamilies as $izf)
+
+        	<tr>
+			<td>
+				{{ $izf->naam }}
+				@if ($izf->blacklisted)
+					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+				@endif
+			</td>
+            		<td>
+                        	<a href="{{ url('user/show') }}/{{$izf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+            		</td>
+        	</tr>
+		
+		@endforeach	
+		
+		</tbody>
+		</table>
+
+		</div>
+            </div>
+	</div>
+<br />
+
+@endif 
+
+@if (count($familieszonderkinderen)>0)
+
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><span class="badge">{{ count($familieszonderkinderen) }}</span> gezinnen hebben geen kinderen.</a>
+		</h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+		<div class="panel-body">
+
+      		<table class="table table-striped">
+        	<thead>
+            		<th style="width: 80%;">Naam</th>
+            		<th>Aktie</th>
+        	</thead>
+  
+		<tbody>
+
+
+		@foreach ($familieszonderkinderen as $fzk)
+
+        	<tr>
+			<td>
+				{{ $fzk->naam }}
+				@if ($izf->blacklisted)
+					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+				@endif
+			</td>
+            		<td>
+                        	<a href="{{ url('family/show') }}/{{$fzk->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+            		</td>
+        	</tr>
+		
+		@endforeach	
+		
+		</tbody>
+		</table>
+
+		</div>
+            </div>
+	</div>
+<br />
+
+@endif 
+
+
+
 
                 </div>
             </div>

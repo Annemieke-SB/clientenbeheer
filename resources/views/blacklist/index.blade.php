@@ -36,7 +36,7 @@
         <tr>
             <td>{{ $item->email }}</td>
             <td>{{ $item->reden }}</td>
-            <td>{{ $item->user->getNaam() }}</td>
+            <td>{{ $item->user->naam }}</td>
             <td>{{ $item->created_at }}</td>
             <td>
                         <a href="{{ url('blacklist/destroy') }}/{{$item->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>

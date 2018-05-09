@@ -49,7 +49,7 @@
 
                                 <tr>
                   
-       							<td>{{ str_limit($aangemeldefamilie->getNaam(), 10) }}&nbsp;</td>
+       							<td>{{ str_limit($aangemeldefamilie->naam, 10) }}&nbsp;</td>
     							<td>{{ str_limit($aangemeldefamilie->woonplaats, 10) }}&nbsp;</td>
                                 <td>{{ $aangemeldefamilie->kidscount }}&nbsp;</td>
                                 <td>

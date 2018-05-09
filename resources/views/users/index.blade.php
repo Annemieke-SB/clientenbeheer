@@ -108,13 +108,13 @@
                                 <tbody>
                     					@foreach ($users as $user)
                                                 @if (!$user->emailverified || !$user->activated)
-                                                    <tr class="danger" data-trigger="hover" data-placement="left" aria-hidden="true" data-toggle="popover" title="Reden van inschrijven" data-content="{{ $user->reden }}"></th>
+                                                    <tr class="danger" data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Reden van inschrijven" data-content="{{ $user->reden }}"></th>
                                                 @else
                                                     <tr>
                                                 @endif
 
 						<td>
-						    {{ $user->voornaam[0] }}&nbsp;{{ $user->tussenvoegsel }}&nbsp;{{ $user->achternaam }}
+						    {{ $user->naam }}
 							@if ($user->blacklisted)
 								<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 							@endif

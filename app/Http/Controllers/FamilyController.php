@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use DB;
+use App\User;
 use App\Family;
 use App\Kid;
 use App\Barcode;
@@ -65,7 +66,7 @@ class FamilyController extends Controller
             - intermediairs kunnen alleen families onder eigen ID toevoegen 
         */
 	
-        $user = DB::table('users')->where('id', $id)->first();
+        $user = User::find($id);
         $loggedinuser = Auth::user(); 
         //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
@@ -258,10 +259,6 @@ class FamilyController extends Controller
             */
             $this->barcodeskoppelen($family->id); 
 
-            $intermediair = $family->intermediair;
-
-            $owner = $intermediair->user;
-
             /*
             *   stuur een mail naar de intermediair wanneer het gezin wordt afgekeurd. 
             */
@@ -269,8 +266,8 @@ class FamilyController extends Controller
             $maildata = [
                     'titel' => "Het gezin ". $family->achternaam. " is zojuist goedgekeurd",
                     'mailmessage' => "Het gezin " . $family->achternaam. " is zojuist goedgekeurd. Dit betekent dat (mits u niets meer wijzigt aan dit gezin) de kinderen verzekert zijn van een sinterklaaskado. \n\nNa sluiting van de inschrijving kunt u dan een PDF downloaden in uw downloadoverzicht. Een link naar dat overzicht ontvangt u als de inschrijvingen zijn gesloten.\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
-                    'voornaam' => $owner->voornaam,
-                    'email'=>$owner->email
+                    'voornaam' => $family->user->voornaam,
+                    'email'=>$family->user->email
             ];
             
             try{
