@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function getBlacklistedAttribute() {
 	
-	    return blacklist::check($this->email);
+	    return Blacklist::check($this->email);
     }
 
 
