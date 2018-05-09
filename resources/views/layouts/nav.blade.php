@@ -67,7 +67,7 @@
 
       </ul>
  
-                    {!! Form::open(['url' => 'search', 'class'=>'navbar-form navbar-left']) !!}
+		    {!! Form::open(['url' => 'search', 'class'=>'navbar-form navbar-left', 'method'=>'get']) !!}
         <div class="form-group">
           <input type="text" name="q" class="form-control" placeholder="Naam / postc / email">
         </div>
