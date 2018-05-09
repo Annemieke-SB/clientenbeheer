@@ -32,7 +32,12 @@ Geen gebruikers gevonden.
       @foreach ($users as $user)
 
         <tr>
-            <td>{{ $user->getNaam() }}</td>
+	    <td>{{ $user->getNaam() }}
+		@if ($user->blacklisted)
+		<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+		@endif
+
+		</td>
             <td>
                         <a href="{{ url('user/show') }}/{{$user->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
             </td>
