@@ -15,7 +15,7 @@ use App\Intermediair;
 use App\User;
 use Custommade;
 use App\Family;
-use App\kid;
+use App\Kid;
 
 class SearchController extends Controller
 {
