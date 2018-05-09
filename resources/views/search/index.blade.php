@@ -29,7 +29,9 @@ Geen gebruikers gevonden.
             <th>Naam</th>
             <th>Aktie</th>
         </thead>
-      @foreach ($users as $user)
+  
+<tbody>
+	@foreach ($users as $user)
 
         <tr>
 	    <td class="width:80%">{{ $user->getNaam() }}
@@ -44,6 +46,8 @@ Geen gebruikers gevonden.
         </tr>
 
 	@endforeach
+
+</tbody>
     </table>
 @endif
 
@@ -56,7 +60,9 @@ Geen gezinnen gevonden.
             <th>Naam</th>
             <th>Aktie</th>
         </thead>
-      @foreach ($familys as $family)
+  
+<tbody>
+	@foreach ($familys as $family)
 
         <tr>
 	    <td class="width:80%">{{ $family->getNaam() }}
@@ -70,7 +76,9 @@ Geen gezinnen gevonden.
         </tr>
 
 	@endforeach
-    </table>
+ 
+</tbody>
+   </table>
 @endif   
 
 <h3>Kinderen</h3>
@@ -81,7 +89,9 @@ Geen kinderen gevonden.
             <th>Naam</th>
             <th>Aktie</th>
         </thead>
-      @foreach ($kids as $kid)
+  
+<tbody>
+	@foreach ($kids as $kid)
 
         <tr>
             <td class="width:80%">{{ $kid->getNaam() }}</td>
@@ -91,6 +101,8 @@ Geen kinderen gevonden.
         </tr>
 
 	@endforeach
+
+</tbody>
     </table>
    
 @endif   
