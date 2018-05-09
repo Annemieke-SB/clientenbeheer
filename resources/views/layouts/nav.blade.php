@@ -67,9 +67,9 @@
 
       </ul>
  
-      <form class="navbar-form navbar-left">
+                    {!! Form::open(['url' => 'search', 'class'=>'navbar-form navbar-left']) !!}
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Geef een naam..">
+          <input type="text" name="q" class="form-control" placeholder="Naam / postc / email">
         </div>
         <button type="submit" class="btn btn-default">Zoek</button>
       </form>
