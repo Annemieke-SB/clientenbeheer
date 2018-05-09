@@ -16,13 +16,13 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->getNaam() }}</a></li>
-                      <li class="active">Gezin {{$family->getNaam()}}</li>
+                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->naam }}</a></li>
+                      <li class="active">Gezin {{ $family->naam }}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li class="active">Gezin {{$family->getNaam()}}</li>
+                      <li class="active">Gezin {{$family->naam }}</li>
                     </ol>
                 @endif
 
@@ -126,7 +126,7 @@
                     <table>
 
                         <tr>
-                            <td>Gezin {{ $family->getNaam() }}&nbsp;</td></tr><tr>                            
+                            <td>Gezin {{ $family->naam }}&nbsp;</td></tr><tr>                            
                             <td>{{ $family->adres }}&nbsp;{{ $family->huisnummer }}&nbsp;{{ $family->huisnummertoevoeging }}</td></tr><tr>                                                     
                             <td>{{ $family->postcode }}&nbsp;{{ $family->woonplaats }}</td></tr><tr>                            
                             <td>{{ $family->telefoon }}&nbsp;/&nbsp;{{ $family->email }}</td></tr><tr> 
@@ -139,7 +139,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->getNaam() }}&nbsp;({{Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->naam }}&nbsp;({{Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>

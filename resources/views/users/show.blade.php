@@ -17,7 +17,7 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('home') }}">Home</a></li>
                       <li><a href="{{ url('users/index') }}">Gebruikers</a></li>
-                      <li class="active">{{$user->getNaam()}}</li>
+                      <li class="active">{{ $user->naam }}</li>
                     </ol>
 		@endif
                 <div class="panel-body">
@@ -33,7 +33,7 @@
                         Dhr.&nbsp;
                     @endif
 
-                    {{ $user->getNaam() }}&nbsp;
+                    {{ $user->naam }}&nbsp;
 
                             <span class="label label-info">
 
@@ -128,7 +128,7 @@
 
 @foreach ($user->familys as $family)
 				      <tr>
-                                        <td>{{$family->getNaam() }} &nbsp;</td>
+                                        <td>{{$family->naam }} &nbsp;</td>
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
@@ -166,7 +166,7 @@
                                                             <div class="modal-content">
                                                               <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->getNaam() }}?</h4>
+                                                                <h4 class="modal-title" id="myModalLabel">Wissen van gezin {{ $family->naam }}?</h4>
                                                               </div>
                                                               <div class="modal-body">
                                                                 <p>Let op: als u het gezin wist, worden alle kinderen die eronder vallen ook <b>permanent</b> gewist.</p></blockquote>

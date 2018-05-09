@@ -18,14 +18,14 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user') }}/show/{{ $kid->user->id }}">{{ $kid->user->getNaam() }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->getNaam() }}</a></li>
-                      <li class="active">{{$kid->getNaam()}}</li>
+                      <li><a href="{{ url('/user') }}/show/{{ $kid->user->id }}">{{ $kid->user->naam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{ $kid->family->naam }}</a></li>
+                      <li class="active">{{ $kid->naam }}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{$kid->family->getNaam()}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $kid->family->id }}">Gezin {{ $kid->family->naam }}</a></li>
                       <li class="active">{{$kid->voornaam}}</li>
                     </ol>
                 @endif
@@ -112,7 +112,7 @@
                             <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->tussenvoegsel }}&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
                         </tr>
                         <tr>                            
-                            <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->getNaam() }}&nbsp;
+                            <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->naam }}&nbsp;
                             </td>
                         </tr>
                         <tr>                                                     

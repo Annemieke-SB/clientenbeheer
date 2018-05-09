@@ -12,7 +12,7 @@ class Kid extends Model
 {
 
 	protected $table = 'kids';
-    protected $appends = array('unieknummer','targetkid', 'targetsibling', 'agenextsint', 'reasontargetkid', 'reasontargetsibling', 'disqualified', 'geboortedatumvoornaamdubbel', 'intermediairgegevens', 'familyanderealternatieven', 'htmlbarcode', 'downloadedbarcodepdf');
+    protected $appends = array('naam', 'unieknummer','targetkid', 'targetsibling', 'agenextsint', 'reasontargetkid', 'reasontargetsibling', 'disqualified', 'geboortedatumvoornaamdubbel', 'intermediairgegevens', 'familyanderealternatieven', 'htmlbarcode', 'downloadedbarcodepdf');
 
     protected $fillable = [
             'voornaam',
@@ -42,7 +42,7 @@ class Kid extends Model
         return $this->hasOne('App\Barcode');
     }
  
-    public function getNaam() {
+    public function getNaamAttribute() {
 	
 	if (isset($this->tussenvoegsel)) {
 	
@@ -143,37 +143,19 @@ class Kid extends Model
 
     public function getDisqualifiedAttribute()
     {
-        $family = Family::find($this->family_id);
 
-/*
-
-        if ($family->targetkids==0) {
-
-            return true;
-
-        } elseif ($family->definitiefafkeuren == 1) {
+       if ($this->family->definitiefafkeuren == 1) {
             return true;
         } elseif(!$this->targetsibling && !$this->targetkid) {
 
             return true;
 
-        } elseif ($this->targetkid){
-
-            return false;
-        }
- */
-
-
-       if ($family->definitiefafkeuren == 1) {
-            return true;
-        } elseif(!$this->targetsibling && !$this->targetkid) {
+        } elseif ($this->family->targetkids==0){
 
             return true;
-
-        } elseif ($this->targetkid){
-
-            return false;
-        }        
+	} else {
+		return false;
+	}
 
     }
 

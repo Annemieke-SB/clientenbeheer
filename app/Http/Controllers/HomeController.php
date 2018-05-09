@@ -49,76 +49,60 @@ class HomeController extends Controller
                 $settings_arr[$setting->setting] = $setting->value;
             }
 
-        /*
-        * --
-        */
-        
-
+        /**/
         
 
         if($user->activated == 1 && $user->emailverified == 1) {
 
+		if($user->usertype == 1)
+		{
 
-                if($user->usertype == 1){
-
-                    $kids_disqualified = 0;
-                    $families_disqualified = 0;
-                    $kids_dubbel = 0;
-                    $intermediairzonderfamilies = User::whereDoesntHave('familys')->first();
-                    $familieszonderkinderen = Family::whereDoesntHave('kids')->first();
-                    $aangemelde_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->count();
-
-                    $kids = Kid::all();
-                    $families = Family::all();
-                    
-
-                    foreach ($kids as $kid) {
-            
-                        if ($kid->disqualified) {
-                            $kids_disqualified=1;
-                            break;
-                        }
-                    }
-
-                    foreach ($kids as $kid) {
-            
-                        if ($kid->geboortedatumvoornaamdubbel) {
-                            $kids_dubbel=1;
-                            break;
-                        }
-                    }
+		/**
+		 * Hier komt de admin-pagina
+		 */
 
 
-                    foreach ($families as $familie) {
-                        if ($familie->disqualified) {
-                            $families_disqualified++;
-                            break;
-                        } 
-                    }
+                    $intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->get();
+                    $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
+                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
+		    
+                    return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'settings'=>$settings_arr]);  
 
-
-
-
-                    return view('admin', ['kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'kids_dubbel'=>$kids_dubbel, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'aangemelde_families'=>$aangemelde_families, 'settings'=>$settings_arr]);  
-
-
-
-                }elseif($user->usertype == 2){
-                    return view('raadpleger');
-                }elseif($user->usertype == 3){
-                        return redirect('user/show/'.$user->id);
-                }   
+		}
+		elseif($user->usertype == 2)
+		{
+	
+		/**
+		 * Hier komt de admin-pagina
+		 */
+	    
+			return view('raadpleger');
+		
+		}
+		elseif($user->usertype == 3)
+		{
+	
+		/**
+		 * Hier komt de intermediair-pagina
+		 */
+	
+			return redirect('user/show/'.$user->id);
+		
+		}   
         }
         elseif($user->emailverified == 0)  {
 
             auth()->logout();
             return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
 
-        }else {
-           return view('welcometempuser'); 
-        }
-
-        
+	}
+	else 
+	{
+	     
+		return view('welcometempuser'); 
+	
+	}
     }
 
     public function docs()

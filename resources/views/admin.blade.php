@@ -77,32 +77,158 @@
             <!-- Flashmessage -->
             @if (count(Session::get('message')) > 0)
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-            @endif
-                        
-                @if($kids_disqualified)
-                    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
-                @endif 
 
-                @if($families_disqualified)
-                    <div class="alert alert-danger" role="alert">Er zijn hele gezinnen die niet in aanmerking komen! Kijk hier <a href="{{ url('/intermediairs') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> in kolom 'DF' welke gezinnen dat zijn.</div>
-                @endif  
+	    @endif
+ 
+                @if(count($nogtekeuren_users)>0)
 
-                @if($kids_dubbel)
-                    <div class="alert alert-danger" role="alert">Er zijn mogelijk dubbele kinderen! Kijk hier <a href="{{ url('/intermediairs') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> in kolom 'DB' welke kinderen dat zijn.</div>
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($nogtekeuren_users) }}</span>&nbsp;nieuwe gebruikers moeten worden geactiveerd.</a>
+
+
+</h4>
+            </div>
+            <div id="collapseKnia" class="panel-collapse collapse">
+                <div class="panel-body">
+		
+
+		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
+                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+
+		</div>
+            </div>
+	</div>
+<br />
+
                 @endif                    
 
-                @if($intermediairzonderfamilies)
-                    <div class="alert alert-danger" role="alert">Er zijn intermediairs die nog geen gezinnen hebben ingevoerd! Kijk hier <a href="{{ url('/intermediairs') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> in kolom 'AF' welke intermediairs dat zijn.</div>
-                @endif    
 
-                @if($familieszonderkinderen)
-                    <div class="alert alert-danger" role="alert">Er zijn gezinnen waarbij nog geen kinderen zijn ingevoerd! Kijk hier <a href="{{ url('/intermediairs') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> in kolom 'GK' welke gezinnen dat zijn.</div></div>
-                @endif                      
+                @if(count($nogtekeuren_families)>0)
+
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>
+
+
+</h4>
+            </div>
+            <div id="collapseKnia" class="panel-collapse collapse">
+                <div class="panel-body">
+		
+
+		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
+                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+
+		</div>
+            </div>
+	</div>
+<br />
+
+                @endif                    
+
+                       
+            @if (count($intermediairzonderfamilies)>0)
+
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>
+
+
+</h4>
+            </div>
+            <div id="collapseKnia" class="panel-collapse collapse">
+                <div class="panel-body">
+		
+
+		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
+                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+
+		</div>
+            </div>
+	</div>
+<br />
+
+                @endif 
+
+                @if(count($familieszonderkinderen)>0)
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseKnia"><span class="badge">{{ count($familieszonderkinderen) }}</span> families hebben geen kinderen.</a>
+
+
+</h4>
+            </div>
+            <div id="collapseKnia" class="panel-collapse collapse">
+                <div class="panel-body">
+		
+
+		    <div class="alert alert-danger" role="alert"><b>O nee!</b> Er zijn kinderen die niet in aanmerking komen! Kijk hier <a href="{{ url('/kinderlijst') }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a> welke kinderen dat zijn.</div>
+                        <a href="{{ url('kid/show') }}/id"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Toon</button></a>
+
+		</div>
+            </div>
+	</div>
+<br />
+
+
+                @endif  
 
                 </div>
             </div>
         </div>
     </div>
+
+<style>
+    .niaHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e072"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+</style>
+
+
+
 </div>
 
 @endsection

@@ -9,7 +9,7 @@ class Family extends Model
 {
 
 	protected $table = 'familys';
-    protected $appends = array('blacklisted', 'targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
+    protected $appends = array('naam','blacklisted', 'targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
             'tussenvoegsel',
@@ -47,7 +47,7 @@ class Family extends Model
         return $this->hasOne('App\Intertoys', 'id', 'intertoy_id');
     }
 
-    public function getNaam() {
+    public function getNaamAttribute() {
 	
 	if (isset($this->tussenvoegsel)) {
 	
