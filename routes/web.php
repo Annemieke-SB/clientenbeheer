@@ -47,7 +47,7 @@ Route::get('/faq/edit/{id}', 'FaqController@edit');
 Route::get('/faq/destroy/{id}', 'FaqController@destroy');
 
 Route::post('/search', 'SearchController@index');
-Route::get('/search', 'HomeController@index');
+Route::get('/search', 'SearchController@index');
 
 Route::get('/blacklist', 'BlacklistController@index');
 Route::get('/blacklist/toevoegen', 'BlacklistController@create');
