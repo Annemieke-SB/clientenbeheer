@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Settings;
 use Custommade;
-use Blacklist;
+use App\Blacklist;
 
 class User extends Authenticatable
 {
