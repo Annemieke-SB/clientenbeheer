@@ -17,15 +17,15 @@
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $family->user->id }}">{{ $user->getNaam() }}</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{ $family->getNaam() }}</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $family->user->id }}">{{ $user->naam }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{ $family->naam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
 
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{ $family->getNaam() }}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{ $family->naam }}</a></li>
                       <li class="active">Kind toevoegen</li>
                     </ol>
                 @endif

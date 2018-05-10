@@ -140,8 +140,14 @@
 		                         	&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 
 		                        @endif
-						@if (!$family->aangemeld)
+						@if (!$family->aangemeld && !$family->redenafkeuren)
 						Nog niet aangemeld
+						@elseif ($family->definitiefafkeuren)
+						Definitief afgekeurd
+						@elseif ($family->aangemeld)
+						Aangemeld
+						@elseif (isset($family->redenafkeuren))
+						Afgekeurd
 						@else
 						Onbekend
 						@endif

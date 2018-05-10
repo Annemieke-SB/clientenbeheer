@@ -308,7 +308,7 @@ class FamilyController extends Controller
         $family->aangemeld=1;        
         $family->save();
 
-        return redirect('intermediairs/show/'.$family->intermediair_id)->with('message', 'Het gezin '. $family->achternaam. ' is zojuist aangemeld. U ontvangt hiervan GEEN email ter bevestiging. U krijgt WEL automatisch een email als het gezin is beoordeeld door de Sinterklaasbank.');
+        return redirect('user/show/'.$family->user->id)->with('message', 'Het gezin '. $family->naam. ' is zojuist aangemeld. U ontvangt hiervan GEEN email ter bevestiging. U krijgt WEL automatisch een email als het gezin is beoordeeld door de Sinterklaasbank.');
     }    
 
 
@@ -428,9 +428,7 @@ class FamilyController extends Controller
         $family->aangemeld = 0;
         $family->goedgekeurd = 0;
         
-        $intermediair = $family->intermediair;
-
-        $owner = $intermediair->user;
+        $owner = $family->user;
 
 
         /*
