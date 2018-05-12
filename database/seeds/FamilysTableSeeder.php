@@ -114,5 +114,7 @@ class FamilysTableSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),        
         ]]
         );
+
+$familys = factory(App\Family::class, 1000)->create();
     }
 }

@@ -28,7 +28,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'telefoon' => $faker->e164PhoneNumber,
         'type' => $faker->randomElement($array = array(1,2,3,4,5,6,7,8,9,10,11,12)),
         'adres' => $faker->streetName,
-        'huisnummer' => $faker->buildingNumber,
+        'huisnummer' => $faker->numberBetween($min = 10, $max = 500),
         'huisnummertoevoeging' => 'a',
         'postcode' => $faker->postcode,
         'woonplaats' => $faker->city,
@@ -37,5 +37,52 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+];
+
+
+
+
+
+});
+
+
+$factory->define(App\Family::class, function (Faker\Generator $faker) {
+    //static $password;
+
+	return [
+            'achternaam' => $faker->lastName,
+            'tussenvoegsel' => $faker->randomElement($array = array ('','van','van der', 'de')),
+            'adres' => $faker->streetName,
+            'huisnummer' => $faker->numberBetween($min = 10, $max = 500),
+            'huisnummertoevoeging' => 'b',
+            'postcode' => $faker->postcode,
+            'woonplaats' => $faker->city,
+            'telefoon' => $faker->e164PhoneNumber,
+            'andere_alternatieven' => 0,
+            'motivering' => $faker->text($maxNbChars=150),
+            'user_id' => $faker->numberBetween($min = 10, $max = 500),
+            'bezoek_sintpiet' => 0,    
+            'email' => $faker->unique()->safeEmail,  
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),      
+];
+});
+
+$factory->define(App\Kid::class, function (Faker\Generator $faker) {
+    //static $password;
+
+	$family = App\Family::find($faker->numberBetween($min = 10, $max = 500));
+
+
+	return [
+            'voornaam' => $faker->firstName($gender = 'male'|'female'),
+            'tussenvoegsel' => $faker->randomElement($array = array ('','van','van der', 'de')),
+            'achternaam' => $faker->lastName,
+            'geslacht' => $faker->randomElement($array = array('m','v')),
+            'geboortedatum' => $faker->dateTimeThisCentury->format('d-m-Y'),
+            'family_id' => $family->id,       
+            'user_id' => $family->user->id,       
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),       
 ];
 });

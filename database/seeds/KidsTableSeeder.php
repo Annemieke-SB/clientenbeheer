@@ -121,5 +121,7 @@ class KidsTableSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),             
         ]]);
+
+$fkids = factory(App\Kid::class, 5000)->create();
     }
 }
