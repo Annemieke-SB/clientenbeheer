@@ -79,7 +79,7 @@ $factory->define(App\Kid::class, function (Faker\Generator $faker) {
             'tussenvoegsel' => $faker->randomElement($array = array ('','van','van der', 'de')),
             'achternaam' => $faker->lastName,
             'geslacht' => $faker->randomElement($array = array('m','v')),
-            'geboortedatum' => $faker->dateTimeThisCentury->format('d-m-Y'),
+            'geboortedatum' => $faker->dateTimeBetween($startDate = '-15 years', $endDate='now'),
             'family_id' => $family->id,       
             'user_id' => $family->user->id,       
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),

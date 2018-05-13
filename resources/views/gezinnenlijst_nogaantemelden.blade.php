@@ -127,7 +127,7 @@
                                 </td>                                                             
                                 <td>
                                   
-                                        <a href="{{ url('/intermediairs') }}/show/{{ $nietaangemeldefamilie->intermediair_id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
+                                        <a href="{{ url('/user') }}/show/{{ $nietaangemeldefamilie->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>
 
                                         <a href="{{ url('/family') }}/show/{{ $nietaangemeldefamilie->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>                            
                                   
