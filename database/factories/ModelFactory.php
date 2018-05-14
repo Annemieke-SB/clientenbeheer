@@ -73,13 +73,17 @@ $factory->define(App\Kid::class, function (Faker\Generator $faker) {
 
 	$family = App\Family::find($faker->numberBetween($min = 10, $max = 500));
 
+		$d = $faker->numberBetween($min = 1, $max = 28);
+		$m = $faker->numberBetween($min = 1, $max = 12);
+		$y = $faker->numberBetween($min = 2005, $max = date("Y")-1);
+		$datum = "$d-$m-$y";
 
 	return [
             'voornaam' => $faker->firstName($gender = 'male'|'female'),
             'tussenvoegsel' => $faker->randomElement($array = array ('','van','van der', 'de')),
             'achternaam' => $faker->lastName,
             'geslacht' => $faker->randomElement($array = array('m','v')),
-            'geboortedatum' => $faker->dateTimeBetween($startDate = '-15 years', $endDate='now'),
+            'geboortedatum' => date("d-m-Y", strtotime($datum)), 
             'family_id' => $family->id,       
             'user_id' => $family->user->id,       
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
