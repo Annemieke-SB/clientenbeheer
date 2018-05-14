@@ -118,13 +118,22 @@ class HomeController extends Controller
     public function tellingen()
     {
 
-        $kids = Kid::all();
-        $families = Family::all();
-        $intermediairs = User::where('usertype', 3);
+        $kids = Kid::all()->count();
+        $families = Family::all()->count();
+        $intermediairs = User::where('usertype', 3)->count();
 
-        $kids_qualified = 0;
+
+		
+		$kids_qualified = DB::table('family')
+        ->join('kids', function ($join) {
+            $join->on('family.id', '=', 'kids.family_id')
+                 ->where('contacts.user_id', '>', 5);
+        })
+        ->get();
+		
+		$kids_qualified = 0;
         $kids_disqualified = 0;
-        $kids_metbarcode = 0;
+        $kids_metbarcode = Barcode::whereNotNull('kid_id')->count();
 
         $families_totaal = 0;
         $families_qualified = 0;
@@ -134,6 +143,7 @@ class HomeController extends Controller
         $intermediairs_totaal = count($intermediairs);
 
 
+/*
 
         foreach ($kids as $kid) {
 
@@ -162,7 +172,6 @@ class HomeController extends Controller
                 
             }
         }
-/*
 
 
         foreach ($intermediairs as $intermediair) {
