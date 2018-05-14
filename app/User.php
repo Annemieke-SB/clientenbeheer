@@ -35,6 +35,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function kids()
+    {
+        return $this->hasMany('App\Kid');
+    }
+
+
     public function familys()
     {
         return $this->hasMany('App\Family');

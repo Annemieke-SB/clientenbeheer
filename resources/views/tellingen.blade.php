@@ -30,22 +30,27 @@
                 		<tfoot>
 							<tr>
 							   	<td>Totaal</td>
-							   	<td>{{ $kids_qualified + $kids_disqualified }}</td>
+							   	<td>{{ $kids }}</td>
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr>
-								<td>Kinderen die aan eisen voldoen maar nog gekeurd (of aangemeld) moeten worden</td>
-								<td>{{ $kids_qualified - $kids_metbarcode }}</td>
+								<tr>
+								<td>Kinderen die zijn goedgekeurd</td>
+								<td>{{ $kids_goedgekeurd }}</td>
 							</tr>
-							<tr>
-								<td>Kinderen die niet aan eisen voldoen</td>
+						<tr>						<tr>
+								<td>Uitgegeven barcodes (moet zelfde zijn als kinderen goedgekeurd)</td>
+								<td>{{ $kids_metbarcode }}</td>
+							</tr>
+						<tr>
+								<td>Kinderen die zijn afgekeurd</td>
 								<td>{{ $kids_disqualified }}</td>
 							</tr>
+
 							<tr>
-								<td>Kinderen die zijn goedgekeurd en meedoen</td>
-								<td>{{ $kids_metbarcode }}</td>
-							</tr>							
+								<td>Kinderen die definitief zijn afgekeurd</td>
+								<td>{{ $kids_definitiefdisqualified }}</td>
+							</tr>
 						</tbody>
                 	</table>
 
@@ -58,22 +63,27 @@
                 		<tfoot>
 							<tr>
 							   	<td>Totaal</td>
-							   	<td>{{ $families_totaal}}</td>
+							   	<td>{{ $families}}</td>
 							</tr>
 						</tfoot>
 						<tbody>
 							<tr>
-								<td>Families in afwachting aanmelden en beoordelen</td>
-								<td>{{ $families_totaal - $families_definitiefdisqualified - $families_qualified }}</td>
-							</tr>						
-							<tr>
-								<td>Families nog niet goedgekeurd / waarvan definitief afgekeurd</td>
-								<td>{{ $families_disqualified }} / {{$families_definitiefdisqualified}}</td>
-							</tr>
-	
-							<tr>
+								<td>Families zonder kinderen</td>
+								<td>{{ $familieszonderkinderen }}</td>
+							</tr>	
+						<tr>
+						<tr>
 								<td>Families goedgekeurd</td>
-								<td>{{ $families_qualified }}</td>
+								<td>{{ $families_goedgekeurd }}</td>
+							</tr>	
+						<tr>
+						<tr>
+								<td>Families afgekeurd (tijdelijk)</td>
+								<td>{{ $families_disqualified }}</td>
+							</tr>	
+						<tr>
+								<td>Families afgekeurd (definitief)</td>
+								<td>{{ $families_definitiefdisqualified }}</td>
 							</tr>													
 						</tbody>
                 	</table>                	
@@ -87,8 +97,16 @@
 						<tbody>
 							<tr>
 								<td>Totaal aantal intermediairs</td>
-								<td>{{ $intermediairs_totaal }}</td>
+								<td>{{ $intermediairs }}</td>
 							</tr>
+						<tr>
+								<td>Intermediairs met gezin maar zonder kinderen</td>
+								<td>{{ $intermediairzonderkids }}</td>
+							</tr>	
+						<tr>
+								<td>Intermediairs zonder gezin</td>
+								<td>{{ $intermediairzonderfamilies }}</td>
+							</tr>	
 						</tbody>
                 	</table>
 
