@@ -145,6 +145,7 @@ class HomeController extends Controller
 		$families_disqualified = Family::whereNotNull('redenafkeuren')
 				->where('goedgekeurd','=',0)
 				->whereNull('definitiefafkeuren')
+				->select('familys.*')
 				->count();
 
 		return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
