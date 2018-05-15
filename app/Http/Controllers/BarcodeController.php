@@ -49,21 +49,26 @@ class BarcodeController extends Controller
 
         $gedownloadde_barcodes = $uitgegeven_barcodes - ($nietgedownloadde_barcodes - $beschikbare_barcodes);        
 
-        $niet_aangemelde_families = Family::where(array('aangemeld'=> 0, 'definitiefafkeuren' => NULL))->get();
+					
+		$aangemelde_kinderen = DB::table('kids')
+        ->join('familys', function ($Join) {
+            $Join->on('kids.family_id', '=', 'familys.id')
+					->where('familys.aangemeld','=',1)
+					->where('familys.goedgekeurd','=',0)
+					->select('kids.*');
+        })
+        ->count();
 
-        $aangemelde_families = Family::where(array('aangemeld'=> 1, 'goedgekeurd' => 0))->get();
+	
+		$niet_aangemelde_kinderen = DB::table('kids')
+        ->join('familys', function ($Join) {
+            $Join->on('kids.family_id', '=', 'familys.id')
+					->where('familys.aangemeld','=',0)
+					->whereNull('familys.definitiefafkeuren')
+					->select('kids.*');
+        })
+        ->count();
 
-        $niet_aangemelde_kinderen = 0;
-
-        $aangemelde_kinderen = 0;
-
-        foreach ($niet_aangemelde_families as $fam) {
-            $niet_aangemelde_kinderen = $niet_aangemelde_kinderen + $fam->getKidscountAttribute();
-        }
-
-        foreach ($aangemelde_families as $fam) {
-            $aangemelde_kinderen = $aangemelde_kinderen + $fam->getKidscountAttribute();
-        }
 
 
         return view('barcodes.index', ['aant_barcodes' => $aant_barcodes, 'uitgegeven_barcodes' => $uitgegeven_barcodes, 'niet_aangemelde_kinderen' => $niet_aangemelde_kinderen, 'aangemelde_kinderen' => $aangemelde_kinderen, 'gedownloadde_barcodes'=>$gedownloadde_barcodes, 'losse_barcodes'=>$losse_barcodes]);
