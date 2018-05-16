@@ -6,17 +6,14 @@
 <div class="container">
     <div class="row">  
         <div class="col-md-8 col-md-offset-2">
-                                    <!-- Flashmessage -->
-                        @if (count(Session::get('message')) > 0)
-                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-                        @endif
+
                         
             <div class="panel panel-default">    
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
                       <li><a href="{{ url('/users') }}">Gebruikers</a></li>
-                      <li><a href="{{ url('/user/show') }}/{{ $user->id }}">{{ $user->naam }}</a></li>
+                      <li><a href="{{ url('/user/show') }}/{{ $family->user->id }}">{{ $family->user->naam }}</a></li>
                       <li class="active">Gezin {{ $family->naam }}</li>
                     </ol>
                 @elseif (Auth::user()->usertype==3)
@@ -27,17 +24,21 @@
                 @endif
 
                 <div class="panel-body">
-                 <p>Op deze pagina staan alle gegevens die betrekking hebben de op het gezin en kinderen van het gezin.</p>
+                 
+                                                     <!-- Flashmessage -->
+                        @if (count(Session::get('message')) > 0)
+                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+                        @endif
 
-                    @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
-                        <br><br>
+                    @if (App\Setting::get('inschrijven_gesloten') == 1) {{-- Inschrijvingen gesloten --}}
+                        
                         <div class="panel panel-danger">
-                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs.</b></div>
+                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd.</div>
                         </div>                        
                     @else
 
                             @if($family->redenafkeuren && $family->aangemeld==0)
-                            <br><br>
+                            
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Uw aanmelding voor dit gezin is door de Sinterklaasbank afgekeurd om deze reden:<br><br>
@@ -54,7 +55,7 @@
                             @endif                    
 
                             @if($family->aangemeld==0 && $family->definitiefafkeuren != 1)
-                            <br>
+                            
                                 <div class="panel panel-danger">                      
                                   <div class="panel-body bg-danger">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;Dit gezin is nog niet aangemeld.  Na controle van de ingevoerde gegevens kunt u via de knop ‘Aanmelden’ (zie onderaan deze pagina) dit gezin aanmelden.
@@ -63,7 +64,7 @@
                             @endif
 
                             @if($family->aangemeld==1 && $family->goedgekeurd==0)
-                            <br><br>
+                            
                                 <div class="panel panel-warning">                      
                                   <div class="panel-body bg-warning">
                                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;Dit gezin is al aangemeld maar wacht nog op goedkeuring van de Sinterklaasbank. Als u wijzigingen wilt aanbrengen moet u de aanmelding weer intrekken (onderaan deze pagina).
@@ -72,7 +73,7 @@
                             @endif
 
                             @if($family->aangemeld==1 && $family->goedgekeurd==1)
-                            <br><br>
+                            
                                 <div class="panel panel-success">                      
                                   <div class="panel-body bg-success">
                                     <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>&nbsp;Dit gezin is al aangemeld en goedgekeurd door de Sinterklaasbank. Als u wijzigingen wilt aanbrengen moet u de aanmelding weer intrekken (onderaan deze pagina).
@@ -107,13 +108,13 @@
                     @endif
 
 
-                    <a href="{{ url('/user/show/'. $user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
+                    <a href="{{ url('/user/show/'. $family->user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
                     <a href="{{ url('/gezinnenlijst') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar gezinnenlijst</button></a>
                     <a href="{{ url('/family') }}/toggleok/{{ $family->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>                  
                     <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                 @else
 
-                    <a href="{{ url('/user/show/'. $user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                    <a href="{{ url('/user/show/'. $family->user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @endif
                 </div>
             </div>
@@ -139,7 +140,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $user->naam }}&nbsp;({{Custommade::typenIntermediairs($user->type) }} {{ $user->organisatienaam }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $family->user->naam }}&nbsp;({{Custommade::typenIntermediairs($family->user->type) }} {{ $family->user->organisatienaam }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
@@ -184,7 +185,7 @@
                             <tbody>
 
                     
-                        @foreach ($kids as $kid)
+                        @foreach ($family->kids as $kid)
 
                                     @if ($kid->disqualified==true)
                                     <tr class="danger">
@@ -293,10 +294,10 @@
 
                 <div class="panel-body">
 
-                    @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
-                        <br><br>
+                    @if (App\Setting::get('inschrijven_gesloten') == 1) {{-- Inschrijvingen gesloten --}}
+                        
                         <div class="panel panel-danger">
-                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs.</b></div>
+                              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd.</div>
                         </div>                        
                     @else
 
@@ -305,7 +306,7 @@
                                 <div class="panel panel-danger">
                                   <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | Dit gezin komt niet in aanmerking voor de sinterklaasbank!</b></div>
                                   <div class="panel-body bg-danger">
-                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{$min_leeftijd_target}} en {{$max_leeftijd_target}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{$min_leeftijd_target}} en {{$max_leeftijd_sibling}} doen dan ook mee. &nbsp;
+                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{App\Setting::get('min_leeftijd')}}en {{App\Setting::get('max_leeftijd')}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{App\Setting::get('min_leeftijd')}} en {{App\Setting::get('max_leeftijd_broer_zus')}} doen dan ook mee. &nbsp;
                                   </div>
                                 </div>
                                 @endif

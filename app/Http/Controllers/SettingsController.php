@@ -41,9 +41,8 @@ class SettingsController extends Controller
 
         // Intermediairs mogen de index niet zien        
         if(($user->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
             Log::info('Een intermediair probeerde de settings-indexpagina te laden, userid: '.$user->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
 
@@ -75,9 +74,8 @@ class SettingsController extends Controller
 
         // Intermediairs en raadplegers mogen niets wijzigen      
         if(($user->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
             Log::info('Een intermediair probeerde een settings-instelling te wijzigen, userid: '.$user->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         } elseif(($user->usertype == 2)){            
             Log::info('Een raadpleger probeerde een settings-instelling te wijzigen, userid: '.$user->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
@@ -171,8 +169,8 @@ class SettingsController extends Controller
     public function sendMailToIntermediairs ($type = false) {
 
         $emailadressen_intermediairs = array();
-        $intermediairs = Intermediair::All();
-
+		$intermediairs = User::where('usertype',3);
+				
         foreach ($intermediairs as $intermediair) {
             $emailadressen_intermediairs[] = $intermediair->user->email;
         }

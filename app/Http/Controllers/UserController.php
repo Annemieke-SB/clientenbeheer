@@ -46,9 +46,8 @@ class UserController extends Controller
 
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
             Log::info('Een intermediair probeerde de gebruikers-indexpagina te laden, userid: '.$user->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         return view('users.index', ['users' => $users]);
@@ -62,9 +61,8 @@ class UserController extends Controller
 
         // Intermediairs mogen de activatie niet wijzigen        
         if(($loggedinuser->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
             Log::info('Een intermediair probeerde de gebruikers-toggleactive te wijzigen, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         if(($loggedinuser->usertype == 2)){
@@ -120,9 +118,8 @@ class UserController extends Controller
 
         // Intermediairs mogen de activatie niet wijzigen        
         if(($loggedinuser->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
             Log::info('Een intermediair probeerde de user/manualemailverification te benaderen, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         if(($loggedinuser->usertype == 2)){
@@ -310,6 +307,28 @@ class UserController extends Controller
        
 
         return redirect('user/edit/'.$user->id)->with('message', 'De wachtwoordvelden kwamen niet overeen. Het wachtwoord is niet gewijzigd.');
+    }
+
+
+    public function downloads()
+    {
+
+
+        $user = Auth::user();
+
+
+        // Intermediairs mogen de downloadpagina zien        
+        if((!$user->usertype == 3)){
+            return redirect('home')->with('message', 'Alleen een intermediair kan deze pagina zien.');
+        } 
+
+        $goedgekeurde_families = Family::where([
+                ['goedgekeurd', '=', '1'],
+                ['user_id', '=', $user->id],
+            ])->with('kids')->get();
+
+
+        return view('users.downloads', ['families' => $goedgekeurde_families]);
     }
 
 

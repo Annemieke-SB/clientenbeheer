@@ -36,7 +36,7 @@ class DownloadController extends Controller
         $kid = Kid::find($id);
         $loggedinuser = Auth::user();
 
-        if ($kid->intermediairgegevens->user_id == $loggedinuser->id) {
+        if ($kid->user->id == $loggedinuser->id) {
             return true;
         }
         else {

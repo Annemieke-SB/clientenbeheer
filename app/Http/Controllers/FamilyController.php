@@ -39,8 +39,7 @@ class FamilyController extends Controller
         
         //$family = DB::table('familys')->where('id', $id)->first();
         $family = Family::find($id);
-        $user = $family->user;
-        $kids = $family->kids;
+
         //$eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
         $min = Setting::get('min_leeftijd');
         $max = Setting::get('max_leeftijd');
@@ -48,38 +47,51 @@ class FamilyController extends Controller
         $g = Setting::get('inschrijven_gesloten');
 
         // Intermediairs mogen geen andere familys zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $user->id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family->user->id)){
             
             Log::info('Een intermediair probeerde de een andere familie te bekijken (family.show) te laden, userid: '.$loggedinuser->id);
             return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }        
 
-        return view('familys.show', ['user' => $user, 'family' => $family, 'kids' => $kids,  'min_leeftijd_target'=>$min, 'max_leeftijd_target'=>$max, 'max_leeftijd_sibling'=>$maxbz, 'gesloten'=>$g ]);
+        return view('familys.show', ['family' => $family ]);
     }    
 
 
 
     public function create($id) // Dit ID is een intermediair-id
     {
+       if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        }         
+
         /* 
             Getest en werkt: 
             - intermediairs kunnen alleen families onder eigen ID toevoegen 
         */
-	
+
+
         $user = User::find($id);
         $loggedinuser = Auth::user(); 
         //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
         // Intermediairs mogen alleen familys aanmaken onder eigen id       
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
-            
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){            
             Log::info('Een intermediair probeerde de een familie aan te maken (family.create) bij een andere intermediair: '.$loggedinuser->id);
-            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        if(Setting::get('inschrijven_gesloten') == 1) {
+            Log::info('Een intermediair probeerde de een familie aan te maken (family.create) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin proberen aan te maken terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+        } else {
+            return view('familys.create', ['user'=>$user]);
         }
 
 
-
-        return view('familys.create', ['user'=>$user]);
+        
     }
 
     /**
@@ -91,14 +103,35 @@ class FamilyController extends Controller
     public function store(Requests\CreateFamilyRequest $request)
     {
 
-        $id = Family::create($request->all())->id;
+        if(Setting::get('downloads_ingeschakeld') == 1) {
 
-        return redirect('family/show/'.$id)->with('message', 'Familie toegevoegd');
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+              
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Een intermediair probeerde de een familie aan te maken (family.create) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin proberen aan te maken terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+
+        } else {
+
+            $id = Family::create($request->all())->id;
+            return redirect('family/show/'.$id)->with('message', 'Familie toegevoegd');
+
+        }
     }
 
 
     public function destroy($id)
     {
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
 
         /* 
             Getest en werkt: 
@@ -111,26 +144,8 @@ class FamilyController extends Controller
         $family = Family::find($id);
 
 
-        /*
-        *
-        * Settings leesbaar maken
-        * Om deze in de view te krijgen: $settings['inschrijven_gesloten']
-        *
-        */
-
-            $settings = Setting::all();
-            $settings_arr=array();
-            foreach ($settings as $setting) {
-                $settings_arr[$setting->setting] = $setting->value;
-            }
-
-        /*
-        * --
-        */
-        
-
-        if ($settings_arr['inschrijven_gesloten'] == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
-            return redirect('user/home'."/$family->user->id")->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben.'); 
+        if (Setting::get('downloads_ingeschakeld') == 1) { // als downloads zijn ingeschakeld, dan kan er niets vernietigd worden
+            return redirect('user/home'."/$family->user->id")->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de downloads zijn geopend. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben.'); 
         }
 
 
@@ -178,41 +193,71 @@ class FamilyController extends Controller
 
     public function edit($id)
     {
+        if(Setting::get('downloads_ingeschakeld') == 1) {
 
-        $family = Family::find($id);
-        $intermediair = $family->intermediair;
-        
-        $eigenaar = DB::table('users')->where('id', $intermediair->user_id)->first();
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
+        $family = Family::find($id);        
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $intermediair->user_id)){
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family->user->id)){
             
             Log::info('Een intermediair probeerde een andere familie te wijzigen (family.edit) te laden, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$intermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
+        if(Setting::get('inschrijven_gesloten') == 1) {
 
+            Log::info('Een intermediair probeerde de een familie te wijzigen (family.edit) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin proberen te wijzigen terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
 
-        return view('familys.edit', ['family' => $family, 'intermediair'=>$intermediair, 'eigenaar'=>$eigenaar]);
+        return view('familys.edit', ['family' => $family]);
+        
     }
 
 
     public function update(Requests\CreateFamilyRequest $request)
     {
-        $family = Family::findOrFail($request->id);
+        if(Setting::get('downloads_ingeschakeld') == 1) {
 
-        $input = $request->all();
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
 
-        $family->fill($input)->save();
+        if(Setting::get('inschrijven_gesloten') == 1) {
 
-        return redirect('family/show/'.$family->id)->with('message', 'Familiegegevens gewijzigd');
+            Log::info('Een intermediair probeerde de een familie aan te maken (family.create) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin proberen aan te maken terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+            
+        } else {
+
+            $family = Family::findOrFail($request->id);
+
+            $input = $request->all();
+
+            $family->fill($input)->save();
+
+            return redirect('family/show/'.$family->id)->with('message', 'Familiegegevens gewijzigd');
+        }
     }
 
     public function toggleok($id)
     {
 
-        
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een barcode geprobeerd los te koppelen terwijl de downloads al geopend zijn, dit kan niet omdat ze mogelijk al gedownload zijn. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen de activatie niet wijzigen        
@@ -250,7 +295,7 @@ class FamilyController extends Controller
 
             if ($family->getKidscountAttribute() > count($barcodevoorraad)) {
 
-                return redirect('gezinnenlijst/')->with('message', 'Er zijn maar ' . count($barcodevoorraad) . ' barcodes beschikbaar, terwijl dit gezin ' . $family->getKidscountAttribute() . ' kinderen heeft. Het gezin kan dus niet worden goedgekeurd, omdat er te weinig barcodes zijn. Vul de barcodes aan om verder te gaan.');
+                return redirect('/family/show/' . $family->id)->with('message', 'Er zijn maar ' . count($barcodevoorraad) . ' barcodes beschikbaar, terwijl dit gezin ' . $family->getKidscountAttribute() . ' kinderen heeft. Het gezin kan dus niet worden goedgekeurd, omdat er te weinig barcodes zijn. Vul de barcodes aan om verder te gaan.');
 
             } else {
 
@@ -296,13 +341,19 @@ class FamilyController extends Controller
         
 
 
-        return redirect('gezinnenlijst/')->with('message', 'Het gezin '. $family->achternaam. ' heeft een andere status gekregen.');
+        return redirect('family/show/' . $family->id)->with('message', 'Het gezin '. $family->achternaam. ' heeft een andere status gekregen.');
 
     }
 
 
     public function aanmelden($id)
     {
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes  te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een barcode geprobeerd te koppelen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
         
         $family = Family::findOrFail($id);
         $family->aangemeld=1;        
@@ -314,7 +365,13 @@ class FamilyController extends Controller
 
     public function aanmeldingintrekken($id)
     {
-        
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een barcode geprobeerd los te koppelen terwijl de downloads al geopend zijn, dit kan niet omdat ze mogelijk al gedownload zijn. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         $family = Family::findOrFail($id);
         $family->aangemeld=0;    
 
@@ -343,6 +400,14 @@ class FamilyController extends Controller
     {
       
         $family = Family::findOrFail($fam_id);
+
+
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een barcode geprobeerd los te koppelen terwijl de downloads al geopend zijn, dit kan niet omdat ze mogelijk al gedownload zijn. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
 
         foreach ($family->kids as $kid) {
             if (isset($kid->barcode->id)) {
@@ -382,24 +447,6 @@ class FamilyController extends Controller
     public function afkeuren($fam_id)
     {
 
-        /*
-        *
-        * Settings leesbaar maken
-        * Om deze in de view te krijgen: $settings['inschrijven_gesloten']
-        *
-        */
-
-            $settings = Setting::all();
-            $settings_arr=array();
-            foreach ($settings as $setting) {
-                $settings_arr[$setting->setting] = $setting->value;
-            }
-
-        /*
-        * --
-        */
-
-
         /* 
             Getest en werkt: 
             - intermediairs kunnen alleen eigen families bekijken 
@@ -407,7 +454,7 @@ class FamilyController extends Controller
 
       
         $family = Family::findOrFail($fam_id);
-        return view('familys.afkeuren', ['family' => $family, 'settings'=>$settings_arr]);
+        return view('familys.afkeuren', ['family' => $family]);
 
     } 
 
@@ -463,7 +510,7 @@ class FamilyController extends Controller
         
         $family->save();
 
-        return redirect('gezinnenlijst')->with('message', 'De aanmelding van het gezin '. $family->achternaam. ' is zojuist afgekeurd. De intermediair is op de hoogte gebracht.');
+        return redirect('family/show/' . $family->id)->with('message', 'De aanmelding van het gezin '. $family->achternaam. ' is zojuist afgekeurd. De intermediair is op de hoogte gebracht.');
         
     }         
 

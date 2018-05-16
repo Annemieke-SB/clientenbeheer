@@ -108,7 +108,7 @@ class Kid extends Model
 
    public function getTargetsiblingAttribute()
     {
-        $min_leeftijd = Setting::get('min_leeftijd'); // Haal de minimum leeftijd voor sibling kind op.
+        $min_leeftijd = Setting::get('max_leeftijd'); // Haal de minimum leeftijd voor sibling kind op. (max leeftijd voor een target)
 
         $max_leeftijd = Setting::get('max_leeftijd_broer_zus'); // Haal de maximum leeftijd voor een broer/zus op.
 

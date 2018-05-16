@@ -15,12 +15,14 @@
 
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Fam {{ $family->achternaam }}</a></li>
+                      <li><a href="{{ url('/gebruikers') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/user/show/' . $family->user->id) }}">{{$family->user->naam}}</a></li>
+                      <li><a href="{{ url('/family') }}/show/{{ $family->id }}">Gezin {{ $family->naam }}</a></li>
                       <li class="active">Afkeuren</li>
                     </ol>
 
                 <div class="panel-body">
-                <p>                 <a href="{{ url('/gezinnenlijst/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a></p>
+                <p>                 <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a></p>
                  De tekst hoeft niet te worden weggehaald voor goedkeuren, in dat geval gewoon goedkeuren en de tekst verdwijnt.
                 </div>
             </div>
@@ -28,7 +30,7 @@
                 
                 <div class="panel-body">
 
-            @if ($settings['downloads_ingeschakeld'] == 1) 
+            @if (App\Setting::get('downloads_ingeschakeld') == 1) 
 
                 <h1>De downloads zijn al aktief</h1>
                 <p>De downloads zijn al aktief, dus het is niet mogelijk om gezinnen af te keuren. Een goedgekeurd gezin kan namelijk al barcodes in het bezit hebben.</p>

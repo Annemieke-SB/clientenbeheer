@@ -47,6 +47,13 @@ class KidController extends Controller
      */
     public function create($id)
     {
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         //$family = DB::table('familys')->where('id', $id)->first();
 	$family = Family::find($id);    
 	return view('kids.create', ['family'=>$family]);
@@ -60,6 +67,14 @@ class KidController extends Controller
      */
     public function store(Requests\CreateKidRequest $request)
     {
+
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         
         $family = DB::table('familys')->where('id', $request->input('family_id'))->first();
 
@@ -71,6 +86,14 @@ class KidController extends Controller
 
     public function destroy($id)
     {
+
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind te verwijderen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
 
         /* 
             Getest en werkt: 
@@ -127,6 +150,15 @@ class KidController extends Controller
      */
     public function edit($id)
     {
+
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind te verwijderen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
+
         $kid = Kid::find($id);
         $loggedinuser = Auth::user();
 
@@ -144,6 +176,15 @@ class KidController extends Controller
 
     public function update(Requests\CreateKidRequest $request)
     {
+
+        if(Setting::get('downloads_ingeschakeld') == 1) {
+
+            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
+        
         $kid = Kid::findOrFail($request->id);
 
         $input = $request->all();

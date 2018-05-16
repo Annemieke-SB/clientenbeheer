@@ -6,10 +6,7 @@
 <div class="container">
     <div class="row">  
         <div class="col-md-8 col-md-offset-2">
-                                    <!-- Flashmessage -->
-                        @if (count(Session::get('message')) > 0)
-                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-                        @endif
+
                         
             <div class="panel panel-default">    
 
@@ -21,7 +18,23 @@
                     </ol>
 		@endif
                 <div class="panel-body">
+
+
+
 @include ('layouts.intermediairnav',['page'=>'home'])
+
+    @if (App\Setting::get('inschrijven_gesloten') == 1) {{-- Inschrijvingen gesloten --}}
+        <br><br>
+        <div class="panel panel-danger">
+              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd.</div>
+        </div>                        
+    @endif
+                                    <!-- Flashmessage -->
+                        @if (count(Session::get('message')) > 0)
+                        <br>
+                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+                        @endif
+
 
     <div class="col-sm-6">
         <div class="card">
@@ -78,7 +91,6 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Reden aanmelden</h5>
-							{{ Auth::user()->usertype }}
             <p class="card-text">{{ $user->reden }}</p>
 				    Gebruiker geactiveerd: 
 				    @if ($user->activated)
@@ -143,12 +155,14 @@
 						@if (!$family->aangemeld && !$family->redenafkeuren)
 						Nog niet aangemeld
 						@elseif ($family->definitiefafkeuren)
-						Definitief afgekeurd
-						@elseif ($family->aangemeld)
-						Aangemeld
-						@elseif (isset($family->redenafkeuren))
-						Afgekeurd
-						@else
+						<span class="label label-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Definitief afgekeurd</span>     
+						@elseif ($family->aangemeld && $family->goedgekeurd == 0 )
+						<span class="label label-info"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;Aangemeld</span>     
+                        @elseif (isset($family->redenafkeuren))
+                        <span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Afgekeurd</span>                
+                        @elseif ($family->goedgekeurd == 1)
+                        <span class="label label-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp;Goedgekeurd</span>
+                        @else
 						Onbekend
 						@endif
 					&nbsp;
