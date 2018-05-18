@@ -51,8 +51,6 @@
             <li><a href="{{ url('/users/index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Gebruikersbeheer</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ url('/tellingen/') }}">Tellingen</a></li>
-            <li><a href="{{ url('/kinderlijst/') }}">Kinderlijst</a></li>
-            <li><a href="{{ url('/gezinnenlijst/') }}">Gezinnenlijst</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{{ url('/barcodes/') }}">Barcodes</a></li>
           </ul>
