@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\File;
 
 use DB;
 use App\Barcode;
+use Config;
 use App\Redeemed;
 use App\Family;
 use App\Kid;
@@ -34,7 +35,7 @@ class BarcodeController extends Controller
         if(($user->usertype == 3)){
             $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
             Log::info('Een intermediair probeerde de barcode-indexpagina te laden, userid: '.$user->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         $aant_barcodes = DB::table('barcodes')->count();
@@ -80,9 +81,9 @@ class BarcodeController extends Controller
         $user = Auth::user();
 
         if(($user->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
+
             Log::warning('Een intermediair probeerde de barcode-store-aktie te laden, userid: '.$user->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         /**
@@ -204,8 +205,124 @@ class BarcodeController extends Controller
     
 
 
+    public function extrabarcodes()
+    {
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde de extrabarcode-pagina te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $extrabarcodes = Barcode::where('kid_id', '=', '0')->get();
+
+        return view('barcodes.extrabarcodes', ['extrabarcodes'=>$extrabarcodes]);  
+    }
+
+    
+    public function barcodereview()
+    {
+        $loggedinuser = Auth::user();
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de barcodereview te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+                                ->whereNotNull('kid_id')
+                                ->where('kid_id','!=',0)->get();
+
+        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+                                ->where('kid_id','=',0)->get();
+
+        $totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
+
+        $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
+                                ->whereNotNull('kid_id')->count();
+
+        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes]);  
+    }
 
 
+    public function eindlijst_upload()
+    {
+
+        $user = Auth::user();
+
+        if(($user->usertype == 3)){
+            
+            Log::warning('Een intermediair probeerde de eindlijst_upload te laden, userid: '.$user->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        /**
+         * -- hier wordt de upload tijdelijk opgeslagen
+         */
+
+        $path = Storage::putFile('tmp', Request::file('uploadedfilename'));
+      
+        /**
+         *  hier wordt de upload ingelezen
+         */
+        Config::set('excel.csv.delimiter', ';');
+        $raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
+      
+        /**
+         *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
+         */
+
+        foreach ($raw_barcodes as $key => $value) {
+
+                $barcodestring = str_replace(' ', '', $value['cardnumber']);
+
+                $barcode = Barcode::where('barcode', $barcodestring)->update([
+                    'value_of_redemptions' => $value['valueofredemptions'],
+                ]);            
+        }
+
+        /**
+         *  Als alles bekeken is kan het bestand worden gewist uit de tmp-dir
+         *  
+         */
+        
+        Storage::delete($path);
+
+        return redirect()->action('BarcodeController@barcodereview');
+
+    }
+
+
+    public function claimlossebarcodes()
+    {
+
+        $user = Auth::user();
+
+        if(($user->usertype == 3)){
+            
+            Log::warning('Een intermediair probeerde de claimlossebarcodes te laden, userid: '.$user->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $aantal = Request::input('aantal');
+        $opmerking = Request::input('opmerking');
+
+
+        $freebarcodes = Barcode::whereNull('kid_id')->take($aantal)->get();
+
+
+
+        foreach ($freebarcodes as $freebarcode) {
+            
+                    Barcode::find($freebarcode->id)->update([
+                    'kid_id' => 0,
+                    'opmerking' => $opmerking,
+                ]);  
+        }
+
+        return redirect()->action('BarcodeController@extrabarcodes');
+
+    }
 
 
 }

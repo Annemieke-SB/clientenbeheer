@@ -215,19 +215,6 @@ class HomeController extends Controller
         return view('kinderlijst', ['kids'=>$kids]);     
     }    
 
-    public function extrabarcodes()
-    {
-        $loggedinuser = Auth::user();
-
-        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
-            Log::info('Een niet-admin probeerde een de kinderlijst te laden, userid: '.$loggedinuser->id);
-            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
-        }
-
-        $extrabarcodes = Barcode::where('kid_id', '=', '0')->get();
-
-        return view('extrabarcodes', ['extrabarcodes'=>$extrabarcodes]);  
-    }
 
     public function gezinnenlijst()
     {

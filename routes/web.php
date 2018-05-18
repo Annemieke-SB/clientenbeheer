@@ -31,7 +31,7 @@ Route::get('/inschrijven', 'PagesController@inschrijven');
 Route::get('/faq', 'FaqController@index');
 Route::get('/particulier', 'PagesController@particulier');
 Route::get('/voorwaarden', 'PagesController@voorwaarden');
-Route::get('/extrabarcodes', 'HomeController@extrabarcodes');
+
 Route::get('/', 'PagesController@home');
 
 //Route::get('maakpdf', 'PdfController@maakpdf');
@@ -109,6 +109,10 @@ Route::post('kids/store', 'KidController@store')->middleware('auth');
 
 Route::get('/barcodes/', 'BarcodeController@index')->middleware('auth');
 Route::post('barcodes/upload', 'BarcodeController@store')->middleware('auth');
+Route::get('/extrabarcodes', 'BarcodeController@extrabarcodes')->middleware('auth');
+Route::get('/barcodereview', 'BarcodeController@barcodereview')->middleware('auth');
+Route::post('barcodes/eindlijst_upload', 'BarcodeController@eindlijst_upload')->middleware('auth');
+Route::post('barcodes/claimlossebarcodes', 'BarcodeController@claimlossebarcodes')->middleware('auth');
 
 Route::get('settings', 'SettingsController@index')->middleware('auth');
 Route::post('settings/update/{id}', 'SettingsController@update')->middleware('auth');

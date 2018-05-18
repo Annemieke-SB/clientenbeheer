@@ -19,7 +19,9 @@
 
                 <div class="panel-body">
                         <p>
-                        <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;<a href="{{ url('extrabarcodes') }}"><button type="button" class="btn btn-warning navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;Extra barcodes</button></a>
+                        <a href="{{ url('home') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;
+                        <a href="{{ url('extrabarcodes') }}"><button type="button" class="btn btn-warning navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;Losse barcodes</button></a>&nbsp;
+                        <a href="{{ url('barcodereview') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;Eind Analyse</button></a>&nbsp;
                         </p>
                     <p>Hier is het overzicht tbv barcodes.</p>
 
@@ -44,7 +46,7 @@
                             <tbody>
                                 
                                 <tr><td>Uitgegeven barcodes</td><td>{{ $uitgegeven_barcodes }}</td></tr>
-                                <tr><td>Waarvan gedownload</td><td>{{ $gedownloadde_barcodes }}</td></tr>   
+                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan gedownload</td><td>{{ $gedownloadde_barcodes }}</td></tr>   
                                 <tr><td>Nog te downloaden</td><td>{{ $uitgegeven_barcodes - $gedownloadde_barcodes }}</td></tr>   
                                 
                                                                
@@ -62,8 +64,8 @@
                                 <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
                             <tbody>
                                 <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
-                                <tr><td>Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
-                                <tr><td><span class="glyphicon glyphicon-level-up" aria-hidden="true"></span>Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
+                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
+                                <tr><td>&nbsp;&nbsp;&#8627;&nbsp;&nbsp;Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
                                 <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
                                 <tr><td>Nog niet aangemelde kinderen (definitief afgekeurde gezinnen niet meegeteld)</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
                                 <tr><td>Aangemelde kinderen (in afwachting van goedkeuring)</td><td>{{ $aangemelde_kinderen }}</td></tr>   

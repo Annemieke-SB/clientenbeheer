@@ -17,7 +17,8 @@ class Barcode extends Model
     protected $fillable = [
             'barcode',
             'kid_id', 
-            'downloadedpdf'
+            'downloadedpdf', 
+            'opmerking'
     ];
 
 
