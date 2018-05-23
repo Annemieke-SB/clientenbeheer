@@ -251,6 +251,7 @@ class FamilyController extends Controller
 
     public function toggleok($id)
     {
+        $loggedinuser = Auth::user();
 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
@@ -259,7 +260,7 @@ class FamilyController extends Controller
             
         } 
 
-        $loggedinuser = Auth::user();
+        
 
         // Intermediairs mogen de activatie niet wijzigen        
         if(($loggedinuser->usertype == 3)){
