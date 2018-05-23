@@ -111,7 +111,7 @@
                     <a href="{{ url('/user/show/'. $family->user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
                     <a href="{{ url('/gezinnenlijst') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar gezinnenlijst</button></a>
 
-                    @if (App\Setting::get('downloads_ingeschakeld') == 1)    
+                    @if (App\Setting::get('downloads_ingeschakeld') == 0)    
                         <a href="{{ url('/family') }}/toggleok/{{ $family->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>                  
                         <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                     @endif
