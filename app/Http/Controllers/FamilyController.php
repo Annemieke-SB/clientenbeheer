@@ -126,6 +126,7 @@ class FamilyController extends Controller
 
     public function destroy($id)
     {
+        $loggedinuser = Auth::user();
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -140,7 +141,7 @@ class FamilyController extends Controller
             - raadplegers mogen niet wissen            
         */
 
-        $loggedinuser = Auth::user();
+        
         $family = Family::find($id);
 
 
