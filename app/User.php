@@ -23,7 +23,7 @@ class User extends Authenticatable
     protected $appends = array('blacklisted');
 
     protected $fillable = [
-        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'type', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats',
+        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'type', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
     ];
 
     /**

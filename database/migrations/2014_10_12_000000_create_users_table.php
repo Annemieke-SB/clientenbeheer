@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('postcode');
             $table->string('woonplaats');                       
             $table->integer('activated')->default(0);
+            $table->tinyInteger('nieuwsbrief')->default(0);
             $table->integer('usertype')->default(3); // 1 = admin, 2 = raadpleger, 3 = intermediair
             $table->rememberToken();
             $table->timestamps();

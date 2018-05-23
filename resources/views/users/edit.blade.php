@@ -135,13 +135,20 @@
 
                         </div>                    
 
+                        <div class="form-group">   
+                        {{ Form::hidden('nieuwsbrief', 0) }}                          
+                            {!! Form::checkbox('nieuwsbrief', 1, $user->nieuwsbrief, ['id'=>'nieuwsbrief']) !!}
+                            {!! Form::label('nieuwsbrief', 'Nieuwsbrief (ong 4 keer per jaar)') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Hiermee blijft u op de hoogte van de Sinterklaasbank. Het emailadres wordt niet aan derden verstrekt."></span>
+                        </div>
 
                         <div class="form-group">
                             {!! Form::hidden('id', $user->id) !!}
                             {!! Form::submit('Bovenstaande gegevens wijzigen', ['class' => 'btn btn-primary form-control']) !!}
                             
 
-                        </div>                   
+                        </div>              
+
+
                     {!! Form::close() !!}
 
                 </div>
@@ -216,6 +223,7 @@
                             {!! Form::hidden('id', $user->id) !!}
                             </div>
                         </div>
+
 
                         <div class="form-group">
 

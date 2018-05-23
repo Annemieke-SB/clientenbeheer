@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ url('/') }}/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url('/') }}/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url('/') }}/apple-touch-icon-72x72.png" />
@@ -28,11 +26,6 @@
     <meta name="msapplication-wide310x150logo" content="{{ url('/') }}/mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="{{ url('/') }}/mstile-310x310.png" />
 
-
-
-
-
-
     @yield('meta')
 
     <!-- CSRF Token -->
@@ -43,82 +36,70 @@
     <!-- Styles -->
     <link href="{{ url('/css/app.css') }}" rel="stylesheet">
     <style type="text/css">
-        body {
-            background-image: url({{ url('/img/sintbankpics/bg.jpg') }} );
-            background-repeat: no-repeat;
+    body {
+        background-image: url({{ url('/img/sintbankpics/bg.jpg') }} );
+        background-repeat: no-repeat;
 
-        }
+    }
 
-        nav.navbar-static-top {
-            height: 94px;
-            background-color: #cada5c;
-            color: #707070;
-            font-family: Raleway, arial, sans-serif;
-            text-decoration: none;
-            vertical-align: center;
+    nav.navbar-static-top {
+        height: 94px;
+        background-color: #cada5c;
+        color: #707070;
+        font-family: Raleway, arial, sans-serif;
+        text-decoration: none;
+        vertical-align: center;
 
-        }
-    </style>
+    }
+</style>
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
+<!-- Scripts -->
+<script>
+    window.Laravel = <?php echo json_encode([
+        'csrfToken' => csrf_token(),
         ]); ?>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <style>
     @yield('css')
-    </style>
+</style>
 </head>
 <body>
-
-
-
-
-
-<div id="app">
-@include('layouts.nav')
-
-
-
-
+    <div id="app">
+        @include('layouts.nav')
         @yield ('content')
 
-<!-- Hieronder de modal met help over het toevoegen van gezin-->
+        <!-- Hieronder de modal met help over het toevoegen van gezin-->
 
-    <div class="modal fade" id="helpbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Help</h4>
-          </div>
-          <div class="modal-body">
-            @include('modalbodies.help')
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Sluit</button>
-            
-          </div>
+        <div class="modal fade" id="helpbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Help</h4>
+            </div>
+            <div class="modal-body">
+                @include('modalbodies.help')
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Sluit</button>
+                
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-  
 <!-- einde modal-->
 
+</div>
 
-
-    </div>
-
-    <!-- Scripts -->
-    <script src="{{ url('/js') }}/app.js"></script>
+<!-- Scripts -->
+<script src="{{ url('/js') }}/app.js"></script>
 
 <script type="text/javascript">
 
-$('[data-toggle="popover"]').popover();
+    $('[data-toggle="popover"]').popover();
 </script>
 
 </body>
