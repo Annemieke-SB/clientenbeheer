@@ -280,6 +280,53 @@
 
 @endif 
 
+@if ($intermediairmetnietgedownloadepdfs != false)
+
+    <div class="panel-group" id="accordion">
+      
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="badge">{{ count($intermediairmetnietgedownloadepdfs) }}</span> intermediairs moeten nog PDF's downloaden.</a>
+        </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+
+            <table class="table table-striped">
+            <thead>
+                    <th style="width: 80%;">Naam</th>
+                    <th>Aktie</th>
+            </thead>
+  
+        <tbody>
+
+
+        @foreach ($intermediairmetnietgedownloadepdfs as $indp)
+
+            <tr>
+            <td>
+                {{ $indp->voornaam }}&nbsp;{{ $indp->tussenvoegsel }}&nbsp;{{ $indp->achternaam }}
+                @if ($izf->blacklisted)
+                    &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+                @endif
+            </td>
+                    <td>
+                            <a href="{{ url('user/show') }}/{{$indp->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                    </td>
+            </tr>
+        
+        @endforeach 
+        
+        </tbody>
+        </table>
+
+        </div>
+            </div>
+    </div>
+<br />
+
+@endif 
 
 
 

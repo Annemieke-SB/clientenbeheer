@@ -40,6 +40,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Kid');
     }
 
+    public function barcodes()
+    {
+        return $this->hasMany('App\Barcode');
+    }
+
 
     public function familys()
     {

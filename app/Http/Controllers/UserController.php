@@ -310,7 +310,7 @@ class UserController extends Controller
     }
 
 
-    public function downloads()
+    public function downloads($id)
     {
 
 
@@ -319,12 +319,18 @@ class UserController extends Controller
 
         // Intermediairs mogen de downloadpagina zien        
         if((!$user->usertype == 3)){
-            return redirect('home')->with('message', 'Alleen een intermediair kan deze pagina zien.');
-        } 
+            $usertoshow = User::find($id);
+        } else {
+            $usertoshow = $user;
+        }
+
+        if ($usertoshow->usertype == 1) {
+            return redirect('extrabarcodes')->with('message', 'Omdat de gebruiker een admin is ben je doorverwezen naar de geclaimde extra barcodes.');
+        }
 
         $goedgekeurde_families = Family::where([
                 ['goedgekeurd', '=', '1'],
-                ['user_id', '=', $user->id],
+                ['user_id', '=', $usertushow->id],
             ])->with('kids')->get();
 
 

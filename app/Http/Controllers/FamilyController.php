@@ -415,6 +415,7 @@ class FamilyController extends Controller
             if (isset($kid->barcode->id)) {
                 $barcode = Barcode::findOrFail($kid->barcode->id);
                 $barcode->kid_id = NULL;
+                $barcode->user_id = NULL;
                 $barcode->save();               
             }
 
@@ -436,6 +437,7 @@ class FamilyController extends Controller
             $freebarcode = DB::select('select * from barcodes where kid_id IS NULL LIMIT 1');
             $barcode = Barcode::findOrFail($freebarcode[0]->id);
             $barcode->kid_id = $kid->id;
+            $barcode->user_id = $kid->user->id;
             $barcode->save();
 
         }

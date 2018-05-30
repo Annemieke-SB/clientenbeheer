@@ -17,7 +17,10 @@
                 </ol> 
 
                 <div class="panel-body">
-
+                <!-- Flashmessage -->
+                @if (count(Session::get('message')) > 0)
+                <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+                @endif
                     <p>Hier kunt je losse barcodes claimen. Vul daarbij een doel in, zodat het duidelijk is waar ze aan verbonden zijn. <b>Controleer eerst wel de voorraad op de <a href="{{url('barcodes')}}">barcodepagina</a>.</b></p>
                     <p><hr>
 
@@ -48,15 +51,11 @@
 
 
                         <br><br>
-                        <a href="{{ url('barcodes') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                        <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                     </div>
                 </div>
 
-                <!-- Flashmessage -->
-                @if (count(Session::get('message')) > 0)
-                <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-                @endif
-                
+        
                 
                 
 
@@ -76,7 +75,7 @@
                         <tr>                                
                            
                             <th>Doel / Opmerking&nbsp;</th> 
-                            <th>Barcode&nbsp;</th>
+                            <th>Geclaimd door&nbsp;</th>
                             <th>Download pdf&nbsp;</th> 
                         </tr>                               
                     </thead>
@@ -86,7 +85,7 @@
                        <tr>                                        
                         
                         <td>{{$extrabarcode->opmerking}}</td>
-                        <td>{{$extrabarcode->barcode}}</td>
+                        <td>{{$extrabarcode->user->naam}}</td>
                         <td>
 
                             <a href="{{ url('/download/extrapdf/'.$extrabarcode->id) }}"><button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;PDF</button></a>&nbsp;                         

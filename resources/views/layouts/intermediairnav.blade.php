@@ -16,7 +16,7 @@
     @endif
 
     @if ($page == "add")
-    <li role="presentation" class="active"><a href="{{url('familie/toevoegen')}}/{{$user->id}}">Gezinnen toevoegen</a></li>
+    <li role="presentation" class="active"><a href="{{url('familie/toevoegen')}}{{$user->id}}">Gezinnen toevoegen</a></li>
     @else
     
 
@@ -28,7 +28,7 @@
     @endif
 
     @if (App\Setting::get('downloads_ingeschakeld')==1)
-    <li role="presentation"><a href="{{url('users/downloads')}}">Downloads</a></li>
+    <li role="presentation"><a href="{{url('users/downloads')}}/{{$user->id}}">Downloads</a></li>
     @else
     <li role="presentation" class="disabled" data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Downloads gesloten" data-content="Downloads worden later geopend, u krijgt daarover een bericht van ons."><a href="#">Downloads</a></li>
     @endif

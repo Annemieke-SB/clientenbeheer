@@ -61,7 +61,7 @@ Route::get('contacts/show/{id}', 'ContactController@show')->middleware('auth');
 Route::get('contacts/edit/{id}', 'ContactController@edit')->middleware('auth');
 
 Route::get('users/index', 'UserController@index')->middleware('auth');
-Route::get('users/downloads/', 'UserController@downloads')->middleware('auth');
+Route::get('users/downloads/{id}', 'UserController@downloads')->middleware('auth');
 Route::get('user/toggleactive/{id}', 'UserController@toggleactive')->middleware('auth');
 Route::get('user/manualemailverification/{id}', 'UserController@manualemailverification')->middleware('auth');
 Route::get('user/show/{id}', 'UserController@show')->middleware('auth');

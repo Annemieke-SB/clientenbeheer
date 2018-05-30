@@ -316,6 +316,7 @@ class BarcodeController extends Controller
             
                     Barcode::find($freebarcode->id)->update([
                     'kid_id' => 0,
+                    'user_id' => $user->id,
                     'opmerking' => $opmerking,
                 ]);  
         }

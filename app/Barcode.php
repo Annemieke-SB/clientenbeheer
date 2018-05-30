@@ -17,6 +17,7 @@ class Barcode extends Model
     protected $fillable = [
             'barcode',
             'kid_id', 
+            'user_id',
             'downloadedpdf', 
             'opmerking'
     ];
@@ -27,6 +28,11 @@ class Barcode extends Model
         return $this->belongsTo('App\Kid');
     }
 
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function getTotaalAttribute()
     {
