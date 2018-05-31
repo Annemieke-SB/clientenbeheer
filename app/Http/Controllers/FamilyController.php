@@ -343,7 +343,7 @@ class FamilyController extends Controller
         
 
 
-        return redirect('family/show/' . $family->id)->with('message', 'Het gezin '. $family->achternaam. ' heeft een andere status gekregen.');
+        return redirect('user/show/' . $family->user->id)->with('message', 'Het gezin '. $family->achternaam. ' heeft een andere status gekregen.');
 
     }
 
