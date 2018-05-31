@@ -247,7 +247,7 @@
 
       		<table class="table table-striped">
         	<thead>
-            		<th style="width: 70%;">Naam</th>
+            		<th style="width: 60%;">Naam</th>
             		<th>Aktie</th>
         	</thead>
   
