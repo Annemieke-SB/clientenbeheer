@@ -62,7 +62,7 @@
                     <label for="tussenvoegsel" class="col-md-5 control-label">Tussenvoegsel</label>
 
                     <div class="col-md-6">
-                        <input id="tussenvoegsel" type="text" class="form-control" name="tussenvoegsel" value="{{ old('tussenvoegsel') }}" required>
+                        <input id="tussenvoegsel" type="text" class="form-control" name="tussenvoegsel" value="{{ old('tussenvoegsel') }}">
 
                         @if ($errors->has('tussenvoegsel'))
                         <span class="help-block">
