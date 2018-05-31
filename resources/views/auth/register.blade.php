@@ -21,8 +21,7 @@
                     </a>
                     <a class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="badge">1</span> U geeft hieronder uw gebruikersgegevens op.</a>
                     <a class="list-group-item"><span class="badge">2</span> Uw opgave zal handmatig worden beoordeeld of u daadwerkelijk in aanmerking komt. Vervolgens wordt uw account geactiveerd.</a>
-                    <a class="list-group-item"><span class="badge">3</span> U dient daarna de gegevens van uw instelling in te voeren.</a>
-                    <a class="list-group-item"><span class="badge">4</span>Daarna kunt zelf de gezinnen en hun kinderen invoeren.</a>
+                    <a class="list-group-item"><span class="badge">3</span>Daarna kunt zelf de gezinnen en hun kinderen invoeren.</a>
                 </div>
 
 
