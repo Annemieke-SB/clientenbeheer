@@ -176,7 +176,7 @@
 
                                           
                                                 @if (App\Setting::get('inschrijven_gesloten') == 0)                                     
-                                                    <a href="{{ url('/kids') }}/edit/{{ $kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
+                                                    <a href="{{ url('/family') }}/edit/{{ $family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
                                                         
                                                         <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
                                                
