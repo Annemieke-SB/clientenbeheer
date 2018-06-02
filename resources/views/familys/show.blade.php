@@ -94,7 +94,7 @@
                                         <tr>
                                         <td>Gezin {{$dubbelfam->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/family/show/'. $dubbelfam->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>&nbsp;&nbsp;</td>
                                         <td>Intermediair {{$dubbelfam->user->achternaam}}&nbsp;&nbsp;</td><td><a href="{{ url('/user/show/'. $dubbelfam->user->id) }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
-                                        @if($dubbelfam->user->id == $user->id)
+                                        @if($dubbelfam->user->id == $family->user->id)
                                         &nbsp;&nbsp;(zelfde intermediair als dit gezin)
                                         @endif
                                         </td>
