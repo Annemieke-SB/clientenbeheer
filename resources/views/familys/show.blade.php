@@ -12,7 +12,7 @@
                 @if (Auth::user()->usertype==1)
                     <ol class="breadcrumb">
                       <li><a href="{{ url('/home') }}">Home</a></li>
-                      <li><a href="{{ url('/users') }}">Gebruikers</a></li>
+                      <li><a href="{{ url('/users/index') }}">Gebruikers</a></li>
                       <li><a href="{{ url('/user/show') }}/{{ $family->user->id }}">{{ $family->user->naam }}</a></li>
                       <li class="active">Gezin {{ $family->naam }}</li>
                     </ol>
