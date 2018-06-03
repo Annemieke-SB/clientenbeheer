@@ -49,8 +49,15 @@ class KidController extends Controller
     {
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
-            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            Log::info('Kid/create terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Kid/Create terwijl inschrijven_gesloten: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de inschrijving al is beeindigd, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
             
         } 
 
@@ -70,12 +77,18 @@ class KidController extends Controller
 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
-            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            Log::info('Er werd geprobeerd een kind op te slaan terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
             
         } 
 
-        
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Kid/store terwijl inschrijven_gesloten: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een kind toe te voegen terwijl de inschrijving al is beeindigd, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         $family = DB::table('familys')->where('id', $request->input('family_id'))->first();
 
 
