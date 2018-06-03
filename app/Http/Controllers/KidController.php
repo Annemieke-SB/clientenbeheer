@@ -101,6 +101,14 @@ class KidController extends Controller
 
         $family = DB::table('familys')->where('id', $request->input('family_id'))->first();
 
+        if ($family->aangemeld == 1 && $loggedinuser->usertype == 3){
+
+            Log::warning('Kid/store terwijl fam al is aangemeld, userid: '.$loggedinuser->id);
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een kind geprobeerd toe te voegen, maar het gezin is al aangemeld.');          
+        }
+
+        
+
 
         Kid::create($request->all());
 
@@ -183,9 +191,14 @@ class KidController extends Controller
             
         } 
 
-
         $kid = Kid::find($id);
         $loggedinuser = Auth::user();
+
+        if ($kid->family->aangemeld == 1 && $loggedinuser->usertype == 3){
+
+            Log::warning('Kid/edit terwijl fam al is aangemeld, userid: '.$loggedinuser->id);
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft geprobeerd de gegevens van een kind te wijzigen, maar het gezin is al aangemeld.');          
+        }
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
         if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $kid->user->id)){
@@ -211,6 +224,15 @@ class KidController extends Controller
 
         
         $kid = Kid::findOrFail($request->id);
+
+
+      if ($kid->family->aangemeld == 1 && $loggedinuser->usertype == 3){
+
+            Log::warning('Kid/update terwijl fam al is aangemeld, userid: '.$loggedinuser->id);
+            return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft geprobeerd de gegevens van een kind te wijzigen, maar het gezin is al aangemeld.');          
+        }
+
+
 
         $input = $request->all();
 
