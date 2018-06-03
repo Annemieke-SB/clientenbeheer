@@ -34,7 +34,7 @@
                         <br>
                         <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                         @endif
-                       
+
 
 
     <div class="col-sm-6">
@@ -176,7 +176,8 @@
                                                 <a href="{{ url('/family') }}/show/{{$family->id}}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
 
                                           
-                                                @if (App\Setting::get('inschrijven_gesloten') == 0)                                     
+                                                @if (App\Setting::get('inschrijven_gesloten') == 0)      
+                                                    @if ($family->aangemeld == 1)                                
                                                     <a href="{{ url('/family') }}/edit/{{ $family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
                                                         
                                                         <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
@@ -200,6 +201,7 @@
                                                             </div>
                                                           </div>
                                                         </div>
+                                                    @endif
                                                 @endif
 
  
