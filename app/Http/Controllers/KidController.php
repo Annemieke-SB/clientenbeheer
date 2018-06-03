@@ -48,8 +48,9 @@ class KidController extends Controller
     public function create($id)
     {
 
+        $family = Family::find($id);
 
-        if ($kid->family->aangemeld == 1 && $loggedinuser->usertype == 3){
+        if ($family->aangemeld == 1 && $loggedinuser->usertype == 3){
 
             Log::warning('Een intermediair probeerde de een kind uit een aangemeld gezin te verwijderen (kid.destroy), userid: '.$loggedinuser->id);
             return redirect('user/show/'.$loggedinuser->id)->with('message', 'U heeft een kind geprobeerd te wissen, maar het gezin is al aangemeld.');          
