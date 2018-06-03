@@ -11,7 +11,7 @@
             @endif
                         
             <div class="panel panel-default">
-                <div class="panel-heading">Intermediair dashboard</div>
+                
 
                 <div class="panel-body">
                     <h1>U bent particulier</h1>
