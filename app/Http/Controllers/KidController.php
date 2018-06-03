@@ -49,6 +49,7 @@ class KidController extends Controller
     {
 
         $family = Family::find($id);
+        $loggedinuser = Auth::user();
 
         if ($family->aangemeld == 1 && $loggedinuser->usertype == 3){
 
