@@ -177,7 +177,7 @@
 
                                           
                                                 @if (App\Setting::get('inschrijven_gesloten') == 0)      
-                                                    @if ($family->aangemeld == 1)                                
+                                                    @if ($family->aangemeld == 1 || $family->goedgekeurd == 1)                                
                                                     <a href="{{ url('/family') }}/edit/{{ $family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
                                                         
                                                         <a href="#" data-toggle="modal" data-target="#deleteModal{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
