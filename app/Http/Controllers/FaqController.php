@@ -57,6 +57,12 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
+
+        // Intermediairs mogen de index niet zien        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde een faq-store, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
  
         $id = Faqs::create($request->all())->id;
 
@@ -83,6 +89,12 @@ class FaqController extends Controller
      */
     public function edit($id)
 	{
+
+        // Intermediairs mogen de index niet zien        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde een faq-edit, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }        
 		$f = Faqs::find($id);
 
         $loggedinuser = Auth::user();
@@ -99,6 +111,11 @@ class FaqController extends Controller
      */
     public function update(Request $request, Faqs $faq)
     {
+        // Intermediairs mogen de index niet zien        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde een faq-edit, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
         $faq = Faqs::findOrFail($request->id);
 
         $input = $request->all();
@@ -117,6 +134,11 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
+                // Intermediairs mogen de index niet zien        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde een faq-destroy, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
 	    Faqs::destroy($id);
         return redirect('faq')->with('message', 'Vraag gewist');
     }
