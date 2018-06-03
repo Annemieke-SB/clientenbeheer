@@ -115,12 +115,11 @@ class FamilyController extends Controller
             Log::info('Een intermediair probeerde de een familie aan te maken (family.create) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een gezin proberen aan te maken terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
 
-        } else {
+        } 
 
-            $id = Family::create($request->all())->id;
-            return redirect('family/show/'.$id)->with('message', 'Familie toegevoegd');
-
-        }
+        $id = Family::create($request->all())->id;
+        return redirect('family/show/'.$id)->with('message', 'Familie toegevoegd');
+        
     }
 
 
@@ -204,6 +203,13 @@ class FamilyController extends Controller
         $family = Family::find($id);        
         $loggedinuser = Auth::user();
 
+        if($family->aangemeld == 1) {
+
+            Log::info('Family/edit terwijl family aangemeld: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl het gezin al is aangemeld, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
         if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family->user->id)){
             
@@ -240,6 +246,14 @@ class FamilyController extends Controller
         } else {
 
             $family = Family::findOrFail($request->id);
+
+
+            if($family->aangemeld == 1) {
+
+                Log::info('Family/edit terwijl family aangemeld: user '.$loggedinuser->id);
+                return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl het gezin al is aangemeld, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+                
+            } 
 
             $input = $request->all();
 
