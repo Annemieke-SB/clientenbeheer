@@ -45,6 +45,11 @@ class FaqController extends Controller
     public function create()
     {
         $loggedinuser = Auth::user();
+
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde een faq-create, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
         return view('faqs.create', ['user_id'=> $loggedinuser->id]);
         //
     }
@@ -57,7 +62,7 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-
+        $loggedinuser = Auth::user();
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
             Log::info('Een intermediair probeerde een faq-store, userid: '.$loggedinuser->id);
@@ -89,7 +94,7 @@ class FaqController extends Controller
      */
     public function edit($id)
 	{
-
+        $loggedinuser = Auth::user();
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
             Log::info('Een intermediair probeerde een faq-edit, userid: '.$loggedinuser->id);
@@ -111,6 +116,7 @@ class FaqController extends Controller
      */
     public function update(Request $request, Faqs $faq)
     {
+        $loggedinuser = Auth::user();
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
             Log::info('Een intermediair probeerde een faq-edit, userid: '.$loggedinuser->id);
@@ -134,6 +140,7 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
+        $loggedinuser = Auth::user();
                 // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
             Log::info('Een intermediair probeerde een faq-destroy, userid: '.$loggedinuser->id);
