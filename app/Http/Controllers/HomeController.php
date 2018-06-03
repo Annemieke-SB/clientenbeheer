@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use Illuminate\Support\Facades\Log;
 use DB;
 use Route;

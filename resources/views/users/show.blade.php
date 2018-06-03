@@ -34,6 +34,7 @@
                         <br>
                         <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                         @endif
+                        <div class="alert alert-info fade in">test<a href="#" class="close" data-dismiss="alert">&times;</a></div>
 
 
     <div class="col-sm-6">
