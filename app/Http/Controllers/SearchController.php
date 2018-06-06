@@ -65,7 +65,7 @@ class SearchController extends Controller
 		'organisatienaam', 'like', '%' . $q . '%')
 		->get();		
 
-	return view('search.index', ['organisanties'=>$organisaties, 'users' => $users, 'familys'=>$familys, 'kids'=>$kids, 'q'=>$q]);
+	return view('search.index', ['organisaties'=>$organisaties, 'users' => $users, 'familys'=>$familys, 'kids'=>$kids, 'q'=>$q]);
     }
   
 
