@@ -381,7 +381,7 @@ class UserController extends Controller
      * @param  string  $token
      * @return void
      */
-    public function sendResetLinkEmail($token)
+    public function sendPasswordResetNotification($token)
     {
         $this->notify(new wachtwoordreset($token));
     }
