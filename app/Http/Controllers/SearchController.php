@@ -61,7 +61,7 @@ class SearchController extends Controller
 		->orWhere('woonplaats', 'like', '%' . $q . '%')
 		->get();		
 
-	$organisaties = Users::where(
+	$organisaties = User::where(
 		'organisatienaam', 'like', '%' . $q . '%')
 		->get();		
 
