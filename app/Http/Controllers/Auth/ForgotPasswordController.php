@@ -19,8 +19,7 @@ class ForgotPasswordController extends Controller
 
     *  !!!!!!!!!!!!!! Opmerking Henrique !!!!!!!!!!!!!!!!!!!!!
     *  de inhoud van de mail ligt buiten git en moet lokaal handmatig worden aangepast in /vendor/laravel/framework/src/Illuminate/Auth/Notifications$
-    *
-
+    *  maar ik heb hem overridden in de usercontroller in sendPasswordResetNotification($token)
     */
 
     use SendsPasswordResetEmails;

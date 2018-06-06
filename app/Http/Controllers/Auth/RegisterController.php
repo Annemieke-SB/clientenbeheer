@@ -120,7 +120,7 @@ class RegisterController extends Controller
                 return redirect('login')->with('message', 'Uw emailverificatie is al voltooid. U kunt nu inloggen.');  
             }
             
-            return redirect('login')->with('message', 'Bedankt! U heeft zojuist uw email geverifieerd. Als uw account nog niet was goedgekeurd kunt pas inloggen als de Sinterklaasbank uw aanmelding heeft goedgekeurd. Als u een bestaande gebruiker was en uw emailadres heeft gewijzigd, kunt u meteen inloggen.');       
+            return redirect('login')->with('message', 'Bedankt! U heeft zojuist uw emailadres geverifieerd. Bent u een nieuwe gebruiker dan kunt u pas inloggen nadat de Sinterklaasbank uw aanmelding heeft goedgekeurd (u ontvangt daarvan een email). Bent u een bestaande gebruiker dan kunt u meteen inloggen.');       
 
     }
 
