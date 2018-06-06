@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\wachtwoordreset;
 use App\Mail\EmailVerification;
 use App\Mail\ChangeEmailVerification;
 use App\Mail\EmailActivationtoggle;
@@ -382,6 +383,6 @@ class UserController extends Controller
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPasswordNotification($token));
+        $this->notify(new wachtwoordreset($token));
     }
 }
