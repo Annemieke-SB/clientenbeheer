@@ -27,6 +27,18 @@ use App\Notifications\wachtwoordreset;
 class UserController extends Controller
 {
     /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new wachtwoordreset($token));
+    }
+
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -375,14 +387,5 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Send the password reset notification.
-     *
-     * @param  string  $token
-     * @return void
-     */
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new wachtwoordreset($token));
-    }
+
 }
