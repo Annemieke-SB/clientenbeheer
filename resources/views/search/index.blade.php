@@ -18,7 +18,7 @@
                         <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                         @endif
 	        <br />
-<p>Zoekresultaten voor <b>'{{ $q }}'</b>. Er is gezocht in de gebruikers, gezinnen en kinderen. Je kan als zoekopdracht een fragment van een voor- of achternaam, plaatsnaam,organisatienaam, emailadres of postcode gebruiken.</p>
+<p>Zoekresultaten voor <b>'{{ $q }}'</b>. Er is gezocht in de gebruikers, gezinnen en kinderen. Je kan als zoekopdracht een fragment van een voor- of achternaam, plaatsnaam, organisatienaam, emailadres of postcode gebruiken.</p>
 
 <h3>Gebruikers</h3>
 @if (count($users)==0)
