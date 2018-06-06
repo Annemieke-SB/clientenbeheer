@@ -45,6 +45,7 @@ class SearchController extends Controller
 		->orWhere('achternaam', 'like', '%' . $q . '%')
 		->orWhere('voornaam', 'like', '%' . $q . '%')
 		->orWhere('postcode', 'like', '%' . $q . '%')
+		->orWhere('woonplaats', 'like', '%' . $q . '%')
 		->get();		
 
 	$kids = Kid::where(
@@ -57,9 +58,14 @@ class SearchController extends Controller
 		'email', 'like', '%' . $q . '%')
 		->orWhere('achternaam', 'like', '%' . $q . '%')
 		->orWhere('postcode', 'like', '%' . $q . '%')
+		->orWhere('woonplaats', 'like', '%' . $q . '%')
 		->get();		
 
-	return view('search.index', ['users' => $users, 'familys'=>$familys, 'kids'=>$kids, 'q'=>$q]);
+	$organisaties = Users::where(
+		'organisatienaam', 'like', '%' . $q . '%')
+		->get();		
+
+	return view('search.index', ['organisanties'=>$organisaties, 'users' => $users, 'familys'=>$familys, 'kids'=>$kids, 'q'=>$q]);
     }
   
 

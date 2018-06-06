@@ -108,6 +108,34 @@ Geen kinderen gevonden.
 @endif   
   
 
+
+<h3>Instellingen</h3>
+  @if (count($organisaties)==0)
+Geen organisaties gevonden.
+@else     <table class="table table-striped">
+        <thead>
+            <th style="width: 80%;">Naam</th>
+            <th>Aktie</th>
+        </thead>
+  
+<tbody>
+	@foreach ($organisaties as $organisatie)
+
+        <tr>
+            <td>{{ $organisatie->organisatienaam }}</td>
+            <td>
+                        <a href="{{ url('users/show') }}/{{$organisatie->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+            </td>
+        </tr>
+
+	@endforeach
+
+</tbody>
+    </table>
+   
+@endif   
+  
+
 </div>
 
 </div>
