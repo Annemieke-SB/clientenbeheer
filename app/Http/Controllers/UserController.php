@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Notifications\wachtwoordreset;
 use App\Mail\EmailVerification;
 use App\Mail\ChangeEmailVerification;
 use App\Mail\EmailActivationtoggle;
@@ -22,6 +21,7 @@ use Mail;
 use DB;
 use Html;
 use Custommade;
+use App\Notifications\wachtwoordreset;
 
 
 class UserController extends Controller
