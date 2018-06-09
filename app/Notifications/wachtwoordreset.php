@@ -1,35 +1,31 @@
 <?php
 
-namespace Illuminate\Auth\Notifications;
+namespace App\Notifications;
 
+use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ResetPassword extends Notification
+class wachtwoordreset extends Notification
 {
-    /**
-     * The password reset token.
-     *
-     * @var string
-     */
-    public $token;
+    use Queueable;
 
     /**
-     * Create a notification instance.
+     * Create a new notification instance.
      *
-     * @param  string  $token
      * @return void
      */
-    public function __construct($token)
+    public function __construct()
     {
-        $this->token = $token;
+        //
     }
 
     /**
-     * Get the notification's channels.
+     * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     * @return array|string
+     * @return array
      */
     public function via($notifiable)
     {
@@ -37,7 +33,7 @@ class ResetPassword extends Notification
     }
 
     /**
-     * Build the mail representation of the notification.
+     * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -45,8 +41,21 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('U krijgt deze mail omdat we een aanvraag hebben gehad om uw wachtwoord te resetten.')
-            ->action('Wijzig wachtwoord', url(config('app.url').route('password.reset', $this->token, false)))
-            ->line('Als u dit niet gedaan heeft kunt u deze mail negeren.');
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
+    {
+        return [
+            //
+        ];
     }
 }
