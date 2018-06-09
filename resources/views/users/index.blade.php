@@ -53,25 +53,32 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>       
+            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>   
+            <li><a href="{{ url('/users/index') }}/?izg=1">Toon intermediairs zonder gezinnen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?izk=1">Toon intermediairs zonder kinderen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?ipd=1">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
+            <li><a href="{{ url('/users/index') }}/?iga=1">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
+            <li><a href="{{ url('/users/index') }}/?iai=1">Toon intermediairs met andere initiatieven</a></li>      
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" action="{{ url('/users/index') }}" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" name="achternaam"  placeholder="Achternaam gebruiker">
-        </div>
-        <button type="submit" class="btn btn-default">Zoek</button>
-      </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
 
             <p class="navbar-text">
 
-                @if (Request::input('achternaam'))
-                    <b>bevat "{{Request::input('achternaam')}}"</b>          
-                @elseif (Request::input('na'))
+                @if (Request::input('na'))
                     <b>niet aktief</b>  
+                @elseif (Request::input('izg'))
+                    <b>Intermediairs zonder gezinnen</b> 
+                @elseif (Request::input('izk'))
+                    <b>Intermediairs zonder kinderen</b>       
+                @elseif (Request::input('ipd'))
+                    <b>Intermediairs die PDF's moeten downloaden</b>       
+                @elseif (Request::input('iga'))
+                    <b>Intermediairs die nog gezinnen moeten aanmelden</b>  
+                @elseif (Request::input('iai'))
+                    <b>Intermediairs met andere initiatieven</b> 
                 @else
                     Geen filter
                 @endif

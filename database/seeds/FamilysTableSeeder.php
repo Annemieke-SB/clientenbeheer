@@ -115,6 +115,6 @@ class FamilysTableSeeder extends Seeder
         ]]
         );
 
-//$familys = factory(App\Family::class, 1000)->create();
+$familys = factory(App\Family::class, 1000)->create();
     }
 }

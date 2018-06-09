@@ -259,7 +259,7 @@ class UsersTableSeeder extends Seeder
 
 		]);
 
-				//$users = factory(App\User::class, 500)->create();
+				$users = factory(App\User::class, 500)->create();
 
     }
 }

@@ -47,12 +47,37 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
-        if (request()->has('achternaam')) {
-            $users = User::where('achternaam', 'like', "%" . request('achternaam') . "%")->orderBy('achternaam', 'ASC')->paginate(10)->appends('achternaam', request('achternaam'));
-        } elseif (request()->has('na')) {
-            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(10)->appends('na', request('na'));
+        if (request()->has('na')) { 
+            // Niet geactiveerde gebruikers 
+            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(50)->appends('na', request('na'));
+        } elseif (request()->has('izg')) {
+            // Toon intermediairs zonder gezinnen
+            $users = User::whereDoesntHave('familys')->orderBy('achternaam', 'ASC')->paginate(50)->appends('izg', request('izg'));
+        } elseif (request()->has('izk')) {
+            // Toon intermediairs zonder kinderen
+            $users = User::whereDoesntHave('kids')->orderBy('achternaam', 'ASC')->paginate(50)->appends('izk', request('izk'));
+        } elseif (request()->has('ipd')) {
+            // Toon intermediairs die nog pdf's moeten downloaden
+            $users = User::whereHas('barcodes', function($query){
+                $query->whereNull('downloadedpdf');
+            })->paginate(50)->appends('ipd', request('ipd'));
+
+
+        } elseif (request()->has('iga')) {
+            // Toon intermediairs waarvan nog gezinnen moeten worden aangemeld
+            $users = User::whereHas('familys', function($query){
+                $query->where('aangemeld', 0)->where('goedgekeurd', 0);
+            })->paginate(50)->appends('iga', request('iga'));   
+
+        } elseif (request()->has('iai')) {
+            // Toon intermediairs met andere initiatieven
+
+            $users = User::whereHas('familys', function($query){
+                $query->where('andere_alternatieven', 1);
+            })->paginate(50)->appends('iai', request('iai'));   
+
         } else {
-            $users = User::orderBy('achternaam', 'ASC')->paginate(10);
+            $users = User::orderBy('achternaam', 'ASC')->paginate(50);
         }
 
         

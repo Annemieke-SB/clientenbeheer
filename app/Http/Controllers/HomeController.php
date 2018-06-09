@@ -51,26 +51,11 @@ class HomeController extends Controller
                 $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                 $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
 
+                $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
+                        $query->whereNull('downloadedpdf');
+                    })->get();
 
-
-
-                if (\App\Setting::get('downloads_ingeschakeld')==1) {
-
-                    $intermediairs = DB::table('users')                    
-                    ->join('barcodes', function ($Join) {
-                        $Join->on('barcodes.user_id', '=', 'users.id')
-                                ->whereNull('barcodes.downloadedpdf')                                
-                                ->select('users.*');                                
-                    })
-                    ->get();
-
-                    $intermediairmetnietgedownloadepdfs = $intermediairs->unique('users.id');
-
-                } else {
-                    
-                    $intermediairmetnietgedownloadepdfs = false;
-                }
-		    
+	    
                 return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 
 		}

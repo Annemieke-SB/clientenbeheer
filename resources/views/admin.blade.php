@@ -281,7 +281,7 @@
 
 @endif 
 
-@if ($intermediairmetnietgedownloadepdfs != false)
+@if (count($intermediairmetnietgedownloadepdfs)>0)
 
     <div class="panel-group" id="accordion">
       
@@ -307,7 +307,7 @@
 
             <tr>
             <td>
-                {{ $indp->voornaam }}&nbsp;{{ $indp->tussenvoegsel }}&nbsp;{{ $indp->achternaam }}
+                {{ $indp->naam }}
                 @if ($izf->blacklisted)
                     &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
                 @endif
