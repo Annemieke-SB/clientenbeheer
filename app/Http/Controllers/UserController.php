@@ -230,10 +230,10 @@ class UserController extends Controller
         $loggedinuser = Auth::user();
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
+        if($loggedinuser->id != $id){
             
-            Log::info('Een intermediair probeerde een andere gebruiker te wijzigen (user.edit) te laden, userid: '.$loggedinuser->id);
-            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            Log::info('Een gebruiker probeerde een andere gebruiker te wijzigen (user.edit) te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd gegevens van een andere gebruiker aan te passen. Dit kan niet.');
         }
 
         return view('users.edit', ['user' => $user]);

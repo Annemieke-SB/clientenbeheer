@@ -62,7 +62,7 @@ class FamilyController extends Controller
     {
        if(Setting::get('downloads_ingeschakeld') == 1) {
 
-            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
+            Log::info('Er werd geprobeerd gezin aan te maken terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft geprobeerd iets te wijzigen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
             
         }         
@@ -78,9 +78,9 @@ class FamilyController extends Controller
         //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
         // Intermediairs mogen alleen familys aanmaken onder eigen id       
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){            
-            Log::info('Een intermediair probeerde de een familie aan te maken (family.create) bij een andere intermediair: '.$loggedinuser->id);
-            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        if($loggedinuser->id != $user->id){            
+            Log::info('Een gebruiker probeerde de een familie aan te maken (family.create) bij een andere intermediair: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'Je kunt alleen gezinnen aanmaken onder je eigen account.');
         }
 
         if(Setting::get('inschrijven_gesloten') == 1) {
@@ -211,10 +211,10 @@ class FamilyController extends Controller
         } 
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
-        if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $family->user->id)){
+        if($loggedinuser->id != $family->user->id){
             
-            Log::info('Een intermediair probeerde een andere familie te wijzigen (family.edit) te laden, userid: '.$loggedinuser->id);
-            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            Log::info('Een gebruiker probeerde een andere familie te wijzigen (family.edit) te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U geprobeerd een gezin te wijzigen die bij een andere intermediair hoort, u kunt alleen uw eigen gezinnen wijzigen.');
         }
 
         if(Setting::get('inschrijven_gesloten') == 1) {
@@ -370,7 +370,14 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft een barcode geprobeerd te koppelen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
             
         } 
-        
+
+        // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
+        if($loggedinuser->id != $family->user->id){
+            
+            Log::info('Een gebruiker probeerde een andere familie te aan te melden (family.aanmelden), userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U geprobeerd een gezin aan te melden die bij een andere intermediair hoort, u kunt alleen uw eigen gezinnen wijzigen.');
+        }
+
         $family = Family::findOrFail($id);
         $family->aangemeld=1;        
         $family->save();
@@ -387,6 +394,14 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft een barcode geprobeerd los te koppelen terwijl de downloads al geopend zijn, dit kan niet omdat ze mogelijk al gedownload zijn. U bent weer teruggeleid naar uw startpagina.');
             
         } 
+
+
+        // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
+        if($loggedinuser->id != $family->user->id){
+            
+            Log::info('Een gebruiker probeerde de aanmelding van een andere familie (family.aanmeldingintrekken)in te trekken, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd de aanmelding in te trekken van een gezin die bij een andere intermediair hoort, u kunt alleen uw eigen gezinnen wijzigen.');
+        }
 
         $family = Family::findOrFail($id);
         $family->aangemeld=0;    
