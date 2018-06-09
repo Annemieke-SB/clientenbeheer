@@ -88,7 +88,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>&nbsp;<a href="{{ url('users/index') }}/?na=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
 		</h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
@@ -190,7 +190,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>&nbsp;<a href="{{ url('users/index') }}/?izg=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
 		</h4>
             </div>
             <div id="collapse3" class="panel-collapse collapse">
@@ -239,7 +239,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><span class="badge">{{ count($familieszonderkinderen) }}</span> gezinnen hebben geen kinderen.</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><span class="badge">{{ count($familieszonderkinderen) }}</span> gezinnen hebben geen kinderen.</a>&nbsp;<a href="{{ url('users/index') }}/?izk=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon intermediairs in gebruikersoverzicht</button></a>
 		</h4>
             </div>
             <div id="collapse4" class="panel-collapse collapse">
@@ -288,7 +288,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="badge">{{ count($intermediairmetnietgedownloadepdfs) }}</span> intermediairs moeten nog PDF's downloaden.</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="badge">{{ count($intermediairmetnietgedownloadepdfs) }}</span> intermediairs moeten nog PDF's downloaden.</a>&nbsp;<a href="{{ url('users/index') }}/?ipd=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
         </h4>
             </div>
             <div id="collapse5" class="panel-collapse collapse">
