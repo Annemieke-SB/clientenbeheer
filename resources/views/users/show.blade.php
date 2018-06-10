@@ -49,16 +49,7 @@
 
                     {{ $user->naam }}&nbsp;
 
-                            <span class="label label-info">
-
-                            @if ($user->usertype==1)
-                                Admin
-                            @elseif ($user->usertype==2)
-                                Raadpleger
-                            @elseif ($user->usertype==3)    
-                                Intermediair
-                            @endif     
-			    </span>
+                            
 
 		@if (Auth::user()->usertype == 1 && $user->blacklisted)
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
@@ -73,13 +64,13 @@
 
                 
                                     @if ($user->emailverified)
-                                        <span class="label label-success">geverifieerd</span>
+                                        
                                     @else
-					<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;"></span>
-					@if (Auth::user()->usertype==1)
-					&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
-				    	@endif
-				    @endif  
+                					
+                    					@if (Auth::user()->usertype==1)
+                    					&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
+                				    	@endif
+                				    @endif  
                                     <br><br>
                                     {{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;aangemaakt<br>
                                     {{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;gewijzigd
@@ -93,21 +84,7 @@
           <div class="card-body">
             <h5 class="card-title">Reden aanmelden</h5>
             <p class="card-text">{{ $user->reden }}</p>
-				    Gebruiker geactiveerd: 
-				    @if ($user->activated)
-					<span class="glyphicon glyphicon-ok-sign" aria-hidden="true" style="color:green;"></span>&nbsp;
-
-						@if (Auth::user()->usertype==1)
-							<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}">Wijzig</a>
-						@endif			
-				     @else
-                                        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" style="color:red;" data-toggle="tooltip" title="{{$user->reden}}"></span>&nbsp;
-                                        @if ($user->emailverified)
-						@if (Auth::user()->usertype==1)
-                                            		<a href="{{ url('/user') }}/toggleactive/{{ $user->id }}" class="btn btn-primary">Wijzig</a>
-                                        	@endif
-                                        @endif
-                                    @endif 
+				    
             
           </div>
         </div>
@@ -117,7 +94,7 @@
      <div class="row">  
         <div class="col-md-10 col-md-offset-1">
 <hr>
-         <p>Op deze pagina staat alle informatie die voor u nodig is. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden. De Sinterklaasbank controleert namelijk alle aanmeldingen of ze aan onze eisen voldoen. </p>
+         <p>Op deze pagina staat alle voor u relevante informatie. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden.</p>
 
 <h2>Gezinnen</h2>
 
