@@ -24,6 +24,7 @@
 @include ('layouts.intermediairnav',['page'=>'add'])
 
                     @if ($errors->any())
+                        <br>
                         <ul class="alert alert-danger">
                             @foreach ($errors->all() as $error)
                                 <li style="margin-left:15px;">{{ $error }}</li>
@@ -132,21 +133,62 @@
                             {!! Form::label('bezoek_sintpiet', 'Geen bezwaar verstrekken gegevens aan Sint en Piet-centrale') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Dit geeft de mogelijkheid dat een Sint en Piet aan de deur komt, maar dit is geen garantie!"></span>
                         </div>
                         <div class="form-group">                            
-                            {!! Form::checkbox('andere_alternatieven', 1, false, ['id'=>'bezoek_sintpiet']) !!}
+                            {!! Form::checkbox('andere_alternatieven', 1, false, ['id'=>'andere_alternatieven']) !!}
                             {!! Form::label('andere_alternatieven', 'Aangemeld bij Sinterklaasbank-alternatieven') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Graag opgeven of het gezin wordt ondersteund door andere initiatieven soortgelijk aan de Sinterklaasbank. Bijvoorbeeld 'Linda Foundation' of 'Actie Pepernoot'."></span>
                         </div>
                         <div class="form-group">
 
-                            <input class="btn btn-primary form-control" type="button" id="verzendknop" value="Opslaan">
+                            <input class="btn btn-primary form-control" type="button" id="verzendknop" data-toggle="modal" data-target="#confirm-submit" value="Opslaan">
                             
 
                         </div>                   
                     {!! Form::close() !!}
 
 
+
+
+<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Weet u zeker dat deze gegevens kloppen?
+            </div>
+            <div class="modal-body">
+                    <table>
+                        <tr><td>Gezin&nbsp;</td><td id="tvoeg"></td><td id="lname"></td><td></td></tr>
+                        <tr><td>Adres&nbsp;</td><td id="tstraat"></td><td id="thuisnum"></td><td id="thuisnumbij"></td></tr>
+                        <tr><td>&nbsp;</td><td id="tpostc"></td><td id="twoonp"></td><td></td></tr>
+                        <tr><td>&nbsp;</td><td id="tphone"></td><td></td><td></td></tr>
+                        <tr><td>&nbsp;</td><td id="temail"></td><td></td><td></td></tr>
+                        <tr><td colspan=4>&nbsp;</td><td id="temail"></td><td></td><td></td></tr>
+                        <tr><td colspan=4 id="tand">&nbsp;</td><td id="temail"></td><td></td><td></td></tr>
+                        
+                    </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nee</button>
+                <a href="#" id="submit" class="btn btn-success success">Ja</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
   
   <script type="text/javascript">
+
+
+
+
 $(document).ready(function() {
+
+
+
+
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
 });
@@ -254,13 +296,31 @@ $('[data-toggle="tooltip"]').tooltip();
            $('input[name="postcode"]').attr('maxlength','6');
         }); 
 
-        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
+        //de verzendmodal
         $("#verzendknop").click(function(){
 
-                setTimeout( function () { 
-                    $('#createform').submit();
-                }, 2000);
+             $('#tvoeg').text($('#tussenvoegsel').val() + ' ' + $('#achternaam').val());
+             $('#tstraat').text($('#adres_auto').val() + ' ' + $('#huisnummer').val());  
+             $('#tpostc').text($('#postcode').val() + ' ' + $('#woonplaats_auto').val());
+             $('#tphone').text($('#telefoon').val());
+             $('#temail').text($('#email').val());
+
+             if ($("#andere_alternatieven").is(':checked')) {
+                $('#tand').html("Dit gezin is <b>WEL</b> aangemeld bij andere Sinterklaasbank-alternatieven"); 
+             } else {
+                $('#tand').html("Dit gezin is <b>NIET</b> aangemeld bij andere Sinterklaasbank-alternatieven"); 
+             }
+
+
             
+        });
+
+        //delay submit om de postcode-gegevens op te halen (2000 = 2 seconden)
+
+        $('#submit').click(function(){
+            setTimeout( function () { 
+                $('#createform').submit();
+            }, 2000);  
         });
 
         // Als postcodeveld wordt gekozen; adresvelden legen
