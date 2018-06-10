@@ -114,12 +114,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">  
-                            {{ Form::hidden('bezoek_sintpiet', 0) }}                         
-                            {!! Form::checkbox('bezoek_sintpiet', 1, $family->bezoek_sintpiet, ['id'=>'bezoek_sintpiet']) !!}
-                            {!! Form::label('bezoek_sintpiet', 'Geen bezwaar verstrekken gegevens aan Sint en Piet-centrale') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Dit geeft de mogelijkheid dat een Sint en Piet aan de deur komt, maar dit is geen garantie!"></span>
-                        
-                        </div>
                       
                         <div class="form-group">
                             

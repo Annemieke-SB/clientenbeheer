@@ -129,10 +129,6 @@
 
 
                         <div class="form-group">                            
-                            {!! Form::checkbox('bezoek_sintpiet', 1, false, ['id'=>'bezoek_sintpiet']) !!}
-                            {!! Form::label('bezoek_sintpiet', 'Geen bezwaar verstrekken gegevens aan Sint en Piet-centrale') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Dit geeft de mogelijkheid dat een Sint en Piet aan de deur komt, maar dit is geen garantie!"></span>
-                        </div>
-                        <div class="form-group">                            
                             {!! Form::checkbox('andere_alternatieven', 1, false, ['id'=>'andere_alternatieven']) !!}
                             {!! Form::label('andere_alternatieven', 'Aangemeld bij Sinterklaasbank-alternatieven') !!}&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Graag opgeven of het gezin wordt ondersteund door andere initiatieven soortgelijk aan de Sinterklaasbank. Bijvoorbeeld 'Linda Foundation' of 'Actie Pepernoot'."></span>
                         </div>

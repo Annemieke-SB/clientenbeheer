@@ -129,7 +129,7 @@
                     </div>
                 </div> 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="col-md-5 control-label">Uw (persoonlijke) werk-emailadres</label>
+                    <label for="email" class="col-md-5 control-label">Uw (persoonlijke) werk-emailadres&nbsp;<span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" style="color:#1E90FF;" title="Wij willen u vragen hier een emailadres te gebruiken, anders dan eindigend op @gmail, hotmail, etc. Mocht u geen ander mailadres hebben, verzoeken wij u vriendelijk een bewijs te mailen dat u werkzaam bent voor deze instelling. Dit kunt u sturen naar info@sinterklaasbank.nl"></span></label>
 
                     <div class="col-md-6">
                         <div class="input-group">
