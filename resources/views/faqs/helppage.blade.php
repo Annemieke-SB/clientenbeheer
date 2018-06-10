@@ -4,12 +4,12 @@
                 <div class="panel-body">
  
     		  <p>
-Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applicatie van de Sinterklaasbank. Mocht uw vraag er niet tussenstaan, neem dan contact op met ons; <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>. 
+Staat de door u gezochte informatie er niet bij, neem dan contact met ons op; <a href="mailto:info@sinterklaasbank.nl">info@sinterklaasbank.nl</a>. 
 					        </p>
 
 
     <div class="panel-group" id="accordion">
-      <div class="faqHeader">Algemene vragen</div>
+      <div class="faqHeader">Algemeen</div>
       
       @foreach ($faqs as $faq)
       @if ($faq->category == 1)
@@ -29,7 +29,7 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
 	@endif
 	@endforeach
 
-      <div class="faqHeader">Privacy vragen</div>
+      <div class="faqHeader">Privacy</div>
       
       @foreach ($faqs as $faq)
       @if ($faq->category == 2)
@@ -51,7 +51,7 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
 	@endforeach
      
 
-      <div class="faqHeader">Gebruiker cliëntenbeheer</div>
+      <div class="faqHeader">Gebruik</div>
       
       @foreach ($faqs as $faq)
       @if ($faq->category == 3)
