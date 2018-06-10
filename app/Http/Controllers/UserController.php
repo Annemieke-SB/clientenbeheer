@@ -390,7 +390,7 @@ class UserController extends Controller
 
         $goedgekeurde_families = Family::where([
                 ['goedgekeurd', '=', '1'],
-                ['user_id', '=', $usertushow->id],
+                ['user_id', '=', $usertoshow->id],
             ])->with('kids')->get();
 
 
