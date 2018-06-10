@@ -102,9 +102,9 @@
   </ul>
 </li>
 @endif
-@if (!Auth::guest())
+
 <a href="{{url('faq')}}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
-@endif
+
 
 </ul>
 </div><!-- /.navbar-collapse -->

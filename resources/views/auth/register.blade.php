@@ -20,8 +20,8 @@
                         Stappenplan
                     </a>
                     <a class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="badge">1</span> U geeft hieronder uw gebruikersgegevens op.</a>
-                    <a class="list-group-item"><span class="badge">2</span> Uw opgave zal handmatig worden beoordeeld of u daadwerkelijk in aanmerking komt. Vervolgens wordt uw account geactiveerd.</a>
-                    <a class="list-group-item"><span class="badge">3</span>Daarna kunt zelf de gezinnen en hun kinderen invoeren.</a>
+                    <a class="list-group-item"><span class="badge">2</span>Uw inschrijving zal handmatig beoordeeld worden.</a>
+                    <a class="list-group-item"><span class="badge">3</span>Na goedkeuring (u ontvangt daarvan een email) kunt u kinderen aanmelden</a>
                 </div>
 
 
