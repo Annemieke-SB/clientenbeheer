@@ -105,6 +105,8 @@ class Custommade {
             <li>Wij zullen u zien als ons contactpersoon voor het gezin, de correspondentie loopt via u.</li>
             <li>De Sinterklaasbank kan in bepaalde gevallen contact opnemen met het gezin (bijvoorbeeld om de gegevens te controleren) en kan daarbij uw gegevens aan het gezin verstrekken.</li>
             </ul>
+
+            <p><u>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest laten vieren ook als dit financieel niet mogelijk. Wij willen uitdrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december</u></p>
             <p>Privacy staat bij ons hoog in het vaandel. Wij zullen uw gegevens en de gegevens van het gezin niet aan derden verstrekken.</p>
 
 
