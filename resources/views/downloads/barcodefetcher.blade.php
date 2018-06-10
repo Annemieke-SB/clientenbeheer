@@ -32,7 +32,7 @@
                     	@endif
                     	<br>
 
-                    	<a href="{{ url('/users/downloads/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a> 
+                    	<a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a> 
 
 
                     	</div>
