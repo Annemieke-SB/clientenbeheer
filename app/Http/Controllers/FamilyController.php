@@ -364,6 +364,9 @@ class FamilyController extends Controller
 
     public function aanmelden($id)
     {
+
+        $loggedinuser = Auth::user();
+        
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes  te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
