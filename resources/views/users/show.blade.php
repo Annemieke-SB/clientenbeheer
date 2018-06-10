@@ -94,7 +94,7 @@
      <div class="row">  
         <div class="col-md-10 col-md-offset-1">
 <hr>
-         <p>Op deze pagina staat alle voor u relevante informatie. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden.</p>
+         <p>Op deze pagina staat alle voor u relevante informatie. In het overzicht hieronder staan alle door u aangemelde gezinnen. U kunt daarin ook de status terugvinden.</p><small>Tip: u kunt met de muis over de status heen voor meer info</small>
 
 <h2>Gezinnen</h2>
 
