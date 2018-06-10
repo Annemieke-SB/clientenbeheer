@@ -180,6 +180,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        //App\Providers\FaqServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Speelpenning\PostcodeNl\PostcodeNlServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
