@@ -16,11 +16,11 @@ Staat de door u gezochte informatie er niet bij, neem dan contact met ons op; <a
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#faqcollapse{{ $faq->id }}">{{ $faq->vraag }}</a>
 
 </h4>
             </div>
-            <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
+            <div id="faqcollapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">
 		{{ $faq->antwoord }}  
                 </div>
@@ -36,12 +36,12 @@ Staat de door u gezochte informatie er niet bij, neem dan contact met ons op; <a
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#faqcollapse{{ $faq->id }}">{{ $faq->vraag }}</a>
 
 
 		</h4>
             </div>
-            <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
+            <div id="faqcollapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">
 		{{ $faq->antwoord }}  
                 </div>
@@ -58,12 +58,12 @@ Staat de door u gezochte informatie er niet bij, neem dan contact met ons op; <a
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#faqcollapse{{ $faq->id }}">{{ $faq->vraag }}</a>
 
 
 		</h4>
             </div>
-            <div id="collapse{{ $faq->id }}" class="panel-collapse collapse">
+            <div id="faqcollapse{{ $faq->id }}" class="panel-collapse collapse">
                 <div class="panel-body">
 		{{ $faq->antwoord }}  
                 </div>
