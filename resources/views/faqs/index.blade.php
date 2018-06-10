@@ -40,11 +40,11 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
 @if (!Auth::guest())
-@if (Auth::user()->usertype==1)
-                        <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+    @if (Auth::user()->usertype==1)
+                            <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-                        <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
-@endif
+                            <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+    @endif
 @endif
 </h4>
             </div>
@@ -65,12 +65,13 @@ Hier vindt u de veelgestelde vragen met betrekking tot de Cliëntenbeheer-applic
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}">{{ $faq->vraag }}</a>
-@if (Auth::user()->usertype==1)
-                        <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+@if (!Auth::guest())
+    @if (Auth::user()->usertype==1)
+                            <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-                        <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+                            <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+    @endif
 @endif
-
 
 		</h4>
             </div>
