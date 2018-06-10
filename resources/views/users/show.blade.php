@@ -131,7 +131,7 @@
 
 		                        @endif
 						@if (!$family->aangemeld && !$family->redenafkeuren)
-						Nog niet aangemeld
+						<span class="label label-info">Nog niet aangemeld</span>
 						@elseif ($family->definitiefafkeuren)
 						<span class="label label-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Definitief afgekeurd</span>     
 						@elseif ($family->aangemeld && $family->goedgekeurd == 0 )
