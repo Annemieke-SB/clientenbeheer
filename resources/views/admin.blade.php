@@ -141,7 +141,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>&nbsp;<a href="{{ url('users/index') }}/?igg=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon de intermediairs</button></a>
 		</h4>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
