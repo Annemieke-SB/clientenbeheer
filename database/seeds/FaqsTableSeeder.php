@@ -19,6 +19,13 @@ class FaqsTableSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),             
         ],[
+            'vraag' => 'Wat houdt de waardebon in?',
+            'antwoord' => 'De waardebon vertegenwoordigt een waarde van 25 euro en is te besteden in iedere Intertoys winkel in Nederland (niet online) Of er één cadeau van 25 euro van gekocht wordt of 25 cadeautjes van 1 euro, dat is aan het gezin zelf.',
+            'category' => 1,
+            'user_id' => 1,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),             
+        ],[
             'vraag' => 'Hoe lang blijven de ingevoerde gegevens bewaard?',
             'antwoord' => 'De Sinterklaasbank werk elk jaar weer met een schone database. Alle gegevens zijn op 31 december weer verwijderd. Op die manier springen wij het meest efficient met uw gegevens om. Het nadeel is wel dat u elk jaar weer opnieuw moet inschrijven. De gegevens zullen niet aan derden worden verhandeld of overgedragen, anders dan noodzakelijk is voor het afhandelen en verstrekken van de kadobonnen.',
             'category' => 2,
