@@ -88,8 +88,8 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>&nbsp;<a href="{{ url('users/index') }}/?na=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
-		</h4>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>
+		        </h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
 		<div class="panel-body">
