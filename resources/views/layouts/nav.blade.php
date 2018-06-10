@@ -103,8 +103,29 @@
 </li>
 @endif
 
-<a href="{{url('faq')}}"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
+<a href="#" data-toggle="modal" data-target="#faqmodal"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
 
+
+{{url('faq')}}
+<!-- Modal om te deleten -->
+<div class="modal fade" id="faqmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Wissen van gebruiker {{ $user->tussenvoegsel}} {{ $user->achternaam }}?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Let op: als je de gebruiker wist, worden alle gezinnen en kinderen die eronder hangen ook <b>permanent</b> gewist.</p></blockquote>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+        <a id="deletehref" href="{{ url('/user') }}/destroy/{{ $user->id }}"><button type="button" class="btn btn-primary">Doorgaan</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 
 </ul>
 </div><!-- /.navbar-collapse -->
