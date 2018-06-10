@@ -12,11 +12,11 @@
                 <div class="panel-body">
  
     <h1>FAQ <small>Veelgestelde vragen</small></h1>
-
+@if (!Auth::guest())
                         @if (Auth::user()->usertype==1)
                         <a href="{{ url('faq/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Vraag toevoegen</button></a>
                         @endif
-
+@endif
     <!-- Bootstrap FAQ - START -->
                                      <!-- Flashmessage -->
                         @if (count(Session::get('message')) > 0)
