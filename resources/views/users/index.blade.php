@@ -58,6 +58,7 @@
             <li><a href="{{ url('/users/index') }}/?izk=1">Toon intermediairs zonder kinderen</a></li> 
             <li><a href="{{ url('/users/index') }}/?ipd=1">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
             <li><a href="{{ url('/users/index') }}/?iga=1">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
+            <li><a href="{{ url('/users/index') }}/?igg=1">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd'</a></li> 
             <li><a href="{{ url('/users/index') }}/?iai=1">Toon intermediairs met andere initiatieven</a></li>      
           </ul>
         </li>
@@ -77,6 +78,8 @@
                     <b>Intermediairs die PDF's moeten downloaden</b>       
                 @elseif (Request::input('iga'))
                     <b>Intermediairs die nog gezinnen moeten aanmelden</b>  
+                @elseif (Request::input('igg'))
+                    <b>Intermediairs met te keuren/aangemelde gezinnen</b> 
                 @elseif (Request::input('iai'))
                     <b>Intermediairs met andere initiatieven</b> 
                 @else
