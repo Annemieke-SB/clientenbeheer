@@ -106,7 +106,7 @@
 <a href="#" data-toggle="modal" data-target="#faqmodal"><button type="button" class="btn btn-primary navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Klik hier voor help</button></a>
 
 
-{{url('faq')}}
+
 <!-- Modal om te deleten -->
 <div class="modal fade" id="faqmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
