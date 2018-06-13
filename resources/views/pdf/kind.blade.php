@@ -80,7 +80,6 @@
 		Groetjes van Sint
 		</p>
 		
-<br>
 		<div id="verlanglijstholder">Plak of teken hier de cadeautjes die je graag wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</div>
 	</div>
 </div>
