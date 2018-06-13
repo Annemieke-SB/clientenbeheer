@@ -105,10 +105,10 @@ div#barcodenumber {
 
 #verlanglijstholder{
 	margin-top: -30px;
-	margin-left: 35px;
-	width: 600px;
-	height: 200px;
-	border: 4px dashed red;
+	margin-left: 40px;
+	width: 610px;
+	height: 250px;
+	border: 1px dashed red;
 }
 
 .verlanglijst {
