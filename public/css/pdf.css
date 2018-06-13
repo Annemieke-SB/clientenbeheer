@@ -16,7 +16,7 @@ img.logo {
 }
 
 div#content {
-	height: 930px;
+	height: 940px;
 	width:100%;
 }
 
@@ -29,17 +29,6 @@ div#footernotes {
 
 p#dagtekening {
 	margin-top: -20px;
-}
-
-#plaatholder{
-	width: 30%;
-	height: 170px;
-	float:right;
-}
-
-.plaatje {
-	max-width: 200px;
-	margin-top: 15px;
 }
 
 div.barcode {
@@ -56,9 +45,7 @@ div#barcodenumber {
     page-break-after: always;
 }
 
-
 #verlanglijstholder{
-	margin-top: 10px;
 	width: 630px;
 	height: 260px;
 	border: 1px dashed red;    
