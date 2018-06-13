@@ -4,31 +4,24 @@ body {
 }
 
 div#textbody {
-	background-color: blue;
+	
 	margin-left: 35px;
 	margin-right: 45px;
-
 }
 
-
-
 img.logo {
-	
 	max-height: 150px;
 	margin-left: -10px;
-	
 	margin-top: -10px;
-	
-	
 }
 
 div#content {
-	height: 900px;
+	background-color: blue;
+	height: 920px;
 	width:100%;
 }
 
 div#bottom {
-
 	width:100%;
 	/* background-color: #CADA3C; */
 	text-align: center;
@@ -56,19 +49,13 @@ p#dagtekening {
 
 div.barcode {
 	width: 100%;
-	margin-left: 300px;
-	/*padding-top: 20px;
-	padding-bottom: 20px;
-    padding-left: 200px;*/
-    
+	margin-left: 300px;   
 }
+
 div#barcodenumber {
 	margin-top: -10px;
 	margin-left:80px;
-   
 }
-
-
 
 .page-break {
     page-break-after: always;
