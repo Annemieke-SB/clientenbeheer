@@ -39,7 +39,7 @@
 
 			<small>P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!
 			<br>Volg ons op facebook (facebook.com/DeSinterklaasbank/) om op de hoogte te blijven van alle activiteiten van de Sinterklaasbank.</small>
-			
+
 			<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div>
 	</div>
 </div>
@@ -56,7 +56,7 @@
 
 		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
 		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
-		<p>	<br>
+		<p>
 		Lieve {{ ucfirst($kid->voornaam) }},
 		</p>
 		<p>Hier een brief van Sinterklaas.</p>
@@ -78,8 +78,7 @@
 		<p>
 		<br>			
 		Groetjes van Sint
-		</p><br>
-		<br>
+		</p>
 		<small>Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</small>
 
 		<div id="verlanglijstholder">&nbsp;</div>
