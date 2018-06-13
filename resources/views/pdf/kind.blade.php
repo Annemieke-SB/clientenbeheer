@@ -83,6 +83,6 @@
 	</div>
 
 
-<div id="verlanglijstholder" style="border-style:dotted;width:200px;height:50px;">&nbsp;</div>
+<div id="verlanglijstholder" style="border-style:solid;width:200px;height:50px;">&nbsp;</div>
 </body>
 </html>
