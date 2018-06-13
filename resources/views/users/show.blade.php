@@ -21,12 +21,19 @@
 
 
 
-@include ('layouts.intermediairnav',['page'=>'home'])
+@include ('layouts.intermediairnav',['page'=>'home'] && App\Setting::get('downloads_ingeschakeld') == 0)
 
     @if (App\Setting::get('inschrijven_gesloten') == 1) {{-- Inschrijvingen gesloten --}}
         <br><br>
         <div class="panel panel-danger">
               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd.</div>
+        </div>                        
+    @endif
+
+    @if (App\Setting::get('downloads_ingeschakeld') == 1) {{-- Downloads open --}}
+        <br><br>
+        <div class="panel panel-info">
+              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De downloads zijn geopend. Kijk in het menu hierboven voor de downloadpagina.</div>
         </div>                        
     @endif
                                     <!-- Flashmessage -->
