@@ -46,7 +46,9 @@
 <div id="bottom">&nbsp;<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div></div>
 
 <div class="page-break"></div>
-<div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
+
+<div id="content">
+	<div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
 		
@@ -81,7 +83,7 @@
 
 		<div id="verlanglijstholder">&nbsp;</div>
 	</div>
-
+</div>
 
 
 </body>
