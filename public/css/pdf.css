@@ -16,7 +16,6 @@ img.logo {
 }
 
 div#content {
-	background-color: blue;
 	height: 930px;
 	width:100%;
 }
@@ -63,7 +62,7 @@ div#barcodenumber {
 	width: 630px;
 	height: 260px;
 	border: 1px dashed red;    
-	padding-top: 0px;
+	padding-top: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
     padding-left: 0px;
