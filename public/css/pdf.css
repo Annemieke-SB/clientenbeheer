@@ -57,21 +57,16 @@ div#barcodenumber {
     page-break-after: always;
 }
 
-#verlanglijsttekst {
-
-}
 
 #verlanglijstholder{
 	margin-top: 10px;
 	width: 630px;
-	height: 300px;
+	height: 260px;
 	border: 1px dashed red;    
 	padding-top: 0px;
     padding-right: 30px;
     padding-bottom: 30px;
     padding-left: 0px;
-
-	
 	text-align: center;
 	font-size: 8pt;
 	color:#999999;
