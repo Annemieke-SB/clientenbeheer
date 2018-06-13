@@ -21,9 +21,9 @@
 
 
 
-@include ('layouts.intermediairnav',['page'=>'home'] && App\Setting::get('downloads_ingeschakeld') == 0)
+@include ('layouts.intermediairnav',['page'=>'home'] )
 
-    @if (App\Setting::get('inschrijven_gesloten') == 1) {{-- Inschrijvingen gesloten --}}
+    @if (App\Setting::get('inschrijven_gesloten') == 1 && App\Setting::get('downloads_ingeschakeld') == 0) {{-- Inschrijvingen gesloten --}}
         <br><br>
         <div class="panel panel-danger">
               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd.</div>
