@@ -147,7 +147,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                Weet u zeker dat deze gegevens kloppen?
+                Controleer de ingevoerde gegevens:
             </div>
             <div class="modal-body">
                     <table>
@@ -162,8 +162,8 @@
                     </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Nee</button>
-                <a href="#" id="submit" class="btn btn-success success">Ja</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Aanpassen</button>
+                <a href="#" id="submit" class="btn btn-success success">Opslaan</a>
             </div>
         </div>
     </div>

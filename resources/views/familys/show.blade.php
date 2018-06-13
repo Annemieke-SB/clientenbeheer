@@ -349,10 +349,12 @@
                                         <a class="btn btn-warning" href="{{ url('/family/intrekken') }}/{{$family->id}}" role="button" style="width:100%">Aanmelding intrekken</a>                
                                     @else
                                     U kunt het gezin nu aanmelden. De Sinterklaasbank zal vervolgens de aanmelding controleren en deze beoordelen. Wilt u daarna weer een aanpassing aan het gezien doet, dan moet u het gezin weer opnieuw aanmelden, wees er dus zeker van dat de gegevens compleet zijn.<br>
-
+                                    <br>
                                     <div class="panel panel-warning">
                                           <div class="panel-body bg-warning">
-                                            Door dit gezin aan te melden verklaard u tevens dat de gegevens naar waarheid zijn ingevuld en draagt u zorg dat de gegevens juist zijn. &nbsp;
+                                            <table><tr><td><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="font-size: 40px;"></span></td><td>&nbsp;&nbsp;&nbsp;</td><td>Door dit gezin aan te melden verklaard u tevens dat de gegevens naar waarheid zijn ingevuld en draagt u zorg dat de gegevens juist zijn. &nbsp;</td></tr></table>
+                                            
+                                            
                                           </div>
                                     </div>
                                     <br>

@@ -425,7 +425,7 @@ class UserController extends Controller
 			
 		}
 
-            return redirect('users/index')->with('message', 'De gebruiker is verwijderd (en in het geval van een intermediair ook alle bijbehorende families en kinderen)');
+            return redirect('users/index')->with('message', 'De gebruiker is verwijderd (en in het geval van een intermediair ook alle bijbehorende gezinnen en kinderen)');
 
         } else 
         {
