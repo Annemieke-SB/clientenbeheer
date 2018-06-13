@@ -34,12 +34,12 @@ img.logo {
 }
 
 div#content {
-	height: 690px;
+	height: 700px;
 	width:100%;
 }
 
 div#bottom {
-	margin-top:-40px;
+	margin-top:-20px;
 	min-height: 150px;
 	width:100%;
 	/* background-color: #CADA3C; */
