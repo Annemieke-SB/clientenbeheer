@@ -40,19 +40,18 @@ div#content {
 
 div#bottom {
 	margin-top:-10px;
-	min-height: 150px;
+
 	width:100%;
 	/* background-color: #CADA3C; */
 	text-align: center;
 }
 
 div#footernotes {
-	margin-top:130px;
-	font-size: 10px;
+
 }
 
 p#dagtekening {
-	margin-left:-5px;
+	margin-left:-25px;
 }
 
 #wrapper {

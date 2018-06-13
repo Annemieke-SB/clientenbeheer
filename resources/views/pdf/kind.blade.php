@@ -51,7 +51,7 @@
 	<div id="textbody">	
 		<table style="width: 100%;"><tr><td style="width: 350px;"><p id="dagtekening">Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div></td></tr></table>
 			
-		<p>	
+		<p>	<br>
 		Lieve {{ ucfirst($kid->voornaam) }},
 		</p>
 		<p>Hier een brief van Sinterklaas.</p>
