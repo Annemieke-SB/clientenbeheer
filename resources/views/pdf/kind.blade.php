@@ -28,16 +28,14 @@
 		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen. Dit mag 1 cadeau van 25 euro zijn, of 25 cadeautjes van 1 euro. Bijbetalen mag, maar er is een maximum gesteld van 10 euro per waardebon. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
 
 		<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
+		<p>
+		Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br><br><br>
 
-		<div id=wrapper>
-			<div id='afsluiting'>
-				Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br><br><br>
-
-			Hartelijke groet,<br><br>
+		Hartelijke groet,<br><br>
 			Stichting de Sinterklaasbank&nbsp;
-
+		</p>
 			
-			</div>
+			
 			
 		<p>
 		<small>P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!
