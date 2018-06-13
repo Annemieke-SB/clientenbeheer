@@ -148,7 +148,7 @@ class UserController extends Controller
 
             $maildata = [
                 'titel' => "Uw account is geactiveerd",
-                'mailmessage' => "Uw account in clientenbeheer van de Sinterklaasbank is geactiveerd. Ga naar " . url('/home') . " om in te loggen." ,
+                'mailmessage' => "Uw account in clientenbeheer van de Sinterklaasbank is geactiveerd. Ga naar " . url('/home') . " om in te loggen. Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is. Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december " . date('Y') ."." ,
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
