@@ -77,6 +77,6 @@
 	</div>
 
 
-<div id="verlanglijstholder">{{ Html::image('img/sintbankpics/hokjes_brief2.png', '-', array('class' => 'verlanglijst')) }}&nbsp;</div>
+<div id="verlanglijstholder" style="border-style:dotted;width:200px;height:50px;">&nbsp;</div>
 </body>
 </html>
