@@ -21,13 +21,9 @@ div#content {
 	width:100%;
 }
 
-div#bottom {
-	width:100%;
-	/* background-color: #CADA3C; */
-	text-align: center;
-}
-
 div#footernotes {
+	width:100%;
+	text-align: center;
 	font-size: 8pt;
 	color:#999999;
 }
@@ -62,6 +58,7 @@ div#barcodenumber {
 }
 
 #verlanglijstholder{
+	margin-top: 10px;
 	width: 630px;
 	height: 250px;
 	border: 1px dashed red;
