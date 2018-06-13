@@ -21,7 +21,7 @@
 		Met het uitgeprinte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u het cadeau betalen. 
 		Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
 
-		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen.</p>
+		<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen. Dit mag 1 cadeau van 25 euro zijn, of 25 cadeautjes van 1 euro. Bijbetalen mag, maar er is een maximum gesteld van 10 euro per waardebon. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
 
 		<p>Een cadeau dat niet past bij de leeftijd van uw kind kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
 
@@ -73,8 +73,7 @@
 		<p><br>
 			Groetjes van Sint</p><br><br>
 
-			<p style="font-size: 12px; text-align: center;">Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben
-			en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</p>
+			<p style="font-size: 12px; text-align: center;">Plak of teken hier de cadeautjes die je graag wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</p>
 	</div>
 
 
