@@ -34,8 +34,7 @@ img.logo {
 }
 
 div#content {
-	background-color: blue;
-	height: 900px;
+	height: 920px;
 	width:100%;
 }
 
@@ -48,7 +47,7 @@ div#bottom {
 }
 
 div#footernotes {
-
+font-size: 9pt;
 }
 
 p#dagtekening {
