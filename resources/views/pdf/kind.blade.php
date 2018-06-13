@@ -79,9 +79,9 @@
 		<br>			
 		Groetjes van Sint
 		</p>
-		<small id="verlanglijsttekst"><center>Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.<center></small>
+		
 <br>
-		<div id="verlanglijstholder">&nbsp;</div>
+		<div id="verlanglijstholder">Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</div>
 	</div>
 </div>
 
