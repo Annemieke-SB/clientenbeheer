@@ -81,7 +81,7 @@
 		</p>
 		
 <br>
-		<div id="verlanglijstholder">Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</div>
+		<div id="verlanglijstholder">Plak of teken hier de cadeautjes die je graag wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</div>
 	</div>
 </div>
 
