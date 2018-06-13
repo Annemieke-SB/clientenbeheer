@@ -49,9 +49,10 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
-		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+		
 
 		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
+		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
 		<p>	<br>
 		Lieve {{ ucfirst($kid->voornaam) }},
 		</p>
