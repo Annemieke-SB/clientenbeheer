@@ -58,7 +58,10 @@ div#barcodenumber {
 }
 
 small#verlanglijsttekst {
-
+	width:80%;
+	text-align: center;
+	font-size: 8pt;
+	color:#999999;
 }
 
 #verlanglijstholder{
