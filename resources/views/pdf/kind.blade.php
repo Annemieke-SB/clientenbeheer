@@ -16,7 +16,7 @@
 		Aan de ouders/verzorgers van<br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
 		{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 		{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
-		</p><br><br>
+		</p><br>
 		<p>
 		Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 		<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
@@ -41,7 +41,7 @@
 			<!-- <div id="plaatholder">{{ Html::image('img/sintbankpics/plaatje.jpg', 'logo', array('class' => 'plaatje')) }}&nbsp;</div> -->
 		
 		<p>
-		P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!
+		<small>P.S. Wij zouden het leuk vinden om te horen hoe u deze actie van de Sinterklaasbank heeft ervaren. U kunt ons mailen via info@sinterklaasbank.nl. Een foto vinden wij erg leuk. Alvast dank!</small>
 		<br><br>Volg ons op facebook (facebook.com/DeSinterklaasbank/) om op de hoogte te blijven van alle activiteiten van de Sinterklaasbank.
 			
 		</p>
