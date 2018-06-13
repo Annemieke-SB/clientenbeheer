@@ -4,6 +4,7 @@ body {
 }
 
 div#textbody {
+	background-color: blue;
 	margin-left: 35px;
 	margin-right: 45px;
 
