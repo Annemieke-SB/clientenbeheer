@@ -83,7 +83,7 @@ p {
 
 div.barcode {
 	width: 100%;
-	float: right;
+	margin-left: 300px;
 	/*padding-top: 20px;
 	padding-bottom: 20px;
     padding-left: 200px;*/
