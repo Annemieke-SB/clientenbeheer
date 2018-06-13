@@ -50,7 +50,7 @@
 
 	<div id="textbody">	
 		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
-		
+
 		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
 		<p>	<br>
 		Lieve {{ ucfirst($kid->voornaam) }},
@@ -76,9 +76,10 @@
 
 			<p style="font-size: 12px; text-align: center;">Plak hier de cadeautjes die je graag wil hebben. Plak bij nr. 1 het cadeautje dat je het allerliefste wil hebben
 			en bij nr. 2 wat je daarna het liefste wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</p>
+			<div id="verlanglijstholder">&nbsp;</div>
 	</div>
 
 
-<div id="verlanglijstholder">&nbsp;</div>
+
 </body>
 </html>
