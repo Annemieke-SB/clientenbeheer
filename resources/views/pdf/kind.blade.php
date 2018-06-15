@@ -26,7 +26,7 @@
 
 			<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen. Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bijbetalen mag, maar er is een maximum gesteld van 10 euro per waardebon per verlanglijstje. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
 
-			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
+			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. 
 			<p>
 			Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br>
 			<br>
