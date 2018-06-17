@@ -177,7 +177,7 @@
                     </div>
                 </div>
 
-
+{{ dd($errors) }}
                 <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }} {{ $errors->has('woonplaats') ? ' has-error' : '' }}">
 
                     <label for="postcode" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
