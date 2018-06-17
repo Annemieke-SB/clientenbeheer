@@ -13,9 +13,7 @@
             	<p>In het filmpje hieronder wordt het nog een keer duidelijk uitgelegd.</p>
 				<p>
 				<!-- 16:9 aspect ratio -->
-				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ho-p3DFSq84" allowfullscreen></iframe>
-				</div>
+weg
 				</p>
 				<br>
 
