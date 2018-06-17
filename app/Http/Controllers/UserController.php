@@ -77,7 +77,7 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('aangemeld', 1)->where('goedgekeurd', 0);
-            })->paginate(100)->appends('igg', request('igg'));  
+            })->paginate(100)->appends('filter', request('filter'));  
 
         } elseif (request()->input('filter')=='iga') {
 
@@ -85,7 +85,7 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('aangemeld', 0)->where('goedgekeurd', 0);
-            })->paginate(100)->appends('iga', request('iga'));   
+            })->paginate(100)->appends('filter', request('filter'));   
 
         } elseif (request()->input('filter')=='iai') {
 
@@ -93,7 +93,7 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('andere_alternatieven', 1);
-            })->paginate(100)->appends('iai', request('iai'));   
+            })->paginate(100)->appends('filter', request('filter'));   
 
         } else {
 
