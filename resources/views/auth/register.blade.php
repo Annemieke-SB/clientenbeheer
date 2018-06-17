@@ -189,12 +189,13 @@
                             <strong>{{ $errors->first('postcode') }}</strong>
                         </span>
                         @endif
-                    </div>    
-                    @if ($errors->has('woonplaats'))
+                      
+                        @if ($errors->has('woonplaats'))
                         <span class="help-block">
                             <strong>{{ $errors->first('postcode') }}</strong>
                         </span>
-                        @endif                    
+                        @endif  
+                    </div>                    
                 </div>                        
 
 
