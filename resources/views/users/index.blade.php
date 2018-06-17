@@ -56,10 +56,10 @@
             <li><a href="{{ url('/users/index') }}/?filter=na">Toon alleen niet geactiveerd</a></li>   
             <li><a href="{{ url('/users/index') }}/?filter=izg">Toon intermediairs zonder gezinnen</a></li> 
             <li><a href="{{ url('/users/index') }}/?filter=izk">Toon intermediairs zonder kinderen</a></li> 
-            <li><a href="{{ url('/users/index') }}/?ipd=1">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
-            <li><a href="{{ url('/users/index') }}/?iga=1">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
-            <li><a href="{{ url('/users/index') }}/?igg=1">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
-            <li><a href="{{ url('/users/index') }}/?iai=1">Toon intermediairs met andere initiatieven</a></li>      
+            <li><a href="{{ url('/users/index') }}/?filter=ipd">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=iga">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=igg">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=iai">Toon intermediairs met andere initiatieven</a></li>      
           </ul>
         </li>
       </ul>
@@ -72,15 +72,15 @@
                     <b>niet aktief</b>  
                 @elseif (Request::input('filter')=='izg')
                     <b>Intermediairs zonder gezinnen</b> 
-                @elseif (Request::input('izk'))
+                @elseif (Request::input('filter')=='izk')
                     <b>Intermediairs zonder kinderen</b>       
-                @elseif (Request::input('ipd'))
+                @elseif (Request::input('filter')=='ipd')
                     <b>Intermediairs die PDF's moeten downloaden</b>       
-                @elseif (Request::input('iga'))
+                @elseif (Request::input('filter')=='iga')
                     <b>Intermediairs die nog gezinnen moeten aanmelden</b>  
-                @elseif (Request::input('igg'))
+                @elseif (Request::input('filter')=='igg')
                     <b>Intermediairs met te keuren/aangemelde gezinnen</b> 
-                @elseif (Request::input('iai'))
+                @elseif (Request::input('filter')=='iai')
                     <b>Intermediairs met andere initiatieven</b> 
                 @else
                     Geen filter
@@ -103,7 +103,7 @@
 
                     </div>
                     <div>
-                        <small>Totaal sortering aanpassen: achternaam (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>) | aantal gezinnen (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>)</small>
+                        <small>Totaal sortering aanpassen: achternaam (<a href="{{ url('/')->appends('izk', request('izk')) }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>) | aantal gezinnen (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>)</small>
                     </div>
 <small>Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam</small><br>
                     <div class="table-responsive">
