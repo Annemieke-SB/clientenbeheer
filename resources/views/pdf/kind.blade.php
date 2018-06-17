@@ -21,12 +21,12 @@
 			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Intertoys.</p>
 			<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
 			Let er wel op dat de barcode rechtsbovenin vrij blijft. Deze barcode vertegenwoordigt namelijk een waarde van 25 euro! 
-			Met het uitgeprinte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u het cadeau betalen. 
+			Met het uitgeprinte én ingevulde verlanglijstje en (onbeschadigde) barcode kunt u het cadeau ophalen. 
 			Raak het verlanglijstje niet kwijt! Zonder verlanglijstje geen cadeau. </p>
 
-			<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen. Dit mag 1 cadeau van 25 euro zijn, of 25 cadeautjes van 1 euro. Bijbetalen mag, maar er is een maximum gesteld van 10 euro per waardebon. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
+			<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de Intertoys vestiging van uw keuze om het cadeau te ontvangen. Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bijbetalen mag, maar er is een maximum gesteld van 10 euro per waardebon per verlanglijstje. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
 
-			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. Na 5 december {{date('Y')}} vervalt dit aanbod.</p>
+			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. 
 			<p>
 			Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br>
 			<br>
@@ -74,13 +74,13 @@
 		</p>
 
 		<p>
-		Als je je verlanglijstje hebt ingevuld, mag je het in je schoen doen. Piet komt het dan bij je ophalen. Wij gaan dan in de pakjesboot kijken of het cadeautje dat jij graag wil hebben is meegekomen uit Spanje. Spannend he!</p>	
+		Als je je verlanglijstje hebt ingevuld, mag je het in je schoen doen. Piet komt het dan bij je ophalen. Wij gaan dan in de pakjesboot kijken of het cadeau dat jij graag wil hebben is meegekomen uit Spanje. Spannend he!</p>	
 		<p>
 		<br>			
 		Groetjes van Sint
 		</p>
 		
-		<div id="verlanglijstholder">Plak of teken hier de cadeautjes die je graag wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</div>
+		<div id="verlanglijstholder">Plak of teken hier het cadeau die je graag wil hebben. De Sint zoekt dan een mooi cadeau voor je uit.</div>
 	</div>
 </div>
 
