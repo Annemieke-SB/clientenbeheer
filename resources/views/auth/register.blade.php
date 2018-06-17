@@ -191,7 +191,7 @@
                       
                         @if ($errors->has('woonplaats'))
                         <span class="help-block">
-                            <strong>Adres kon niet worden gevonden, vul een geldige postcode in</strong>
+                            <strong>Adres kon niet worden gevonden, vul een geldige postcode/huisnummer in</strong>
                         </span>
                         @endif  
                     </div>                    
