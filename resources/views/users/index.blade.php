@@ -102,6 +102,9 @@
                         </div>
 
                     </div>
+                    <div class="row">
+                        <small>Totaal sortering aanpassen: achternaam (<a href="{{ url() }}">oplopend</a>/<a href="{{ url() }}">aflopend</a>) | aantal gezinnen (<a href="{{ url() }}">oplopend</a>/<a href="{{ url() }}">aflopend</a>)</small>
+                    </div>
 <small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
