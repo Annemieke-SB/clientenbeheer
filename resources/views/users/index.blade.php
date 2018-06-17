@@ -105,12 +105,14 @@
                     <div>
                         <small>
                             Totaal sortering aanpassen: achternaam (
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aa">oplopend</a> / 
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad">aflopend</a>) 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aa&aant={{ Request::input('aant') }}">oplopend</a> / 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad&aant={{ Request::input('aant') }}">aflopend</a>) 
                             |
-                             aantal gezinnen (
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aga">oplopend</a> /
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=agd">aflopend</a>)
+                             aantal per pagina 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=50">50</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=100">100</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=500">500</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=10000">10.000</a> 
                         </small>
                     </div>
                     <small><b>
