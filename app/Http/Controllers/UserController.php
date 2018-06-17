@@ -48,25 +48,20 @@ class UserController extends Controller
         $loggedinuser = Auth::user();
 
 
-        if (request()->input('sort')=='ad') { 
-            // achternaam ascending
-            $sorts = ['achternaam', 'DESC'];
-        } else { 
-            $sorts = ['achternaam', 'ASC'];
-        } 
+
 
         if (request()->has('na')) { 
             // Niet geactiveerde gebruikers 
 
 
 
-            $users = User::where('activated', '0')->orderBy($sorts[0],$sorts[1])->paginate(10000)->appends('filter', request('filter'));
+            $users = User::where('activated', '0')->paginate(10000)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy($sorts[0],$sorts[1])->paginate(10000)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->paginate(10000)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
@@ -113,6 +108,15 @@ class UserController extends Controller
             $users = User::orderBy('achternaam', 'ASC')->paginate(10000);
         }
 
+        if (request()->input('sort')=='ad') { 
+            // achternaam ascending
+            $sorted = $users->sortByDesc('achternaam');
+        } else { 
+            $sorted = $users->sortBy('achternaam');
+        } 
+
+        
+        
         
 
         // Intermediairs mogen de index niet zien        
@@ -121,7 +125,7 @@ class UserController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $sorted]);
     }
 
     public function toggleactive($id)
