@@ -50,12 +50,9 @@ class UserController extends Controller
 
         if (request()->input('sort')=='ad') { 
             // achternaam ascending
-            $sorts = "'achternaam', 'DESC'";
-
+            $sorts = ['achternaam', 'DESC'];
         } else { 
-            // achternaam descending
-            $sorts = "'achternaam', 'ASC'";
-
+            $sorts = ['achternaam', 'ASC'];
         } 
 
         if (request()->has('na')) { 
