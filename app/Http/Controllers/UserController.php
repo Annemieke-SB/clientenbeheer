@@ -49,21 +49,21 @@ class UserController extends Controller
 
         if (request()->has('na')) { 
             // Niet geactiveerde gebruikers 
-            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('na', request('na'));
+            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy('achternaam', 'ASC')->paginate(100)->appends('izg', request('izg'));
+            $users = User::whereDoesntHave('familys')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
 
-        } elseif (request()->has('izk')) {
+        } elseif (request()->input('filter')=='izk') {
 
             // Toon intermediairs zonder kinderen
 
-            $users = User::whereDoesntHave('kids')->orderBy('achternaam', 'ASC')->paginate(100)->appends('izk', request('izk'));
+            $users = User::whereDoesntHave('kids')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
 
-        } elseif (request()->has('ipd')) {
+        } elseif (request()->input('filter')=='ipd') {
 
             // Toon intermediairs die nog pdf's moeten downloaden
 
@@ -71,7 +71,7 @@ class UserController extends Controller
                 $query->whereNull('downloadedpdf');
             })->paginate(100)->appends('ipd', request('ipd'));
 
-        } elseif (request()->has('igg')) {
+        } elseif (request()->input('filter')=='igg') {
 
             // Toon intermediairs met nog goed te keuren gezinnen
 
@@ -79,7 +79,7 @@ class UserController extends Controller
                 $query->where('aangemeld', 1)->where('goedgekeurd', 0);
             })->paginate(100)->appends('igg', request('igg'));  
 
-        } elseif (request()->has('iga')) {
+        } elseif (request()->input('filter')=='iga') {
 
             // Toon intermediairs waarvan nog gezinnen moeten worden aangemeld
 
@@ -87,7 +87,7 @@ class UserController extends Controller
                 $query->where('aangemeld', 0)->where('goedgekeurd', 0);
             })->paginate(100)->appends('iga', request('iga'));   
 
-        } elseif (request()->has('iai')) {
+        } elseif (request()->input('filter')=='iai') {
 
             // Toon intermediairs met andere initiatieven
 
