@@ -191,7 +191,7 @@
                       
                         @if ($errors->has('woonplaats'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('woonplaats') }}</strong>
+                            <strong>Adres kon niet worden gevonden, vul een geldige postcode in</strong>
                         </span>
                         @endif  
                     </div>                    
