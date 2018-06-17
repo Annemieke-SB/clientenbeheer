@@ -110,9 +110,9 @@ class UserController extends Controller
 
         if (request()->input('sort')=='ad') { 
             // achternaam ascending
-            $sorted = $users->sortByDesc('achternaam');
+            $sorted = $users->orderBy('achternaam');
         } else { 
-            $sorted = $users->sortBy('achternaam');
+            $sorted = $users->orderBy('achternaam');
         } 
 
         
@@ -125,7 +125,7 @@ class UserController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        return view('users.index', ['users' => $sorted]);
+        return view('users.index', ['users' => $users]);
     }
 
     public function toggleactive($id)
