@@ -60,13 +60,13 @@ class UserController extends Controller
 
 
 
-            $users = User::where('activated', '0')->orderBy($sorts)->paginate(100)->appends('filter', request('filter'));
+            $users = User::where('activated', '0')->orderBy($sorts[0],$sorts[1])->paginate(100)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy($sorts)->paginate(100)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->orderBy($sorts[0],$sorts[1])->paginate(100)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
