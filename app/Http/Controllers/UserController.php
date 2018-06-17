@@ -97,8 +97,9 @@ class UserController extends Controller
 
         } else {
 
+            // Geen filter
+
             $users = User::orderBy('achternaam', 'ASC')->paginate(100);
-            
         }
 
         
