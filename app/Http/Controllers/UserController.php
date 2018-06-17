@@ -51,7 +51,7 @@ class UserController extends Controller
             // Niet geactiveerde gebruikers 
             $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('na', request('na'));
 
-        } elseif (request()->has('izg')) {
+        } elseif (Request::input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 

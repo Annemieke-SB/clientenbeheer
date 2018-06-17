@@ -125,7 +125,7 @@
                     @endif
                     </b></small>
 
-<br>
+                    <br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
