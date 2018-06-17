@@ -47,15 +47,29 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
+
+        if (request()->input('sort')=='ad') { 
+            // achternaam ascending
+            $sorts = "'achternaam', 'DESC'";
+
+        } else { 
+            // achternaam descending
+            $sorts = "'achternaam', 'ASC'";
+
+        } 
+
         if (request()->has('na')) { 
             // Niet geactiveerde gebruikers 
-            $users = User::where('activated', '0')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
+
+
+
+            $users = User::where('activated', '0')->orderBy($sorts)->paginate(100)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->orderBy($sorts)->paginate(100)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
