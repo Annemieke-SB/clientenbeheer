@@ -106,14 +106,26 @@
                         <small>
                             Totaal sortering aanpassen: achternaam (
                             <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aa">oplopend</a> / 
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad">oplopend</a>) 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad">aflopend</a>) 
                             |
                              aantal gezinnen (
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad">oplopend</a> /
-                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad">oplopend</a>)
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aga">oplopend</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=agd">aflopend</a>)
                         </small>
                     </div>
-<small>Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam</small><br>
+                    <small><b>
+                    @if (Request::input('sort')=='ad')
+                    Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam
+                    @elseif(Request::input('sort')=='aga')
+                    Gebruikers zijn nu gesorteerd oplopend op aantal kinderen
+                    @elseif(Request::input('sort')=='agd')
+                    Gebruikers zijn nu gesorteerd aflopend op aantal kinderen
+                    @else
+                    Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam
+                    @endif
+                    </b></small>
+
+<br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
