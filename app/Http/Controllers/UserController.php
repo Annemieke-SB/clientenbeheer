@@ -97,7 +97,7 @@ class UserController extends Controller
 
         } else {
 
-            $users = User::orderBy('achternaam', 'ASC')->paginate(100)
+            $users = User::orderBy('achternaam', 'ASC')->paginate(100);
             
         }
 
