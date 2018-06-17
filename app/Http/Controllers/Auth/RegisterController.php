@@ -74,6 +74,14 @@ class RegisterController extends Controller
         ]);
     }
 
+
+    public function messages()
+    {
+        return [
+            'adres.required' => 'Er is geen adres opgehaald, klopt de postcode wel?',
+            'woonplaats.required'  => 'Er is geen adres opgehaald, klopt de postcode wel?',
+        ];
+    }
     /**
      * Create a new user instance after a valid registration.
      *
