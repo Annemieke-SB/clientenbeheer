@@ -461,7 +461,7 @@ $(function () {
             if(
                 $('input[name="adres"]').val()=='' 
             ) {
-                $("#submitbutton").prop("disabled",true);
+                //$("#submitbutton").prop("disabled",true);
             }
         });
 
