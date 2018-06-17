@@ -18,9 +18,9 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="alert alert-primary" role="alert">
+                        <!--<div class="alert alert-primary" role="alert">
                           Momenteel is de Clientenbeheer gesloten, lees op onze <a target="_BLANK" href="https://www.sinterklaasbank.nl/" class="alert-link">site</a> meer.
-                      </div>
+                      </div>-->
                       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <label for="email" class="col-md-4 control-label">Email</label>
 
