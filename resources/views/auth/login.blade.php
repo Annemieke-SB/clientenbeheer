@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-            <!-- Flashmessage -->
-            @if (count(Session::get('message')) > 0)
-            <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-            @endif
+
 
             <div class="panel panel-default">
                 <div class="panel-heading">Inloggen</div>
                 <div class="panel-body">
 
-
+            <!-- Flashmessage -->
+            @if (count(Session::get('message')) > 0)
+            <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+            @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
