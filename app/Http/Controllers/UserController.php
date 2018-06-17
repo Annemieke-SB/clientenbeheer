@@ -58,9 +58,7 @@ class UserController extends Controller
 
         } 
 
-        } elseif {{
-
-        }
+    
 
         if (request()->has('na')) { 
             // Niet geactiveerde gebruikers 
