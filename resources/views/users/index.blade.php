@@ -53,9 +53,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>   
-            <li><a href="{{ url('/users/index') }}/?izg=1">Toon intermediairs zonder gezinnen</a></li> 
-            <li><a href="{{ url('/users/index') }}/?izk=1">Toon intermediairs zonder kinderen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=na">Toon alleen niet geactiveerd</a></li>   
+            <li><a href="{{ url('/users/index') }}/?filter=izg">Toon intermediairs zonder gezinnen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=izk">Toon intermediairs zonder kinderen</a></li> 
             <li><a href="{{ url('/users/index') }}/?ipd=1">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
             <li><a href="{{ url('/users/index') }}/?iga=1">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
             <li><a href="{{ url('/users/index') }}/?igg=1">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
@@ -70,7 +70,7 @@
 
                 @if (Request::input('na'))
                     <b>niet aktief</b>  
-                @elseif (Request::input('izg'))
+                @elseif (Request::input('filter')=='izg')
                     <b>Intermediairs zonder gezinnen</b> 
                 @elseif (Request::input('izk'))
                     <b>Intermediairs zonder kinderen</b>       
@@ -105,7 +105,7 @@
                     <div>
                         <small>Totaal sortering aanpassen: achternaam (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>) | aantal gezinnen (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>)</small>
                     </div>
-<small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
+<small>Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam</small><br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>
