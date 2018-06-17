@@ -103,7 +103,7 @@
 
                     </div>
                     <div>
-                        <small>Totaal sortering aanpassen: achternaam (<a href="{{ url(Request::path()) }}?sort=aa">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>) | aantal gezinnen (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>)</small>
+                        <small>Totaal sortering aanpassen: achternaam (<a href="{{ Request::url() }}?sort=aa">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>) | aantal gezinnen (<a href="{{ url('/') }}">oplopend</a>/<a href="{{ url('/') }}">aflopend</a>)</small>
                     </div>
 <small>Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam</small><br>
                     <div class="table-responsive">
