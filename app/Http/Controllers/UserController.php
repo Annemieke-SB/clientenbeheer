@@ -60,19 +60,19 @@ class UserController extends Controller
 
 
 
-            $users = User::where('activated', '0')->orderBy($sorts[0],$sorts[1])->paginate(100)->appends('filter', request('filter'));
+            $users = User::where('activated', '0')->orderBy($sorts[0],$sorts[1])->paginate(10000)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy($sorts[0],$sorts[1])->paginate(100)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->orderBy($sorts[0],$sorts[1])->paginate(10000)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
             // Toon intermediairs zonder kinderen
 
-            $users = User::whereDoesntHave('kids')->orderBy('achternaam', 'ASC')->paginate(100)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('kids')->orderBy('achternaam', 'ASC')->paginate(10000)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='ipd') {
 
@@ -80,7 +80,7 @@ class UserController extends Controller
 
             $users = User::whereHas('barcodes', function($query){
                 $query->whereNull('downloadedpdf');
-            })->paginate(100)->appends('ipd', request('ipd'));
+            })->paginate(10000)->appends('ipd', request('ipd'));
 
         } elseif (request()->input('filter')=='igg') {
 
@@ -88,7 +88,7 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('aangemeld', 1)->where('goedgekeurd', 0);
-            })->paginate(100)->appends('filter', request('filter'));  
+            })->paginate(10000)->appends('filter', request('filter'));  
 
         } elseif (request()->input('filter')=='iga') {
 
@@ -96,7 +96,7 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('aangemeld', 0)->where('goedgekeurd', 0);
-            })->paginate(100)->appends('filter', request('filter'));   
+            })->paginate(10000)->appends('filter', request('filter'));   
 
         } elseif (request()->input('filter')=='iai') {
 
@@ -104,13 +104,13 @@ class UserController extends Controller
 
             $users = User::whereHas('familys', function($query){
                 $query->where('andere_alternatieven', 1);
-            })->paginate(100)->appends('filter', request('filter'));   
+            })->paginate(10000)->appends('filter', request('filter'));   
 
         } else {
 
             // Geen filter
 
-            $users = User::orderBy('achternaam', 'ASC')->paginate(100);
+            $users = User::orderBy('achternaam', 'ASC')->paginate(10000);
         }
 
         
