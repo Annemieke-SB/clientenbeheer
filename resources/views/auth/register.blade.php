@@ -308,7 +308,7 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-5">
-                        <button type="submit" class="btn btn-primary">
+                        <button id="submitbutton" type="submit" class="btn btn-primary">
                             Inschrijven
                         </button>
                     </div>
@@ -455,6 +455,16 @@ $(function () {
               return v.replace(/\s+/g, '');
           });
         });
+
+
+        $(function(){
+            if(
+                $('input[name="adres"]').val()=='' 
+            ) {
+                $("#submitbutton").prop("disabled",true);
+            }
+        });
+
       });
 
 
@@ -480,7 +490,8 @@ $(function () {
                     $('input[name="adres"]').val(data.street); 
                     $('input[name="woonplaats"]').val(data.city);   
                     $('input[name="adres_auto"]').val(data.street); 
-                    $('input[name="woonplaats_auto"]').val(data.city);         
+                    $('input[name="woonplaats_auto"]').val(data.city); 
+                    $("#submitbutton").prop("disabled",false);        
                 },
                 statusCode: {
                     500: function() {
