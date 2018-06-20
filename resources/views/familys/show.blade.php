@@ -348,7 +348,7 @@
                                     U heeft het gezin al aangemeld. Als u de gegevens van dit gezin wilt wijzigen, of de kinderen van dat gezin, moet u de aanmelding intrekken.<br><br>
                                         <a class="btn btn-warning" href="{{ url('/family/intrekken') }}/{{$family->id}}" role="button" style="width:100%">Aanmelding intrekken</a>                
                                     @else
-                                    U kunt het gezin nu aanmelden. De Sinterklaasbank zal vervolgens de aanmelding controleren en deze beoordelen. Wilt u daarna weer een aanpassing aan het gezien doet, dan moet u het gezin weer opnieuw aanmelden, wees er dus zeker van dat de gegevens compleet zijn.<br>
+                                    U kunt het gezin nu aanmelden. De Sinterklaasbank zal vervolgens de aanmelding controleren en deze beoordelen. Wilt u daarna weer een aanpassing aan het gezin doen, dan moet u het gezin weer opnieuw aanmelden, wees er dus zeker van dat de gegevens compleet zijn.<br>
                                     <br>
                                     <div class="panel panel-warning">
                                           <div class="panel-body bg-warning">
