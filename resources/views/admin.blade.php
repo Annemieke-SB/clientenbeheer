@@ -184,7 +184,7 @@
 
                        
 @if (count($intermediairzonderfamilies)!=0)
-{{dd('huh?')}}
+
 
     <div class="panel-group" id="accordion">
       
@@ -260,7 +260,7 @@
         	<tr>
 			<td>
 				{{ $fzk->naam }}
-				@if ($izf->blacklisted)
+				@if ($fzk->blacklisted)
 					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 				@endif
 			</td>
