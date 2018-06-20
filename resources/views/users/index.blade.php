@@ -53,13 +53,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/users/index') }}/?na=1">Toon alleen niet geactiveerd</a></li>   
-            <li><a href="{{ url('/users/index') }}/?izg=1">Toon intermediairs zonder gezinnen</a></li> 
-            <li><a href="{{ url('/users/index') }}/?izk=1">Toon intermediairs zonder kinderen</a></li> 
-            <li><a href="{{ url('/users/index') }}/?ipd=1">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
-            <li><a href="{{ url('/users/index') }}/?iga=1">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
-            <li><a href="{{ url('/users/index') }}/?igg=1">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
-            <li><a href="{{ url('/users/index') }}/?iai=1">Toon intermediairs met andere initiatieven</a></li>      
+            <li><a href="{{ url('/users/index') }}/?filter=na">Toon alleen niet geactiveerd</a></li>   
+            <li><a href="{{ url('/users/index') }}/?filter=izg">Toon intermediairs zonder gezinnen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=izk">Toon intermediairs zonder kinderen</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=ipd">Toon intermediairs die nog pdf's moeten downloaden</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=iga">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=igg">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
+            <li><a href="{{ url('/users/index') }}/?filter=iai">Toon intermediairs met andere initiatieven</a></li>      
           </ul>
         </li>
       </ul>
@@ -70,17 +70,17 @@
 
                 @if (Request::input('na'))
                     <b>niet aktief</b>  
-                @elseif (Request::input('izg'))
+                @elseif (Request::input('filter')=='izg')
                     <b>Intermediairs zonder gezinnen</b> 
-                @elseif (Request::input('izk'))
+                @elseif (Request::input('filter')=='izk')
                     <b>Intermediairs zonder kinderen</b>       
-                @elseif (Request::input('ipd'))
+                @elseif (Request::input('filter')=='ipd')
                     <b>Intermediairs die PDF's moeten downloaden</b>       
-                @elseif (Request::input('iga'))
+                @elseif (Request::input('filter')=='iga')
                     <b>Intermediairs die nog gezinnen moeten aanmelden</b>  
-                @elseif (Request::input('igg'))
+                @elseif (Request::input('filter')=='igg')
                     <b>Intermediairs met te keuren/aangemelde gezinnen</b> 
-                @elseif (Request::input('iai'))
+                @elseif (Request::input('filter')=='iai')
                     <b>Intermediairs met andere initiatieven</b> 
                 @else
                     Geen filter
@@ -102,7 +102,32 @@
                         </div>
 
                     </div>
-<small>Gebruikers zijn alfabetisch gesorteerd op achternaam</small><br>
+                    <div>
+                        <small>
+                            Totaal sortering aanpassen: achternaam (
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=aa&aant={{ Request::input('aant') }}">oplopend</a> / 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort=ad&aant={{ Request::input('aant') }}">aflopend</a>) 
+                            |
+                             aantal per pagina 
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=50">50</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=100">100</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=500">500</a> /
+                            <a href="{{ Request::url() }}?filter={{ Request::input('filter') }}&sort={{ Request::input('sort') }}&aant=10000">10.000</a> 
+                        </small>
+                    </div>
+                    <small><b>
+                    @if (Request::input('sort')=='ad')
+                    Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam
+                    @elseif(Request::input('sort')=='aga')
+                    Gebruikers zijn nu gesorteerd oplopend op aantal kinderen
+                    @elseif(Request::input('sort')=='agd')
+                    Gebruikers zijn nu gesorteerd aflopend op aantal kinderen
+                    @else
+                    Gebruikers zijn nu alfabetisch gesorteerd oplopend op achternaam
+                    @endif
+                    </b></small>
+
+                    <br>
                     <div class="table-responsive">
                         <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                                 <thead>

@@ -177,8 +177,7 @@
                     </div>
                 </div>
 
-
-                <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('postcode') ? ' has-error' : '' }} {{ $errors->has('woonplaats') ? ' has-error' : '' }}">
 
                     <label for="postcode" class="col-md-5 control-label">Postcode (zonder spaties: 1234AA)</label>
                     <div class="col-md-6">
@@ -189,7 +188,13 @@
                             <strong>{{ $errors->first('postcode') }}</strong>
                         </span>
                         @endif
-                    </div>                        
+                      
+                        @if ($errors->has('woonplaats'))
+                        <span class="help-block">
+                            <strong>Adres kon niet worden gevonden, vul een geldige postcode/huisnummer in</strong>
+                        </span>
+                        @endif  
+                    </div>                    
                 </div>                        
 
 
@@ -461,7 +466,7 @@ $(function () {
             if(
                 $('input[name="adres"]').val()=='' 
             ) {
-                $("#submitbutton").prop("disabled",true);
+                //$("#submitbutton").prop("disabled",true);
             }
         });
 
