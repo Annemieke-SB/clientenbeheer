@@ -56,7 +56,7 @@
                         <div class="form-group">
 
                             {!! Form::label('tussenvoegsel', 'Tussenvoegsel') !!}
-                            {!! Form::text('tussenvoegsel', $user->tussenvoegsel, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::text('tussenvoegsel', $user->tussenvoegsel, ['class' => 'form-control']) !!}
 
                         </div>                        
 
