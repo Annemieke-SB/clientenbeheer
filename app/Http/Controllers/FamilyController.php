@@ -396,7 +396,7 @@ class FamilyController extends Controller
     {
 
         $loggedinuser = Auth::user();
-
+        $family = Family::findOrFail($id);
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -412,7 +412,7 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft geprobeerd de aanmelding in te trekken van een gezin die bij een andere intermediair hoort, u kunt alleen uw eigen gezinnen wijzigen.');
         }
 
-        $family = Family::findOrFail($id);
+        
         $family->aangemeld=0;    
 
         if ($family->goedgekeurd==1) {
