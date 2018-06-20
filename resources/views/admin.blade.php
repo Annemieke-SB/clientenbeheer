@@ -183,7 +183,7 @@
 @endif 
 
                        
-@if (count($intermediairzonderfamilies)>0)
+@if (count($intermediairzonderfamilies)!=0)
 
 
     <div class="panel-group" id="accordion">
