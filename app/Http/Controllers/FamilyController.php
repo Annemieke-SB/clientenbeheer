@@ -60,6 +60,8 @@ class FamilyController extends Controller
 
     public function create($id) // Dit ID is een intermediair-id
     {
+        $loggedinuser = Auth::user(); 
+
        if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd gezin aan te maken terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -74,7 +76,7 @@ class FamilyController extends Controller
 
 
         $user = User::find($id);
-        $loggedinuser = Auth::user(); 
+        
         //$intermediair_vanloggedinuser = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
      
         // Intermediairs mogen alleen familys aanmaken onder eigen id       
@@ -102,7 +104,7 @@ class FamilyController extends Controller
      */
     public function store(Requests\CreateFamilyRequest $request)
     {
-
+        $loggedinuser = Auth::user(); 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -193,6 +195,7 @@ class FamilyController extends Controller
 
     public function edit($id)
     {
+        $loggedinuser = Auth::user(); 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -200,8 +203,7 @@ class FamilyController extends Controller
             
         } 
 
-        $family = Family::find($id);        
-        $loggedinuser = Auth::user();
+        $family = Family::find($id);   
 
         if($family->aangemeld == 1) {
 
@@ -231,6 +233,7 @@ class FamilyController extends Controller
 
     public function update(Requests\CreateFamilyRequest $request)
     {
+        $loggedinuser = Auth::user(); 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -391,6 +394,9 @@ class FamilyController extends Controller
 
     public function aanmeldingintrekken($id)
     {
+
+        $loggedinuser = Auth::user();
+
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -432,6 +438,7 @@ class FamilyController extends Controller
 
     public function barcodesloskoppelen($fam_id)
     {
+        $loggedinuser = Auth::user();
       
         $family = Family::findOrFail($fam_id);
 
