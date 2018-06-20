@@ -181,6 +181,7 @@
 <br />
 
 @endif 
+{{dd(count($intermediairzonderfamilies))}}
                        
 @if (count($intermediairzonderfamilies)>0)
 
