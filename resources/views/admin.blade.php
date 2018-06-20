@@ -184,7 +184,7 @@
 
                        
 @if (count($intermediairzonderfamilies)!=0)
-
+{{dd('huh?')}}
 
     <div class="panel-group" id="accordion">
       
