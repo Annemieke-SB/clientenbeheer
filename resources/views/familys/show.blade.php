@@ -314,7 +314,7 @@
                                 <div class="panel panel-danger">
                                   <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | Dit gezin komt niet in aanmerking voor de sinterklaasbank!</b></div>
                                   <div class="panel-body bg-danger">
-                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{App\Setting::get('min_leeftijd')}}en {{App\Setting::get('max_leeftijd')}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{App\Setting::get('min_leeftijd')}} en {{App\Setting::get('max_leeftijd_broer_zus')}} doen dan ook mee. &nbsp;
+                                    Dit gezin heeft geen kind in de doelgroep, en komt niet in aanmerking voor de sinterklaasbank. Pas als er één kind tussen de {{App\Setting::get('min_leeftijd')}}&nbsp;en {{App\Setting::get('max_leeftijd')}} jaar is doet het gezin mee. Broertjes en zusjes tussen {{App\Setting::get('min_leeftijd')}} en {{App\Setting::get('max_leeftijd_broer_zus')}} doen dan ook mee. &nbsp;
                                   </div>
                                 </div>
                                 @endif
