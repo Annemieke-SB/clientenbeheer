@@ -309,7 +309,7 @@
             <tr>
             <td>
                 {{ $indp->naam }}
-                @if ($izf->blacklisted)
+                @if ($indp->blacklisted)
                     &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
                 @endif
             </td>
