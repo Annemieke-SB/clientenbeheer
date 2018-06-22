@@ -143,7 +143,7 @@
 						<span class="label label-danger" data-toggle="tooltip" title="Dit gezin is definitief aafgekeurd, u kunt het gezin verwijderen."><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Definitief afgekeurd</span>     
 						@elseif ($family->aangemeld && $family->goedgekeurd == 0 )
 						<span class="label label-primary" data-toggle="tooltip" title="U heeft dit gezin al aangemeld, en het wacht momenteel op beoordeling van de Sinterklaasbank."><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;Aangemeld</span>     
-                        @elseif (isset($family->redenafkeuren))
+                        @elseif (isset($family->redenafkeuren)&& $family->goedgekeurd != 1)
                         <span class="label label-warning" data-toggle="tooltip" title="Dit gezin is afgekeurd, de reden hiervan kunt u lezen op de pagina van het gezin."><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Afgekeurd</span>                
                         @elseif ($family->goedgekeurd == 1)
                         <span class="label label-success" data-toggle="tooltip" title="De aanmelding van dit gezin is goedgekeurd. Als de downloadpagina wordt geopend krijgt u de mogelijkheid om voor elk kind een PDF te downloaden."><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp;Goedgekeurd</span>
