@@ -70,7 +70,7 @@ class UserController extends Controller
 
     
 
-        if (request()->has('na')) { 
+        if (request()->input('filter')=='na') { 
             // Niet geactiveerde gebruikers 
 
 
