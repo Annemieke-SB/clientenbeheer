@@ -249,35 +249,38 @@
                                     @endif
                                 </td>
                                 <td>
+                                    @if (!$family->definitiefafkeuren)
+
                                      <a href="{{ url('/kids') }}/show/{{ $kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
 
-                                    @if (App\Setting::get('inschrijven_gesloten') == 0)                                     
-                                     
-                                    
+                                        @if (App\Setting::get('inschrijven_gesloten') == 0)                                     
+                                         
+                                        
 
-                                        @if (Auth::user()->usertype==3)
-                                            @if(!$family->aangemeld==1)
-                                            <a href="{{ url('/kids') }}/edit/{{ $kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
-                                            <a href="#" data-toggle="modal" data-target="#deleteModal{{$kid->id}}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
-                                            @endif
-                                            <!-- Modal om te deleten -->
-                                            <div class="modal fade" id="deleteModal{{ $kid->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                              <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                  <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Wissen van kind {{ $kid->voornaam }}?</h4>
-                                                  </div>
-                                                  <div class="modal-body">
-                                                    <p>Klik op doorgaan om de kind-gegevens te wissen.</p>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                                                    <a id="deletehref" href="{{ url('/kids') }}/destroy/{{ $kid->id }}"><button type="button" class="btn btn-primary">Doorgaan</button></a>
+                                            @if (Auth::user()->usertype==3)
+                                                @if(!$family->aangemeld==1)
+                                                <a href="{{ url('/kids') }}/edit/{{ $kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Wijzig</button></a>
+                                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$kid->id}}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>&nbsp;Wis</button></a>
+                                                @endif
+                                                <!-- Modal om te deleten -->
+                                                <div class="modal fade" id="deleteModal{{ $kid->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                  <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">Wissen van kind {{ $kid->voornaam }}?</h4>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>Klik op doorgaan om de kind-gegevens te wissen.</p>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                                                        <a id="deletehref" href="{{ url('/kids') }}/destroy/{{ $kid->id }}"><button type="button" class="btn btn-primary">Doorgaan</button></a>
+                                                      </div>
+                                                    </div>
                                                   </div>
                                                 </div>
-                                              </div>
-                                            </div>
+                                            @endif
                                         @endif
                                     @endif
                                 </td>
