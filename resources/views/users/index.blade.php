@@ -14,6 +14,10 @@
                     </ol> 
 
                 <div class="panel-body">
+                                <!-- Flashmessage -->
+            @if (count(Session::get('message')) > 0)
+                <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+            @endif 
                     <p>
 
 
@@ -27,10 +31,7 @@
                 </div>
             </div>
 
-            <!-- Flashmessage -->
-            @if (count(Session::get('message')) > 0)
-                <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
-            @endif                       
+                      
 
 
             <div class="panel panel-default">   
