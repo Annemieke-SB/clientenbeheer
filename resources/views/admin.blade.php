@@ -289,7 +289,7 @@
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="badge">{{ count($intermediairmetnietgedownloadepdfs) }}</span> intermediairs moeten nog PDF's downloaden.</a>&nbsp;<a href="{{ url('users/index') }}/?ipd=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"><span class="badge">{{ count($intermediairmetnietgedownloadepdfs) }}</span> intermediairs moeten nog PDF's downloaden.</a>&nbsp;<a href="{{ url('users/index') }}/?ipd=1"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon gebruikersoverzicht</button></a>
         </h4>
             </div>
             <div id="collapse5" class="panel-collapse collapse">
