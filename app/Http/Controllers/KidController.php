@@ -168,6 +168,7 @@ class KidController extends Controller
         if($kid->barcode){
             $barcode = Barcode::findOrFail($kid->barcode->id);
             $barcode->kid_id = NULL;
+            $barcode->user_id = NULL;
             $barcode->save();       
         }
 

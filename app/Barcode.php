@@ -52,6 +52,7 @@ class Barcode extends Model
 		   throw new \Exception("Kan barcode niet ontkoppelen, hij is al gedownload!");
 	    }else {	    
 	    	$this->kid_id = NULL;
+            $this->user_id = NULL;
 		$this->save();
 		return true;
 	    }
