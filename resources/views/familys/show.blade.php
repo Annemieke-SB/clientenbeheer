@@ -323,7 +323,14 @@
                                 </div>
                                 @endif
 
-                                @if ($family->kidsdisqualified && $family->targetkids)
+                                @if ($family->definitiefafkeuren)
+                                <div class="panel panel-danger">
+                                  <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | Dit gezin is definitief afgekeurd!</b></div>
+                                  <div class="panel-body bg-danger">
+                                    Dit gezin is definitief afgekeurd. Gelieve het gezin te verwijderen.&nbsp;
+                                  </div>
+                                </div>
+                                @elseif ($family->kidsdisqualified && $family->targetkids)
                                 <div class="panel panel-danger">
                                   <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><b> | 
                                     @if ($family->kidsdisqualified == 1)
@@ -337,6 +344,8 @@
                                   </div>
                                 </div>
                                 @endif
+
+
                                 @if (Auth::user()->usertype==3)
                                     @if (($family->kidsdisqualified && $family->targetkids) || !$family->targetkids || $family->definitiefafkeuren == 1)
                                         

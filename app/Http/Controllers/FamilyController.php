@@ -377,6 +377,13 @@ class FamilyController extends Controller
             
         } 
 
+        if($family->definitiefafkeuren) {
+
+            Log::info('Family:aanmelden terwijl definitiefafkeuren: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin geprobeerd aan te melden terwijl het gezin definitief is afgekeurd, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
+            
+        }         
+
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
         if($loggedinuser->id != $family->user->id){
             
