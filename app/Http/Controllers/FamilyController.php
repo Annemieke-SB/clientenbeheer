@@ -266,29 +266,32 @@ class FamilyController extends Controller
         }
     }
 
-    public function toggleok($id)
+    public function goedkeuren($id)
     {
+
+        /*--
+        |   
+        |   Eerst was dit toggleok om te togglen, maar nu toch maar omgebouwd naar goedkeuren, omdat er ook een afkeur-method is.
+        |
+        --*/
+
         $loggedinuser = Auth::user();
 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
-            Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
-            return redirect('home')->with('message', 'U heeft een barcode geprobeerd los te koppelen terwijl de downloads al geopend zijn, dit kan niet omdat ze mogelijk al gedownload zijn. U bent weer teruggeleid naar uw startpagina.');
-            
+            Log::info('Er werd geprobeerd een gezin goed te keuren terwij downloads al zijn geopend: user '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft geprobeerd een gezin goed te keuren terwijl de downloads al geopend zijn, dat kan niet. U bent weer terug geleid naar uw startpagina.');
         } 
 
         
-
-        // Intermediairs mogen de activatie niet wijzigen        
+       // Intermediairs mogen de activatie niet wijzigen        
         if(($loggedinuser->usertype == 3)){
-            $juisteintermediair = DB::table('intermediairs')->where('user_id', $loggedinuser->id)->first();
-            Log::info('Een intermediair probeerde de gezins-toggleaok te wijzigen, userid: '.$loggedinuser->id);
-            return redirect('intermediairs/show/'.$juisteintermediair->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            Log::info('Een intermediair probeerde een gezin goed te keuren, userid: '.$loggedinuser->id);
+            return redirect('/')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
         if(($loggedinuser->usertype == 2)){
-            
-            Log::info('Een raadpleger probeerde de gezins-toggleaok te wijzigen, userid: '.$loggedinuser->id);
+            Log::info('Een raadpleger probeerde de gezin goed te keuren, userid: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
@@ -297,12 +300,9 @@ class FamilyController extends Controller
         if ($family->goedgekeurd==1) {
 
             /* 
-            * Eerst de barcodes loskoppelen
+            * Is al goedgekeurd, terug naar gezin
             */
-            $this->barcodesloskoppelen($family->id);
-
-            $family->goedgekeurd=0;
-            $family->save(); 
+            return redirect('/family/show/' . $family->id)->with('message', 'Het gezin is al goedgekeurd.');
             
         } else {
             
