@@ -279,7 +279,7 @@ class FamilyController extends Controller
 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
-            Log::info('Er werd geprobeerd een gezin goed te keuren terwij downloads al zijn geopend: user '.$loggedinuser->id);
+            Log::info('Er werd geprobeerd een gezin goed te keuren terwijl downloads al zijn geopend: user '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft geprobeerd een gezin goed te keuren terwijl de downloads al geopend zijn, dat kan niet. U bent weer terug geleid naar uw startpagina.');
         } 
 
@@ -352,7 +352,8 @@ class FamilyController extends Controller
             *   Einde mail
             */
 
-            $family->goedgekeurd=1;       
+            $family->goedgekeurd=1;    
+            $family->redenafkeuren=NULL;      
             $family->save();     
             }
       
