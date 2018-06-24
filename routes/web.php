@@ -111,7 +111,7 @@ Route::get('/family/show/{id}', 'FamilyController@show')->middleware('auth');
 Route::get('/family/edit/{id}', 'FamilyController@edit')->middleware('auth');
 Route::post('/family/update/', 'FamilyController@update')->middleware('auth');
 Route::get('/family/destroy/{id}', 'FamilyController@destroy')->middleware('auth');
-Route::get('/family/toggleok/{id}', 'FamilyController@toggleok')->middleware('auth');
+Route::get('/family/goedkeuren/{id}', 'FamilyController@goedkeuren')->middleware('auth');
 Route::get('family/aanmelden/{id}', 'FamilyController@aanmelden')->middleware('auth');
 Route::get('family/afkeuren/{id}', 'FamilyController@afkeuren')->middleware('auth');
 Route::post('family/afkeuren/', 'FamilyController@setafkeurtext')->middleware('auth');
