@@ -300,6 +300,10 @@ class UserController extends Controller
 
         $input = $request->all();
 
+        if ($request->woonplaats=="") {
+            return redirect('user/edit/'.$user->id)->with('message', 'Er was een ongeldige postcode ingevoerd.');
+        }
+
         $user->fill($input)->save();
 
         return redirect('user/edit/'.$user->id)->with('message', 'Gegevens gewijzigd');
