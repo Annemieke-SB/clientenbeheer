@@ -24,7 +24,7 @@
         <li role="presentation" class="disabled"><a href="#">Gezinnen toevoegen</a></li>
         @else
             @if (Auth::user()->id != Request::segment(3))
-            <li role="presentation" class="disabled"><a href="#">Gezinnen toevoegen</a></li>
+            <li role="presentation" class="disabled"><a href="#">Gezin toevoegen</a></li>
             @else
             <li role="presentation"><a href="{{url('familie/toevoegen')}}/{{$user->id}}">Gezinnen toevoegen</a></li>
             @endif
