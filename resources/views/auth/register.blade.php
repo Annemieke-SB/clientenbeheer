@@ -261,7 +261,7 @@
 
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="password" class="col-md-5 control-label">Wachtwoord</label>
+                    <label for="password" class="col-md-5 control-label">Wachtwoord <small>(min 6 karakters)</small></label>
 
                     <div class="col-md-6">
                         <div class="input-group">
