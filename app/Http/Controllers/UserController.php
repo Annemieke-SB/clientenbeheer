@@ -81,7 +81,7 @@ class UserController extends Controller
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->where('usertype', 3)->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
