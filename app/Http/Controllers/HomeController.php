@@ -46,7 +46,7 @@ class HomeController extends Controller
 		 */
 
 
-				$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->get();
+				$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('goedgekeurd', 1)->get();
                 $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
                 $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                 $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
