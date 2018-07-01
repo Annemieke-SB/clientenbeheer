@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+<meta http-equiv="refresh" content="0; url=https://clientenbeheer.sinterklaasbank.nl/inschrijven" />
         <title>Sorry!</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
