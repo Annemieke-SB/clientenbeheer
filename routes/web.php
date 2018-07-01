@@ -27,6 +27,8 @@ Route::get('/voorwaarden', function () {
     return view('voorwaarden');
 });
 */
+
+Route::get('/inschrijven%C2%A0', 'PagesController@inschrijven');
 Route::get('/inschrijven', 'PagesController@inschrijven');
 Route::get('/faq', 'FaqController@index');
 Route::get('/particulier', 'PagesController@particulier');
