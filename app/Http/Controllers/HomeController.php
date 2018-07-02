@@ -38,59 +38,58 @@ class HomeController extends Controller
 
 		if($user->activated == 1 && $user->emailverified == 1) {
 
-		if($user->usertype == 1)
-		{
+    		if($user->usertype == 1)
+    		{
 
-		/**
-		 * Hier komt de admin-pagina
-		 */
+    		/**
+    		 * Hier komt de admin-pagina
+    		 */
 
 
-				$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
-                $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
+    				$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
+                    $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
+                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
 
-                $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
-                        $query->whereNull('downloadedpdf');
-                    })->get();
+                    $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->get();
 
-	    
-                return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
+    	    
+                    return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 
-		}
-		elseif($user->usertype == 2)
-		{
-	
-		/**
-		 * Hier komt de admin-pagina
-		 */
-	    
-			return view('raadpleger');
-		
-		}
-		elseif($user->usertype == 3)
-		{
-	
-		/**
-		 * Hier komt de intermediair-pagina
-		 */
-	
-			return redirect('user/show/'.$user->id);
-		
-		}   
-        }
-        elseif($user->emailverified == 0)  {
+    		}
+    		elseif($user->usertype == 2)
+    		{
+    	
+    		/**
+    		 * Hier komt de admin-pagina
+    		 */
+    	    
+    			return view('raadpleger');
+    		
+    		}
+    		elseif($user->usertype == 3)
+    		{
+    	
+    		/**
+    		 * Hier komt de intermediair-pagina
+    		 */
+    	
+    			return redirect('user/show/'.$user->id);
+    		
+    		}   
+        } elseif($user->emailverified == 0)  {
 
-            auth()->logout();
-            return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
-	}
-	else 
-	{
-	     
-		return view('welcometempuser'); 
-	
-	}
+                auth()->logout();
+                return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
+    	}
+    	else 
+    	{
+    	     
+    		return view('welcometempuser'); 
+    	
+    	}
     }
 
     public function docs()
