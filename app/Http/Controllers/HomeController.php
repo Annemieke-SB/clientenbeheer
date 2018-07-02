@@ -36,6 +36,12 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
+        if($user->activated == 0 && $user->emailverified == 1) {
+
+            return view('welcometempuser'); 
+
+        }
+
 		if($user->activated == 1 && $user->emailverified == 1) {
 
     		if($user->usertype == 1)
@@ -83,12 +89,6 @@ class HomeController extends Controller
 
                 auth()->logout();
                 return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
-    	}
-    	else 
-    	{
-    	     
-    		return view('welcometempuser'); 
-    	
     	}
     }
 
