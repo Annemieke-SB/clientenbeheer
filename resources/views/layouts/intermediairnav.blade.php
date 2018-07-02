@@ -21,9 +21,9 @@
     <li role="presentation" class="active"><a href="{{url('familie/toevoegen')}}{{$user->id}}">Gezin toevoegen</a></li>
     @else
         @if (App\Setting::get('inschrijven_gesloten')==1)
-        <li role="presentation" class="disabled"><a href="#">Gezin toevoegen</a></li>
+            <li role="presentation" class="disabled"><a href="#">Gezin toevoegen</a></li>
         @else
-            @if (Auth::user()->id != Request::segment(3))
+            @if (Auth::user()->id != Request::segment(3) || Auth::user()->activated == 0)
             <li role="presentation" class="disabled"><a href="#">Gezin toevoegen</a></li>
             @else
             <li role="presentation"><a href="{{url('familie/toevoegen')}}/{{$user->id}}">Gezin toevoegen</a></li>
