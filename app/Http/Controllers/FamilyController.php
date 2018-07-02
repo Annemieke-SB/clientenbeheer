@@ -62,6 +62,10 @@ class FamilyController extends Controller
     {
         $loggedinuser = Auth::user(); 
 
+        if ($loggedinuser->activated == 0) {
+            return redirect('home')->with('message', 'U kunt alleen gezinnen aanmelden als uw account is geactiveerd.');
+        }
+
        if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd gezin aan te maken terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
