@@ -81,13 +81,13 @@ class UserController extends Controller
 
             // Toon intermediairs zonder gezinnen
 
-            $users = User::whereDoesntHave('familys')->where('usertype', 3)->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('familys')->where('activated', '1')->where('usertype', 3)->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izk') {
 
             // Toon intermediairs zonder kinderen
 
-            $users = User::whereDoesntHave('kids')->where('usertype', 3)->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
+            $users = User::whereDoesntHave('kids')->where('activated', '1')->where('usertype', 3)->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='ipd') {
 
@@ -254,6 +254,10 @@ class UserController extends Controller
         $user = User::find($id);
 
         $loggedinuser = Auth::user();
+
+        if(($loggedinuser->usertype == 3)&&($loggedinuser->activated != 1)){
+
+        }
 
         // Intermediairs mogen geen andere kinderen zien dan diegene die ze zelf beheren        
         if(($loggedinuser->usertype == 3)&&($loggedinuser->id != $id)){
