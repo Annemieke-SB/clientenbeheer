@@ -61,7 +61,7 @@ class User extends Authenticatable
 
         // check of de intermediair andere initiatieven tussen de gezinnen heeft. 
 
-        $gezinnen = $this->families;
+        $gezinnen = $this->familys;
         $andereinitiatieven = false;
         dd($gezinnen);
         if ($gezinnen > 0) {
