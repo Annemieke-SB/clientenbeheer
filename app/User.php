@@ -63,7 +63,7 @@ class User extends Authenticatable
 
         $gezinnen = $this->families;
         $andereinitiatieven = false;
-
+        dd($gezinnen);
         if ($gezinnen > 0) {
 return true;
             /*
