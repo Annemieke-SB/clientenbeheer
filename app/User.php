@@ -65,6 +65,8 @@ class User extends Authenticatable
         $andereinitiatieven = false;
 
         if ($gezinnen > 0) {
+return true;
+            /*
                foreach ($gezinnen as $gezin) {
 
                     if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
@@ -73,12 +75,13 @@ class User extends Authenticatable
 
                     }                    
             }  
-            return true;           
+            return false;  
+            */         
         }
 
 
 
-        return true;
+        return false;
     }
 
     public function getNaamAttribute() {
