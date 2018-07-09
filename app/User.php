@@ -65,8 +65,8 @@ class User extends Authenticatable
         $andereinitiatieven = false;
         dd($gezinnen);
         if ($gezinnen > 0) {
-return true;
-            /*
+
+            
                foreach ($gezinnen as $gezin) {
 
                     if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
@@ -76,7 +76,7 @@ return true;
                     }                    
             }  
             return false;  
-            */         
+                  
         }
 
 
