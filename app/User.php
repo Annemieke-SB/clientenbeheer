@@ -64,14 +64,19 @@ class User extends Authenticatable
         $gezinnen = $this->families;
         $andereinitiatieven = false;
 
-        foreach ($gezinnen as $gezin) {
+        if ($gezinnen > 0) {
+               foreach ($gezinnen as $gezin) {
 
-                if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
+                    if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
 
-                    return true;
+                        return true;
 
-                }                    
-        }    
+                    }                    
+            }  
+            return false;           
+        }
+
+
 
         return false;
     }
