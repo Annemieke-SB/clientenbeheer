@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $appends = array('blacklisted');
+    protected $appends = array('blacklisted', 'andereinitiatieven');
 
     protected $fillable = [
         'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'type', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
@@ -57,6 +57,24 @@ class User extends Authenticatable
 	    return Blacklist::check($this->email);
     }
 
+    public function getAndereinitiatievenAttribute() {
+
+        // check of de intermediair andere initiatieven tussen de gezinnen heeft. 
+
+        $gezinnen = $this->families;
+        $andereinitiatieven = false;
+
+        foreach ($gezinnen as $gezin) {
+
+                if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
+
+                    return true;
+
+                }                    
+        }    
+
+        return false;
+    }
 
     public function getNaamAttribute() {
 	

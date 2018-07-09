@@ -154,6 +154,9 @@
 							@if ($user->blacklisted)
 								<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 							@endif
+                            @if ($user->andereinitiatieven)
+                                <span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;andereinitiatieven</span>
+                            @endif
                                                     <br><b><i>{{ $user->organisatienaam}} </i></b>
                                                 </td>
                     							<td>
