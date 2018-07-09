@@ -64,7 +64,7 @@ class User extends Authenticatable
         $gezinnen = $this->familys;
         $andereinitiatieven = false;
         
-        if ($gezinnen > 0) {
+        
 
             
                foreach ($gezinnen as $gezin) {
@@ -77,8 +77,7 @@ class User extends Authenticatable
             }  
             return false;  
                   
-        }
-
+        
 
 
         return false;
