@@ -56,7 +56,7 @@ class Custommade {
 
         //mail($to, 'Nieuwe gebruiker in clientenbeheer', $message, $headers);    
 
-        Mail::to($to)->send("bericht");
+        mail('henrique@van.huisste.de', 'My Subject', $message);
     }
 
 
