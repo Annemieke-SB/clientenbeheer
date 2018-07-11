@@ -114,9 +114,6 @@ class User extends Authenticatable
 
         $to = Setting::find(5)->setting;
 
-
-
-        dd($to);
         Custommade::sendNewUserNotificationEmailToAdmin($to);
         
     }
