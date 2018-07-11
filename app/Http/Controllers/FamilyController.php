@@ -539,7 +539,7 @@ class FamilyController extends Controller
 
         $maildata = [
                 'titel' => "Het gezin ". $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank",
-                'mailmessage' => "Het gezin " . $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank. De reden hiervoor is : \n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
+                'mailmessage' => "Het gezin " . $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank. De reden hiervoor is : \n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\n",
                 'voornaam' => $owner->voornaam,
                 'email'=>$owner->email
         ];
