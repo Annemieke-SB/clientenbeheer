@@ -3,6 +3,7 @@
 
 
 namespace App\Helpers;
+use Illuminate\Mail\Mailable;
 
 
 class Custommade {
