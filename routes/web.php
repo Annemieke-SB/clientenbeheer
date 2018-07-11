@@ -33,7 +33,6 @@ Route::get('/inschrijven', 'PagesController@inschrijven');
 Route::get('/faq', 'FaqController@index');
 Route::get('/particulier', 'PagesController@particulier');
 Route::get('/voorwaarden', 'PagesController@voorwaarden');
-Route::get('/mailnaaradmins', 'TestController@mailnaaradmins'); // tijdelijk test, kan weg. 
 
 Route::get('/', 'PagesController@home');
 
@@ -151,15 +150,13 @@ Route::post('/sendmail/', 'SettingsController@sendmail')->middleware('auth');
 
 
 Route::get('/tellingen/', 'HomeController@tellingen')->middleware('auth');
-Route::get('/kinderlijst/', 'HomeController@kinderlijst')->middleware('auth');
-Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst')->middleware('auth');
+Route::get('/kinderlijst/', 'HomeController@kinderlijst')->middleware('auth'); 
+Route::get('/gezinnenlijst/', 'HomeController@gezinnenlijst')->middleware('auth'); 
 Route::get('/gezinnenlijst_goedgekeurd/', 'HomeController@gezinnenlijst_goedgekeurd')->middleware('auth'); 
 
-Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaantemelden')->middleware('auth');
+Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaantemelden')->middleware('auth'); 
 
 Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs')->middleware('auth');
-
-
 
 /*
 *
