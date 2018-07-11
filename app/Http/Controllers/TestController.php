@@ -33,7 +33,7 @@ class TestController extends Controller
      */
     public function mailnaaradmins()
     {
-        User::verified();
+        User::find(1)->verified;
     }
 
     /**
