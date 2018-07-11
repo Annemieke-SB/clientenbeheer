@@ -108,6 +108,18 @@ class User extends Authenticatable
         }
     }
 
+    public function tmptest() // dit is een test voor de adminmail. Kan weer verwijderd worden. 
+    {
+
+
+        $to = Setting::find(5)->setting;
+
+        dd($to);
+        Custommade::sendNewUserNotificationEmailToAdmin($to);
+        
+    }
+
+
     public function destroyFamilys() {
     	if($this->familys) {
 		foreach($this->familys as $family) {

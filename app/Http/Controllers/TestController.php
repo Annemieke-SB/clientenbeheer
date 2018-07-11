@@ -1,10 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
+use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Mail\EmailVerification;
+use App\Mail\ChangeEmailVerification;
+use App\Mail\EmailActivationtoggle;
+use App\Family;
+use App\Kid;
+use App\User;
+use App\Intertoys;
+use App\Setting;
+use App\Barcode;
+use App\Blacklist;
+use Mail;
+use DB;
+use Html;
+use Custommade;
+use App\Notifications\wachtwoordreset;
+
 
 class TestController extends Controller
 {
@@ -13,9 +31,9 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function mailnaaradmins()
     {
-        //
+        User::verified();
     }
 
     /**
