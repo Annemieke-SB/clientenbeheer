@@ -28,7 +28,8 @@ class Custommade {
     }
 
 
-    public static function sendNewUserNotificationEmailToAdmin($to = false) {
+    public static function sendNewUserNotificationEmailToAdmin($to) {
+        dd($to);
 
 		$headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
 					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
