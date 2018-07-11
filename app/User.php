@@ -116,7 +116,6 @@ class User extends Authenticatable
 
         Custommade::sendNewUserNotificationEmailToAdmin($to);
 
-        dd($to);
         
     }
 
