@@ -4,6 +4,7 @@
 
 namespace App\Helpers;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 
 class Custommade {
