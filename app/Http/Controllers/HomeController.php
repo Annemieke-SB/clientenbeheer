@@ -142,20 +142,24 @@ class HomeController extends Controller
 
         $kids_metbarcode = Barcode::whereNotNull('kid_id')->count();
 
+        $familieszonderkinderen = Family::whereDoesntHave('kids')->count();        
+        $families_disqualified = Family::whereNotNull('redenafkeuren')
+                ->where('goedgekeurd','=',0)
+                ->whereNull('definitiefafkeuren')
+                ->select('familys.*')
+                ->count();        
         $families_definitiefdisqualified = Family::whereNotNull('definitiefafkeuren')->count();
-        $familieszonderkinderen = Family::whereDoesntHave('kids')->count();
-
+        
 		$families_goedgekeurd = Family::where('goedgekeurd','=',1)
 				->count();
+        $families_tekeuren = Family::where('goedgekeurd','=',0)
+                            ->where('aangemeld','=',1)
+                            ->count();
 
-		$families_disqualified = Family::whereNotNull('redenafkeuren')
-				->where('goedgekeurd','=',0)
-				->whereNull('definitiefafkeuren')
-				->select('familys.*')
-				->count();
+
 
 		return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
-				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode]);     
+				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'familiestekeuren'=>$familiestekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode]);     
     }
 
     public function kinderlijst()

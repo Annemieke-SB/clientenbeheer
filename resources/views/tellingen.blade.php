@@ -67,24 +67,28 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr>
-								<td>Families zonder kinderen</td>
-								<td>{{ $familieszonderkinderen }}</td>
-							</tr>	
 						<tr>
+							<td>Families zonder kinderen</td>
+							<td>{{ $familieszonderkinderen }}</td>
+						</tr>	
+						
 						<tr>
 								<td>Families goedgekeurd</td>
 								<td>{{ $families_goedgekeurd }}</td>
-							</tr>	
+						</tr>	
 						<tr>
+								<td>Families te keuren</td>
+								<td>{{ $families_tekeuren }}</td>
+						</tr>	
+
 						<tr>
-								<td>Families afgekeurd (tijdelijk)</td>
-								<td>{{ $families_disqualified }}</td>
-							</tr>	
+							<td>Families afgekeurd (tijdelijk)</td>
+							<td>{{ $families_disqualified }}</td>
+						</tr>	
 						<tr>
-								<td>Families afgekeurd (definitief)</td>
-								<td>{{ $families_definitiefdisqualified }}</td>
-							</tr>													
+							<td>Families afgekeurd (definitief)</td>
+							<td>{{ $families_definitiefdisqualified }}</td>
+						</tr>													
 						</tbody>
                 	</table>                	
                     
