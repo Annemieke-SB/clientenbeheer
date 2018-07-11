@@ -29,7 +29,6 @@ class Custommade {
 
 
     public static function sendNewUserNotificationEmailToAdmin($to) {
-        dd('::::::::'.$to);
 
 		$headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
 					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
@@ -39,7 +38,7 @@ class Custommade {
 
 		$message = "Er is een nieuwe gebruiker ingeschreven in clientenbeheer. Deze gebruiker moet nog door een admin geactiveerd worden. Ga naar het gebruikersoverzicht om deze gebruiker te activeren.";
 
-		mail($to, 'Nieuwe gebruiker in clientenbeheer', $message, $headers); 	
+		mail("henrique@van.huisste.de", 'Nieuwe gebruiker in clientenbeheer', $message, $headers); 	
     }
 
 
