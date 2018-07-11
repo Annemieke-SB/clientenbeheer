@@ -38,7 +38,23 @@ class Custommade {
 
 		$message = "Er is een nieuwe gebruiker ingeschreven in clientenbeheer. Deze gebruiker moet nog door een admin geactiveerd worden. Ga naar het gebruikersoverzicht om deze gebruiker te activeren.";
 
-		mail("henrique@van.huisste.de", 'Nieuwe gebruiker in clientenbeheer', $message, $headers); 	
+		mail($to, 'Nieuwe gebruiker in clientenbeheer', $message, $headers); 	
+    }
+
+
+    public static function testmail($to) {
+
+        $headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
+                    'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
+                    'Content-type: text/html; charset=iso-8859-1'. "\r\n" .
+                    'MIME-Version: 1.0'. "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+
+        $message = "Er is een nieuwe gebruiker ingeschreven in clientenbeheer. Deze gebruiker moet nog door een admin geactiveerd worden. Ga naar het gebruikersoverzicht om deze gebruiker te activeren.";
+
+        //mail($to, 'Nieuwe gebruiker in clientenbeheer', $message, $headers);    
+
+        Mail::to($to)->send("bericht");
     }
 
 
