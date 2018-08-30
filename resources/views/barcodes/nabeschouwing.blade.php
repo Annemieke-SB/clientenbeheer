@@ -38,11 +38,11 @@
                     Totaal uitgegeven aan barcodes volgens eindlijst
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">{{$welgebruiktebarcodes}}</span>
+                    <span class="badge">{{$nietgebruiktebarcodes}}</span>
                     Totaal aantal uitgegeven barcodes <b>niet</b> ingewisseld
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">{{ count($nietgebruiktebarcodes) }}</span>
+                    <span class="badge">{{ count($welgebruiktebarcodes) }}</span>
                     Totaal aantal uitgegeven barcodes <b>wel</b> ingewisseld
                 </li>
             </ul>

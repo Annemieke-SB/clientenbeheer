@@ -129,7 +129,7 @@ Route::post('kids/store', 'KidController@store')->middleware('auth');
 Route::get('/barcodes/', 'BarcodeController@index')->middleware('auth');
 Route::post('barcodes/upload', 'BarcodeController@store')->middleware('auth');
 Route::get('/extrabarcodes', 'BarcodeController@extrabarcodes')->middleware('auth');
-Route::get('/barcodereview', 'BarcodeController@barcodereview')->middleware('auth');
+Route::get('/bonderzciwoeksnaamarcodereview', 'BarcodeController@barcodereview')->middleware('auth');
 Route::post('barcodes/eindlijst_upload', 'BarcodeController@eindlijst_upload')->middleware('auth');
 Route::post('barcodes/claimlossebarcodes', 'BarcodeController@claimlossebarcodes')->middleware('auth');
 
