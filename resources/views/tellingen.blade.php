@@ -29,8 +29,18 @@
                 		</thead>
                 		<tfoot>
 							<tr>
-							   	<td>Totaal in database {{ $kids_goedgekeurd + $kids_nog_niet_aangemeld + $kids_in_afwachting_van_keuring + $kids_disqualified + $kids_definitiefdisqualified }}</td>
-							   	<td>{{ $kids }}</td>
+							   	<td>Totaal in database</td>
+							   	<td>
+
+							   		@if ( $kids_goedgekeurd + $kids_nog_niet_aangemeld + $kids_in_afwachting_van_keuring + $kids_disqualified + $kids_definitiefdisqualified != $kids) 
+							   		! bovenstaande som ({{$kids_goedgekeurd + $kids_nog_niet_aangemeld + $kids_in_afwachting_van_keuring + $kids_disqualified + $kids_definitiefdisqualified}}) komt niet overeen met de database ({{ $kids }})
+
+							   		@else
+										{{ $kids }}
+
+							   		@endif
+
+							   	{{ $kids }}</td>
 							</tr>
 						</tfoot>
 						<tbody>
