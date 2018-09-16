@@ -152,12 +152,20 @@ class HomeController extends Controller
         
 		$families_goedgekeurd = Family::where('goedgekeurd','=',1)
 				->count();
+
         $families_tekeuren = Family::where('goedgekeurd','=',0)
                             ->where('aangemeld','=',1)
                             ->count();
 
 
-        $kids_nog_niet_aangemeld = 0;
+        $kids_nog_niet_aangemeld = DB::table('kids')
+        ->join('familys', function ($Join) {
+            $Join->on('kids.family_id', '=', 'familys.id')
+                    ->where('familys.goedgekeurd','=',0)
+                    ->where('familys.aangemeld','=',0)
+                    ->select('kids.*');
+        })
+        ->count();
 
         $kids_in_afwachting_van_keuring = 0;
 
