@@ -43,8 +43,8 @@
 								<td>{{ $kids_metbarcode }}</td>
 							</tr>
 						<tr>
-								<td>Kinderen die zijn afgekeurd</td>
-								<td>{{ $kids_disqualified }}</td>
+								<td>Kinderen afgekeurd {{ $kids_disqualified }} + definitief afgekeurd {{ $kids_definitiefdisqualified }}</td>
+								<td>{{ $kids_disqualified + $kids_definitiefdisqualified }}</td>
 							</tr>
 
 							<tr>
