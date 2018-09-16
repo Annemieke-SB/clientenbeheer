@@ -43,7 +43,7 @@
 								<td>{{ $kids_metbarcode }}</td>
 							</tr>
 						<tr>
-								<td>Kinderen afgekeurd {{ $kids_disqualified }} + definitief afgekeurd {{ $kids_definitiefdisqualified }}</td>
+								<td>Kinderen afgekeurd ({{ $kids_disqualified }}) + definitief afgekeurd ({{ $kids_definitiefdisqualified }}) = </td>
 								<td>{{ $kids_disqualified + $kids_definitiefdisqualified }}</td>
 							</tr>
 
