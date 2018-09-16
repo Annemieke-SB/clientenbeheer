@@ -29,7 +29,7 @@
                 		</thead>
                 		<tfoot>
 							<tr>
-							   	<td>Totaal</td>
+							   	<td>Totaal in database {{ $kids_goedgekeurd + $kids_nog_niet_aangemeld + $kids_in_afwachting_van_keuring + $kids_disqualified + $kids_definitiefdisqualified }}</td>
 							   	<td>{{ $kids }}</td>
 							</tr>
 						</tfoot>
