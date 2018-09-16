@@ -141,12 +141,14 @@ class HomeController extends Controller
 
         $kids_metbarcode = Barcode::whereNotNull('kid_id')->count();
 
-        $familieszonderkinderen = Family::whereDoesntHave('kids')->count();        
+        $familieszonderkinderen = Family::whereDoesntHave('kids')->count();  
+
         $families_disqualified = Family::whereNotNull('redenafkeuren')
                 ->where('goedgekeurd','=',0)
                 ->whereNull('definitiefafkeuren')
                 ->select('familys.*')
                 ->count();        
+
         $families_definitiefdisqualified = Family::whereNotNull('definitiefafkeuren')->count();
         
 		$families_goedgekeurd = Family::where('goedgekeurd','=',1)
@@ -162,6 +164,7 @@ class HomeController extends Controller
             $Join->on('kids.family_id', '=', 'familys.id')
                     ->where('familys.goedgekeurd','=',0)
                     ->where('familys.aangemeld','=',0)
+                    ->whereNull('familys.redenafkeuren')
                     ->whereNull('familys.definitiefafkeuren')
                     ->select('kids.*');
         })
