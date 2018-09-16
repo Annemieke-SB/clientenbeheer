@@ -135,7 +135,6 @@ class HomeController extends Controller
         ->join('familys', function ($Join) {
             $Join->on('kids.family_id', '=', 'familys.id')
 					->where('familys.goedgekeurd','=',1)
-					->whereNull('familys.definitiefafkeuren')
 					->select('kids.*');
         })
         ->count();
