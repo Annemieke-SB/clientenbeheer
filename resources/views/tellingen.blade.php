@@ -39,8 +39,7 @@
 										{{ $kids }}
 
 							   		@endif
-
-							   	{{ $kids }}</td>
+								</td>
 							</tr>
 						</tfoot>
 						<tbody>
