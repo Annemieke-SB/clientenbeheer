@@ -116,6 +116,7 @@ class HomeController extends Controller
 		$kids_disqualified = DB::table('kids')
         ->join('familys', function ($Join) {
             $Join->on('kids.family_id', '=', 'familys.id')
+                    ->where('aangemeld','=',1)
 					->where('familys.goedgekeurd','=',0)
 					->whereNull('familys.definitiefafkeuren')
 					->select('kids.*');
