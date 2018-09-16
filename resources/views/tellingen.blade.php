@@ -62,7 +62,7 @@
 						</tbody>
                 	</table>
 
-					<table class="table"><caption>Families</caption>
+					<table class="table"><caption>Gezinnen</caption>
                 		<thead>
                 			<tr>
                 				<th>Categorie</th><th>Aantal</th>
@@ -76,25 +76,25 @@
 						</tfoot>
 						<tbody>
 						<tr>
-							<td>Families zonder kinderen</td>
+							<td>Gezinnen zonder kinderen</td>
 							<td>{{ $familieszonderkinderen }}</td>
 						</tr>	
 						
 						<tr>
-								<td>Families goedgekeurd</td>
+								<td>Gezinnen goedgekeurd</td>
 								<td>{{ $families_goedgekeurd }}</td>
 						</tr>	
 						<tr>
-								<td>Families te keuren</td>
+								<td>Gezinnen te keuren</td>
 								<td>{{ $families_tekeuren }}</td>
 						</tr>	
 
 						<tr>
-							<td>Families afgekeurd (tijdelijk)</td>
+							<td>Gezinnen afgekeurd (tijdelijk)</td>
 							<td>{{ $families_disqualified }}</td>
 						</tr>	
 						<tr>
-							<td>Families afgekeurd (definitief)</td>
+							<td>Gezinnen afgekeurd (definitief)</td>
 							<td>{{ $families_definitiefdisqualified }}</td>
 						</tr>													
 						</tbody>
