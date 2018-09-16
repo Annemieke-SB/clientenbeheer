@@ -34,22 +34,21 @@
 							</tr>
 						</tfoot>
 						<tbody>
-								<tr>
+							<tr>
 								<td>Kinderen die zijn goedgekeurd</td>
 								<td>{{ $kids_goedgekeurd }}</td>
 							</tr>
-						<tr>						<tr>
-								<td>Uitgegeven barcodes (moet zelfde zijn als kinderen goedgekeurd)</td>
-								<td>{{ $kids_metbarcode }}</td>
+							<tr>
+								<td>Kinderen die nog niet zijn aangemeld</td>
+								<td>{{ $kids_nog_niet_aangemeld }}</td>
 							</tr>
-						<tr>
+							<tr>
+								<td>Aangemelde kinderen die nog moeten worden gekeurd</td>
+								<td>{{ $kids_in_afwachting_van_keuring }}</td>
+							</tr>							
+							<tr>
 								<td>Kinderen afgekeurd ({{ $kids_disqualified }}) + definitief afgekeurd ({{ $kids_definitiefdisqualified }}) = </td>
 								<td>{{ $kids_disqualified + $kids_definitiefdisqualified }}</td>
-							</tr>
-
-							<tr>
-								<td>Kinderen die definitief zijn afgekeurd</td>
-								<td>{{ $kids_definitiefdisqualified }}</td>
 							</tr>
 						</tbody>
                 	</table>
