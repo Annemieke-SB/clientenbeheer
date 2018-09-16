@@ -167,7 +167,14 @@ class HomeController extends Controller
         })
         ->count();
 
-        $kids_in_afwachting_van_keuring = 0;
+        $kids_in_afwachting_van_keuring = DB::table('kids')
+        ->join('familys', function ($Join) {
+            $Join->on('kids.family_id', '=', 'familys.id')
+                    ->where('familys.goedgekeurd','=',0)
+                    ->where('familys.aangemeld','=',1)
+                    ->select('kids.*');
+        })
+        ->count();
 
 
 
