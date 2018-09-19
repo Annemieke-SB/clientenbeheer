@@ -73,8 +73,6 @@ class UserController extends Controller
         if (request()->input('filter')=='na') { 
             // Niet geactiveerde gebruikers 
 
-
-
             $users = User::where('activated', '0')->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));
 
         } elseif (request()->input('filter')=='izg') {
@@ -110,7 +108,7 @@ class UserController extends Controller
             // Toon intermediairs waarvan nog gezinnen moeten worden aangemeld
 
             $users = User::whereHas('familys', function($query){
-                $query->where('aangemeld', 0)->where('goedgekeurd', 0);
+                $query->where('aangemeld', 0)->where('goedgekeurd', 0)->whereNull('familys.definitiefafkeuren');
             })->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));   
 
         } elseif (request()->input('filter')=='iai') {
