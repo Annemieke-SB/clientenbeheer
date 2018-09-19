@@ -75,12 +75,9 @@
 							</tr>
 						</tfoot>
 						<tbody>
+	
 						<tr>
-							<td>Gezinnen zonder kinderen</td>
-							<td>{{ $familieszonderkinderen }}</td>
-						</tr>	
-						<tr>
-							<td>Gezinnen nog niet aangemeld</td>
+							<td>Gezinnen nog niet aangemeld (waarvan {{ $familieszonderkinderen }} zonder kinderen)</td>
 							<td>{{ $gezinnen_nog_niet_aangemeld }}</td>
 						</tr>	
 						<tr>
