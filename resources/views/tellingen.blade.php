@@ -79,7 +79,10 @@
 							<td>Gezinnen zonder kinderen</td>
 							<td>{{ $familieszonderkinderen }}</td>
 						</tr>	
-						
+						<tr>
+							<td>Gezinnen nog niet aangemeld</td>
+							<td>{{ $gezinnen_nog_niet_aangemeld }}</td>
+						</tr>	
 						<tr>
 								<td>Gezinnen goedgekeurd</td>
 								<td>{{ $families_goedgekeurd }}</td>
