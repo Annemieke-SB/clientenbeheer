@@ -81,7 +81,7 @@
 
                     <div class="row">
                         <div class="col-sm-8 col-md-offset-2">
-                            bla
+                            {{$lijst}}
                         </div>
 
                     </div>
