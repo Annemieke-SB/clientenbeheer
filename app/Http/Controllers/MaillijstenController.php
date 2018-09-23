@@ -46,7 +46,7 @@ class MaillijstenController extends Controller
             if (request()->input('lijst')=='zkg') { 
             // Zonder kinderen of gezinnen 
 
-                $intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->select('email')->get();
+                $intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->select('email');
                 $intermediairzonderkids = User::where('usertype',3)->whereDoesntHave('kids')->whereHas('familys')->select('email')->get();
 
                 $lijst = $intermediairzonderfamilies;
