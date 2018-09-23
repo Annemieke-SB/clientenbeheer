@@ -43,7 +43,7 @@ class MaillijstenController extends Controller
     	
         $lijst = array();       
 
-        if (isset(request()->input('lijst'))) {
+        if (null !== request()->input('lijst')) {
             if (request()->input('lijst')=='zkg') { 
             // Zonder kinderen of gezinnen 
 
