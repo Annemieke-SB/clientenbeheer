@@ -158,6 +158,8 @@ Route::get('/gezinnenlijst_nogaantemelden/', 'HomeController@gezinnenlijst_nogaa
 
 Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs')->middleware('auth');
 
+Route::get('/maillijsten/', 'MaillijstenController@index')->middleware('auth');
+
 /*
 *
 * Opschonen (depricated)
