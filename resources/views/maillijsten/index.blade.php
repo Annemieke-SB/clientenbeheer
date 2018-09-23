@@ -54,7 +54,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ url('/maillijsten/index') }}/?lijst=zkg">Intermediairs zonder kinderen OF gezinnen</a></li>               
+            <li><a href="{{ url('/maillijsten/') }}/?lijst=zkg">Intermediairs zonder kinderen OF gezinnen</a></li>               
           </ul>
         </li>
       </ul>
