@@ -50,7 +50,7 @@ class MaillijstenController extends Controller
 
         }
 
-        return view('index', ['lijst'=>$lijst]);   
+        return view('maillijsten.index', ['lijst'=>$lijst]);   
 
 
 
