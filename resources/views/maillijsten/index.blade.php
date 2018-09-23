@@ -84,7 +84,7 @@
                     
                         @isset($lijst)
                             @foreach($lijst as $item)
-                                {{$item['email']}}, 
+                                {{$item['email']}}<br>
                             @endforeach
                         @endisset
 
