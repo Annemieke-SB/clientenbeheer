@@ -62,7 +62,7 @@ class MaillijstenController extends Controller
 
                 $samengevoegd = $intermediairzonderkids->merge($intermediairzonderfamilies);
 
-                $lijst = $intermediairzonderkids;
+                $lijst = $samengevoegd;
 
             }
         
