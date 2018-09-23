@@ -80,12 +80,12 @@
                    
 
                     
-                        @if($lijst)
-                            @foreach($lijst)
-                                {{$lijst}}
+                        @isset($lijst)
+                            @foreach($lijst as $item)
+                                {{$item}}
                             @endforeach
-                        @endif
-                       
+                        @endisset
+
 
                    
                     <div>
