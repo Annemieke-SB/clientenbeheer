@@ -58,11 +58,7 @@ class MaillijstenController extends Controller
                 ->get();
 
 
-                $samengevoegd = User::where('usertype',3)
-                ->whereDoesntHave('familys')
-                ->orWhereDoesntHave('kids')
-                ->select('email')
-                ->get();
+                $samengevoegd = $intermediairzonderkids->merge($intermediairzonderfamilies);
 
                 $lijst = $samengevoegd;
 
