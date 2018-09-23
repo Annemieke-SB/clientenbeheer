@@ -43,7 +43,6 @@ class MaillijstenController extends Controller
     	
         $lijst = array();       
 
-        if (null !== request()->input('lijst')) {
             if (request()->input('lijst')=='zkg') { 
             // Zonder kinderen of gezinnen 
 
@@ -53,7 +52,7 @@ class MaillijstenController extends Controller
                 $lijst = $intermediairzonderfamilies;
 
             }
-        }
+        
         
 
         return view('maillijsten.index', ['lijst'=>$lijst]);   
