@@ -80,8 +80,11 @@
                    
 
                     
-                        
-                            {{$lijst}}
+                        @if($lijst)
+                            @foreach($lijst)
+                                {{$lijst}}
+                            @endforeach
+                        @endif
                        
 
                    
