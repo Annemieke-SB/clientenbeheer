@@ -46,16 +46,18 @@ class MaillijstenController extends Controller
             if (request()->input('lijst')=='zkg') { 
             // Zonder kinderen of gezinnen 
 
-                $intermediairzonderfamilies = User::where('usertype',3)
+                $intermediairzonderfamilies = collect(User::where('usertype',3)
                 ->whereDoesntHave('familys')
                 ->select('email')
                 ->get();
+            );
 
-                $intermediairzonderkids = User::where('usertype',3)
+                $intermediairzonderkids = collect(User::where('usertype',3)
                 ->whereDoesntHave('kids')
                 ->whereHas('familys')
                 ->select('email')
                 ->get();
+            );
 
 
                 $samengevoegd = $intermediairzonderkids->merge($intermediairzonderfamilies);
