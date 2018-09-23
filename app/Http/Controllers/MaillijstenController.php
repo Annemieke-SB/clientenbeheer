@@ -41,7 +41,7 @@ class MaillijstenController extends Controller
 		      return redirect('home');
 		}
     	
-            
+        $lijst = false;       
 
             if (request()->input('lijst')=='zkg') { 
             // Zonder kinderen of gezinnen 
