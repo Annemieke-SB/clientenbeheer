@@ -25,7 +25,9 @@
                     </p>
                     
                     <p>
-                        Hier kunnen de admins maillijsten opvragen, en deze zelf in een BCC-veld plakken van hun email. LET OP: Wees er zeker van dat ze in het BCC-veld terecht komen, anders lekken we alle adressen naar buiten!
+                        Hier kunnen de admins maillijsten opvragen, en deze zelf in een BCC-veld plakken van hun email. 
+
+                        <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Wees er zeker van dat ze in het BCC-veld terecht komen, anders lekken we alle adressen naar buiten!</div>
                     </p>
                             
                 </div>

@@ -47,17 +47,17 @@ class MaillijstenController extends Controller
             // Zonder kinderen of gezinnen 
 
                 $intermediairzonderfamilies = collect(User::where('usertype',3)
-                ->whereDoesntHave('familys')
-                ->select('email')
-                ->get()
-            );
+                    ->whereDoesntHave('familys')
+                    ->select('email')
+                    ->get()
+                );
 
                 $intermediairzonderkids = collect(User::where('usertype',3)
-                ->whereDoesntHave('kids')
-                ->whereHas('familys')
-                ->select('email')
-                ->get()
-            );
+                    ->whereDoesntHave('kids')
+                    ->whereHas('familys')
+                    ->select('email')
+                    ->get()
+                );
 
 
                 $samengevoegd = $intermediairzonderkids->merge($intermediairzonderfamilies);
