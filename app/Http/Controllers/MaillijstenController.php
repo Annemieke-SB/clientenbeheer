@@ -49,14 +49,14 @@ class MaillijstenController extends Controller
                 $intermediairzonderfamilies = collect(User::where('usertype',3)
                 ->whereDoesntHave('familys')
                 ->select('email')
-                ->get();
+                ->get()
             );
 
                 $intermediairzonderkids = collect(User::where('usertype',3)
                 ->whereDoesntHave('kids')
                 ->whereHas('familys')
                 ->select('email')
-                ->get();
+                ->get()
             );
 
 
