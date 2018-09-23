@@ -82,7 +82,7 @@
                     
                         @isset($lijst)
                             @foreach($lijst as $item)
-                                {{$item['email']}}
+                                {{$item['email']}}, 
                             @endforeach
                         @endisset
 
