@@ -50,7 +50,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
-        <li class="active"><a href="{{ url('/users/index') }}">Reset</a></li>
+        <li class="active"><a href="{{ url('/maillijsten') }}">Reset</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -80,9 +80,9 @@
                    
 
                     
-                        <div class="col-sm-8 col-md-offset-2">
+                        
                             {{$lijst}}
-                        </div>
+                       
 
                    
                     <div>
