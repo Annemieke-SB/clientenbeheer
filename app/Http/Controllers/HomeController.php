@@ -172,7 +172,6 @@ class HomeController extends Controller
             $Join->on('kids.family_id', '=', 'familys.id')
                     ->where('familys.goedgekeurd','=',0)
                     ->where('familys.aangemeld','=',0)
-                    ->whereNull('familys.redenafkeuren')
                     ->whereNull('familys.definitiefafkeuren')
                     ->select('kids.*');
         })
