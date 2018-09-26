@@ -142,8 +142,7 @@ class HomeController extends Controller
         $kids_metbarcode = Barcode::whereNotNull('kid_id')->count();
 
   
-        $gezinnen_nog_niet_aangemeld = Family::whereNull('redenafkeuren')
-                ->where('goedgekeurd','=',0)
+        $gezinnen_nog_niet_aangemeld = Family::where('goedgekeurd','=',0)
                 ->where('aangemeld','=',0)
                 ->whereNull('definitiefafkeuren')
                 ->select('familys.*')
