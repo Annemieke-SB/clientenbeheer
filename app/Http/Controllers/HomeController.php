@@ -119,6 +119,7 @@ class HomeController extends Controller
 					->whereNotNull('familys.redenafkeuren')
 					->where('familys.goedgekeurd','=',0)
 					->whereNull('familys.definitiefafkeuren')
+                    ->where('familys.aangemeld','=',0)
 					->select('kids.*');
         })
         ->count();
