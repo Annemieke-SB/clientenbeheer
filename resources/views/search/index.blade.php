@@ -124,7 +124,7 @@ Geen organisaties gevonden.
         <tr>
             <td>{{ $organisatie->organisatienaam }}</td>
             <td>
-                        <a href="{{ url('users/show') }}/{{$organisatie->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                        <a href="{{ url('user/show') }}/{{$organisatie->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
             </td>
         </tr>
 
