@@ -50,8 +50,8 @@
 <div id="top">{{ Html::image('img/sintbankpics/banner_brief2.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 
 	<div id="textbody">	
-		<table style="width: 100%;"><tr><td style="width: 350px;"><p>Madrid, november {{date('Y')}}</p></td><td><div class="barcode">{!! ucfirst($barcode->htmlbarcode) !!}</div></td></tr></table>
-			
+		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
+		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
 		<p>	
 		Hallo, hier een brief van Sinterklaas!</p>
 		<p>
