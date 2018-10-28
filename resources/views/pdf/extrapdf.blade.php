@@ -51,7 +51,7 @@
 
 	<div id="textbody">	
 		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
-		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+		<div class="barcode">{!! ucfirst($barcode->htmlbarcode) !!}</div>
 		<p>	
 		Hallo, hier een brief van Sinterklaas!</p>
 		<p>
