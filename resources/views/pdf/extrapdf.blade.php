@@ -71,12 +71,10 @@
 		<p>
 			Als je je verlanglijstje hebt ingevuld, mag je het in je schoen doen. Piet komt het dan bij je ophalen. Wij gaan dan in de pakjesboot kijken of het cadeautje dat jij graag wil hebben is meegekomen uit Spanje. Spannend he!</p>	
 		<p><br>
-			Groetjes van Sint</p><br><br>
+			Groetjes van Sint</p>
 
-			<p style="font-size: 12px; text-align: center;">Plak of teken hier de cadeautjes die je graag wil hebben. De Sint zoekt dan een mooi cadeautje voor je uit.</p>
+			<div id="verlanglijstholder">Plak of teken hier het cadeau die je graag wil hebben. De Sint zoekt dan een mooi cadeau voor je uit.</div>
 	</div>
 
-
-<div id="verlanglijstholder" style="border-style:dotted;width:200px;height:50px;">&nbsp;</div>
 </body>
 </html>
