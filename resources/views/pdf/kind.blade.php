@@ -12,7 +12,7 @@
 	<div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 	<div id="textbody">
 			<p>
-			<small>Aan de ouders/verzorgers van</small><br><br>{{ ucfirst($kid->voornaam) }} {{ ucfirst($kid->achternaam) }}<br>
+			<small>Aan de ouders/verzorgers van</small><br><br>{{ $kid->naam }}<br>
 			{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 			{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
 			</p><br>
