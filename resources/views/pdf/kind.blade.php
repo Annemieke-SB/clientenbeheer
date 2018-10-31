@@ -67,8 +67,6 @@
 		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
 		kinderen blij maken met een cadeau. En één van die kinderen dat ben jij! </p>
 		<p>
-		Heb je op televisie gezien hoe ik met de boot aankwam? Het is altijd zo spannend, maar gelukkig is het weer
-		allemaal goed gegaan met de stoomboot.<br>
 		Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
 		<p>
 		Omdat ik heel graag wil weten wat jij van Sinterklaas wil hebben, vraag ik je het verlanglijstje hieronder in te
