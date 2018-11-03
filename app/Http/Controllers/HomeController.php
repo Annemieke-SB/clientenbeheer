@@ -140,7 +140,7 @@ class HomeController extends Controller
         })
         ->count();
 
-        $kids_metbarcode = Barcode::whereNotNull('kid_id')->count();
+        $kids_metbarcode = Barcode::whereNotNull('kid_id')->uniq()->count();
 
   
         $gezinnen_nog_niet_aangemeld = Family::where('goedgekeurd','=',0)
