@@ -38,15 +38,15 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $aant_barcodes = DB::table('barcodes')->count();
+        $aant_barcodes = DB::table('barcodes')->count(); //6000
         
-        $beschikbare_barcodes = Barcode::where('kid_id', NULL)->count();
+        $beschikbare_barcodes = Barcode::where('kid_id', NULL)->count(); //987
 
-        $losse_barcodes = Barcode::where('kid_id', '0')->count();
+        $losse_barcodes = Barcode::where('kid_id', '0')->count(); //6
 
-        $uitgegeven_barcodes = $aant_barcodes - $beschikbare_barcodes - $losse_barcodes;
+        //$uitgegeven_barcodes = $aant_barcodes - ($beschikbare_barcodes + $losse_barcodes);
 
-        //$uitgegeven_barcodes = Barcode::whereNotNull('kid_id')->count();
+        $uitgegeven_barcodes = Barcode::whereNotNull('kid_id')->count();
 
         $nietgedownloadde_barcodes = Barcode::where('downloadedpdf', NULL)->count();
 
