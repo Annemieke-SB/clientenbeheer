@@ -59,6 +59,10 @@
 								<td>Kinderen afgekeurd ({{ $kids_disqualified }}) + definitief afgekeurd ({{ $kids_definitiefdisqualified }}) = </td>
 								<td>{{ $kids_disqualified + $kids_definitiefdisqualified }}</td>
 							</tr>
+							<tr>
+								<td>Kinderen met barcode</td>
+								<td>{{ $kids_metbarcode }}</td>
+							</tr>							
 						</tbody>
                 	</table>
 
