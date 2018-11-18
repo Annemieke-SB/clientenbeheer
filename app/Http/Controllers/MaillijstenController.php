@@ -65,7 +65,19 @@ class MaillijstenController extends Controller
                 $lijst = $samengevoegd->unique();
 
             }
-        
+    
+
+            if (request()->input('lijst')=='ntd') { 
+            // Nog te downloaden
+
+                $intermediairmetnietgedownloadepdfs = collect(User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->select('email')->get()
+                );
+
+                $lijst = $intermediairmetnietgedownloadepdfs->unique();
+
+            }    
         
 
         return view('maillijsten.index', ['lijst'=>$lijst]);   
