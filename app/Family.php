@@ -64,7 +64,7 @@ class Family extends Model
 
     }
 
-	public getMoetnogdownloadenAttribute() {
+	public function getMoetnogdownloadenAttribute() {
 	    $kids = $this->kids;
         $count = 0;
 		
