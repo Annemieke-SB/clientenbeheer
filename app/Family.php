@@ -75,7 +75,7 @@ class Family extends Model
                 $count++;
             }
 		}
-		if($count == $kids->count()){
+		if(1==1){
 			return false;
 		}else{
         	return true;
