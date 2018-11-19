@@ -70,11 +70,11 @@ class Family extends Model
 	    $kids = $this->kids;
         $count = 0;
 		foreach ($kids as $kid) {
-			$t = Kid::find($kid->id);
-            if ($t->barcode->downloadedpdf == 1) {
+            if ($kid->downloadedbarcodepdf) {
                 $count++;
             }
 		}
+		
 		if(1==1){
 			return false;
 		}else{
