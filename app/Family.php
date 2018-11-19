@@ -9,7 +9,7 @@ class Family extends Model
 {
 
 	protected $table = 'familys';
-    protected $appends = array('naam','blacklisted', 'targetkids', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
+    protected $appends = array('naam','blacklisted', 'targetkids', 'moetnogdownloaden', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
             'tussenvoegsel',
@@ -63,6 +63,22 @@ class Family extends Model
 	    return blacklist::check($this->email);	    
 
     }
+
+	public getMoetnogdownloadenAttribute() {
+	    $kids = $this->kids;
+        $count = 0;
+		
+        foreach ($kids as $kid) {
+            if ($kid->barcode->downloaded == 1) {
+                $count++;
+            }
+		}
+		if($count == $kids->count()){
+			return false;
+		}else{
+        	return true;
+		}
+	}
 
     public function getTargetkidsAttribute()
     {
