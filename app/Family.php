@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Blacklist;
+use App\Kid;
 
 class Family extends Model
 {
