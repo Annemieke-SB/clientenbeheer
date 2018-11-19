@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Blacklist;
 use App\Kid;
+use App\Barcode;
 
 class Family extends Model
 {
