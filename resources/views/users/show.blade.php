@@ -112,6 +112,7 @@
                                         <th>Naam&nbsp;</th>
                                         <th>Woonplaats&nbsp;</th>
                                         <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span>&nbsp;</th>
+                                        <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="PDF's gedownload?"></span>&nbsp;</th>
                                         <th>Status&nbsp;</th> 
                                         <th>Actie&nbsp;</th> 
                                     </tr>                               
@@ -129,6 +130,15 @@
                                         
                                         <td>{{$family->woonplaats }}&nbsp;</td>
                                         <td>{{count($family->kids)}}&nbsp;</td>
+										<td>
+											@if ($family->moetnogdownloaden)
+											j
+											@else
+											n
+											@endif
+											&nbsp;
+										
+										</td>
 					<td>
 					
 					
