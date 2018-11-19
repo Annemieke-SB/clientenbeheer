@@ -113,7 +113,7 @@
                                         <th>Woonplaats&nbsp;</th>
                                         <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Aantal kinderen in gezin."></span>&nbsp;</th>
 					@if (Auth::user()->usertype == 1)
-                                        <th><span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="PDF's gedownload?"></span>&nbsp;</th>
+                                        <th><span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="PDF's gedownload?"></span>&nbsp;</th>
 					@endif
   										<th>Status&nbsp;</th> 
                                         <th>Actie&nbsp;</th> 
