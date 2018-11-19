@@ -69,13 +69,11 @@ class Family extends Model
 	public function getMoetnogdownloadenAttribute() {
 	    $kids = $this->kids;
         $count = 0;
-/*		
         foreach ($kids as $kid) {
-            if ($kid->barcode->downloaded == 1) {
+            if ($kid->barcode->downloadedpdf == 1) {
                 $count++;
             }
 		}
- */
 		if(1==1){
 			return false;
 		}else{
