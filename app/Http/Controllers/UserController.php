@@ -415,11 +415,11 @@ class UserController extends Controller
         } else {
             $usertoshow = $user;
         }
-
+		/*
         if ($usertoshow->usertype == 1) {
             return redirect('extrabarcodes')->with('message', 'Omdat de gebruiker een admin is ben je doorverwezen naar de geclaimde extra barcodes.');
         }
-
+		 */
         $goedgekeurde_families = Family::where([
                 ['goedgekeurd', '=', '1'],
                 ['user_id', '=', $usertoshow->id],
