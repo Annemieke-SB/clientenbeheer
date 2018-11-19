@@ -135,9 +135,10 @@
 					@if (Auth::user()->usertype == 1)
 										<td>
 											@if ($family->moetnogdownloaden)
-											j
+											<span class="glyphicon glyphicon-ok"></span>
 											@else
-											n
+											<span class="glyphicon glyphicon-remove"></span>
+											
 											@endif
 											&nbsp;
 										
