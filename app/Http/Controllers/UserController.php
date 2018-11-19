@@ -411,9 +411,9 @@ class UserController extends Controller
 
         // Intermediairs mogen de downloadpagina zien        
         if((!$user->usertype == 3)){
-            $usertoshow = User::find($id);
+            $usertoshow = $id;
         } else {
-            $usertoshow = $user;
+            $usertoshow = $user->id;
         }
 		/*
         if ($usertoshow->usertype == 1) {
@@ -422,7 +422,7 @@ class UserController extends Controller
 		 */
         $goedgekeurde_families = Family::where([
                 ['goedgekeurd', '=', '1'],
-                ['user_id', '=', $usertoshow->id],
+                ['user_id', '=', $usertoshow],
             ])->with('kids')->get();
 
 
