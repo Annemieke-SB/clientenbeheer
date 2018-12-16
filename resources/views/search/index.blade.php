@@ -14,7 +14,7 @@
     <h1>Zoekresulaten</h1>
 
                         <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                        @if (count(Session::get('message')) > 0)
+                        @if (Session::get('message'))
                         <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                         @endif
 	        <br />

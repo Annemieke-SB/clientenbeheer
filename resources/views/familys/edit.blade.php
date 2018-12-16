@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
                                     <!-- Flashmessage -->
-                        @if (count(Session::get('message')) > 0)
+                        @if (Session::get('message'))
                         <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                         @endif
                         

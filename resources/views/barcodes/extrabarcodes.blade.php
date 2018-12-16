@@ -18,7 +18,7 @@
 
                 <div class="panel-body">
                 <!-- Flashmessage -->
-                @if (count(Session::get('message')) > 0)
+                @if (Session::get('message'))
                 <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
                 @endif
                     <p>Hier kunt je losse barcodes claimen. Vul daarbij een doel in, zodat het duidelijk is waar ze aan verbonden zijn. <b>Controleer eerst wel de voorraad op de <a href="{{url('barcodes')}}">barcodepagina</a>.</b></p>
