@@ -16,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \URL::forceScheme('https');
-        View::share('globalfaqs', Faqs::all());
+        //View::share('globalfaqs', Faqs::all());
+
     }
 
     /**

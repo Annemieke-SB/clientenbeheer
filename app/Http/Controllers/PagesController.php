@@ -31,4 +31,8 @@ class PagesController extends Controller
         return redirect('home');    
     }   
 
+    public function test()
+    {
+        return view('test.test');    
+    }   
 }

@@ -117,7 +117,7 @@
         <h4 class="modal-title" id="myModalLabel"><h1>Informatie Cliëntenbeheer</h1></h4>
       </div>
       <div class="modal-body">
-        @include('faqs.helppage', ['faqs' => $globalfaqs])
+        @include('faqs.helppage', ['faqs' => $faqs])
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>

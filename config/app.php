@@ -182,6 +182,7 @@ return [
         App\Providers\EventServiceProvider::class,
         //App\Providers\FaqServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
         Speelpenning\PostcodeNl\PostcodeNlServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
