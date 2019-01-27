@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-use PHPExcel_Cell;
-use PHPExcel_Cell_DataType;
-use PHPExcel_Cell_IValueBinder;
-use PHPExcel_Cell_DefaultValueBinder;
 
 
 use DB;
@@ -30,6 +26,16 @@ use App\Intermediair;
 use App\Intertoys;
 use Custommade;
 
+
+/* 
+    Deze  heb  ik ertussen gezet omdat hij de cardnumber niet goed las
+*/
+
+
+use PHPExcel_Cell;
+use PHPExcel_Cell_DataType;
+use PHPExcel_Cell_IValueBinder;
+use PHPExcel_Cell_DefaultValueBinder;
 
 class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 {
@@ -48,6 +54,11 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
 }
 
 $myValueBinder = new MyValueBinder;
+
+/* 
+    Einde oplossing
+*/
+
 
 
 
