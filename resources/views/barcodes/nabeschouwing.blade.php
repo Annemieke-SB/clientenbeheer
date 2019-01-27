@@ -54,39 +54,45 @@
         <div class="panel-heading">Overzicht ongebruikte barcodes per kind</div>           
         <div class="panel-body"> 
            
-            <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>Kind</th>
-                        <th>Gezin</th>
-                        <th>Intemediair</th>
-                        <th>Aktie</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($nietgebruiktebarcodes as $ngb)
-                    
-                    <tr>
-                        <td>
-                            {{$ngb->kid->naam}}
-                        </td>
-                        <td>
-                            {{$ngb->kid->family->naam}}
-                        </td>
-                        <td>
-                            {{$ngb->kid->user->naam}}
-                        </td>                                                                        
-                        <td>
-                            <a href="{{ url('/kids') }}/show/{{ $ngb->kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Kind</button></a>&nbsp;
-                            <a href="{{ url('/family') }}/show/{{ $ngb->kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;
-                            <a href="{{ url('/user') }}/show/{{ $ngb->kid->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
-                        </td>
-                    </tr>
-                    
-                    @endforeach                                
-                    
-                </tbody>
-            </table>                    
+                    @if($welgebruiktebarcodes == 0)
+                        Er zijn nog geen gebruikte barcodes in de database te zien. 
+                    @else
+
+                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Kind</th>
+                                <th>Gezin</th>
+                                <th>Intemediair</th>
+                                <th>Aktie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($nietgebruiktebarcodes as $ngb)
+                        
+                        <tr>
+                            <td>
+                                {{$ngb->kid->naam}}
+                            </td>
+                            <td>
+                                {{$ngb->kid->family->naam}}
+                            </td>
+                            <td>
+                                {{$ngb->kid->user->naam}}
+                            </td>                                                                        
+                            <td>
+                                <a href="{{ url('/kids') }}/show/{{ $ngb->kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Kind</button></a>&nbsp;
+                                <a href="{{ url('/family') }}/show/{{ $ngb->kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;
+                                <a href="{{ url('/user') }}/show/{{ $ngb->kid->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                            </td>
+                        </tr>
+                        
+                        @endforeach    
+ 
+                        </tbody>
+                    </table>  
+            @endif                  
         </div>
     </div>    
 
