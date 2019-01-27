@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+use PHPExcel_Cell;
+use PHPExcel_Cell_DataType;
+use PHPExcel_Cell_IValueBinder;
+use PHPExcel_Cell_DefaultValueBinder;
+
+
 use DB;
 use App\Barcode;
 use Config;
