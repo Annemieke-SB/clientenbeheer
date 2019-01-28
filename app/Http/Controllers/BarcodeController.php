@@ -43,7 +43,7 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
     {
         if (is_numeric($value))
         {
-            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
 
             return true;
         }
