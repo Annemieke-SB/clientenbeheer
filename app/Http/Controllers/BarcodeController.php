@@ -53,7 +53,6 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
     }
 }
 
-$myValueBinder = new MyValueBinder;
 
 /* 
     Einde oplossing
