@@ -317,7 +317,7 @@ class BarcodeController extends Controller
          */
 
         foreach ($raw_barcodes as $key => $value) {
-dd($value['cardnumber']);
+
                 $barcodestring = str_replace(' ', '', $value['cardnumber']);
 
                 $barcode = Barcode::where('barcode', $barcodestring)->update([
