@@ -43,7 +43,7 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
     {
         if ($value)
         {
-            dd(array('hier'));
+            
             $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
 
             return true;
@@ -312,7 +312,10 @@ class BarcodeController extends Controller
         //$reader = Excel::setValueBinder($myValueBinder)->load('file.xls');
 
 
-        $raw_barcodes = Excel::load('storage/app/'.$path, function($myValueBinder) {})->get();
+        $raw_barcodes = Excel::load('storage/app/'.$path, function() {
+            $myValueBinder = new MyValueBinder;
+            Excel::setValueBinder($myValueBinder);
+        })->get();
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
