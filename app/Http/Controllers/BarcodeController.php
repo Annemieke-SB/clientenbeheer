@@ -43,7 +43,7 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
     {
         if (is_numeric($value))
         {
-            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
 
             return true;
         }
@@ -307,7 +307,6 @@ class BarcodeController extends Controller
          */
         Config::set('excel.csv.delimiter', ';');
         $raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
-      
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
