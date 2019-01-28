@@ -268,11 +268,11 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', 0)
                                 ->whereNotNull('kid_id')
                                 ->where('kid_id','!=',0)->get();
 
-        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', 0)
                                 ->where('kid_id','=',0)->get();
 
         //$totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
