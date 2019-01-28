@@ -41,8 +41,9 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
 {
     public function bindValue(PHPExcel_Cell $cell, $value = null)
     {
-        if ($value)
+        if ($value))
         {
+            dd('hier');
             $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
 
             return true;
