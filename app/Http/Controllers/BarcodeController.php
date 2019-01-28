@@ -41,10 +41,9 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
 {
     public function bindValue(PHPExcel_Cell $cell, $value = null)
     {
-        if ($value)
+        if (is_numeric($value))
         {
-            
-            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
+            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_NUMERIC);
 
             return true;
         }
@@ -306,15 +305,15 @@ class BarcodeController extends Controller
          *  hier wordt de upload ingelezen
          */
         Config::set('excel.csv.delimiter', ';');
+        //$raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
+
 
         $myValueBinder = new MyValueBinder;
-
-        //$reader = Excel::setValueBinder($myValueBinder)->load('file.xls');
-
-
         $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path, function() {
 
         })->get();
+
+
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
