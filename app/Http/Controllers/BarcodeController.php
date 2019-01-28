@@ -309,9 +309,7 @@ class BarcodeController extends Controller
 
 
         $myValueBinder = new MyValueBinder;
-        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path, function() {
-
-        })->get();
+        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path)->get();
 
 
         /**
