@@ -43,7 +43,7 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
     {
         if ($value))
         {
-            dd('hier');
+            dd(array('hier'));
             $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
 
             return true;
