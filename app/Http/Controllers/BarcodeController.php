@@ -306,8 +306,13 @@ class BarcodeController extends Controller
          *  hier wordt de upload ingelezen
          */
         Config::set('excel.csv.delimiter', ';');
-        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path, function($reader) {})->get();
+
+        $myValueBinder = new MyValueBinder;
+
         //$reader = Excel::setValueBinder($myValueBinder)->load('file.xls');
+
+
+        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path, function($reader) {})->get();
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
