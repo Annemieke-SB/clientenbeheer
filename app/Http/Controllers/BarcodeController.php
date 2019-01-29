@@ -295,7 +295,7 @@ class BarcodeController extends Controller
                                 ->where('user_id','=',$value['id'])->count();
             $overzichtIntermediairs[] = [ 
                                         
-                                        'id'=> $key,
+                                        'id'=> $value['id'],
                                         'organisatienaam' => $value['organisatienaam'],
                                         'aantalonverzilverd' => $aantalOnverzilverd
                                         
