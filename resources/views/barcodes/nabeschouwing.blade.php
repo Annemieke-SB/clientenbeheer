@@ -74,7 +74,7 @@
 
 
                              @foreach($overzichtIntermediairs as $key => $ngb)
-                            
+                            {{dd($ngb)}}
                             <tr>
                                 <td>
                                     {{$ngb->organisatienaam}}
