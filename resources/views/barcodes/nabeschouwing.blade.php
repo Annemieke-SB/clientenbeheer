@@ -73,7 +73,7 @@
                            
 
 
-                             @foreach($arrayIntermediairAantalOnverzilverdeBarcodes as $ngb)
+                             @foreach($overzichtIntermediairs as $ngb)
                             
                             <tr>
                                 <td>
