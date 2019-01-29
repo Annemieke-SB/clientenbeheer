@@ -298,7 +298,7 @@ class BarcodeController extends Controller
                                         'id'=>$key,
                                         'organisatienaam' => $value['organisatienaam'],
                                         'aantalonverzilverd' => $aantalOnverzilverd]
-                                        ],
+                                        ]
                                     ];
         }
 
