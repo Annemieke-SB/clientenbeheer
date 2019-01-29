@@ -63,7 +63,7 @@
                             <tr>
                                 <th>Kind</th>
                                 <th>Gezin</th>
-                                <th>Intemediair</th>
+                                <th>Intermediair</th>
                                 <th>Aktie</th>
                             </tr>
                         </thead>
