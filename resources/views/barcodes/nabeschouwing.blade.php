@@ -48,7 +48,37 @@
             </ul>
 
         </div>
-    </div>                            
+    </div>        
+
+
+    <div class="panel panel-default">   
+        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
+        <div class="panel-body"> 
+           
+                    @if($arrayIntermediairAantalOnverzilverdeBarcodes == 0)
+                        Er zijn nog geen gebruikte barcodes in de database te zien. 
+                    @else
+
+                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Kind</th>
+                                <th>Gezin</th>
+                                <th>Intermediair</th>
+                                <th>Aktie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {{dd($arrayIntermediairAantalOnverzilverdeBarcodes)}}
+ 
+                        </tbody>
+                    </table>  
+            @endif                  
+        </div>
+    </div>    
+
+                    
 
     <div class="panel panel-default">   
         <div class="panel-heading">Overzicht ongebruikte barcodes per kind</div>           
