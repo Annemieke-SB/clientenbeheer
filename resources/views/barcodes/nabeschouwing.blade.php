@@ -71,7 +71,7 @@
                         <tbody>
 
                            
-
+{{dd($overzichtIntermediairs)}}
 
                              @foreach($overzichtIntermediairs as $ngb)
                             
