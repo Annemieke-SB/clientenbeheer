@@ -71,6 +71,26 @@
                         <tbody>
 
                             {{dd($arrayIntermediairAantalOnverzilverdeBarcodes)}}
+
+
+                             @foreach($arrayIntermediairAantalOnverzilverdeBarcodes as $ngb)
+                            
+                            <tr>
+                                <td>
+                                    {{$ngb->user->organisatienaam}}
+                                </td>
+                                <td>
+                                    {{$ngb->user->barcode->barcode}}
+                                </td>
+                                <td>
+                                    {{$ngb->user->voornaam}}
+                                </td>                                                                        
+                                <td>
+                                    <a href="{{ url('/kids') }}/show/{{ $ngb->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                </td>
+                            </tr>
+                            
+                            @endforeach     
  
                         </tbody>
                     </table>  
