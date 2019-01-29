@@ -71,9 +71,9 @@
                         <tbody>
 
                            
-{{dd($overzichtIntermediairs)}}
 
-                             @foreach($overzichtIntermediairs as $ngb)
+
+                             @foreach($overzichtIntermediairs as $key => $ngb)
                             
                             <tr>
                                 <td>
