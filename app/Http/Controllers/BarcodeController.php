@@ -282,13 +282,14 @@ class BarcodeController extends Controller
                                 ->whereNotNull('kid_id')->count();
 
 
-        $arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
+        //$arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
 
         $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcode', function($query){
                 $query->where('value_of_redemptions', 0);
             })->orderBy('organisatienaam', 'ASC')->paginate(50); 
 
-        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 'arrayIntermediairAantalOnverzilverdeBarcodes'=>$arrayIntermediairAantalOnverzilverdeBarcodes]);  
+        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 
+            'arrayIntermediairAantalOnverzilverdeBarcodes'=>$arrayIntermediairAantalOnverzilverdeBarcodes]);  
     }
 
 
