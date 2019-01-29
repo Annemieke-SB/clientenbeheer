@@ -294,9 +294,11 @@ class BarcodeController extends Controller
             $aantalOnverzilverd = Barcode::where('value_of_redemptions', '=', 0)
                                 ->where('user_id','=',$value['id'])->count();
             $overzichtIntermediairs = [ 
+                                        [
                                         'id'=>$key,
                                         'organisatienaam' => $value['organisatienaam'],
                                         'aantalonverzilverd' => $aantalOnverzilverd]
+                                        ],
                                     ];
         }
 
