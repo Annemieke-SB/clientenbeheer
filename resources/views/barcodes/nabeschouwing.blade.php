@@ -53,7 +53,7 @@
 
     <div class="panel panel-default">   
         <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
-        <div class="panel-body"> 
+        <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
            
                     @if(count($overzichtIntermediairs) == 0)
                         Er zijn nog geen gebruikte barcodes in de database te zien. 
