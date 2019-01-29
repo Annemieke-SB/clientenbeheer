@@ -74,7 +74,7 @@
 
 
                              @foreach($overzichtIntermediairs as $key => $ngb)
-                            {{dd($ngb)}}
+                            
                             <tr>
                                 <td>
                                     {{$ngb->organisatienaam}}
@@ -83,7 +83,7 @@
                                     
                                 </td>
                                 <td>
-                                    {{$ngb->voornaam}}
+                                    {{$ngb->aantalonverzilverd}}
                                 </td>                                                                        
                                 <td>
                                     <a href="{{ url('/kids') }}/show/{{ $ngb->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
