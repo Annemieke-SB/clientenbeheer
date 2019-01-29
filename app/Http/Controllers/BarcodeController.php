@@ -285,7 +285,7 @@ class BarcodeController extends Controller
         //$arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
 
         $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcodes', function($query){
-                $query->where('value_of_redemptions', 0);
+                $query->where('value_of_redemptions', 0)->where('user_id','!=',0);
             })->orderBy('organisatienaam', 'ASC')->get(); 
 
         $overzichtIntermediairs = array();
