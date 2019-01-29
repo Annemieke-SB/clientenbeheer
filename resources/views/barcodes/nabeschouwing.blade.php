@@ -34,7 +34,7 @@
 
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <span class="badge">&#8364; {{$totaaluitgegeven}}</span>
+                    <span class="badge">&#8364; {{str_replace('.', ',', $totaaluitgegeven)}}</span>
                     Totaal uitgegeven aan barcodes volgens eindlijst
                 </li>
                 <li class="list-group-item">
