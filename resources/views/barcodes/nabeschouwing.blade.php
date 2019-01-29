@@ -77,7 +77,7 @@
                             
                             <tr>
                                 <td>
-                                    {{$ngb->organisatienaam}}
+                                    {{$ngb['organisatienaam']}}
                                 </td>
                                 <td>
                                     
