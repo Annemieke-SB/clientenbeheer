@@ -286,7 +286,7 @@ class BarcodeController extends Controller
 
         $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcodes', function($query){
                 $query->where('value_of_redemptions', 0);
-            })->orderBy('organisatienaam', 'ASC')->paginate(50); 
+            })->orderBy('organisatienaam', 'ASC')->get(); 
 
         $overzichtIntermediairs = array();
 
