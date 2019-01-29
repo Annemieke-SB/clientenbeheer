@@ -62,9 +62,8 @@
                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                         <thead>
                             <tr>
-                                <th>Kind</th>
-                                <th>Gezin</th>
-                                <th>Intermediair</th>
+                                <th>Organisatienaam</th>
+                                <th>Aantal onverzilverd</th>
                                 <th>Aktie</th>
                             </tr>
                         </thead>
@@ -80,13 +79,10 @@
                                     {{$ngb['organisatienaam']}}
                                 </td>
                                 <td>
-                                    
-                                </td>
-                                <td>
                                     {{$ngb['aantalonverzilverd']}}
                                 </td>                                                                        
                                 <td>
-                                    <a href="{{ url('/kids') }}/show/{{ $ngb['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                    <a href="{{ url('/user') }}/show/{{ $ngb['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
                                 </td>
                             </tr>
                             
