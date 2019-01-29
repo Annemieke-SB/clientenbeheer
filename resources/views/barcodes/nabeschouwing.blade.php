@@ -80,7 +80,7 @@
                                     {{$ngb->organisatienaam}}
                                 </td>
                                 <td>
-                                    {{$ngb->barcode->barcode}}
+                                    {{$ngb->barcode->id}}
                                 </td>
                                 <td>
                                     {{$ngb->voornaam}}
