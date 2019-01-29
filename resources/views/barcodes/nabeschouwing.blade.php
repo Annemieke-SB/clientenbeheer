@@ -77,16 +77,16 @@
                             
                             <tr>
                                 <td>
-                                    {{$ngb->user->organisatienaam}}
+                                    {{$ngb->organisatienaam}}
                                 </td>
                                 <td>
-                                    {{$ngb->user->barcode->barcode}}
+                                    {{$ngb->barcode->barcode}}
                                 </td>
                                 <td>
-                                    {{$ngb->user->voornaam}}
+                                    {{$ngb->voornaam}}
                                 </td>                                                                        
                                 <td>
-                                    <a href="{{ url('/kids') }}/show/{{ $ngb->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                    <a href="{{ url('/kids') }}/show/{{ $ngb->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
                                 </td>
                             </tr>
                             
