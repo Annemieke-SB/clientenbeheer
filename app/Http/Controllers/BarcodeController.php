@@ -275,8 +275,8 @@ class BarcodeController extends Controller
         $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', 0)
                                 ->where('kid_id','=',0)->get();
 
-        //$totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
-        $totaaluitgegeven = 0;
+        $totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
+        //$totaaluitgegeven = 0;
 
         $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')->count();
