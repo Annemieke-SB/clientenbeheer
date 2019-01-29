@@ -292,7 +292,7 @@ class BarcodeController extends Controller
 
         foreach ($arrayIntermediairAantalOnverzilverdeBarcodes as $key => $value) {
             $aantalOnverzilverd = Barcode::where('value_of_redemptions', '=', 0)
-                                ->where('user_id','=',$value['id']->count();
+                                ->where('user_id','=',$value['id'])->count();
             $overzichtIntermediairs = [$key,$value['organisatienaam'],$aantalOnverzilverd];
         }
 
