@@ -322,7 +322,7 @@ class BarcodeController extends Controller
                 $barcodestring = str_replace(' ', '', $value['cardnumber']);
 
                 $barcode = Barcode::where('barcode', $barcodestring)->update([
-                    'value_of_redemptions' => $value['valueofredemptions'],
+                    'value_of_redemptions' => str_replace(',', '.', $value['valueofredemptions']),
                 ]);            
         }
 
