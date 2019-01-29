@@ -55,7 +55,7 @@
         <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
         <div class="panel-body"> 
            
-                    @if(count($arrayIntermediairAantalOnverzilverdeBarcodes) == 0)
+                    @if(count($overzichtIntermediairs) == 0)
                         Er zijn nog geen gebruikte barcodes in de database te zien. 
                     @else
 
