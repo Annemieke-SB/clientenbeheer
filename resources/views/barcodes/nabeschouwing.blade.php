@@ -70,7 +70,7 @@
                         </thead>
                         <tbody>
 
-                            {{dd($arrayIntermediairAantalOnverzilverdeBarcodes)}}
+                           
 
 
                              @foreach($arrayIntermediairAantalOnverzilverdeBarcodes as $ngb)
