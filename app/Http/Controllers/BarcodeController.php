@@ -288,7 +288,7 @@ class BarcodeController extends Controller
                 $query->where('value_of_redemptions', 0);
             })->orderBy('organisatienaam', 'ASC')->paginate(50); 
 
-        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes]);  
+        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 'arrayIntermediairAantalOnverzilverdeBarcodes'=>$arrayIntermediairAantalOnverzilverdeBarcodes]);  
     }
 
 
