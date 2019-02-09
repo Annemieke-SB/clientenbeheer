@@ -92,9 +92,9 @@ class Family extends Model
         }
         
         if($count==$kids->count()){
-            return false;
-        }else{
             return true;
+        }else{
+            return false;
         }
     }
 
