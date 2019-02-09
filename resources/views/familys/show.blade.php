@@ -186,6 +186,11 @@
                                 <th><span class="badge" data-toggle="tooltip" title="Bij een groen vinkje valt het kind in de doelgroep. Er is er minimaal één nodig binnen het gezin voor deelname.">D</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Kind valt in de 'broer/zus'-groep en doet mee als er een kind in het gezin binnen de doelgroep (kolom D) valt.">BZ</span></th>
                                 <th><span class="badge" data-toggle="tooltip" title="Wanneer er een mogelijke dubbeling is geconstateerd, verschijnt er een uitroepteken. Klik dan op 'Toon' voor meer info.">DB</span></th>
+
+                                @if (Auth::user()->usertype==1)
+                                <th><span class="glyphicon glyphicon-euro" aria-hidden="true" style="color:#1E90FF;" data-toggle="tooltip" title="Barcodes verzilverd?"></span>&nbsp;</th>
+                                @endif
+
                                 <th>Actie&nbsp;</th> 
                             </tr>                               
                             </thead>
@@ -248,6 +253,20 @@
                                     
                                     @endif
                                 </td>
+
+                                @if (Auth::user()->usertype==1)
+                                    <td>
+                                        @if ($kid->verzilverd)
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        @else
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                        
+                                        @endif
+                                        &nbsp;
+                                        
+                                    </td>
+                                @endif
+
                                 <td>
                                     @if (!$family->definitiefafkeuren)
 
