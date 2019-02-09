@@ -293,7 +293,7 @@ class Kid extends Model
     public function getVerzilverdAttribute()
     {
 
-         if ($this->barcode->downloadedpdf && $this->barcode->value_of_redemptions > 0) {
+         if (@$this->barcode->downloadedpdf && $this->barcode->value_of_redemptions > 0) {
 
             return true;
 
@@ -307,7 +307,7 @@ class Kid extends Model
     public function getBedragverzilverdAttribute()
     {
 
-         if ($this->barcode->downloadedpdf && $this->barcode->value_of_redemptions > 0) {
+         if (@$this->barcode->downloadedpdf && $this->barcode->value_of_redemptions > 0) {
 
             return $this->barcode->value_of_redemptions;
 
