@@ -309,7 +309,7 @@ class Kid extends Model
 
          if ($this->barcode->downloadedpdf && $this->barcode->value_of_redemptions > 0) {
 
-            return $this->barcode->value_of_redemptions
+            return $this->barcode->value_of_redemptions;
 
          } 
     } 
