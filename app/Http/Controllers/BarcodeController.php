@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+
+
 use DB;
 use App\Barcode;
 use Config;
@@ -23,6 +25,41 @@ use App\Setting;
 use App\Intermediair;
 use App\Intertoys;
 use Custommade;
+
+
+/* 
+    Deze  heb  ik ertussen gezet omdat hij de cardnumber niet goed las
+*/
+
+
+use PHPExcel_Cell;
+use PHPExcel_Cell_DataType;
+use PHPExcel_Cell_IValueBinder;
+use PHPExcel_Cell_DefaultValueBinder;
+
+class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
+{
+    public function bindValue(PHPExcel_Cell $cell, $value = null)
+    {
+        if (is_numeric($value))
+        {
+            $cell->setValueExplicit($value, PHPExcel_Cell_DataType::TYPE_STRING);
+
+            return true;
+        }
+        
+        // else return default behavior
+        return parent::bindValue($cell, $value);
+    }
+}
+
+
+/* 
+    Einde oplossing
+*/
+
+
+
 
 
 class BarcodeController extends Controller
@@ -231,19 +268,42 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', 0)
                                 ->whereNotNull('kid_id')
                                 ->where('kid_id','!=',0)->get();
 
-        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', NULL)
+        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', 0)
                                 ->where('kid_id','=',0)->get();
 
         $totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
+        //$totaaluitgegeven = 0;
 
         $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')->count();
 
-        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes]);  
+
+        //$arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
+
+        $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcodes', function($query){
+                $query->where('value_of_redemptions', 0)->where('kid_id','!=',0);
+            })->orderBy('organisatienaam', 'ASC')->get(); 
+
+        $overzichtIntermediairs = array();
+
+        foreach ($arrayIntermediairAantalOnverzilverdeBarcodes as $key => $value) {
+            $aantalOnverzilverd = Barcode::where('value_of_redemptions', '=', 0)
+                                ->where('user_id','=',$value['id'])->count();
+            $overzichtIntermediairs[] = [ 
+                                        
+                                        'id'=> $value['id'],
+                                        'organisatienaam' => $value['organisatienaam'],
+                                        'aantalonverzilverd' => $aantalOnverzilverd
+                                        
+                                    ];
+        }
+
+        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 
+            'overzichtIntermediairs'=>$overzichtIntermediairs]);  
     }
 
 
@@ -268,8 +328,13 @@ class BarcodeController extends Controller
          *  hier wordt de upload ingelezen
          */
         Config::set('excel.csv.delimiter', ';');
-        $raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
-      
+        //$raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
+
+
+        $myValueBinder = new MyValueBinder;
+        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path)->get();
+
+
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
@@ -279,7 +344,7 @@ class BarcodeController extends Controller
                 $barcodestring = str_replace(' ', '', $value['cardnumber']);
 
                 $barcode = Barcode::where('barcode', $barcodestring)->update([
-                    'value_of_redemptions' => $value['valueofredemptions'],
+                    'value_of_redemptions' => str_replace(',', '.', $value['valueofredemptions']),
                 ]);            
         }
 

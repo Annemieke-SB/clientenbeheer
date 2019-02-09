@@ -34,7 +34,7 @@
 
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <span class="badge">&#8364; {{$totaaluitgegeven}}</span>
+                    <span class="badge">&#8364; {{str_replace('.', ',', $totaaluitgegeven)}}</span>
                     Totaal uitgegeven aan barcodes volgens eindlijst
                 </li>
                 <li class="list-group-item">
@@ -48,45 +48,97 @@
             </ul>
 
         </div>
-    </div>                            
+    </div>        
+
+
+    <div class="panel panel-default">   
+        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
+        <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
+           
+                    @if(count($overzichtIntermediairs) == 0)
+                        Er zijn nog geen gebruikte barcodes in de database te zien. 
+                    @else
+
+                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Organisatienaam</th>
+                                <th>Aantal onverzilverd</th>
+                                <th>Aktie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                           
+
+
+                             @foreach($overzichtIntermediairs as $key => $ngb)
+                            
+                            <tr>
+                                <td>
+                                    {{$ngb['organisatienaam']}}
+                                </td>
+                                <td>
+                                    {{$ngb['aantalonverzilverd']}}
+                                </td>                                                                        
+                                <td>
+                                    <a href="{{ url('/user') }}/show/{{ $ngb['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                </td>
+                            </tr>
+                            
+                            @endforeach     
+ 
+                        </tbody>
+                    </table>  
+            @endif                  
+        </div>
+    </div>    
+
+                    
 
     <div class="panel panel-default">   
         <div class="panel-heading">Overzicht ongebruikte barcodes per kind</div>           
         <div class="panel-body"> 
            
-            <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>Kind</th>
-                        <th>Gezin</th>
-                        <th>Intemediair</th>
-                        <th>Aktie</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($nietgebruiktebarcodes as $ngb)
-                    
-                    <tr>
-                        <td>
-                            {{$ngb->kid->naam}}
-                        </td>
-                        <td>
-                            {{$ngb->kid->family->naam}}
-                        </td>
-                        <td>
-                            {{$ngb->kid->user->naam}}
-                        </td>                                                                        
-                        <td>
-                            <a href="{{ url('/kids') }}/show/{{ $ngb->kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Kind</button></a>&nbsp;
-                            <a href="{{ url('/family') }}/show/{{ $ngb->kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;
-                            <a href="{{ url('/user') }}/show/{{ $ngb->kid->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
-                        </td>
-                    </tr>
-                    
-                    @endforeach                                
-                    
-                </tbody>
-            </table>                    
+                    @if($welgebruiktebarcodes == 0)
+                        Er zijn nog geen gebruikte barcodes in de database te zien. 
+                    @else
+
+                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Kind</th>
+                                <th>Gezin</th>
+                                <th>Intermediair</th>
+                                <th>Aktie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($nietgebruiktebarcodes as $ngb)
+                        
+                        <tr>
+                            <td>
+                                {{$ngb->kid->naam}}
+                            </td>
+                            <td>
+                                {{$ngb->kid->family->naam}}
+                            </td>
+                            <td>
+                                {{$ngb->kid->user->naam}}
+                            </td>                                                                        
+                            <td>
+                                <a href="{{ url('/kids') }}/show/{{ $ngb->kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Kind</button></a>&nbsp;
+                                <a href="{{ url('/family') }}/show/{{ $ngb->kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;
+                                <a href="{{ url('/user') }}/show/{{ $ngb->kid->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                            </td>
+                        </tr>
+                        
+                        @endforeach    
+ 
+                        </tbody>
+                    </table>  
+            @endif                  
         </div>
     </div>    
 
@@ -94,30 +146,35 @@
         <div class="panel-heading">Overzicht ongebruikte losse barcodes</div>           
         <div class="panel-body"> 
            
-            <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th>Doel (opmerking)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($nietgebruiktelossebarcodes as $nglb)
-                    
-                    <tr>
-                        <td>
-                            Barcode {{$nglb->opmerking}} is niet gebruikt. Doel/opmerking: 
-                            @if (!$nglb->opmerking)
-                            Niet opgegeven
-                            @else
-                            {{$nglb->opmerking}}
-                            @endif
-                        </td>   
-                    </tr>
-                    
-                    @endforeach                                
-                    
-                </tbody>
-            </table>                    
+            @if($welgebruiktebarcodes == 0)
+                Er zijn nog geen gebruikte barcodes in de database te zien. 
+            @else
+
+                <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Doel (opmerking)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($nietgebruiktelossebarcodes as $nglb)
+                        
+                        <tr>
+                            <td>
+                                Barcode {{$nglb->opmerking}} is niet gebruikt. Doel/opmerking: 
+                                @if (!$nglb->opmerking)
+                                Niet opgegeven
+                                @else
+                                {{$nglb->opmerking}}
+                                @endif
+                            </td>   
+                        </tr>
+                        
+                        @endforeach                                
+                        
+                    </tbody>
+                </table>   
+            @endif                   
         </div>
     </div>                          
 
