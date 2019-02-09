@@ -118,13 +118,12 @@
                         <tr>                                                     
                             <td>geboortedatum&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geboortedatum }}</td></tr><tr>  
                             <td>Leeftijd op Sinterklaasavond&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->agenextsint }}</td></tr><tr>  
-                            <td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geslacht }}
-                            @if (Auth::user()->usertype==1)
-                              <td>Verzilverd bedrag&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->bedragverzilverd }}
+                            <td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geslacht }}</td></tr>
+                            @if (Auth::user()->usertype==1) 
+                              <tr><td>Verzilverd bedrag&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->bedragverzilverd }}</td></tr>
                             @endif
 
-                        </td>
-                        </tr>
+                       
 
                     </table>
 
