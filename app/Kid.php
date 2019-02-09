@@ -12,7 +12,7 @@ class Kid extends Model
 {
 
 	protected $table = 'kids';
-    protected $appends = array('naam', 'unieknummer','targetkid', 'targetsibling', 'agenextsint', 'reasontargetkid', 'reasontargetsibling', 'disqualified', 'geboortedatumvoornaamdubbel', 'intermediairgegevens', 'familyanderealternatieven', 'htmlbarcode', 'downloadedbarcodepdf');
+    protected $appends = array('naam', 'unieknummer','targetkid', 'targetsibling', 'agenextsint', 'reasontargetkid', 'reasontargetsibling', 'disqualified', 'geboortedatumvoornaamdubbel', 'intermediairgegevens', 'familyanderealternatieven', 'htmlbarcode', 'downloadedbarcodepdf', 'verzilverd');
 
     protected $fillable = [
             'voornaam',
@@ -289,6 +289,20 @@ class Kid extends Model
 
          }
     }    
+
+    public function getVerzilverdAttribute()
+    {
+
+         if ($this->barcode->value_of_redemptions > 0) {
+
+            return true;
+
+         } else {
+
+            return false;
+
+         }
+    }  
 
 
 }

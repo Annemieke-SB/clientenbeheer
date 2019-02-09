@@ -11,7 +11,7 @@ class Family extends Model
 {
 
 	protected $table = 'familys';
-    protected $appends = array('naam','blacklisted', 'targetkids', 'moetnogdownloaden', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
+    protected $appends = array('naam','blacklisted', 'targetkids', 'moetnogdownloaden', 'allesverzilverd', 'targetsiblings', 'kidsdisqualified', 'kidscount', 'disqualified', 'postcodehuisnummerdubbel', 'heeftkindmogelijkdubbel');
 
     protected $fillable = [
             'tussenvoegsel',
@@ -81,6 +81,22 @@ class Family extends Model
         	return true;
 		}
 	}
+
+    public function getAllesverzilverdAttribute() {
+        $kids = $this->kids;
+        $count = 0;
+        foreach ($kids as $kid) {
+            if ($kid->verzilverd) {
+                $count++;
+            }
+        }
+        
+        if($count==$kids->count()){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     public function getTargetkidsAttribute()
     {
