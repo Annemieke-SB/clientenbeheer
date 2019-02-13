@@ -6,9 +6,9 @@
     "type": "project",
     "require": {
         "php": "7.*",
-        "laravel/framework": "5.7.27",
-        "laravelcollective/html": "~5.0",
-        "speelpenning/laravel-postcode-nl": "^3.0",
+        "laravel/framework": "5.7.*",
+        "laravelcollective/html": "~5.*",
+        "speelpenning/laravel-postcode-nl": "^3.*",
         "barryvdh/laravel-dompdf": "^0.8.0",
         "milon/barcode": "^5.3",
         "maatwebsite/excel": "~2.1.17",
