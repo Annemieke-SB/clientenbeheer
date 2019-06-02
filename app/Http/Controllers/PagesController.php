@@ -13,7 +13,7 @@ class PagesController extends Controller
 
     public function inschrijven()
     {
-        return view('inschrijvinggesloten');        
+        return view('inschrijven');        
     }  
 
     public function particulier()
