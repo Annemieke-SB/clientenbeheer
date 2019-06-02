@@ -50,7 +50,6 @@ Route::get('/register/verify/{token}', 'Auth\RegisterController@verify');
 
         // Registration Routes...
         Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-		// deze pagina uitgezet omdat deze niet automatisch sloot na sluiting
 
 		Route::post('register', 'Auth\RegisterController@register');
 
