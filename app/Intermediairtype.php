@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Faqs extends Model
+class Ìntermediairtypes extends Model
 {
-	protected $table = 'faqs';
+	protected $table = 'intermediairtypes';
 
 	protected $fillable = [
 
-	'vraag',
-	'antwoord',
-	'category',
+	
+	'omschrijving',
 	'user_id'
 
 	];
