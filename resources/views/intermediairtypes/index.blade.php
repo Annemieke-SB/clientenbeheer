@@ -34,9 +34,9 @@
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $intermediairtype->id }}">{{ $intermediairtype->omschrijving }}</a>
 
     
-                            <a href="{{ url('faq/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+                            <a href="{{ url('intermediairtypes/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-                            <a href="{{ url('faq/edit') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+                            <a href="{{ url('intermediairtypes/edit') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
     
 
 </h4>
