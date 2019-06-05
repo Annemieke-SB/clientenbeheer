@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ìntermediairtypes extends Model
+class Ìntermediairtype extends Model
 {
 	protected $table = 'intermediairtypes';
 
