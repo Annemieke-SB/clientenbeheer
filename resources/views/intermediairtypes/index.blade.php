@@ -11,20 +11,20 @@
             <div class="panel panel-default">              
                 <div class="panel-body">
  
-    <h1>FAQ <small>Intermediairtypes</small></h1>
+    <h1>Intermediairtypes</h1>
     <p>
                         <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                         </p>
-@if (!Auth::guest())
-                        @if (Auth::user()->usertype==1)
+
+                        
                         <a href="{{ url('intermediairtypes/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Intermediairtype toevoegen</button></a>
-                        @endif
-@endif
+                        
 
 
 
-    <div class="panel-group" id="accordion">
-      <div class="faqHeader">Algemene vragen</div>
+
+    <div>
+
       
       @foreach ($intermediairtypes as $intermediairtype)
       @if ($faq->category == 1)
@@ -34,9 +34,9 @@
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $intermediairtype->id }}">{{ $intermediairtype->omschrijving }}</a>
 
     @if (Auth::user()->usertype==1)
-                            <a href="{{ url('faq/destroy') }}/{{$faq->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
+                            <a href="{{ url('faq/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-                            <a href="{{ url('faq/edit') }}/{{$faq->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+                            <a href="{{ url('faq/edit') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
     @endif
 
 </h4>
@@ -51,7 +51,7 @@
 	@endforeach
 
    </div>
-</div>
+
 
 </div>
 </div>
