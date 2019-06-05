@@ -66,6 +66,7 @@ Route::post('/faq/update', 'FaqController@update');
 Route::get('/faq/edit/{id}', 'FaqController@edit');
 Route::get('/faq/destroy/{id}', 'FaqController@destroy');
 
+Route::get('/intermediairtypes/', 'IntermediairtypeController@index');
 Route::get('/intermediairtypes/toevoegen', 'IntermediairtypeController@create');
 Route::post('/intermediairtypes/store', 'IntermediairtypeController@store');
 Route::post('/intermediairtypes/update', 'IntermediairtypeController@update');

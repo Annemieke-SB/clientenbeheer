@@ -36,7 +36,8 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Sitebeheer <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="{{ url('/settings/') }}">Instellingen</a></li>
-      <li><a href="{{ url('/faq/') }}">Faq aanpassen</a></li>
+      <li><a href="{{ url('/faq/') }}">Faq</a></li>
+      <li><a href="{{ url('/intermediairtypes/') }}">Intermediairtypes</a></li>
       <li><a href="{{ url('/blacklist/') }}">Blacklist</a></li>
     </ul>
     <li class="dropdown">
