@@ -17,7 +17,7 @@
                         </p>
 
                         
-                        <a href="{{ url('intermediairtypes/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Intermediairtype toevoegen</button></a>
+                        <a href="{{ url('intermediairtypes/toevoegen') }}"><button type="button" class="btn btn-info btn-sm text-right">&nbsp;Intermediairtype toevoegen</button></a>
                         
 
 
