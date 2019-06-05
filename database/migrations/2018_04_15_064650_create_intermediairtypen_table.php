@@ -30,7 +30,7 @@ class CreateIntermediairtypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('intermediairtypen');
+        Schema::drop('intermediairtypes');
         //
     }
 }
