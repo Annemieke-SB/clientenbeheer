@@ -11,14 +11,14 @@
 
                 <ol class="breadcrumb">
                   <li><a href="{{ url('/home') }}">Home</a></li>
-                  <li class="active">Faq toevoegen</li>
+                  <li class="active">Intermediairtype toevoegen</li>
                 </ol> 
 
                 <div class="panel-body">
                         <p>
                         <a href="{{ url('faq') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                         </p>
-                    <p>Maak een faq aan.</p>
+                    <p>Maak een intermediairtype aan.</p>
 
 
             <!-- Flashmessage -->
@@ -29,26 +29,15 @@
 
 
 
-                    {!! Form::open(['url' => 'faq/store', 'id' => 'createform']) !!}
+                    {!! Form::open(['url' => 'intermediairtypes/store', 'id' => 'createform']) !!}
                         
                         <div class="form-group">
 
-                            {!! Form::label('vraag', 'Vraag') !!}
-                            {!! Form::text('vraag', null, ['class' => 'form-control','required', 'autofocus']) !!}
+                            {!! Form::label('omschrijving', 'Omschrijving') !!}
+                            {!! Form::text('omschrijving', null, ['class' => 'form-control','required', 'autofocus']) !!}
 
                         </div>
-                        <div class="form-group">
 
-                            {!! Form::label('antwoord', 'Antwoord') !!}
-                            {!! Form::textarea('antwoord', null, ['class' => 'form-control', 'required','autofocus']) !!}
-
-                        </div>
-                        <div class="form-group">
-
-                            {!! Form::label('category', 'Categorie') !!}
-                            {!! Form::select('category', [''=>'-', 1 =>'Algemeen', 2 =>'Privacy', 3 => 'Gebruik'], '',  ["class"=>"form-control", 'autofocus required']) !!}
-
-			</div>
          		<div class="form-group">
                             {!! Form::hidden('user_id', $user_id) !!}
 
