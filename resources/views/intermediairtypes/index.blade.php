@@ -27,17 +27,17 @@
 
       
       @foreach ($intermediairtypes as $intermediairtype)
-      @if ($faq->category == 1)
+      
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $intermediairtype->id }}">{{ $intermediairtype->omschrijving }}</a>
 
-    @if (Auth::user()->usertype==1)
+    
                             <a href="{{ url('faq/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
                             <a href="{{ url('faq/edit') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
-    @endif
+    
 
 </h4>
             </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
 	</div>
-	@endif
+	
 	@endforeach
 
    </div>
