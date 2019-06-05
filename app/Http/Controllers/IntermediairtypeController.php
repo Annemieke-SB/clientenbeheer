@@ -29,7 +29,7 @@ class IntermediairtypeController extends Controller
 
     public function index()
     {
-	$intermediairtypes = Intermediairtypes::all();
+	$intermediairtypes = Intermediairtype::all();
         return view('intermediairtypes.index', ['intermediairtypes' => $intermediairtypes]);
     }
 
