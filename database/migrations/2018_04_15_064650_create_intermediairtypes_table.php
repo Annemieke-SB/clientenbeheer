@@ -16,7 +16,6 @@ class CreateIntermediairtypesTable extends Migration
          Schema::create('intermediairtypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('omschrijving');
-            $table->integer('user_id');
             $table->rememberToken();
             $table->timestamps();
         });
