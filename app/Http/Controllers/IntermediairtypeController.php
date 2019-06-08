@@ -110,7 +110,7 @@ class IntermediairtypeController extends Controller
     }
 
 
-    public static function functionName() {
+    public static function intermediairlijst() {
         return "Hello World!";
     }
 
