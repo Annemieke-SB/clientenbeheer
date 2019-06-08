@@ -24,8 +24,8 @@ class Intermediairtype extends Model
 
 
 	public function getAantalAttribute() {
-	    $users = $this->users();
-	    return count($users);
+	    return $this->users()->count();
+	    
 	}
 
 }
