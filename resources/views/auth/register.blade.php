@@ -7,7 +7,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Inschrijven</div>
                 <div class="panel-body">
-{{ Intermediairtype::Functionname() }}
+
+<?php use App\Http\Controllers\Intermediairtype;
+echo Intermediairtype::functionName(); ?>
+
+
 
                  <h1>U bent intermediair</h1>
                  <p>U heeft aangegeven dat u intermediair bent. Daarmee komt u in aanmerking voor een inschrijving bij de Sinterklaasbank. De inschrijving bestaat uit
