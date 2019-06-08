@@ -114,6 +114,8 @@ class IntermediairtypeController extends Controller
         
         $typen = Intermediairtype::All();
 
+        $typeset = array('' => "-");
+
         $set = array(
             '' => "-",
             2 => "Schuldhulpverlening",
@@ -136,7 +138,7 @@ class IntermediairtypeController extends Controller
         );
 
 
-        return $set;
+        return $typeset;
 
     }
 
