@@ -83,10 +83,6 @@ class IntermediairtypeController extends Controller
             return view('intermediairtypes.edit', ['user_id'=> $loggedinuser->id, 'intermediairtype'=>$f]);
         }
 
-
-        
-        
-        //
     }
 
 

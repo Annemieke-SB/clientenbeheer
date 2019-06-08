@@ -44,7 +44,7 @@
 
                     @else
 
-                        <small><span class="badge badge-secondary">Door koppeling niet te wijzigen</span></small>
+                        <small><span class="badge badge-secondary">Door gekoppelde gebruikers niet te wijzigen</span></small>
 
                     @endif
             </td>
