@@ -112,7 +112,7 @@ class IntermediairtypeController extends Controller
 
     public static function intermediairlijst() {
         
-
+        $typen = Intermediairtype::All();
 
         $set = array(
             '' => "-",
