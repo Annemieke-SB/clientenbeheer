@@ -29,7 +29,7 @@ class IntermediairtypeController extends Controller
 
     public function index()
     {
-	$intermediairtypes = Intermediairtype::all();
+	$intermediairtypes = Intermediairtypes::all();
         return view('intermediairtypes.index', ['intermediairtypes' => $intermediairtypes]);
     }
 
@@ -108,4 +108,11 @@ class IntermediairtypeController extends Controller
 	    Intermediairtype::destroy($id);
         return redirect('intermediairtypes')->with('message', 'Intermediairtype gewist');
     }
+
+
+    public static function functionName() {
+        return "Hello World!";
+    }
+
+
 }
