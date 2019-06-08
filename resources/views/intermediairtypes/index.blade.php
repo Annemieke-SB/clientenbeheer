@@ -44,7 +44,7 @@
 
                     @else
 
-                        <small>Door koppeling niet te wijzigen</small>
+                        <small><span class="badge badge-secondary">Door koppeling niet te wijzigen</span></small>
 
                     @endif
             </td>
