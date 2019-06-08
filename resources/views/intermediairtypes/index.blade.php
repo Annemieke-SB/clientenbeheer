@@ -26,6 +26,7 @@
       <table class="table table-striped">
         <thead>
             <th>Omschrijving</th>
+            <th>Aantal</th>
             <th>Aktie</th>
         </thead>
       @foreach ($intermediairtypes as $intermediairtype)
@@ -33,7 +34,7 @@
 
         <tr>
             <td>{{ $intermediairtype->omschrijving }}</td>
-
+            <td>{{ $intermediairtype->aantal }}</td>
             <td>
                         <a href="{{ url('intermediairtypes/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 

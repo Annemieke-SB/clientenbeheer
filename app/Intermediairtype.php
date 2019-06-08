@@ -8,8 +8,9 @@ class Intermediairtype extends Model
 {
 	protected $table = 'intermediairtypes';
 
-	protected $fillable = [
+	protected $appends = array('aantal', 'formulierlijst');
 
+	protected $fillable = [
 	
 	'omschrijving',
 
@@ -21,5 +22,9 @@ class Intermediairtype extends Model
         return $this->hasMany('App\User');
     }
 
+
+	public function getAantalAttribute() {
+	    return $this->users->count();
+	}
 
 }
