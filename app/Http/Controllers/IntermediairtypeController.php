@@ -64,6 +64,8 @@ class IntermediairtypeController extends Controller
 
     public function edit($id)
 	{
+
+
         $loggedinuser = Auth::user();
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
@@ -72,8 +74,19 @@ class IntermediairtypeController extends Controller
         }        
 		$f = Intermediairtype::find($id);
 
+        $gekoppeld = $f;
         $loggedinuser = Auth::user();
-        return view('intermediairtypes.edit', ['user_id'=> $loggedinuser->id, 'intermediairtype'=>$f]);
+
+        if ($f->aantal()!=0) {
+            Log::info('Een intermediair probeerde een intermediairtypes-edit terwijl er een gebruiker aan gekoppeld was, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        } else {
+            return view('intermediairtypes.edit', ['user_id'=> $loggedinuser->id, 'intermediairtype'=>$f]);
+        }
+
+
+        
+        
         //
     }
 
