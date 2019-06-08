@@ -110,8 +110,11 @@ class IntermediairtypeController extends Controller
     }
 
 
-    public static function intermediairlijst() {
+    public static function intermediairlijst($id=false) {
         
+        # Om de formulieren te vullen
+
+
         $typen = Intermediairtype::All();
 
         $typeset = array('' => "-");
@@ -120,29 +123,13 @@ class IntermediairtypeController extends Controller
             $typeset[$type->id]= $type->omschrijving;
         }
 
-        $set = array(
-            '' => "-",
-            2 => "Schuldhulpverlening",
-            3 => "Geestelijke hulpverlening",
-            4 => "Medische hulpverlening",
-            5 => "BSO / Kinderopvang",
-            6 => "Basisschool",
-            7 => "Voortgezet onderwijs",
-            8 => "Daklozenopvang",
-            9 => "Sociale wijkteam",
-            10 => "Sportvereniging",
-            11 => "Vakbond",
-            12 => "Religieuze instelling",
-            30 => "Overige overheid",
-            31 => "Overige stichtingen",
-            32 => "Overige bedrijven",
-            33 => "Overige verenigingen",
-            34 => "Overige organisaties",
-            35 => "Overige onderwijs",
-        );
 
+        if ($id) {
+            return $typeset[$id];
+        } else {
+            return $typeset;
+        }
 
-        return $typeset;
 
     }
 
