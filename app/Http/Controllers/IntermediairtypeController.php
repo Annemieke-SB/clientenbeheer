@@ -111,6 +111,7 @@ class IntermediairtypeController extends Controller
 
     public function destroy($id)
     {
+        $f = Intermediairtype::find($id); 
         $loggedinuser = Auth::user();
                 // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
