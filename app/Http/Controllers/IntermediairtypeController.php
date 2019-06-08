@@ -76,7 +76,7 @@ class IntermediairtypeController extends Controller
 		$f = Intermediairtype::find($id);        
         $loggedinuser = Auth::user();
 
-        if ($f->aantal != 0) {
+        if (isset($f->aantal)) {
             Log::info('Een intermediair probeerde een intermediairtypes-edit terwijl er een gebruiker aan gekoppeld was, userid: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         } else {
