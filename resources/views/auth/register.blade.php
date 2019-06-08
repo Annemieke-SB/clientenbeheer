@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
 <?php use App\Http\Controllers\IntermediairtypeController;
-echo Intermediairtype::functionName(); ?>
+echo IntermediairtypeController::functionName(); ?>
 
 
 
