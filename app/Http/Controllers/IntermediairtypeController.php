@@ -117,7 +117,7 @@ class IntermediairtypeController extends Controller
         $typeset = array('' => "-");
 
         foreach ($typen as $type) {
-            array_push($typeset, [$type->id, $type->omschrijving]);
+            $typeset[$type->id]= $type->omschrijving;
         }
 
         $set = array(
