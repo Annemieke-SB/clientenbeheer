@@ -111,7 +111,7 @@ class IntermediairtypeController extends Controller
 
 
     public static function intermediairlijst() {
-        return "Hello World!";
+        
 
 
         $set = array(
