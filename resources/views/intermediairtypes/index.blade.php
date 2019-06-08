@@ -12,48 +12,44 @@
                 <div class="panel-body">
  
     <h1>Intermediairtypes</h1>
-    <p>
-                        <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                        </p>
 
-                        
-                        <a href="{{ url('intermediairtypes/toevoegen') }}"><button type="button" class="btn btn-info btn-sm text-right">&nbsp;Intermediairtype toevoegen</button></a>
-                        
+                        <a href="{{ url('intermediairtypes/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Intermediairtypes toevoegen</button></a>
+    <!-- Bootstrap FAQ - START -->
+                                     <!-- Flashmessage -->
+                        @if (Session::get('message'))
+                        <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+                        @endif
+            <br />
 
 
-
-
-    <div>
-
-      
+    <div class="panel-group">
+      <table class="table table-striped">
+        <thead>
+            <th>Omschrijving</th>
+            <th>Aktie</th>
+        </thead>
       @foreach ($intermediairtypes as $intermediairtype)
-      
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $intermediairtype->id }}">{{ $intermediairtype->omschrijving }}</a>
 
-    
-                            <a href="{{ url('intermediairtypes/destroy') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-                            <a href="{{ url('intermediairtypes/edit') }}/{{$intermediairtype->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
-    
+        <tr>
+            <td>{{ $intermediairtype->omschrijving }}</td>
 
-</h4>
-            </div>
+            <td>
+                        <a href="{{ url('intermediairtypes/destroy') }}/{{$item->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 
-	</div>
-	
-	@endforeach
+                        <a href="{{ url('intermediairtypes/edit') }}/{{$item->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;wijzig</button></a>
+            </td>
+        </tr>
+
+    @endforeach
+    </table>
+   
 
    </div>
-
+</div>
 
 </div>
 </div>
-
-
-<!-- Bootstrap FAQ - END -->
 
 </div>
 @endsection
