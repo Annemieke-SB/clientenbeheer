@@ -17,7 +17,7 @@ class Intermediairtype extends Model
 	];
     //
 	
-    public function user()
+    public function users()
     {
         return $this->hasMany('App\User');
     }
