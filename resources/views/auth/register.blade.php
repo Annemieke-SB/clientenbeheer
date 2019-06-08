@@ -8,7 +8,7 @@
                 <div class="panel-heading">Inschrijven</div>
                 <div class="panel-body">
 
-<?php use App\Http\Controllers\Intermediairtype;
+<?php use App\Http\Controllers\IntermediairtypeController;
 echo Intermediairtype::functionName(); ?>
 
 
