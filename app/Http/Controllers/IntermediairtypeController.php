@@ -113,7 +113,7 @@ class IntermediairtypeController extends Controller
     public static function intermediairlijst() {
         return "Hello World!";
 
-/*
+
         $set = array(
             '' => "-",
             2 => "Schuldhulpverlening",
@@ -134,7 +134,7 @@ class IntermediairtypeController extends Controller
             34 => "Overige organisaties",
             35 => "Overige onderwijs",
         );
-*/
+
 
 return $set;
 
