@@ -117,8 +117,16 @@ class IntermediairtypeController extends Controller
             Log::info('Een intermediair probeerde een intermediairtype-destroy, userid: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
-	    Intermediairtype::destroy($id);
-        return redirect('intermediairtypes')->with('message', 'Intermediairtype gewist');
+
+        if ($f->aantal) {
+            Log::info('Een intermediair probeerde een intermediairtypes-edit terwijl er een gebruiker aan gekoppeld was, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        } else {
+            Intermediairtype::destroy($id);
+            return redirect('intermediairtypes')->with('message', 'Intermediairtype gewist'); 
+        }
+
+
     }
 
 
