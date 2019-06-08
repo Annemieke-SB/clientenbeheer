@@ -10,7 +10,7 @@
 
 <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
-{!! IntermediairtypeController::intermediairlijst() !!}
+
 
 
 
@@ -172,7 +172,7 @@
                     <label for="email" class="col-md-5 control-label">Soort instelling</label>
 
                     <div class="col-md-6">
-                        {!! Form::select('type', Custommade::typenIntermediairs(), null,  ["class"=>"form-control", 'autofocus']) !!}
+                        {!! Form::select('type', IntermediairtypeController::intermediairlijst(), null,  ["class"=>"form-control", 'autofocus']) !!}
 
                         @if ($errors->has('type'))
                         <span class="help-block">
