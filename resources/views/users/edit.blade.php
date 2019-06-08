@@ -101,7 +101,7 @@
                         <div class="form-group">
 
                             {!! Form::label('type', 'Soort instelling') !!}
-                            {!! Form::select('type', Custommade::typenIntermediairs(), $user->type,  ["class"=>"form-control", 'autofocus']) !!}
+                            {!! Form::select('intermediairtype', Custommade::typenIntermediairs(), $user->intermediairtype,  ["class"=>"form-control", 'autofocus']) !!}
                         </div>                                                     
                         <div class="form-group">
 

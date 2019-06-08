@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'reden' => $faker->text($maxNbChars=150),
         'website' => $faker->url,
         'telefoon' => $faker->e164PhoneNumber,
-        'type' => $faker->randomElement($array = array(1,2,3,4,5,6,7,8,9,10,11,12)),
+        'intermediairtype' => $faker->randomElement($array = array(1,2,3,4,5,6,7,8,9,10,11,12)),
         'adres' => $faker->streetName,
         'huisnummer' => $faker->numberBetween($min = 10, $max = 500),
         'huisnummertoevoeging' => 'a',

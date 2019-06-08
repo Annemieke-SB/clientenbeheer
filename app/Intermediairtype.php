@@ -12,14 +12,13 @@ class Intermediairtype extends Model
 
 	
 	'omschrijving',
-	'user_id'
 
 	];
     //
 	
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\User');
     }
 
 
