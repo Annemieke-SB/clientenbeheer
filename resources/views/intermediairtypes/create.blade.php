@@ -39,7 +39,6 @@
                         </div>
 
          		<div class="form-group">
-                            {!! Form::hidden('user_id', $user_id) !!}
 
                             <input class="btn btn-primary form-control" type="submit" id="verzendknop" value="Opslaan">
                             
