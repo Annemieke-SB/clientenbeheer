@@ -45,10 +45,11 @@
       <ul class="dropdown-menu">
         <li><a href="{{ url('/users/index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Gebruikersbeheer</a></li>
         <li role="separator" class="divider"></li>
+        <li><a href="{{ url('/users/index?filter=igg') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Keuren gezinnen</a></li>        
         <li><a href="{{ url('/tellingen/') }}">Tellingen</a></li>
         <li><a href="{{ url('/maillijsten/') }}">Maillijsten</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="{{ url('/barcodes/') }}">Barcodes</a></li>
+        <li><a href="{{ url('/barcodes/') }}">Tegoedcodes</a></li>
       </ul>
     </li>
     <li class="dropdown">
