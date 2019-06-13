@@ -97,7 +97,7 @@ class User extends Authenticatable
     public function verified()
     {
 
-        dd(Setting::find(5)->setting);
+        
         $this->emailverified = 1;
         $this->email_token = null;
         $this->save();        
