@@ -51,7 +51,7 @@ class HomeController extends Controller
     		 * Hier komt de admin-pagina
     		 */
 
-            dd(Setting::find(5)->setting); 
+            //dd(Setting::find(5)->setting); 
 
 
     				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
