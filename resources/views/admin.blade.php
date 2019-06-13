@@ -60,7 +60,7 @@
                 <div class="panel-body">
 
 
-dd(Setting::find(5)->setting);
+<? dd(Setting::find(5)->setting); ?>
 
                     @if (App\Setting::get('inschrijven_gesloten') == 1 && App\Setting::get('downloads_ingeschakeld') == 1) {{-- Inschrijvingen gesloten downloads aktief --}}
                         <div class="panel panel-danger">
