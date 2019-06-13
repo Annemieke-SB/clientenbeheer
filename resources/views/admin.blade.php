@@ -60,6 +60,8 @@
                 <div class="panel-body">
 
 
+dd(Setting::find(5)->setting);
+
                     @if (App\Setting::get('inschrijven_gesloten') == 1 && App\Setting::get('downloads_ingeschakeld') == 1) {{-- Inschrijvingen gesloten downloads aktief --}}
                         <div class="panel panel-danger">
                               <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> | De inschrijvingen zijn gesloten! Er kan niets meer worden gewijzigd of toegevoegd door de intermediairs. De downloadpagina is ook aktief, dus intermediairs kunnen downloaden</div>
