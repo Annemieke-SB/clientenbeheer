@@ -17,22 +17,13 @@ class Intermediairtype extends Model
 	];
     //
 	
-    public function users()
-    {
+    public function users() {
         return $this->hasMany('App\User');
     }
 
-
 	public function getAantalAttribute() {
 	    return $this->users()->count();
 	    
 	}
-
-
-	public function getAantalAttribute() {
-	    return $this->users()->count();
-	    
-	}
-
 
 }
