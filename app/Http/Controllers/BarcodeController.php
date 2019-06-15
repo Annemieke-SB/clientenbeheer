@@ -272,10 +272,12 @@ class BarcodeController extends Controller
 
 
             foreach ($new_barcodes as $barcode) {
-                    dd($barcode);
+                    
 
                     $b = new Barcode;
                     $b->barcode = $barcode;
+
+                    dd($b);
 
                     try {
                       $b->save();
