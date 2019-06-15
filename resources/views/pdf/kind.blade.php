@@ -11,13 +11,16 @@
 <div id="content">
 	<div id="top">{{ Html::image('img/sintbankpics/banner_brief1.png', 'logo', array('class' => 'logo')) }}&nbsp;</div>
 	<div id="textbody">
-			<p>
-			<small>Aan de ouders/verzorgers van</small><br><br>{{ $kid->naam }}<br>
-			{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
-			{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
-			<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
-			</p><br>
 			
+			<div id="briefstart">
+				<div id="adres">
+				<small>Aan de ouders/verzorgers van</small><br><br>{{ $kid->naam }}<br>
+				{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
+				{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
+				
+				</div>
+				<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+			</div>
 			<p>
 			Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 			
