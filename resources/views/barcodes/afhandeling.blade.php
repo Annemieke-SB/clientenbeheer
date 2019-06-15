@@ -48,6 +48,9 @@
                 <pre>6299930034000122453=49120000000000000,8109</pre> 
                 @endif
 
+                @if($doubles>0)
+                <p>Er zijn {{ $doubles }} dubbelen aangetroffen in de lijst die werd geupload. Deze zijn overgeslagen. </p>
+                @endif
                 @endif
 
                 @if(!$errorvlag)

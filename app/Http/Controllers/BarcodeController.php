@@ -259,7 +259,6 @@ class BarcodeController extends Controller
 
         if ($no_19 > 0 || $foutformaat || $aant_barcodes == 0 || count($skipped)>0) {
 
-
             return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>true]);
 
         } else {
@@ -269,37 +268,45 @@ class BarcodeController extends Controller
          *  
          */
 
-        //dd($new_barcodes);
-
             foreach ($new_barcodes as $barcode) {
                     
+                $doubles = 0;
+
+                /**
+                * Het kan voorkomen dat de barcode niet in de database stond, maar wel dubbel in de lijst. Hier deze check.
+                *
+                **/
+
+                $c = Barcode::where('barcode', $barcode)->get();
+                if (count($c)>0) {
+
+                    $doubles++;
+                    // skip de rest
+
+                } else {
+
+                    /**
+                    * Toevoegen aan database
+                    *
+                    **/                    
 
                     $b = new Barcode;
                     $b->barcode = $barcode;
-
-                    //dd($b);
 
                     try {
                       $b->save();
                     } catch(\Exception $e) {
                         dd($b);
                       return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
-                    }                   
-                
+                    }     
 
-
-                
+                }                
             }
 
-
-            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>false]);
-
+            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'doubles'=>$doubles,'skipped'=>$skipped, 'errorvlag'=>false]);
         }
-
-    
     }
     
-
 
     public function extrabarcodes()
     {
