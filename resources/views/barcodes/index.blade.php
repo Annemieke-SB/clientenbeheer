@@ -91,13 +91,13 @@
                                 <p>Hieronder kun je nieuwe codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv). Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
                                 <p>Voorbeeld<br></p>
                                 <pre>
-                                    Coupon Code,Created,Uses,Times Used
-                                    sinterklaasbank-48562,"Jun 7, 2019, 10:27:24 AM",No,0
-                                    sinterklaasbank-04754,"Jun 7, 2019, 10:27:24 AM",No,0
-                                    sinterklaasbank-24106,"Jun 7, 2019, 10:27:24 AM",No,0
-                                    sinterklaasbank-48563,"Jun 7, 2019, 10:27:24 AM",No,1
-                                    sinterklaasbank-04755,"Jun 7, 2019, 10:27:24 AM",No,1
-                                    sinterklaasbank-24107,"Jun 7, 2019, 10:27:24 AM",No,1
+Coupon Code,Created,Uses,Times Used
+sinterklaasbank-48562,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-04754,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-24106,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-48563,"Jun 7, 2019, 10:27:24 AM",No,1
+sinterklaasbank-04755,"Jun 7, 2019, 10:27:24 AM",No,1
+sinterklaasbank-24107,"Jun 7, 2019, 10:27:24 AM",No,1
                                 </pre>
                                 
                                 {!! Form::open(array('url'=>'/barcodes/upload', 'method'=>'POST', 'files'=>true)) !!}
