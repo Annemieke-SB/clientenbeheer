@@ -282,7 +282,7 @@ class BarcodeController extends Controller
                     try {
                       $b->save();
                     } catch(\Exception $e) {
-                        //dd($e);
+                        dd(array($e, $b));
                       return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
                     }                   
                 
