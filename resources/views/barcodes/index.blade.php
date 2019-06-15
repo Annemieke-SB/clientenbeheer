@@ -89,12 +89,15 @@
                             <div class="panel-body"> 
 
                                 <p>Hieronder kun je nieuwe codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv). Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
-                                <pre>Voorbeeld<br>
-                                    6299930034000122339=49120000000000000,4621
-                                    6299930034000122347=49120000000000000,8055
-                                    6299930034000122354=49120000000000000,3271
-                                    6299930034000122362=49120000000000000,0377
-                                    6299930034000122370=49120000000000000,1066
+                                <p>Voorbeeld<br></p>
+                                <pre>
+                                    Coupon Code,Created,Uses,Times Used
+                                    sinterklaasbank-48562,"Jun 7, 2019, 10:27:24 AM",No,0
+                                    sinterklaasbank-04754,"Jun 7, 2019, 10:27:24 AM",No,0
+                                    sinterklaasbank-24106,"Jun 7, 2019, 10:27:24 AM",No,0
+                                    sinterklaasbank-48563,"Jun 7, 2019, 10:27:24 AM",No,1
+                                    sinterklaasbank-04755,"Jun 7, 2019, 10:27:24 AM",No,1
+                                    sinterklaasbank-24107,"Jun 7, 2019, 10:27:24 AM",No,1
                                 </pre>
                                 
                                 {!! Form::open(array('url'=>'/barcodes/upload', 'method'=>'POST', 'files'=>true)) !!}
