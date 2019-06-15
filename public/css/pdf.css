@@ -34,13 +34,12 @@ p#dagtekening {
 div.barcode {
 	width: 100%;
 	margin-left: 300px;   
-	border:dashed;
+	border: 2px dashed red;  
 	height: 50px;
 }
 
 div#barcodenumber {
-	margin-top: -10px;
-	margin-left:80px;
+	margin-top: 20px;
 }
 
 .page-break {
