@@ -15,8 +15,9 @@
 			<small>Aan de ouders/verzorgers van</small><br><br>{{ $kid->naam }}<br>
 			{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 			{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
-			</p><br>
 			<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+			</p><br>
+			
 			<p>
 			Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 			
