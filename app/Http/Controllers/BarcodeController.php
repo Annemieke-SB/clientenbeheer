@@ -259,7 +259,7 @@ class BarcodeController extends Controller
 
         if ($no_19 > 0 || $foutformaat || $aant_barcodes == 0 || count($skipped)>0) {
 
-            dd($skipped);
+
             return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>true]);
 
         } else {
@@ -280,6 +280,7 @@ class BarcodeController extends Controller
                     try {
                       $b->save();
                     } catch(\Exception $e) {
+                        dd($e);
                       return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
                     }                   
                 
