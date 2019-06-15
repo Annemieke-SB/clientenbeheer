@@ -37,16 +37,17 @@ div.barcode {
 	border: 2px double red;  
 	height: 50px;
 	text-align: center;
-	font-size: 20pt;
-	color: red;
+
 }
 
 div.barclabel {
-font-size: 10pt;
+	font-size: 10pt;
 }
 
 div#barcodenumber {
 	margin-top: 10px;
+	font-size: 20pt;
+	color: red;
 }
 
 .page-break {
