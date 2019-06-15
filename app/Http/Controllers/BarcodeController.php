@@ -260,7 +260,7 @@ class BarcodeController extends Controller
 
         if ($no_19 > 0 || $foutformaat || $aant_barcodes == 0 || count($skipped)>0) {
 
-            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>true]);
+            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'doubles'=>$doubles, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>true]);
 
         } else {
 
@@ -298,13 +298,13 @@ class BarcodeController extends Controller
                       $b->save();
                     } catch(\Exception $e) {
                         dd($b);
-                      return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
+                      return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'doubles'=>$doubles, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
                     }     
 
                 }                
             }
 
-            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'doubles'=>$doubles,'skipped'=>$skipped, 'errorvlag'=>false]);
+            return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'doubles'=>$doubles, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>false]);
         }
     }
     
