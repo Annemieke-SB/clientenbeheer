@@ -277,7 +277,7 @@ class BarcodeController extends Controller
                     $b = new Barcode;
                     $b->barcode = $barcode;
 
-                    dd($b);
+                    //dd($b);
 
                     try {
                       $b->save();
