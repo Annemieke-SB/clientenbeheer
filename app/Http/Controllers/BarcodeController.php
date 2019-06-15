@@ -259,6 +259,7 @@ class BarcodeController extends Controller
 
         if ($no_19 > 0 || $foutformaat || $aant_barcodes == 0 || count($skipped)>0) {
 
+            dd($no_19);
             return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat,'skipped'=>$skipped, 'errorvlag'=>true]);
 
         } else {
