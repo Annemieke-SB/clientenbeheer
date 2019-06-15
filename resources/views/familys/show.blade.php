@@ -147,7 +147,7 @@
                     </table>
                     <table>                   
                         <tr>
-                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $family->user->naam }}&nbsp;({{ $family->user->intermediairtype->omschrijving }} {{ $family->user->organisatienaam }})&nbsp;</td>
+                                <td>Intermediair&nbsp;</td><td>:&nbsp;{{ $family->user->naam }}&nbsp;({{ $family->user->intermediairtype }} {{ $family->user->organisatienaam }})&nbsp;</td>
                         </tr>
                         
                         <tr><td>Andere alternatieven&nbsp;</td>
