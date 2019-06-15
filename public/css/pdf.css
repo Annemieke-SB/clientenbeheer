@@ -35,6 +35,7 @@ div.barcode {
 	width: 100%;
 	margin-left: 300px;   
 	border:dashed;
+	height: 50px;
 }
 
 div#barcodenumber {
