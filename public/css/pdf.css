@@ -38,6 +38,7 @@ div.barcode {
 	height: 50px;
 	text-align: center;
 	font-size: 20pt;
+	color: red;
 }
 
 div#barcodenumber {
