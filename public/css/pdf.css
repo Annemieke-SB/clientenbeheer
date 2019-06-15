@@ -34,7 +34,7 @@ p#dagtekening {
 div.barcode {
 	width: 100%;
 	margin-left: 300px;   
-	border: 2px dashed red;  
+	border: 2px double red;  
 	height: 50px;
 	text-align: center;
 	font-size: 20pt;
