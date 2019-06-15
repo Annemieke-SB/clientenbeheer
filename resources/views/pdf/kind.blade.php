@@ -16,24 +16,27 @@
 			{{ $kid->family->adres }} {{ $kid->family->huisnummer }}{{ $kid->family->huisnummertoevoeging }}<br>
 			{{ $kid->family->postcode }} {{ $kid->family->woonplaats }}
 			</p><br>
+			<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
 			<p>
 			Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
+			
 			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Top1Toys.</p>
-			<p>U ontvangt van ons deze brief en een apart verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.  
-			Rechtsbovenin het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro! 
-			</p>
+			
+			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro!</p>
 
-			<p>Ga uiterlijk 5 december {{date('Y')}} met het volledig ingevulde verlanglijstje (deze brief is niet nodig) naar de website van Top1toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren. Het is namelijk niet mogelijk om de code meer dan één keer te gebruiken. <b>Na 5 december {{date('Y')}} is de waardebon niet meer geldig.</b></p>
+			<p>Naast deze brief ontvangt u een verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.</p>
 
-			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld. 
+			<p>Bestel uiterlijk <b>5 december {{date('Y')}}</b> de door {{ ucfirst($kid->voornaam) }} gevraagde Sinterklaas cadeaus op de website van Top1Toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bij het afrekenen kan de code uit deze brief als kortingscode bij Top1Toys gebruikt worden. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren. De code kan maar één keer gebruikt te worden. <b>Na 5 december {{date('Y')}} is de code niet meer geldig.</b></p>
+
+			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld.</p>
 			<p>
-			Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.<br>
+			Wij wensen {{ ucfirst($kid->voornaam) }}, u en uw gezin een hele fijne sinterklaasavond.</p><br>
 			<br>
 			Hartelijke groet,<br>
 			<br>
 			<br>
 			Stichting de Sinterklaasbank&nbsp;
-			</p><br>
+			<br>
 
 
 			<small>P.S. Wilt u ons laten weten hoe {{ ucfirst($kid->voornaam) }}, u en uw gezin deze actie van de Sinterklaasbank hebben ervaren? Dit kan via info@sinterklaasbank.nl. Een foto of video vinden wij erg leuk.
@@ -57,7 +60,7 @@
 		
 
 		<p id="dagtekening">Madrid, november {{date('Y')}}</p>
-		<div class="barcode">{!! ucfirst($kid->htmlbarcode) !!}</div>
+		
 		<p>
 		Lieve {{ ucfirst($kid->voornaam) }},
 		</p>
@@ -68,13 +71,11 @@
 		<p>
 		Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
 		<p>
-		Omdat ik heel graag wil weten wat jij van Sinterklaas wil hebben, vraag ik je het verlanglijstje hieronder in te
-		vullen. Je mag plaatjes uitknippen, bijvoorbeeld uit het grote Intertoysboek en die erop plakken.
-		Maar je mag ook een tekening maken of, als je dat al kunt, opschrijven wat je graag wil hebben.
+		Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben, vraag ik jou het verlanglijstje hieronder in te vullen. Jij mag plaatjes uitknippen, bijvoorbeeld uit het grote Top1Toys boek en die erop plakken. Maar jij mag ook een tekening maken of, als jij dat al kunt, opschrijven wat jij graag wilt hebben.
 		</p>
 
 		<p>
-		Als je je verlanglijstje hebt ingevuld, mag je het in je schoen doen. Piet komt het dan bij je ophalen. Wij gaan dan in de pakjesboot kijken of het cadeau dat jij graag wil hebben is meegekomen uit Spanje. Spannend he!</p>	
+		Als jij jouw verlanglijstje hebt ingevuld, mag jij het in jouw schoen doen. Piet komthet dan bij jou ophalen. De pieten gaan dan in de pakjesboot kijken of het cadeaudat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
 		<p>
 		<br>			
 		Groetjes van Sint
