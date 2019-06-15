@@ -271,8 +271,6 @@ class BarcodeController extends Controller
 
             foreach ($new_barcodes as $barcode) {
                     
-                $doubles = 0;
-
                 /**
                 * Het kan voorkomen dat de barcode niet in de database stond, maar wel dubbel in de lijst. Hier deze check.
                 *

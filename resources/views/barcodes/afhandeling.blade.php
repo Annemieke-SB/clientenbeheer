@@ -57,7 +57,7 @@
 
                 @if(!$errorvlag)
 
-                    <p>Er zijn {{$aant_barcodes}} barcodes in de database geplaatst!</p>
+                    <p>Er zijn {{$aant_barcodes - $doubles}} barcodes in de database geplaatst!</p>
 
                     @if($doubles>0)
                         <p>Er zijn {{ $doubles }} dubbelen aangetroffen in de lijst die werd geupload. Deze zijn overgeslagen. </p>
