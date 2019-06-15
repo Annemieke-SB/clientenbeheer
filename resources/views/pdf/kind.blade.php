@@ -41,7 +41,7 @@
 			<br>
 			Stichting de Sinterklaasbank&nbsp;
 			<br>
-
+<br><br><br>
 
 			<small>P.S. Wilt u ons laten weten hoe {{ ucfirst($kid->voornaam) }}, u en uw gezin deze actie van de Sinterklaasbank hebben ervaren? Dit kan via info@sinterklaasbank.nl. Een foto of video vinden wij erg leuk.
 			Om meer bekendheid aan en inzage in de activiteiten van Stichting de Sinterklaasbank te geven willen wij graag een foto of video op social media of onze website publiceren. Publicatie vindt niet plaats zonder dat u hier specifiek toestemming voor hebt gegeven.
