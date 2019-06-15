@@ -41,6 +41,10 @@ div.barcode {
 	color: red;
 }
 
+div.barclabel {
+font-size: 10pt;
+}
+
 div#barcodenumber {
 	margin-top: 10px;
 }
