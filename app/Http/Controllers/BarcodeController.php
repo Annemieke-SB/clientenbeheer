@@ -272,7 +272,7 @@ class BarcodeController extends Controller
 
 
             foreach ($new_barcodes as $barcode) {
-
+                    dd($barcode);
 
                     $b = new Barcode;
                     $b->barcode = $barcode;
@@ -280,7 +280,7 @@ class BarcodeController extends Controller
                     try {
                       $b->save();
                     } catch(\Exception $e) {
-                        dd($e);
+                        //dd($e);
                       return view('barcodes.afhandeling', ['no_19'=>$no_19, 'aant_barcodes'=>$aant_barcodes, 'foutformaat'=>$foutformaat, 'skipped'=>$skipped, 'errorvlag'=>true]);
                     }                   
                 
