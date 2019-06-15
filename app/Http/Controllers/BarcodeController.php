@@ -269,7 +269,7 @@ class BarcodeController extends Controller
          *  
          */
 
-
+        dd($new_barcodes);
 
             foreach ($new_barcodes as $barcode) {
                     
