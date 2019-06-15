@@ -207,6 +207,7 @@ class BarcodeController extends Controller
 
         $new_barcodes = array();
         $aant_barcodes = 0;  
+        $doubles = 0;  
 
 
         $no_19 = 0; // LEGACY VAN INTERTOYS, VOOR DE 19-CHECK IN DE BARCODE (OBSOLETE, DUS BLIJFT FALSE)
