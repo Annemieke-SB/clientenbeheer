@@ -151,7 +151,7 @@ class BarcodeController extends Controller
 
                     if(preg_match("/\b=\b/i", $value[0])){
 
-                        $aant_barcodes++;
+                        
 
                         $a = explode('=', $value[0]);     
 
@@ -209,11 +209,12 @@ class BarcodeController extends Controller
         $aant_barcodes = 0;  
 
 
-        $no_19 = false; // LEGACY VAN INTERTOYS, VOOR DE 19-CHECK IN DE BARCODE (OBSOLETE, DUS BLIJFT FALSE)
+        $no_19 = 0; // LEGACY VAN INTERTOYS, VOOR DE 19-CHECK IN DE BARCODE (OBSOLETE, DUS BLIJFT FALSE)
         $foutformaat = false; // LEGACY VAN INTERTOYS (OBSOLETE, DUS BLIJFT FALSE)
 
         foreach ($raw_barcodes as $key => $value) {
 
+            $aant_barcodes++;
 
             // Barcode-kandidaat vaststellen
 
