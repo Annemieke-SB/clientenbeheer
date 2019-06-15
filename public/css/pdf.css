@@ -28,11 +28,12 @@ div#footernotes {
 }
 
 div#briefstart {
-
+	width: 100%;
 }
 
 div#adres {
-
+	float: left;
+	width: 50%;
 }
 
 
