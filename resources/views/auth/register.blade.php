@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-    
+    <?php use App\Http\Controllers\SettingsController; ?>
+    <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
 @if (SettingsController::value(6) == 1) <!-- registratie is gesloten -->
 
@@ -45,7 +46,7 @@
                     <div class="panel-heading">Inschrijven</div>
                     <div class="panel-body">
 
-    <?php use App\Http\Controllers\IntermediairtypeController; ?>
+    
 
 
 
