@@ -26,11 +26,11 @@
 			
 			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een sinterklaascadeau uitkiezen uit de collectie van Top1Toys.</p>
 			
-			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro! U kunt de code in de winkelwagen op de site van Top1Toys invoeren.</p>
+			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro!</p>
 
 			<p>Naast deze brief ontvangt u een verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.</p>
 
-			<p>Bestel uiterlijk <b>5 december {{date('Y')}}</b> de door {{ ucfirst($kid->voornaam) }} gevraagde sinterklaascadeaus op de website van Top1Toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bij het afrekenen kan de code uit deze brief als kortingscode bij Top1Toys gebruikt worden. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren. De code kan maar één keer gebruikt te worden. <b>Na 5 december {{date('Y')}} is de code niet meer geldig.</b></p>
+			<p>Bestel uiterlijk <b>5 december {{date('Y')}}</b> de door {{ ucfirst($kid->voornaam) }} gevraagde sinterklaascadeaus op de website van Top1Toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bij het afrekenen kan de code uit deze brief als kortingscode in de winkelwagen op de site van Top1Toys gebruikt worden. Hij kan dus niet in een winkel van Top1Toys worden ingeleverd. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren, de code kan namelijk maar één keer gebruikt worden. <b>Na 5 december {{date('Y')}} is de code niet meer geldig.</b></p>
 
 			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld.</p>
 			<p>
