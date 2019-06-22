@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Setting;
 
+$settings = SettingsController::getReadable();
 
 
 class PagesController extends Controller
@@ -13,7 +14,12 @@ class PagesController extends Controller
 
     public function inschrijven()
     {
-        return view('inschrijven');        
+        if ($settings["inschrijven_gesloten"] == 1) {
+            return view('inschrijvengesloten'); 
+        } else {
+            return view('inschrijven'); 
+        }
+               
     }  
 
     public function particulier()
