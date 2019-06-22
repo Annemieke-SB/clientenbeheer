@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-use Settings;
-
+use App\Http\Controllers\SettingsController as Settings;
 
 
 
