@@ -64,7 +64,7 @@
                             <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
                             <tbody>
                                 <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
-                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
+                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes - $losse_barcodes }}</td></tr>
                                 <tr><td>&#8627;&nbsp;&nbsp;Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
                                 <tr><td>Totaal uitgegeven</td><td>{{ $losse_barcodes + $uitgegeven_barcodes }}</td></tr>
                                 <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
