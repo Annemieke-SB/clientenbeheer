@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Setting;
 
-$settings = SettingsController::getReadable();
+$settings = Settings::getReadable();
 
 
 class PagesController extends Controller
