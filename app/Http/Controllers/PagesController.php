@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Controllers\SettingsController;
+use App\Setting;
 
 
 
 
 class PagesController extends Controller
 {
-    $settings = SettingsController::getReadable();
+    $settings = Setting::getReadable();
 
-    
     public function inschrijven()
     {
         if ($settings["inschrijven_gesloten"] == 1) {
