@@ -3,7 +3,10 @@
     <?php use App\Http\Controllers\SettingsController; ?>
     <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
-    <? dd(SettingsController::getReadable()); ?>
+    <? 
+    $settings = SettingsController::getReadable();
+
+    dd($settings("inschrijven_gesloten")); ?>
 
 @if (SettingsController::value(1) == 1) <!-- registratie is gesloten -->
 
