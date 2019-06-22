@@ -11,10 +11,12 @@ use App\Setting;
 
 class PagesController extends Controller
 {
-    dd(Setting::getReadable());
+    
 
     public function inschrijven()
     {
+        dd(Setting::getReadable());
+        
         if ($settings["inschrijven_gesloten"] == 1) {
             return view('inschrijvengesloten'); 
         } else {
