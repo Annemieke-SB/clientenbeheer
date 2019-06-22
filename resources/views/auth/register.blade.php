@@ -6,7 +6,9 @@
     <? 
     $settings = SettingsController::getReadable();
 
-    dd($settings("inschrijven_gesloten")); ?>
+    dd($settings);
+
+    ?>
 
 @if (SettingsController::value(1) == 1) <!-- registratie is gesloten -->
 
