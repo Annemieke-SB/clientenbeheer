@@ -15,7 +15,7 @@ class PagesController extends Controller
 
     public function inschrijven()
     {
-        dd(Setting::getReadable());
+        dd(Settings::getReadable());
 
         if ($settings["inschrijven_gesloten"] == 1) {
             return view('inschrijvengesloten'); 
