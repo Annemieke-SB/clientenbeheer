@@ -47,7 +47,7 @@
 			<br>Volg ons op facebook (facebook.com/DeSinterklaasbank/) om op de hoogte te blijven van alle activiteiten van de Sinterklaasbank.</small>
 
 
-<br><br><br><br><br>
+<br><br><br><br>
 			<div id="footernotes">Stichting 'de Sinterklaasbank' | Postbus 1007, 1400 BA Bussum | KvK 52115885 | IBAN NL40 RABO 0106 7550 13</div>
 	</div>
 </div>
