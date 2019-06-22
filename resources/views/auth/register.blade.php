@@ -6,7 +6,7 @@
     <? 
     $settings = SettingsController::getReadable();
 
-    dd($settings);
+    dd($settings["inschrijven_gesloten"]);
 
     ?>
 
