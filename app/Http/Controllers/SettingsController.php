@@ -19,7 +19,7 @@ use Custommade;
 class SettingsController extends Controller
 {
     
-	public function value($id) {
+	public static function value($id) {
 		try{
 			$setting = Setting::where('setting', $id);
 			return $setting->value;
