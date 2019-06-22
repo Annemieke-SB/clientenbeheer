@@ -11,7 +11,7 @@ use App\Setting;
 
 class PagesController extends Controller
 {
-    $settings = Setting::getReadable();
+    dd(Setting::getReadable());
 
     public function inschrijven()
     {
