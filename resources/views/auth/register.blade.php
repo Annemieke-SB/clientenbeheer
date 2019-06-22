@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-    <?php use App\Http\Controllers\SettingsController; ?>
+    
 
-@if (SettingsController::intermediairlijst()) <!-- registratie is gesloten -->
+@if (SettingsController::value(6) == 1) <!-- registratie is gesloten -->
 
     @section('content')
     <div class="container">
