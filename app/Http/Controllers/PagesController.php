@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Controllers\SettingsController
+use App\Http\Controllers\SettingsController;
 
 $settings = SettingsController::getReadable();
 
