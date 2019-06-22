@@ -19,7 +19,7 @@ use Custommade;
 class SettingsController extends Controller
 {
     
-	public static function value($id) {
+	public function value($id) {
 		try{
 			$setting = Setting::where('setting', $id);
 			return $setting->value;
@@ -148,7 +148,7 @@ class SettingsController extends Controller
     }
 
 
-    public function getReadable () {
+    public static function getReadable () {
         
         $settings = Setting::All();
         $arr = array();
