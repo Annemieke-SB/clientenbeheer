@@ -45,7 +45,7 @@
                         <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
                         <tbody>
                             
-                            <tr><td>Uitgegeven barcodes</td><td>{{ $losse_barcodes + $uitgegeven_barcodes }}</td></tr>
+                            <tr><td>Uitgegeven barcodes</td><td>{{ $uitgegeven_barcodes }}</td></tr>
                             <tr><td>&#8627;&nbsp;&nbsp;Waarvan gedownload</td><td>{{ $gedownloadde_barcodes }}</td></tr>   
                             <tr><td>Nog te downloaden</td><td>{{ ($losse_barcodes + $uitgegeven_barcodes) - $gedownloadde_barcodes }}</td></tr>   
                             
