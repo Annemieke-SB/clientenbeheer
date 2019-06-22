@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-use App\Setting;
+use App\Http\Controllers\SettingsController
 
-$settings = Settings::getReadable();
+$settings = SettingsController::getReadable();
 
 
 class PagesController extends Controller
