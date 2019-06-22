@@ -57,13 +57,13 @@ class HomeController extends Controller
     				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     $intermediairzonderfamilies = array();
 
-                    $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
+                    $familieszonderkinderen = Family::whereDoesntHave('kids')->count();
+                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->count();
+                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->count();
 
                     $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
                             $query->whereNull('downloadedpdf');
-                        })->get();
+                        })->count();
 
     	    
                     return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
