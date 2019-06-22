@@ -24,13 +24,13 @@
 			<p>
 			Beste ouders/verzorgers van {{ ucfirst($kid->voornaam) }},</p><br>
 			
-			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een Sinterklaas cadeau uitkiezen uit de collectie van Top1Toys.</p>
+			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een sinterklaascadeau uitkiezen uit de collectie van Top1Toys.</p>
 			
 			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro!</p>
 
 			<p>Naast deze brief ontvangt u een verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.</p>
 
-			<p>Bestel uiterlijk <b>5 december {{date('Y')}}</b> de door {{ ucfirst($kid->voornaam) }} gevraagde Sinterklaas cadeaus op de website van Top1Toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bij het afrekenen kan de code uit deze brief als kortingscode bij Top1Toys gebruikt worden. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren. De code kan maar één keer gebruikt te worden. <b>Na 5 december {{date('Y')}} is de code niet meer geldig.</b></p>
+			<p>Bestel uiterlijk <b>5 december {{date('Y')}}</b> de door {{ ucfirst($kid->voornaam) }} gevraagde sinterklaascadeaus op de website van Top1Toys (www.top1toys.nl). Dit mag 1 cadeau van 25 euro zijn, of 25 cadeaus van 1 euro. Bij het afrekenen kan de code uit deze brief als kortingscode bij Top1Toys gebruikt worden. Bijbetalen mag, maar de bestelling moet wel in één keer gebeuren. De code kan maar één keer gebruikt te worden. <b>Na 5 december {{date('Y')}} is de code niet meer geldig.</b></p>
 
 			<p>Een cadeau dat niet past bij de leeftijd van {{ ucfirst($kid->voornaam) }} kan worden geweigerd. Gekozen cadeaus kunnen niet worden geruild of ingewisseld voor contant geld.</p>
 			<p>
@@ -69,16 +69,15 @@
 		</p>
 		<p>Hier een brief van Sinterklaas.</p>
 		<p>
-		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel
-		kinderen blij maken met een cadeau. En één van die kinderen dat ben jij! </p>
+		Ik vind het heel fijn dat ik weer in Nederland ben. Samen met mijn Pieten ga ik weer heel veel kinderen blij maken met een cadeau. En één van die kinderen dat ben jij! </p>
 		<p>
 		Samen met al mijn Pieten gaan we er weer een geweldig feest van maken.</p>
 		<p>
-		Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben, vraag ik jou het verlanglijstje hieronder in te vullen. Jij mag plaatjes uitknippen, bijvoorbeeld uit het grote Top1Toys boek en die erop plakken. Maar jij mag ook een tekening maken of, als jij dat al kunt, opschrijven wat jij graag wilt hebben.
+		Omdat ik heel graag wil weten wat jij van Sinterklaas wilt hebben, vraag ik jou het verlanglijstje hieronder in te vullen. Jij mag plaatjes uitknippen en die erop plakken. Maar jij mag ook een tekening maken of, als jij dat al kunt, opschrijven wat jij graag wilt hebben.
 		</p>
 
 		<p>
-		Als jij jouw verlanglijstje hebt ingevuld, mag jij het in jouw schoen doen. Piet komthet dan bij jou ophalen. De pieten gaan dan in de pakjesboot kijken of het cadeaudat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
+		Als jij jouw verlanglijstje hebt ingevuld, mag jij het in jouw schoen doen. Piet komt het dan bij jou ophalen. De Pieten gaan dan in de pakjesboot kijken of het cadeau dat jij graag wilt hebben is meegekomen uit Spanje. Spannend he!</p>	
 		<p>
 		<br>			
 		Groetjes van Sint
