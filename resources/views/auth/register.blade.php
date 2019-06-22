@@ -3,7 +3,7 @@
     <?php use App\Http\Controllers\SettingsController; ?>
     <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
-@if (SettingsController::value(4) == 1) <!-- registratie is gesloten -->
+@if (SettingsController::value("4") == 1) <!-- registratie is gesloten -->
 
     @section('content')
     <div class="container">
