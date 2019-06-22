@@ -26,7 +26,7 @@
 			
 			<p>Alstublieft, {{ ucfirst($kid->voornaam) }} mag ter waarde van maximaal 25 euro een sinterklaascadeau uitkiezen uit de collectie van Top1Toys.</p>
 			
-			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro!</p>
+			<p>Rechts boven in het vierkant staat een code. Deze code vertegenwoordigt een waarde van 25 euro! U kunt de code in de winkelwagen op de site van Top1Toys invoeren.</p>
 
 			<p>Naast deze brief ontvangt u een verlanglijstje. Laat {{ ucfirst($kid->voornaam) }} het verlanglijstje invullen. Hierbij mag {{ ucfirst($kid->voornaam) }} plakken en knippen of tekenen wat {{ ucfirst($kid->voornaam) }} graag wil hebben van Sinterklaas.</p>
 
