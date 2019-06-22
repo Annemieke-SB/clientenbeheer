@@ -3,6 +3,8 @@
     <?php use App\Http\Controllers\SettingsController; ?>
     <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
+    <? dd(SettingsController::getReadable()); ?>
+
 @if (SettingsController::value(1) == 1) <!-- registratie is gesloten -->
 
     @section('content')
