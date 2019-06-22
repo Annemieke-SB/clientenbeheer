@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\SettingsController;
 
-$settings = SettingsController::getReadable();
+
 
 
 class PagesController extends Controller
 {
+    $settings = SettingsController::getReadable();
 
+    
     public function inschrijven()
     {
         if ($settings["inschrijven_gesloten"] == 1) {
