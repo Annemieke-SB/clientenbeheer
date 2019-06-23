@@ -66,16 +66,16 @@ class HomeController extends Controller
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
-                    $familieszonderkinderen = Cache::rememberForever('familieszonderkinderen', 300, function () {
+                    $familieszonderkinderen = Cache::remember('familieszonderkinderen', 300, function () {
                         return Family::whereDoesntHave('kids')->get();
                     });
-                    $nogtekeuren_families = Cache::rememberForever('nogtekeuren_families', 300, function () {
+                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
                         return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                     });
-                    $nogtekeuren_users = Cache::rememberForever('nogtekeuren_users', 300, function () {
+                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
                     });
-                    $intermediairmetnietgedownloadepdfs = Cache::rememberForever('intermediairmetnietgedownloadepdfs', 300, function () {
+                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 300, function () {
                         return User::whereHas('barcodes', function($query){
                             $query->whereNull('downloadedpdf');
                         })->get();
