@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use DB;
-use Mail;
+use App\Mail;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
@@ -12,7 +12,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Database\Eloquent\Model;
 use App\Setting;
-use App\Mail;
 
 
 
