@@ -122,7 +122,7 @@
                                     <tbody>
 @if (count($user->familys) == 0)
 <tr>
-	<td colspan=5><center>Nog geen gezinnen ingevoerd</center></td>
+	<td colspan=6><center>Nog geen gezinnen ingevoerd</center></td>
 </tr>
 @endif
 
