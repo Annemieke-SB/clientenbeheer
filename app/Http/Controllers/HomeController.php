@@ -62,7 +62,7 @@ class HomeController extends Controller
                     $nogtekeuren_users = Cache::store('database')->get('nogtekeuren_users');
                     $intermediairmetnietgedownloadepdfs = Cache::store('database')->get('intermediairmetnietgedownloadepdfs');
 if (Cache::has('nogtekeuren_families')) {
-    dd('ja');
+    dd($nogtekeuren_families);
 }
 /*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
