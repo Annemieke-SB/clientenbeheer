@@ -78,7 +78,7 @@
 
       @endif
 
-
+<p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst.</p>
                        
 @if (count($nogtekeuren_users)>0)
 
