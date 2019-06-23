@@ -181,7 +181,7 @@ class UserController extends Controller
             
             $message->to($maildata['email']);
                 
-            $message->subject('Bericht van de Sinterklaasbank: ' . $maildata['titel']);
+            $message->subject('Bericht van de Sinterklaasbank: uw account is ' . $maildata['status']);
         });
 
         
