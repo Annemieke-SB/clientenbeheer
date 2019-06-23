@@ -79,7 +79,7 @@
       @endif
 
 <div class="alert alert-primary" role="alert">
-  <b>Let op!</b><p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn.</p>
+  <b>Let op!</b><p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn. De pagina's van het &nbsp;<a href="{{ url('users/index') }}">gebruikersoverzicht</a> zijn wel realtime.</p>
 </div>
 
                        
