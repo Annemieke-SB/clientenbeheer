@@ -56,11 +56,11 @@ class HomeController extends Controller
             //dd(Setting::find(5)->setting); 
 
 
-                    $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');
-                    $familieszonderkinderen = Cache::pull('familieszonderkinderen');
-                    $nogtekeuren_families = Cache::pull('nogtekeuren_families');
-                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');
-                    $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
+                    $intermediairzonderfamilies = Cache::pull('laravelintermediairzonderfamilies');
+                    $familieszonderkinderen = Cache::pull('laravelfamilieszonderkinderen');
+                    $nogtekeuren_families = Cache::pull('laravelnogtekeuren_families');
+                    $nogtekeuren_users = Cache::pull('laravelnogtekeuren_users');
+                    $intermediairmetnietgedownloadepdfs = Cache::pull('laravelintermediairmetnietgedownloadepdfs');
 
                     event(new AdminHomePageEvent());      
     	    
