@@ -23,7 +23,7 @@ class User extends Authenticatable
     protected $appends = array('blacklisted', 'andereinitiatieven');
 
     protected $fillable = [
-        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'intermediairtype_id', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
+        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'intermediairtype', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
     ];
 
     /**
@@ -39,6 +39,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Kid');
     }
+
+    public function intermediairtype()
+    {
+        return $this->belongsTo('App\intermediairtype');
+    }    
 
     public function barcodes()
     {
