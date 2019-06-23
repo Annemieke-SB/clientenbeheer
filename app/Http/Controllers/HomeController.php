@@ -54,35 +54,14 @@ class HomeController extends Controller
 
             //dd(Setting::find(5)->setting); 
 
-                    $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
-                        return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
-                    });
-    				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
 
-                    $familieszonderkinderen = Cache::remember('familieszonderkinderen', 300, function () {
-                        return Family::whereDoesntHave('kids')->get();
-                    });
-                    // $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
-                        return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    });
-                    //$nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
-                        return User::where([['activated', 0],['emailverified', 1]])->get();
-                    });
-                    //$nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
+                    $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');
+                    $familieszonderkinderen = Cache::pull('familieszonderkinderen');
+                    $nogtekeuren_families = Cache::pull('nogtekeuren_families');
+                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');
+                    $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
 
-                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 300, function () {
-                        return User::whereHas('barcodes', function($query){
-                            $query->whereNull('downloadedpdf');
-                        })->get();
-                    });
-                    /**
-
-                    $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
-                            $query->whereNull('downloadedpdf');
-                        })->get();
-                    **/
+                    event(new AdminHomePageEvent());      
     	    
                     return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 
