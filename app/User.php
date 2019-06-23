@@ -113,7 +113,7 @@ class User extends Authenticatable
 
             // Custommade::sendNewUserNotificationEmailToAdmin($to);
 
-            Mail::to($to)->send(new NotifyAdminNewUser($this->id));
+            \Mail::to($to)->send(new NotifyAdminNewUser($this->id));
         }
     }
 
