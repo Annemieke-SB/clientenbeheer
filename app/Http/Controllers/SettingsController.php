@@ -148,13 +148,13 @@ class SettingsController extends Controller
     }
 
     /**
-    * Ik heb deze weggehaald omdat ik global deze kan gebruiken (hetzelfde)
+    * Ik heb deze weggehaald omdat je deze moet gebruiken
     *
     * Setting::get('min_leeftijd');
     *
-    * (zonder hem aan te roepen als 'Use App\Setting')
+    * 
     *
-    **/
+    
 
     public static function getReadable () {
         
@@ -172,6 +172,8 @@ class SettingsController extends Controller
 
     }
 
+    *
+    **/
 
 
     public function sendMailToIntermediairs ($type = false) {
