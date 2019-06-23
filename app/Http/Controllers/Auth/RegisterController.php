@@ -106,7 +106,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'website' => $data['website'],
             'telefoon' => $data['telefoon'],
-            'type' => $data['type'],
+            'intermediairtype_id' => $data['intermediairtype_id'],
             'postcode' => $data['postcode'],
             'huisnummer' => $data['huisnummer'],
             'huisnummertoevoeging' => $data['huisnummertoevoeging'],
