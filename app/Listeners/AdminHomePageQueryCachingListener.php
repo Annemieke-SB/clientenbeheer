@@ -7,6 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Cache;
 use App\User;
+use DB;
 use App\Family;
 use App\Kid;
 use App\Barcode;
