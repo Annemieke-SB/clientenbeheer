@@ -170,7 +170,7 @@ class UserController extends Controller
             $user->activated=1;
 
             $maildata = [
-                'titel' => "geactiveerd",
+                'status' => "geactiveerd",
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
