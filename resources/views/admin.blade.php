@@ -79,14 +79,9 @@
       @endif
 
 <div class="alert alert-primary" role="alert">
-  Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst.
+  <b>Let op!</b>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn.
 </div>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Let op!</strong> You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+
                        
 @if (count($nogtekeuren_users)>0)
 
