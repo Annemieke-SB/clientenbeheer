@@ -43,7 +43,7 @@
 @stop
 
 
-
+<? dd($intermediairzonderfamilies) ?)
 
 @section ('content')
 <div class="container">
