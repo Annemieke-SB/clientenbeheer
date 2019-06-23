@@ -294,11 +294,11 @@
 
 <!-- actief -->
 
-                        <p>Uw account in cliëntenbeheer van de Sinterklaasbank is <b>geactiveerd</b>.</p><p>Ga naar <a href='{{ url('/home') }}'>de cliëntenbeheer</a> om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.</p><p>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december {{ date('Y') }}.</p>
+                        <p>Uw account in cliëntenbeheer van de Sinterklaasbank is <b>geactiveerd</b>.</p><p>Ga naar <a href='{{ url('/home') }}'>onze cliëntenbeheer</a> om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.</p><p>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december {{ date('Y') }}.</p>
 
                         @else
 <!-- deactief -->
-                        <p>Uw account in de cliëntenbeheer van de Sinterklaasbank is gedeactiveerd en u kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.</p>
+                        <p>Uw account in de cliëntenbeheer van de Sinterklaasbank is <b>gedeactiveerd</b> en u kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.</p>
 
                         @endif
                         <br>

@@ -41,9 +41,5 @@ class EmailActivationtoggle extends Mailable
                         'email' => $this->user->email,
                         'organisatienaam' => $this->user->organisatienaam
                     ]);
-    
-
-        return $this->subject('Bericht van de Sinterklaasbank – uw accountstatus is gewijzigd')
-                    ->view('emails.activationtoggle');
     }
 }
