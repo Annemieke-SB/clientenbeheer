@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<?php use App\Http\Controllers\IntermediairtypeController; ?>
 @section('content')
 <div class="container">
     <div class="row">
@@ -101,7 +101,7 @@
                         <div class="form-group">
 
                             {!! Form::label('type', 'Soort instelling') !!}
-                            {!! Form::select('intermediairtype', Custommade::typenIntermediairs(), $user->intermediairtype,  ["class"=>"form-control", 'autofocus']) !!}
+                            {!! Form::select('type', IntermediairtypeController::intermediairlijst(), $user->intermediairtype, ["class"=>"form-control", 'autofocus']) !!}
                         </div>                                                     
                         <div class="form-group">
 
