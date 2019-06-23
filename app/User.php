@@ -109,9 +109,10 @@ class User extends Authenticatable
         $this->save();        
 
         if ($this->activated == 0) {
-            $to = Setting::find(5)->setting; // deze moet even onelegant omdat een "Setting::get('min_leeftijd')"-achtige niet werkt. Op die plek staat namelijk de mailadressen.
+            $to = explode(',',Setting::find(5)->setting); // deze moet even onelegant omdat een "Setting::get('min_leeftijd')"-achtige niet werkt. Op die plek staat namelijk de mailadressen.
 
-            // Custommade::sendNewUserNotificationEmailToAdmin($to);
+
+            
 
             \Mail::to($to)->send(new NotifyAdminNewUser($this->id));
         }
