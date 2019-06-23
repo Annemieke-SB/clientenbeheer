@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Settings;
 use Custommade;
 use App\Blacklist;
+use Mail;
 
 class User extends Authenticatable
 {
