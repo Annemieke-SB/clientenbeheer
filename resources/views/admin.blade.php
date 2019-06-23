@@ -268,9 +268,9 @@
         @endif
       </td>
                 <td>
-                        <!--  <a href="{{ url('family/show') }}/{{$fzk->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon gezin</button></a>&nbsp;
+                        <a href="{{ url('family/show') }}/{{$fzk->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon gezin</button></a>&nbsp;
                           <a href="{{ url('user/show') }}/{{$fzk->user->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon intermediair</button></a>
-                -->
+                
                 </td>
           </tr>
     
