@@ -298,7 +298,7 @@
 
                         @else
 <!-- deactief -->
-                        <p>Uw account in de cliëntenbeheer van de Sinterklaasbank is <b>gedeactiveerd</b> en u kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.</p>
+                        <p>Uw account in de cliëntenbeheer van de Sinterklaasbank is <b>gedeactiveerd</b>: u kunt nu niet meer inloggen.</p><p> Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.</p>
 
                         @endif
                         <br>
