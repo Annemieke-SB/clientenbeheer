@@ -39,7 +39,7 @@ class AdminHomePageQueryCachingListener
         // Nieuwe cache aanleggen
 
                     Cache::rememberForever('intermediairzonderfamilies', function () {
-                        return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
+                        return DB::table('users')->where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
                     Cache::rememberForever('familieszonderkinderen', function () {
                         return Family::whereDoesntHave('kids')->get();
