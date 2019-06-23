@@ -31,6 +31,18 @@ class EmailActivationtoggle extends Mailable
      */
     public function build()
     {
+
+        return $this->subject('Bericht van de Sinterklaasbank: uw accountstatus is gewijzigd')
+                    ->view('emails.activationtoggle')
+                    ->with([
+                        'voornaam' => $this->user->voornaam,
+                        'tussenvoegsel' => $this->user->tussenvoegsel,
+                        'achternaam' => $this->user->achternaam,
+                        'email' => $this->user->email,
+                        'organisatienaam' => $this->user->organisatienaam
+                    ]);
+    
+
         return $this->subject('Bericht van de Sinterklaasbank – uw accountstatus is gewijzigd')
                     ->view('emails.activationtoggle');
     }

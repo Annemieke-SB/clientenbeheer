@@ -28,20 +28,6 @@ class Custommade {
     }
 
 
-    public static function sendUserEmail($to, $message) {
-
-    	    	
-
-		$headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
-					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
-					'Content-type: text/html; charset=iso-8859-1'. "\r\n" .
-					'MIME-Version: 1.0'. "\r\n" .
-					'X-Mailer: PHP/' . phpversion();
-
-		mail($to, 'Bericht van clientenbeheer', $message, $headers); 	
-    }
-
-
     public static function showVoorwaarden() {
 
 

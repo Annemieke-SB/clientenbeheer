@@ -160,8 +160,7 @@ class UserController extends Controller
         if ($user->activated==1) {
             $user->activated=0;
             $maildata = [
-                'titel' => "Uw account is gedeactiveerd",
-                'mailmessage' => "Uw account in de clientenbeheer van de Sinterklaasbank is gedeactiveerd en u kunt nu niet meer inloggen. Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.",
+                'status' => "gedeactiveerd",
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
@@ -171,8 +170,7 @@ class UserController extends Controller
             $user->activated=1;
 
             $maildata = [
-                'titel' => "Uw account is geactiveerd",
-                'mailmessage' => "Uw account in cliëntenbeheer van de Sinterklaasbank is geactiveerd.<br>Ga naar " . url('/home') . " om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.<br>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december " . date('Y') ."." ,
+                'titel' => "geactiveerd",
                 'voornaam' => $user->voornaam,
                 'email'=>$user->email
             ];
@@ -365,8 +363,6 @@ class UserController extends Controller
             /*
             * Einde oude emailadres
             */
-
-            //Custommade::sendUserEmail($oude_mail, 'Uw emailadres is gewijzigd naar '.$request->email1 .'. Als dit niet klopt, neem dan zo spoedig mogelijk contact op met webmaster@sinterklaasbank.nl.');
 
             Auth::logout();
             return redirect('login')->with('message', 'Gegevens gewijzigd. Omdat het emailadres is gewijzigd is er een verificatiemail naar het nieuwe emailadres ('.$request->email1.') gestuurd. Na het klikken op de link kunt u pas weer inloggen.');

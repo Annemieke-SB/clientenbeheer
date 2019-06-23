@@ -69,23 +69,16 @@ class User extends Authenticatable
 
         $gezinnen = $this->familys;
         $andereinitiatieven = false;
-        
-        
-
-            
+                    
                foreach ($gezinnen as $gezin) {
 
                     if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
 
                         return true;
-
                     }                    
             }  
             return false;  
                   
-        
-
-
         return false;
     }
 
@@ -102,18 +95,13 @@ class User extends Authenticatable
 
     public function verified()
     {
-
-        
         $this->emailverified = 1;
         $this->email_token = null;
         $this->save();        
 
         if ($this->activated == 0) {
             $to = explode(',',Setting::find(5)->setting); // deze moet even onelegant omdat een "Setting::get('min_leeftijd')"-achtige niet werkt. Op die plek staat namelijk de mailadressen.
-
-
-            
-
+       
             \Mail::to($to)->send(new NotifyAdminNewUser($this->id));
         }
     }
