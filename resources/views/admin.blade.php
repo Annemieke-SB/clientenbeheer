@@ -78,7 +78,10 @@
 
       @endif
 
-<p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst.</p>
+<div class="alert alert-primary" role="alert">
+  Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst.
+</div>
+
                        
 @if (count($nogtekeuren_users)>0)
 
