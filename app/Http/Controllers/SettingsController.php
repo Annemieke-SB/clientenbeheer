@@ -147,6 +147,14 @@ class SettingsController extends Controller
 
     }
 
+    /**
+    * Ik heb deze weggehaald omdat ik global deze kan gebruiken (hetzelfde)
+    *
+    * Setting::get('min_leeftijd');
+    *
+    * (zonder hem aan te roepen als 'Use App\Setting')
+    *
+    **/
 
     public static function getReadable () {
         
