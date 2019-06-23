@@ -63,7 +63,7 @@ class HomeController extends Controller
                     $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
 
                     $nogtekeuren_families = Cache::pull('nogtekeuren_families');
-dd($intermediairzonderfamilies);
+//dd($intermediairzonderfamilies);
 
 /*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
