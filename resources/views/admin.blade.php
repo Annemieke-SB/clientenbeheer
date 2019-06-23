@@ -79,7 +79,7 @@
       @endif
 
 <div class="alert alert-primary" role="alert">
-  <b>Let op!</b>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn.
+  <b>Let op!</b><p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn.</p>
 </div>
 
                        
