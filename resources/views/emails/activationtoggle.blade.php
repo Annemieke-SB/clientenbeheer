@@ -294,7 +294,7 @@
 
 <!-- actief -->
 
-                        <p>Uw account in cliëntenbeheer van de Sinterklaasbank is <b>geactiveerd</b>.</p><p>Ga naar {{ url('/home') }} om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.</p><p>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december {{ date('Y') }}.</p>
+                        <p>Uw account in cliëntenbeheer van de Sinterklaasbank is <b>geactiveerd</b>.</p><p>Ga naar <a href='{{ url('/home') }}'>de cliëntenbeheer</a> om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.</p><p>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december {{ date('Y') }}.</p>
 
                         @else
 <!-- deactief -->
