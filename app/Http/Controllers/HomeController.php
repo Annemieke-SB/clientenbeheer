@@ -59,17 +59,30 @@ class HomeController extends Controller
                     });
     				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
 
+                    $familieszonderkinderen = Cache::remember('familieszonderkinderen', 3000, function () {
+                        return Family::whereDoesntHave('kids')->get();
+                    });
+                    // $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
+                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 3000, function () {
+                        return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    });
+                    //$nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 3000, function () {
+                        return User::where([['activated', 0],['emailverified', 1]])->get();
+                    });
+                    //$nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
 
-
-
-                    $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
+                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 3000, function () {
+                        return User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->get();
+                    });
+                    /**
 
                     $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
                             $query->whereNull('downloadedpdf');
                         })->get();
-
+                    **/
     	    
                     return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 
