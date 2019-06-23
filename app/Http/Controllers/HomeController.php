@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -53,9 +54,13 @@ class HomeController extends Controller
 
             //dd(Setting::find(5)->setting); 
 
-
+                    $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 3000, function () {
+                        return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
+                    });
     				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
-                    $intermediairzonderfamilies = array();
+
+
+                    //$intermediairzonderfamilies = array();
 
                     $familieszonderkinderen = Family::whereDoesntHave('kids')->count();
                     $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->count();
