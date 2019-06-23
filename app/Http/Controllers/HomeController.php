@@ -56,22 +56,28 @@ class HomeController extends Controller
             //dd(Setting::find(5)->setting); 
 
 
-                    $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');
-                    $familieszonderkinderen = Cache::pull('familieszonderkinderen');
+                    // $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');  (kan niet worden gecached)
+                    // $familieszonderkinderen = Cache::pull('familieszonderkinderen'); (kan niet worden gecached)
+                    // $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs'); (kan niet worden gecached)
                     
-                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');
-                    $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
-
+                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');       
                     $nogtekeuren_families = Cache::pull('nogtekeuren_families');
-//dd($intermediairzonderfamilies);
 
-/*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
+
                     $familieszonderkinderen = Cache::remember('familieszonderkinderen', 300, function () {
                         return Family::whereDoesntHave('kids')->get();
                     });
+
+                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 300, function () {
+                        return User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->get();
+                    });            
+/*
+
 
                     $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
                         return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
@@ -80,11 +86,7 @@ class HomeController extends Controller
                     $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
                     });
-                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 300, function () {
-                        return User::whereHas('barcodes', function($query){
-                            $query->whereNull('downloadedpdf');
-                        })->get();
-                    });
+
 
 */
 
