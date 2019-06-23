@@ -55,14 +55,14 @@ class HomeController extends Controller
 
             //dd(Setting::find(5)->setting); 
 
-/*
+
                     $intermediairzonderfamilies = Cache::store('database')->get('intermediairzonderfamilies');
                     $familieszonderkinderen = Cache::store('database')->get('familieszonderkinderen');
                     $nogtekeuren_families = Cache::store('database')->get('nogtekeuren_families');
                     $nogtekeuren_users = Cache::store('database')->get('nogtekeuren_users');
                     $intermediairmetnietgedownloadepdfs = Cache::store('database')->get('intermediairmetnietgedownloadepdfs');
 
-
+/*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
