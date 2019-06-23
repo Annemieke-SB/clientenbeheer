@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Events\AdminHomePageEvent;
 use Illuminate\Support\Facades\Log;
 use DB;
 use Route;
