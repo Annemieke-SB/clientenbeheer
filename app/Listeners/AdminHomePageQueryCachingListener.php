@@ -29,7 +29,7 @@ class AdminHomePageQueryCachingListener
      * @param  SomeEvent  $event
      * @return void
      */
-    public function handle(SomeEvent $event)
+    public function handle()
     {
 
         // Oude cache is al in de HomeController geleegd. 
