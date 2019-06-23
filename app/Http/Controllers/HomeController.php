@@ -74,7 +74,8 @@ if (Cache::has('nogtekeuren_families')) {
                         return Family::whereDoesntHave('kids')->get();
                     });
                     $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
-                        return DB::table('families')->where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                        return "hallo";
+                        //DB::table('families')->where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                     });
                     $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
