@@ -63,10 +63,8 @@ class HomeController extends Controller
                     $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
 
                     $nogtekeuren_families = Cache::pull('nogtekeuren_families');
-                    
-if (Cache::has('nogtekeuren_families')) {
-    dd($nogtekeuren_families);
-}
+
+
 /*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
