@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Settings;
 use Custommade;
 use App\Blacklist;
-use App\Mail;
+use App\Mail\NotifyAdminNewUser;
 
 class User extends Authenticatable
 {
