@@ -1,13 +1,10 @@
 @extends('layouts.app')
 
-    <?php use App\Http\Controllers\SettingsController; ?>
+    <?php use App\Setting; ?>
     <?php use App\Http\Controllers\IntermediairtypeController; ?>
 
-    <? 
-    $settings = SettingsController::getReadable();
-    ?>
 
-@if ($settings["inschrijven_gesloten"] == 1) <!-- registratie is gesloten -->
+@if (Setting::get("inschrijven_gesloten") == 1) <!-- registratie is gesloten -->
 
     @section('content')
     <div class="container">

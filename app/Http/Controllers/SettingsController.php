@@ -16,6 +16,20 @@ use App\User;
 use Custommade;
 
 
+    /**
+    * Settings kan je door de hele applicatie aanroepen via
+    *
+    * Use App\Setting;
+    *
+    * Setting::get('min_leeftijd');
+    *
+    * 
+    ***/
+
+
+
+
+
 class SettingsController extends Controller
 {
     
