@@ -214,11 +214,11 @@
                         <label for="email" class="col-md-5 control-label">Soort instelling</label>
 
                         <div class="col-md-6">
-                            {!! Form::select('type', IntermediairtypeController::intermediairlijst(), null,  ["class"=>"form-control", 'autofocus']) !!}
+                            {!! Form::select('intermediairtype_id', IntermediairtypeController::intermediairlijst(), null,  ["class"=>"form-control", 'autofocus']) !!}
 
-                            @if ($errors->has('type'))
+                            @if ($errors->has('intermediairtype_id'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('type') }}</strong>
+                                <strong>{{ $errors->first('intermediairtype_id') }}</strong>
                             </span>
                             @endif
                         </div>
