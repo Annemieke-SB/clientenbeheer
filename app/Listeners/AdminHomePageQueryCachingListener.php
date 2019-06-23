@@ -34,7 +34,7 @@ class AdminHomePageQueryCachingListener
 
         // Oude cache is al in de HomeController geleegd. 
 
-                    
+                    dd('hier');
 
         // Nieuwe cache aanleggen
 
