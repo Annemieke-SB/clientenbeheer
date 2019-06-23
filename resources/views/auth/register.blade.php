@@ -210,7 +210,7 @@
 
 
 
-                    <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('intermediairtype_id') ? ' has-error' : '' }}">
                         <label for="email" class="col-md-5 control-label">Soort instelling</label>
 
                         <div class="col-md-6">
