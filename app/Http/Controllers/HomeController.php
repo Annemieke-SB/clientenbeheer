@@ -54,25 +54,25 @@ class HomeController extends Controller
 
             //dd(Setting::find(5)->setting); 
 
-                    $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 10, function () {
+                    $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
     				//$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
 
-                    $familieszonderkinderen = Cache::remember('familieszonderkinderen', 10, function () {
+                    $familieszonderkinderen = Cache::remember('familieszonderkinderen', 300, function () {
                         return Family::whereDoesntHave('kids')->get();
                     });
                     // $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 10, function () {
+                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
                         return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                     });
                     //$nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 10, function () {
+                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
                     });
                     //$nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
 
-                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 10, function () {
+                    $intermediairmetnietgedownloadepdfs = Cache::remember('intermediairmetnietgedownloadepdfs', 300, function () {
                         return User::whereHas('barcodes', function($query){
                             $query->whereNull('downloadedpdf');
                         })->get();
