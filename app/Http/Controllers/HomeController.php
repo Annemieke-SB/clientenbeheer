@@ -54,19 +54,20 @@ class HomeController extends Controller
     		 */
 
             //dd(Setting::find(5)->setting); 
-/*
+
 
                     $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');
-                    $familieszonderkinderen = Cache::store('database')->get('familieszonderkinderen');
+                    $familieszonderkinderen = Cache::pull('familieszonderkinderen');
                     
-                    $nogtekeuren_users = Cache::store('database')->get('nogtekeuren_users');
-                    $intermediairmetnietgedownloadepdfs = Cache::store('database')->get('intermediairmetnietgedownloadepdfs');
-*/
-$nogtekeuren_families = Cache::store('database')->get('nogtekeuren_families');
+                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');
+                    $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs');
+
+                    $nogtekeuren_families = Cache::pull('nogtekeuren_families');
+                    
 if (Cache::has('nogtekeuren_families')) {
     dd($nogtekeuren_families);
 }
-
+/*
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
@@ -87,7 +88,7 @@ if (Cache::has('nogtekeuren_families')) {
                         })->get();
                     });
 
-
+*/
 
 
                     event(new AdminHomePageEvent());      
