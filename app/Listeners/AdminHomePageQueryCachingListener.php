@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\SomeEvent;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Cache;
