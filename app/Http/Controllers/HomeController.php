@@ -64,7 +64,7 @@ class HomeController extends Controller
 */
 
 if (Cache::has('nogtekeuren_families')) {
-    dd(Cache::store('database')->get('nogtekeuren_families'););
+    dd(Cache::store('database')->get('nogtekeuren_families'));
 }
 
                     $intermediairzonderfamilies = Cache::remember('intermediairzonderfamilies', 300, function () {
