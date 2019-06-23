@@ -31,6 +31,7 @@ class AdminHomePageEvent
      */
     public function broadcastOn()
     {
+        dd('hier');
         return new PrivateChannel('channel-name');
     }
 }
