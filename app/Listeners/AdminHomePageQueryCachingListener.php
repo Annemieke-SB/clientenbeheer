@@ -12,6 +12,11 @@ use DB;
 use App\Family;
 use App\Kid;
 use App\Barcode;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Events\AdminHomePageEvent;
+use Illuminate\Support\Facades\Log;
+
 
 class AdminHomePageQueryCachingListener
 {
