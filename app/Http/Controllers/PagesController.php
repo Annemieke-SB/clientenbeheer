@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Controllers\SettingsController as Settings;
+//use App\Http\Controllers\SettingsController as Settings;
 
 
 
@@ -14,7 +14,7 @@ class PagesController extends Controller
 
     public function inschrijven()
     {   
-        if (Settings::getReadable()["inschrijven_gesloten"] == 1) {
+        if (Setting::get("inschrijven_gesloten") == 1) {
             return view('inschrijvinggesloten'); 
         } else {
             return view('inschrijven'); 
