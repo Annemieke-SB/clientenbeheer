@@ -46,24 +46,30 @@ class AdminHomePageQueryCachingListener
         // Nieuwe cache aanleggen
 
         // HELAAS WORDEN NIET ALLE ONDERSTAANDE PUNTEN GECACHED, KENNELIJK IS HET NIET MOGELIJK RELATIES TE CACHEN
-
+        /*
                     Cache::rememberForever('intermediairzonderfamilies', function () { // deze wordt niet gecached
                         return User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
                     });
+
                     Cache::rememberForever('familieszonderkinderen', function () { // deze wordt niet gecached
                         return Family::whereDoesntHave('kids')->get();
                     });
+
+                    Cache::rememberForever('intermediairmetnietgedownloadepdfs', function () { // deze wordt niet gecached
+                        return User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->get();
+                    });
+
+        */
+                    
                     Cache::rememberForever('nogtekeuren_families', function () {
                         return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
                     });
                     Cache::rememberForever('nogtekeuren_users', function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
                     });
-                    Cache::rememberForever('intermediairmetnietgedownloadepdfs', function () { // deze wordt niet gecached
-                        return User::whereHas('barcodes', function($query){
-                            $query->whereNull('downloadedpdf');
-                        })->get();
-                    });
+                    
 
 
     }
