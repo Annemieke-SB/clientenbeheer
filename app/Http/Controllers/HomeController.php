@@ -73,10 +73,7 @@ if (Cache::has('nogtekeuren_families')) {
                     $familieszonderkinderen = Cache::remember('familieszonderkinderen', 300, function () {
                         return Family::whereDoesntHave('kids')->get();
                     });
-                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
-                        return "hallo";
-                        //DB::table('families')->where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    });
+                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, "dsafs");
                     $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
                         return User::where([['activated', 0],['emailverified', 1]])->get();
                     });
