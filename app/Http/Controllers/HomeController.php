@@ -58,6 +58,7 @@ class HomeController extends Controller
             $nogtekeuren_families = null;
             $intermediairzonderfamilies = null;
             $familieszonderkinderen = null;
+            $intermediairmetnietgedownloadepdfs = null;
 
 
             //dd(Setting::find(5)->setting); 
