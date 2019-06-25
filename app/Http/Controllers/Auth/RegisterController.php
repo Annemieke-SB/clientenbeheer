@@ -155,7 +155,7 @@ class RegisterController extends Controller
             $user = $this->create($request->all());
             // After creating the user send an email with the random token generated in the create method above
             $email = new EmailVerification(new User(['email_token' => $user->email_token, 'voornaam'=>ucfirst($user->voornaam)]));
-            Mail::to($user->email)->send($email);
+            \Mail::to($user->email)->send($email);
             DB::commit();
             auth()->logout();
             return redirect('login')->with('message', 'Bedankt voor uw aanmelding! Er is zojuist een email gestuurd om uw emailadres te verifieren. Nadat u op de link in de email heeft geklikt kan de Sinterklaasbank uw inschrijving beoordelen. Daarna kunt u inloggen. Heeft u de mail niet gehad? Controleer dan uw spam-mappen in uw email!');
