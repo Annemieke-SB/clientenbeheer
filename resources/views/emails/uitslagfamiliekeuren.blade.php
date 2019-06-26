@@ -279,7 +279,7 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">{{$titel}}</span>
+            
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
