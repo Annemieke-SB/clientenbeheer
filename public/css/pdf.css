@@ -27,18 +27,40 @@ div#footernotes {
 	color:#999999;
 }
 
+div#briefstart {
+	width: 100%;
+	height: 100px;
+}
+
+div#adres {
+	float: left;
+	width: 50%;
+}
+
+
 p#dagtekening {
 	margin-top: -20px;
 }
 
 div.barcode {
-	width: 100%;
-	margin-left: 300px;   
+	float: right;
+	width: 50%;  
+	margin-top: 10px;
+	border: 2px double red;  
+	height: 50px;
+	text-align: center;
+
+}
+
+div.barclabel {
+	margin-top: -30px;
+	font-size: 8pt;
 }
 
 div#barcodenumber {
-	margin-top: -10px;
-	margin-left:80px;
+	margin-top: -20px;
+	font-size: 20pt;
+	color: red;
 }
 
 .page-break {

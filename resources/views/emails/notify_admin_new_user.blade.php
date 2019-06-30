@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Een familie is beoordeeld</title>
+    <title>Nieuwe gebruiker in cliëntenbeheer</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -279,7 +279,7 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            
+            <span class="preheader">Er is een nieuwe gebruiker in de cliëntenbeheer!</span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
@@ -288,10 +288,17 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <p>Beste {{ ucfirst($voornaam) }},</p>
-                        <p>{{$mailmessage}}</p>
+                        <p>Beste admin,</p>
+                        <p>Er is een nieuwe gebruiker die zijn email heeft geverifiëerd. Ga naar de cliëntenbeheer om hem te weigeren of te activeren.</p>  
+                        <p>
+                          <table>
+                            <tr><td>Naam</td><td>{{ $voornaam }}&nbsp;{{ $tussenvoegsel }}&nbsp;{{ $achternaam }}</td></tr>
+                            <tr><td>Emailadres</td><td>{{ $email }}</td></tr>
+                            <tr><td>Organisatie</td><td>{{ $organisatienaam }}</td></tr>
+                          </table>
+                        </p>                      
                         <p>Met vriendelijke groet,</p>
-                        <p>Stichting de Sinterklaasbank</p>
+                        <p>Cliëntenbeheer Sinterklaasbank</p>
                         <p><small>Deze email is automatisch gegenereerd en u kunt deze niet beantwoorden</small></p>
 
                         <table border="0" cellpadding="0" cellspacing="0" class="btn">

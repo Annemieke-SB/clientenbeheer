@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Events\AdminHomePageEvent;
 use Illuminate\Support\Facades\Log;
 use DB;
 use Route;
@@ -44,6 +46,7 @@ class HomeController extends Controller
 
 		if($user->activated == 1 && $user->emailverified == 1) {
 
+
     		if($user->usertype == 1)
     		{
 
@@ -51,16 +54,69 @@ class HomeController extends Controller
     		 * Hier komt de admin-pagina
     		 */
 
+            $nogtekeuren_users = null;
+            $nogtekeuren_families = null;
+            $intermediairzonderfamilies = null;
+            $familieszonderkinderen = null;
+            $intermediairmetnietgedownloadepdfs = null;
 
-    				$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();
-                    $familieszonderkinderen = Family::whereDoesntHave('kids')->get();
-                    $nogtekeuren_families = Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
-                    $nogtekeuren_users = User::where([['activated', 0],['emailverified', 1]])->get();
 
-                    $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
-                            $query->whereNull('downloadedpdf');
+            //dd(Setting::find(5)->setting); 
+
+                if (Setting::get('inschrijven_gesloten')==0) {
+
+                    // hier tijdens de inschrijvingen
+                    // ==============================
+
+
+                    /* Deze queries kunnen niet gecached worden door de relaties. Nog oplossen
+
+                    $nogtekeuren_families = Cache::remember('nogtekeuren_families', 300, function () {
+                        return Family::where([['aangemeld', 1],['goedgekeurd', 0]])->get();
+                    });
+
+                    $nogtekeuren_users = Cache::remember('nogtekeuren_users', 300, function () {
+                        return User::where([['activated', 0],['emailverified', 1]])->get();
+                    });
+                    
+                    */
+
+                    // $intermediairzonderfamilies = Cache::pull('intermediairzonderfamilies');  (kan niet worden gecached)
+                    // $familieszonderkinderen = Cache::pull('familieszonderkinderen'); (kan niet worden gecached)
+                    // $intermediairmetnietgedownloadepdfs = Cache::pull('intermediairmetnietgedownloadepdfs'); (kan niet worden gecached)
+                    
+                    $nogtekeuren_users = Cache::pull('nogtekeuren_users');       
+                    $nogtekeuren_families = Cache::pull('nogtekeuren_families');
+
+                    //$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->where('activated', 1)->get();            
+                    
+                    //$familieszonderkinderen = Family::whereDoesntHave('kids')->get();
+                    
+
+
+                    } elseif (Setting::get('inschrijven_gesloten')==1 && Setting::get('downloads_ingeschakeld')==0) {
+                        
+                        // hier tijdens gesloten inschrijvingen, maar downloads nog gesloten
+                        // =================================================================
+
+
+
+
+
+
+                    } elseif (Setting::get('inschrijven_gesloten')==1 && Setting::get('downloads_ingeschakeld')==1) {
+                        
+                        // hier tijdens gesloten inschrijvingen, en downloads geopend
+                        // ==========================================================
+
+                        $intermediairmetnietgedownloadepdfs = User::whereHas('barcodes', function($query){
+                                $query->whereNull('downloadedpdf');
                         })->get();
+                                  
 
+                    }
+
+                    event(new AdminHomePageEvent());      
     	    
                     return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 

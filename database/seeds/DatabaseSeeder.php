@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsTableSeeder::class);
         $this->call(BlacklistTableSeeder::class);
         $this->call(BarcodesTableSeeder::class);
+        $this->call(IntermediairtypeTableSeeder::class);
 
 
     }

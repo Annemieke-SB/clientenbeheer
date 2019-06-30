@@ -16,7 +16,7 @@ class CreateBarcodesTable extends Migration
         Schema::create('barcodes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('barcode', 20)->unique();
-            $table->string('kid_id')->nullable();
+            $table->string('kid_id')->nullable()->unique();
             $table->string('user_id')->nullable();
             $table->string('downloadedpdf')->nullable();
             $table->string('value_of_redemptions')->nullable();   

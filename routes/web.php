@@ -49,8 +49,7 @@ Route::get('/register/verify/{token}', 'Auth\RegisterController@verify');
         Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
         // Registration Routes...
-        //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-		// deze pagina uitgezet omdat deze niet automatisch sloot na sluiting
+        Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
 		Route::post('register', 'Auth\RegisterController@register');
 
@@ -66,6 +65,14 @@ Route::post('/faq/store', 'FaqController@store');
 Route::post('/faq/update', 'FaqController@update');
 Route::get('/faq/edit/{id}', 'FaqController@edit');
 Route::get('/faq/destroy/{id}', 'FaqController@destroy');
+
+Route::get('/intermediairtypes/', 'IntermediairtypeController@index');
+Route::get('/intermediairtypes/toevoegen', 'IntermediairtypeController@create');
+Route::post('/intermediairtypes/store', 'IntermediairtypeController@store');
+Route::post('/intermediairtypes/update', 'IntermediairtypeController@update');
+Route::get('/intermediairtypes/edit/{id}', 'IntermediairtypeController@edit');
+Route::get('/intermediairtypes/destroy/{id}', 'IntermediairtypeController@destroy');
+
 
 Route::post('/search', 'SearchController@index');
 Route::get('/search', 'SearchController@index');

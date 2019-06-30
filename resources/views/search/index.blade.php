@@ -42,6 +42,16 @@ Geen gebruikers gevonden.
 		</td>
             <td>
                         <a href="{{ url('user/show') }}/{{$user->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+
+                        
+                                                    @if ($user->activated)
+                                                        <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}"><button class="btn btn-warning btn-xs" type="button"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>&nbsp;Deactiveer</button></a>
+                                                    @else
+                                                        
+                                                        @if ($user->emailverified)
+                                                            <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>&nbsp;Activeer</button></a>
+                                                        @endif
+                                                    @endif  
             </td>
         </tr>
 

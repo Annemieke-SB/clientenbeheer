@@ -28,67 +28,6 @@ class Custommade {
     }
 
 
-    public static function sendNewUserNotificationEmailToAdmin($to) {
-
-		$headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
-					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
-					'Content-type: text/html; charset=iso-8859-1'. "\r\n" .
-					'MIME-Version: 1.0'. "\r\n" .
-					'X-Mailer: PHP/' . phpversion();
-
-		$message = "Er is een nieuwe gebruiker ingeschreven in clientenbeheer. Deze gebruiker moet nog door een admin geactiveerd worden. Ga naar het gebruikersoverzicht om deze gebruiker te activeren.";
-
-		mail($to, 'Nieuwe gebruiker in clientenbeheer', $message, $headers); 	
-    }
-
-
-
-    public static function sendUserEmail($to, $message) {
-
-    	    	
-
-		$headers = 'From: "Cliëntenbeheer Sinterklaasbank" <noreply@sinterklaasbank.nl>' . "\r\n" .
-					'Reply-To: noreply@sinterklaasbank.nl' . "\r\n" .
-					'Content-type: text/html; charset=iso-8859-1'. "\r\n" .
-					'MIME-Version: 1.0'. "\r\n" .
-					'X-Mailer: PHP/' . phpversion();
-
-		mail($to, 'Bericht van clientenbeheer', $message, $headers); 	
-    }
-
-    public static function typenIntermediairs($id=false) {
-
-    	$set = array(
-    		'' => "-",
-    		2 => "Schuldhulpverlening",
-    		3 => "Geestelijke hulpverlening",
-    		4 => "Medische hulpverlening",
-    		5 => "BSO / Kinderopvang",
-    		6 => "Basisschool",
-    		7 => "Voortgezet onderwijs",
-    		8 => "Daklozenopvang",
-    		9 => "Sociale wijkteam",
-    		10 => "Sportvereniging",
-    		11 => "Vakbond",
-            12 => "Religieuze instelling",
-    		30 => "Overige overheid",
-    		31 => "Overige stichtingen",
-    		32 => "Overige bedrijven",
-    		33 => "Overige verenigingen",
-    		34 => "Overige organisaties",
-    		35 => "Overige onderwijs",
-    	);
-
-        if ($id) {
-            return $set[$id];
-        } else {
-            return $set;
-        }
-
-        
-    }
-
-
     public static function showVoorwaarden() {
 
 

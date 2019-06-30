@@ -45,9 +45,9 @@
                         <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
                         <tbody>
                             
-                            <tr><td>Uitgegeven barcodes</td><td>{{ $losse_barcodes + $uitgegeven_barcodes }}</td></tr>
+                            <tr><td>Uitgegeven barcodes</td><td>{{ $uitgegeven_barcodes }}</td></tr>
                             <tr><td>&#8627;&nbsp;&nbsp;Waarvan gedownload</td><td>{{ $gedownloadde_barcodes }}</td></tr>   
-                            <tr><td>Nog te downloaden</td><td>{{ ($losse_barcodes + $uitgegeven_barcodes) - $gedownloadde_barcodes }}</td></tr>   
+                            <tr><td>Nog te downloaden</td><td>{{ ($uitgegeven_barcodes) - $gedownloadde_barcodes }}</td></tr>   
                             
                             
                         </tbody>
@@ -64,9 +64,9 @@
                             <tr><th>Omschrijving</th><th>Aantal</th></tr></thead>
                             <tbody>
                                 <tr><td>Totaal in database</td><td>{{ $aant_barcodes }}</td></tr>
-                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes }}</td></tr>
+                                <tr><td>&#8627;&nbsp;&nbsp;Waarvan uitgegeven (aan kinderen van goedgekeurde gezinnen)</td><td>{{ $uitgegeven_barcodes - $losse_barcodes }}</td></tr>
                                 <tr><td>&#8627;&nbsp;&nbsp;Waarvan geclaimd voor overige doelen (losse barcodes)</td><td>{{ $losse_barcodes }}</td></tr>
-                                <tr><td>Totaal uitgegeven</td><td>{{ $losse_barcodes + $uitgegeven_barcodes }}</td></tr>
+                                <tr><td>Totaal uitgegeven</td><td>{{ $uitgegeven_barcodes }}</td></tr>
                                 <tr class="info"><td>Nog resterend (huidige voorraad)</td><td>{{ $aant_barcodes - $uitgegeven_barcodes }}</td></tr>
                                 <tr><td>Nog niet aangemelde kinderen (definitief afgekeurde gezinnen niet meegeteld)</td><td>{{ $niet_aangemelde_kinderen }}</td></tr>   
                                 <tr><td>Aangemelde kinderen (in afwachting van goedkeuring)</td><td>{{ $aangemelde_kinderen }}</td></tr>   
@@ -89,12 +89,15 @@
                             <div class="panel-body"> 
 
                                 <p>Hieronder kun je nieuwe codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv). Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
-                                <pre>Voorbeeld<br>
-                                    6299930034000122339=49120000000000000,4621
-                                    6299930034000122347=49120000000000000,8055
-                                    6299930034000122354=49120000000000000,3271
-                                    6299930034000122362=49120000000000000,0377
-                                    6299930034000122370=49120000000000000,1066
+                                <p>Voorbeeld<br></p>
+                                <pre>
+Coupon Code,Created,Uses,Times Used
+sinterklaasbank-48562,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-04754,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-24106,"Jun 7, 2019, 10:27:24 AM",No,0
+sinterklaasbank-48563,"Jun 7, 2019, 10:27:24 AM",No,1
+sinterklaasbank-04755,"Jun 7, 2019, 10:27:24 AM",No,1
+sinterklaasbank-24107,"Jun 7, 2019, 10:27:24 AM",No,1
                                 </pre>
                                 
                                 {!! Form::open(array('url'=>'/barcodes/upload', 'method'=>'POST', 'files'=>true)) !!}

@@ -35,19 +35,21 @@
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;Sitebeheer <span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="{{ url('/settings/') }}">Instellingen</a></li>
-      <li><a href="{{ url('/faq/') }}">Faq aanpassen</a></li>
-      <li><a href="{{ url('/blacklist/') }}">Blacklist</a></li>
+      <li><a href="{{ url('/settings/') }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Instellingen</a></li>
+      <li><a href="{{ url('/faq/') }}"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;Faq</a></li>
+      <li><a href="{{ url('/intermediairtypes/') }}"><span class="gglyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;Intermediairtypes</a></li>
+      <li><a href="{{ url('/blacklist/') }}"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>&nbsp;Blacklist</a></li>
     </ul>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Overzichten <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a href="{{ url('/users/index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Gebruikersbeheer</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="{{ url('/tellingen/') }}">Tellingen</a></li>
-        <li><a href="{{ url('/maillijsten/') }}">Maillijsten</a></li>
+        <li><a href="{{ url('/users/index?filter=igg') }}"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>&nbsp;Keuren gezinnen</a></li>        
+        <li><a href="{{ url('/tellingen/') }}"><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>&nbsp;Tellingen</a></li>
+        <li><a href="{{ url('/maillijsten/') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Maillijsten</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="{{ url('/barcodes/') }}">Barcodes</a></li>
+        <li><a href="{{ url('/barcodes/') }}"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>&nbsp;Barcodes</a></li>
       </ul>
     </li>
     <li class="dropdown">

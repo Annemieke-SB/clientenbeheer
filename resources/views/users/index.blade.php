@@ -137,7 +137,6 @@
                     				<th>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true" data-toggle="tooltip" title="Email geverifieerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" data-toggle="tooltip" title="Gebruiker geactiveerd"></span></th>
                                     <th>&nbsp;<span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Aantal gezinnen"></span></th>
-                                    <th>Rol&nbsp;</th>
                                     <th style="width: 240px;">Actie&nbsp;</th> 
                                 </tr>                 				
                     			</thead>
@@ -177,15 +176,6 @@
 						<td>
 							{{ count($user->familys) }}
 						</td>
-                                                <td>
-                                                    @if ($user->usertype==1)
-                                                        Admin&nbsp;
-                                                    @elseif ($user->usertype==2)
-                                                        Raadpleger&nbsp;
-                                                    @elseif ($user->usertype==3)    
-                                                        Intermediair&nbsp;
-                                                    @endif                       
-                                                </td>
                                                 <td>                                                
                                                         <a href="{{ url('/user') }}/show/{{ $user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Toon</button></a>
 

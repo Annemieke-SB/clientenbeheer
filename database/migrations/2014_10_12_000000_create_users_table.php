@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->longtext('reden');            
             $table->string('website');
             $table->string('telefoon');
-            $table->integer('type')->default(0);
+            $table->integer('intermediairtype_id')->default(0);
             $table->string('adres');
             $table->string('huisnummer');
             $table->string('huisnummertoevoeging');

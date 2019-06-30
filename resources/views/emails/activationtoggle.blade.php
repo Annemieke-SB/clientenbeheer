@@ -279,7 +279,7 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">{{$titel}}</span>
+
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
@@ -289,7 +289,19 @@
                     <tr>
                       <td>
                         <p>Beste {{ ucfirst($voornaam) }},</p>
-                        <p>{{$mailmessage}}</p>
+
+                        @if($status=="geactiveerd")
+
+<!-- actief -->
+
+                        <p>Uw account in cliëntenbeheer van de Sinterklaasbank is <b>geactiveerd</b>.</p><p>Ga naar <a href='{{ url('/home') }}'>onze cliëntenbeheer</a> om in te loggen.<br>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is.</p><p>Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december {{ date('Y') }}.</p>
+
+                        @else
+<!-- deactief -->
+                        <p>Uw account in de cliëntenbeheer van de Sinterklaasbank is <b>gedeactiveerd</b>: u kunt nu niet meer inloggen.</p><p> Is dit volgens u onterecht, neem dan contact op met info@sinterklaasbank.nl.</p>
+
+                        @endif
+                        <br>
                         <p>Met vriendelijke groet,</p>
                         <p>Stichting de Sinterklaasbank</p>
                         <p><small>Deze email is automatisch gegenereerd en u kunt deze niet beantwoorden</small></p>

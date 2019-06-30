@@ -1,4 +1,4 @@
-\@extends('layouts.app')
+@extends('layouts.app')
 
 
 @section('css')
@@ -43,7 +43,7 @@
 @stop
 
 
-
+<? //dd($intermediairzonderfamilies); ?>
 
 @section ('content')
 <div class="container">
@@ -76,8 +76,11 @@
             @if (Session::get('message'))
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
 
-	    @endif
+      @endif
 
+<div class="alert alert-primary" role="alert">
+  <b>Let op!</b><p>Om de laadtijd laag te houden worden de gegevens op deze pagina om de 5 minuten ververst. Het kan dus zijn dat de gegevens niet actueel zijn. De pagina's van het &nbsp;<a href="{{ url('users/index') }}">gebruikersoverzicht</a> zijn wel realtime.</p>
+</div>
 
                        
 @if (count($nogtekeuren_users)>0)
@@ -89,46 +92,46 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="badge">{{ count($nogtekeuren_users) }}</span> nieuwe gebruikers moeten worden geactiveerd.</a>&nbsp;<a href="{{ url('users/index') }}/?filter=na"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
-		        </h4>
+            </h4>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
-		<div class="panel-body">
+    <div class="panel-body">
 
-      		<table class="table table-striped">
-        	<thead>
-            		<th style="width: 40%;">Naam</th>
-            		<th style="width: 38%;">Email</th>
-            		<th>Aktie</th>
-        	</thead>
+          <table class="table table-striped">
+          <thead>
+                <th style="width: 40%;">Naam</th>
+                <th style="width: 38%;">Email</th>
+                <th>Aktie</th>
+          </thead>
   
-		<tbody>
+    <tbody>
 
 
-		@foreach ($nogtekeuren_users as $ntku)
+    @foreach ($nogtekeuren_users as $ntku)
 
                 <tr data-trigger="hover" data-placement="bottom" aria-hidden="true" data-toggle="popover" title="Reden van inschrijven" data-content="{{ $ntku->reden }}">
-			<td>
-				{{ $ntku->naam }}
-				@if ($ntku->blacklisted)
-					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
-				@endif
+      <td>
+        {{ $ntku->naam }}
+        @if ($ntku->blacklisted)
+          &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+        @endif
                                 <br><b><i>{{ $ntku->organisatienaam}} </i></b>
-			</td>
-			<td>{{$ntku->email}}</td>
-            		<td>
-                        	<a href="{{ url('user/show') }}/{{$ntku->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
-                        	<a href="{{ url('user/toggleactive') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Activeer</button></a>
-            		</td>
-        	</tr>
-		
-		@endforeach	
-		
-		</tbody>
-		</table>
+      </td>
+      <td>{{$ntku->email}}</td>
+                <td>
+                          <a href="{{ url('user/show') }}/{{$ntku->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                          <a href="{{ url('user/toggleactive') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Activeer</button></a>
+                </td>
+          </tr>
+    
+    @endforeach 
+    
+    </tbody>
+    </table>
 
-		</div>
+    </div>
             </div>
-	</div>
+  </div>
 <br />
 
 @endif 
@@ -142,42 +145,42 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="badge">{{ count($nogtekeuren_families) }}</span> families moeten worden gekeurd.</a>&nbsp;<a href="{{ url('users/index') }}/?filter=igg"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon de intermediairs</button></a>
-		</h4>
+    </h4>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
-		<div class="panel-body">
+    <div class="panel-body">
 
-      		<table class="table table-striped">
-        	<thead>
-            		<th style="width: 80%;">Naam</th>
-            		<th>Aktie</th>
-        	</thead>
+          <table class="table table-striped">
+          <thead>
+                <th style="width: 80%;">Naam</th>
+                <th>Aktie</th>
+          </thead>
   
-		<tbody>
+    <tbody>
 
 
-		@foreach ($nogtekeuren_families as $ntkf)
+    @foreach ($nogtekeuren_families as $ntkf)
 
-        	<tr>
-			<td>
-				{{ $ntkf->naam }}
-				@if ($ntkf->blacklisted)
-					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
-				@endif
-			</td>
-            		<td>
-                        	<a href="{{ url('family/show') }}/{{$ntkf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
-            		</td>
-        	</tr>
-		
-		@endforeach	
-		
-		</tbody>
-		</table>
+          <tr>
+      <td>
+        {{ $ntkf->naam }}
+        @if ($ntkf->blacklisted)
+          &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+        @endif
+      </td>
+                <td>
+                          <a href="{{ url('family/show') }}/{{$ntkf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                </td>
+          </tr>
+    
+    @endforeach 
+    
+    </tbody>
+    </table>
 
-		</div>
+    </div>
             </div>
-	</div>
+  </div>
 <br />
 
 @endif 
@@ -192,42 +195,42 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="badge">{{ count($intermediairzonderfamilies) }}</span> intermediairs hebben geen gezinnen toegevoegd.</a>&nbsp;<a href="{{ url('users/index') }}/?filter=izg"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon in gebruikersoverzicht</button></a>
-		</h4>
+    </h4>
             </div>
             <div id="collapse3" class="panel-collapse collapse">
-		<div class="panel-body">
+    <div class="panel-body">
 
-      		<table class="table table-striped">
-        	<thead>
-            		<th style="width: 80%;">Naam</th>
-            		<th>Aktie</th>
-        	</thead>
+          <table class="table table-striped">
+          <thead>
+                <th style="width: 80%;">Naam</th>
+                <th>Aktie</th>
+          </thead>
   
-		<tbody>
+    <tbody>
 
 
-		@foreach ($intermediairzonderfamilies as $izf)
+    @foreach ($intermediairzonderfamilies as $izf)
 
-        	<tr>
-			<td>
-				{{ $izf->naam }}
-				@if ($izf->blacklisted)
-					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
-				@endif
-			</td>
-            		<td>
-                        	<a href="{{ url('user/show') }}/{{$izf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
-            		</td>
-        	</tr>
-		
-		@endforeach	
-		
-		</tbody>
-		</table>
+          <tr>
+      <td>
+        {{ $izf->naam }}
+        @if ($izf->blacklisted)
+          &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+        @endif
+      </td>
+                <td>
+                          <a href="{{ url('user/show') }}/{{$izf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                </td>
+          </tr>
+    
+    @endforeach 
+    
+    </tbody>
+    </table>
 
-		</div>
+    </div>
             </div>
-	</div>
+  </div>
 <br />
 
 @endif 
@@ -241,43 +244,44 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"><span class="badge">{{ count($familieszonderkinderen) }}</span> gezinnen hebben geen kinderen.</a>&nbsp;<a href="{{ url('users/index') }}/?filter=izk"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon intermediairs in gebruikersoverzicht</button></a>
-		</h4>
+    </h4>
             </div>
             <div id="collapse4" class="panel-collapse collapse">
-		<div class="panel-body">
+    <div class="panel-body">
 
-      		<table class="table table-striped">
-        	<thead>
-            		<th style="width: 60%;">Naam</th>
-            		<th>Aktie</th>
-        	</thead>
+          <table class="table table-striped">
+          <thead>
+                <th style="width: 60%;">Naam</th>
+                <th>Aktie</th>
+          </thead>
   
-		<tbody>
+    <tbody>
 
 
-		@foreach ($familieszonderkinderen as $fzk)
+    @foreach ($familieszonderkinderen as $fzk)
 
-        	<tr>
-			<td>
-				{{ $fzk->naam }}
-				@if ($fzk->blacklisted)
-					&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
-				@endif
-			</td>
-            		<td>
-                        	<a href="{{ url('family/show') }}/{{$fzk->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon gezin</button></a>&nbsp;
-                        	<a href="{{ url('user/show') }}/{{$fzk->user->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon intermediair</button></a>
-            		</td>
-        	</tr>
-		
-		@endforeach	
-		
-		</tbody>
-		</table>
+          <tr>
+      <td>
+        {{ $fzk->naam }}
+        @if ($fzk->blacklisted)
+          &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
+        @endif
+      </td>
+                <td>
+                        <a href="{{ url('family/show') }}/{{$fzk->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon gezin</button></a>&nbsp;
+                          <a href="{{ url('user/show') }}/{{$fzk->user->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon intermediair</button></a>
+                
+                </td>
+          </tr>
+    
+    @endforeach 
+    
+    </tbody>
+    </table>
 
-		</div>
+    </div>
             </div>
-	</div>
+  </div>
 <br />
 
 @endif 

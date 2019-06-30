@@ -235,7 +235,9 @@ class Kid extends Model
 
          if ($this->barcode) {
 
-            return DNS1D::getBarcodeHTML($this->barcode->barcode, "C128") . '<br><div id="barcodenumber">' . $this->barcode->barcode . '</div>';
+            //return DNS1D::getBarcodeHTML($this->barcode->barcode, "C128") . '<br><div id="barcodenumber">' . $this->barcode->barcode . '</div>';
+
+            return '<div id="barclabel"> Uw code </div><div id="barcodenumber">' . $this->barcode->barcode . '</div>';
 
          } else {
 

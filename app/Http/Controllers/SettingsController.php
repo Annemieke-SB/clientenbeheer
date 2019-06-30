@@ -16,6 +16,20 @@ use App\User;
 use Custommade;
 
 
+    /**
+    * Settings kan je door de hele applicatie aanroepen via
+    *
+    * Use App\Setting;
+    *
+    * Setting::get('min_leeftijd');
+    *
+    * 
+    ***/
+
+
+
+
+
 class SettingsController extends Controller
 {
     
@@ -147,8 +161,16 @@ class SettingsController extends Controller
 
     }
 
+    /**
+    * Ik heb deze weggehaald omdat je deze moet gebruiken
+    *
+    * Setting::get('min_leeftijd');
+    *
+    * 
+    *
+    
 
-    public function getReadable () {
+    public static function getReadable () {
         
         $settings = Setting::All();
         $arr = array();
@@ -164,6 +186,8 @@ class SettingsController extends Controller
 
     }
 
+    *
+    **/
 
 
     public function sendMailToIntermediairs ($type = false) {

@@ -8,12 +8,19 @@ use App\Setting;
 
 
 
+
 class PagesController extends Controller
 {
+    
 
     public function inschrijven()
-    {
-        return view('inschrijvinggesloten');        
+    {   
+        if (Setting::get("inschrijven_gesloten") == 1) {
+            return view('inschrijvinggesloten'); 
+        } else {
+            return view('inschrijven'); 
+        }
+               
     }  
 
     public function particulier()

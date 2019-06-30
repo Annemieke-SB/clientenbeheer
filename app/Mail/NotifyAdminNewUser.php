@@ -8,20 +8,18 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EmailActivationtoggle extends Mailable
+class NotifyAdminNewUser extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $mailvars;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Mailvars $mailvars)
+    public function __construct($id)
     {
-        $this->mailvars = $mailvars;
+        $this->user = User::find($id);
     }
 
     /**
@@ -31,9 +29,8 @@ class EmailActivationtoggle extends Mailable
      */
     public function build()
     {
-
-        return $this->subject('Bericht van de Sinterklaasbank: uw accountstatus is gewijzigd')
-                    ->view('emails.activationtoggle')
+        return $this->subject('Nieuwe gebruiker in cliëntenbeheer')
+                    ->view('emails.notify_admin_new_user')
                     ->with([
                         'voornaam' => $this->user->voornaam,
                         'tussenvoegsel' => $this->user->tussenvoegsel,

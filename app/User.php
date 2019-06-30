@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Settings;
 use Custommade;
 use App\Blacklist;
+use App\Mail\NotifyAdminNewUser;
 
 class User extends Authenticatable
 {
@@ -23,7 +24,7 @@ class User extends Authenticatable
     protected $appends = array('blacklisted', 'andereinitiatieven');
 
     protected $fillable = [
-        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'type', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
+        'voornaam','tussenvoegsel', 'achternaam','geslacht','organisatienaam','functie', 'email', 'password', 'email_token', 'verified', 'activated', 'reden','website', 'telefoon', 'intermediairtype_id', 'postcode', 'huisnummer', 'huisnummertoevoeging', 'adres', 'woonplaats', 'nieuwsbrief',
     ];
 
     /**
@@ -39,6 +40,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Kid');
     }
+
+    public function intermediairtype()
+    {
+        return $this->belongsTo('App\intermediairtype');
+    }    
 
     public function barcodes()
     {
@@ -63,23 +69,16 @@ class User extends Authenticatable
 
         $gezinnen = $this->familys;
         $andereinitiatieven = false;
-        
-        
-
-            
+                    
                foreach ($gezinnen as $gezin) {
 
                     if ($gezin->andere_alternatieven == 1 && $gezin->aangemeld == 1) {
 
                         return true;
-
                     }                    
             }  
             return false;  
                   
-        
-
-
         return false;
     }
 
@@ -96,15 +95,14 @@ class User extends Authenticatable
 
     public function verified()
     {
-
-        
         $this->emailverified = 1;
         $this->email_token = null;
         $this->save();        
 
         if ($this->activated == 0) {
-            $to = Setting::find(5)->setting;
-            Custommade::sendNewUserNotificationEmailToAdmin($to);
+            $to = explode(',',Setting::find(5)->setting); // deze moet even onelegant omdat een "Setting::get('min_leeftijd')"-achtige niet werkt. Op die plek staat namelijk de mailadressen.
+       
+            \Mail::to($to)->send(new NotifyAdminNewUser($this->id));
         }
     }
 

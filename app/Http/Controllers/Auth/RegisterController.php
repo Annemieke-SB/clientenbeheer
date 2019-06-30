@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use DB;
-use Mail;
+use App\Mail;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
@@ -11,6 +11,7 @@ use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Database\Eloquent\Model;
+use App\Setting;
 
 
 
@@ -63,7 +64,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'functie' => 'required|min:5',
-            'type' => 'required',
+            'intermediairtype_id' => 'required',
             'telefoon' => 'required|numeric|min:10',
             'postcode' => 'required|min:6|max:6',
             'huisnummer' => 'required|numeric',
@@ -105,7 +106,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'website' => $data['website'],
             'telefoon' => $data['telefoon'],
-            'type' => $data['type'],
+            'intermediairtype_id' => $data['intermediairtype_id'],
             'postcode' => $data['postcode'],
             'huisnummer' => $data['huisnummer'],
             'huisnummertoevoeging' => $data['huisnummertoevoeging'],
@@ -133,7 +134,7 @@ class RegisterController extends Controller
                 return redirect('login')->with('message', 'Uw emailverificatie is al voltooid. U kunt nu inloggen.');  
             }
             
-            return redirect('login')->with('message', 'Bedankt! U heeft zojuist uw emailadres geverifieerd. Bent u een nieuwe gebruiker dan kunt u pas inloggen nadat de Sinterklaasbank uw aanmelding heeft goedgekeurd (u ontvangt daarvan een email). Bent u een bestaande gebruiker dan kunt u meteen inloggen.');       
+            return redirect('login')->with('message', 'Bedankt! U heeft zojuist uw emailadres geverifiëerd. Bent u een nieuwe gebruiker dan kunt u pas inloggen nadat de Sinterklaasbank uw aanmelding heeft goedgekeurd (u ontvangt daarvan een email). Bent u een bestaande gebruiker dan kunt u meteen inloggen.');       
 
     }
 
@@ -154,7 +155,7 @@ class RegisterController extends Controller
             $user = $this->create($request->all());
             // After creating the user send an email with the random token generated in the create method above
             $email = new EmailVerification(new User(['email_token' => $user->email_token, 'voornaam'=>ucfirst($user->voornaam)]));
-            Mail::to($user->email)->send($email);
+            \Mail::to($user->email)->send($email);
             DB::commit();
             auth()->logout();
             return redirect('login')->with('message', 'Bedankt voor uw aanmelding! Er is zojuist een email gestuurd om uw emailadres te verifieren. Nadat u op de link in de email heeft geklikt kan de Sinterklaasbank uw inschrijving beoordelen. Daarna kunt u inloggen. Heeft u de mail niet gehad? Controleer dan uw spam-mappen in uw email!');
