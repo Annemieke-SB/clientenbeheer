@@ -279,7 +279,6 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">Uw downloadpagina is gesloten</span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->

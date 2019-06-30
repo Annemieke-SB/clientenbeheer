@@ -181,3 +181,7 @@ Route::get('/maillijsten/', 'MaillijstenController@index')->middleware('auth');
 * --einde opschonen
 *
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
