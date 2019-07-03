@@ -17,11 +17,23 @@ use App\Setting;
 use App\Barcode;
 
 
-
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $user = Auth::user();
@@ -32,15 +44,15 @@ class HomeController extends Controller
 
         }
 
-        if($user->activated == 1 && $user->emailverified == 1) {
+		if($user->activated == 1 && $user->emailverified == 1) {
 
 
-            if($user->usertype == 1)
-            {
+    		if($user->usertype == 1)
+    		{
 
-            /**
-             * Hier komt de admin-pagina
-             */
+    		/**
+    		 * Hier komt de admin-pagina
+    		 */
 
             $nogtekeuren_users = null;
             $nogtekeuren_families = null;
@@ -105,35 +117,35 @@ class HomeController extends Controller
                     }
 
                     event(new AdminHomePageEvent());      
-            
+    	    
                     return view('admin', ['nogtekeuren_users'=>$nogtekeuren_users, 'intermediairzonderfamilies'=>$intermediairzonderfamilies, 'familieszonderkinderen'=>$familieszonderkinderen, 'nogtekeuren_families'=>$nogtekeuren_families, 'intermediairmetnietgedownloadepdfs'=>$intermediairmetnietgedownloadepdfs]);  
 
-            }
-            elseif($user->usertype == 2)
-            {
-        
-            /**
-             * Hier komt de admin-pagina
-             */
-            
-                return view('raadpleger');
-            
-            }
-            elseif($user->usertype == 3)
-            {
-        
-            /**
-             * Hier komt de intermediair-pagina
-             */
-        
-                return redirect('user/show/'.$user->id);
-            
-            }   
+    		}
+    		elseif($user->usertype == 2)
+    		{
+    	
+    		/**
+    		 * Hier komt de admin-pagina
+    		 */
+    	    
+    			return view('raadpleger');
+    		
+    		}
+    		elseif($user->usertype == 3)
+    		{
+    	
+    		/**
+    		 * Hier komt de intermediair-pagina
+    		 */
+    	
+    			return redirect('user/show/'.$user->id);
+    		
+    		}   
         } elseif($user->emailverified == 0)  {
 
                 auth()->logout();
                 return redirect('login')->with('message', 'U kunt nog niet inloggen omdat uw emailadres niet geverifieerd is. Klik alstublieft eerst op de link in de email.');  
-        }
+    	}
     }
 
     public function docs()
@@ -152,35 +164,35 @@ class HomeController extends Controller
         $kids = Kid::all()->count();
         $families = Family::all()->count();
         $intermediairs = User::where('usertype', 3)->count();
-    
-        $intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->count();
-        $intermediairzonderkids = User::where('usertype',3)->whereDoesntHave('kids')->whereHas('familys')->count();
+	
+		$intermediairzonderfamilies = User::where('usertype',3)->whereDoesntHave('familys')->count();
+		$intermediairzonderkids = User::where('usertype',3)->whereDoesntHave('kids')->whereHas('familys')->count();
 
-        
-        $kids_disqualified = DB::table('kids')
+		
+		$kids_disqualified = DB::table('kids')
         ->join('familys', function ($Join) {
             $Join->on('kids.family_id', '=', 'familys.id')
-                    ->whereNotNull('familys.redenafkeuren')
-                    ->where('familys.goedgekeurd','=',0)
-                    ->whereNull('familys.definitiefafkeuren')
+					->whereNotNull('familys.redenafkeuren')
+					->where('familys.goedgekeurd','=',0)
+					->whereNull('familys.definitiefafkeuren')
                     ->where('familys.aangemeld','=',0)
-                    ->select('kids.*');
+					->select('kids.*');
         })
         ->count();
-    
-        $kids_definitiefdisqualified = DB::table('kids')
+	
+		$kids_definitiefdisqualified = DB::table('kids')
         ->join('familys', function ($Join) {
             $Join->on('kids.family_id', '=', 'familys.id')
-                    ->whereNotNull('familys.definitiefafkeuren')
-                    ->select('kids.*');
+					->whereNotNull('familys.definitiefafkeuren')
+					->select('kids.*');
         })
         ->count();
-        
-        $kids_goedgekeurd = DB::table('kids')
+		
+		$kids_goedgekeurd = DB::table('kids')
         ->join('familys', function ($Join) {
             $Join->on('kids.family_id', '=', 'familys.id')
-                    ->where('familys.goedgekeurd','=',1)
-                    ->select('kids.*');
+					->where('familys.goedgekeurd','=',1)
+					->select('kids.*');
         })
         ->count();
 
@@ -203,8 +215,8 @@ class HomeController extends Controller
 
         $families_definitiefdisqualified = Family::whereNotNull('definitiefafkeuren')->count();
         
-        $families_goedgekeurd = Family::where('goedgekeurd','=',1)
-                ->count();
+		$families_goedgekeurd = Family::where('goedgekeurd','=',1)
+				->count();
 
         $families_tekeuren = Family::where('goedgekeurd','=',0)
                             ->where('aangemeld','=',1)
@@ -234,8 +246,8 @@ class HomeController extends Controller
 
 
 
-        return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
-                'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_nog_niet_aangemeld'=> $kids_nog_niet_aangemeld, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld]);     
+		return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
+				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_nog_niet_aangemeld'=> $kids_nog_niet_aangemeld, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld]);     
     }
 
     public function kinderlijst()
