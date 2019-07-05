@@ -15,11 +15,7 @@
                     </ol>        
 
                 <div class="panel-body">
-                <p>
 
-
-                <a href="{{ url('/home/') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                </p>
                  Hier zijn de instellingen. Dit overzicht is alleen beschikbaar voor administrators en raadplegers, maar raadplegers kunnen niets aanpassen.
          
               
