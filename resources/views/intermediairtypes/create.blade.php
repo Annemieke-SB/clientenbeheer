@@ -16,7 +16,7 @@
 
                 <div class="panel-body">
                         <p>
-                        <a href="{{ url('faq') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                        <a href="{{ url('intermediairtypes') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                         </p>
                     <p>Maak een intermediairtype aan.</p>
 
