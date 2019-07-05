@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -77,14 +78,22 @@ class MaillijstenController extends Controller
 
                 $lijst = $intermediairmetnietgedownloadepdfs->unique();
 
+            } 
+
+
+            if (request()->input('lijst')=='iag') { 
+            // Intermediairs die nog gezinnen moeten aanmelden
+
+                $intermediairmetnietaangemeldegezinnen = User::whereHas('familys', function($query){
+                                $query->where('aangemeld', 0);
+                        })->get();
+
+
+                $lijst = $intermediairmetnietaangemeldegezinnen->unique();
+
             }    
-        
 
         return view('maillijsten.index', ['lijst'=>$lijst]);   
-
-
-
-
 
     }  
 }
