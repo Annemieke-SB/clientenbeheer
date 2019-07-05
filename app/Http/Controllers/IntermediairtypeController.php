@@ -132,7 +132,7 @@ class IntermediairtypeController extends Controller
         # Om de formulieren te vullen
 
 
-        $typen = Intermediairtype::All();
+        $typen = Intermediairtype::All()->orderBy('omschrijving', 'desc');
 
         $typeset = array('' => "-");
 
