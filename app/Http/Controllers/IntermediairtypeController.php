@@ -132,7 +132,7 @@ class IntermediairtypeController extends Controller
         # Om de formulieren te vullen
 
 
-        $typen = Intermediairtype::where('omschrijving')->orderBy('omschrijving', 'desc')->get();
+        $typen = Intermediairtype::whereNotNull('omschrijving')->orderBy('omschrijving', 'desc')->get();
 
         $typeset = array('' => "-");
 
