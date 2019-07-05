@@ -45,7 +45,7 @@ class Custommade {
             </ul>
 
             <p><u>Onze doelstelling is gezinnen thuis op traditionele wijze het Sinterklaasfeest te laten vieren ook als dit financieel niet mogelijk is. Wij willen nadrukkelijk aangeven dat wij er niet zijn voor kerstcadeaus, verjaardagscadeaus of gewoon een extra cadeau. Derhalve zijn onze cadeaubonnen niet meer te gebruiken na 5 december ".date('Y').". Wij verzoeken u vriendelijk dit op juiste wijze in te schatten.</u></p>
-            <p>Privacy staat bij ons hoog in het vaandel. Wij zullen uw gegevens en de gegevens van het gezin niet aan derden verstrekken.</p>
+            <p>Privacy staat bij ons hoog in het vaandel (zie onze <a href="https://www.sinterklaasbank.nl/wp-content/uploads/2018/11/Privacyverklaring.pdf" target="_BLANK">privacyverklaring</a>). Wij zullen uw gegevens en de gegevens van het gezin niet aan derden verstrekken.</p>
 
 
         ";
