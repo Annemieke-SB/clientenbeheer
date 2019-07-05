@@ -12,9 +12,7 @@
                 <div class="panel-body">
  
     <h1>FAQ <small>Veelgestelde vragen</small></h1>
-    <p>
-                        <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
-                        </p>
+
 @if (!Auth::guest())
                         @if (Auth::user()->usertype==1)
                         <a href="{{ url('faq/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Vraag toevoegen</button></a>
