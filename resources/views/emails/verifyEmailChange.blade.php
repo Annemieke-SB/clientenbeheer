@@ -288,7 +288,7 @@
                     <tr>
                       <td>
                         <p>Beste {{ ucfirst($user->voornaam) }},</p>
-                        <p> U heeft uw emailadres gewijzigd. De Sinterklaasbank verzoekt u dit emailadres te verifiëren door op de onderstaande knop te klikken. Direct nadat u uw emailadres heeft geverifiëerd kunt u weer inloggen.</p>
+                        <p> U heeft uw emailadres gewijzigd. De Sinterklaasbank verzoekt u dit emailadres te bevestigen door op de onderstaande knop te klikken. Direct nadat u uw emailadres heeft bevestigd kunt u weer inloggen.</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
