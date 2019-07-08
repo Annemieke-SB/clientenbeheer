@@ -337,7 +337,8 @@ class FamilyController extends Controller
                     'voornaam' => $family->user->voornaam,
                     'email'=>$family->user->email,
                     'familynaam' => $family->achternaam,
-                    'reden_afmelden' => false
+                    'reden_afmelden' => false,
+                    'definitiefafkeuren' => false
                 ];
             
 
@@ -548,15 +549,18 @@ class FamilyController extends Controller
 
         if ($request->definitiefafkeuren=="on") {
             $family->definitiefafkeuren = 1;
-            $definitieftekst = "De afkeuring is definitief, u kunt het gezin niet opnieuw aanmelden. Wij verzoeken u het gezin uit uw lijst te verwijderen.";
+
+            $definitiefafkeuren = true;
+            
         } else {
-            $definitieftekst = "U kunt het gezin weer terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen of verwijderen.";
+
+            $definitiefafkeuren = false;
         }     
 
         $family->aangemeld = 0;
         $family->goedgekeurd = 0;
         
-        $owner = $family->user;
+        
 
 
         /*
@@ -564,11 +568,13 @@ class FamilyController extends Controller
         */
 
                 $maildata = [
+
                     'goedgekeurd' => false,
                     'voornaam' => $family->user->voornaam,
                     'email'=>$family->user->email,
                     'familynaam' => $family->achternaam,
-                    'reden_afmelden' => $request->redenafkeuren . "</p><p>" . $definitieftekst . ")"
+                    'reden_afmelden' => $request->redenafkeuren,
+                    'definitiefafkeuren' => $definitiefafkeuren
                 ];
             
 
