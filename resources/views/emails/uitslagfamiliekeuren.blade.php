@@ -292,13 +292,15 @@
                         
                         @if($goedgekeurd)
 
-                        <p>Het gezin {{$familynaam}} is goedgekeurd. Dit betekent dat (mits u niets meer wijzigt aan dit gezin) de kinderen verzekert zijn van een sinterklaaskado. Na sluiting van de inschrijving kunt u de kadobon (PDF) downloaden in uw downloadoverzicht.</p>
+                        <p>Het gezin {{$familynaam}} is goedgekeurd. Dit betekent dat (mits u niets meer wijzigt aan dit gezin) de kinderen verzekert zijn van een sinterklaaskado.</p>
+                        <p>Na sluiting van de inschrijving kunt u de kadobon (PDF) downloaden in uw downloadoverzicht.</p>
                         <p>Een link ontvangt u als de inschrijvingen zijn gesloten.</p>
                         <p>Heeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.</p>
 
                         @else
 
-                        <p>{{$mailmessage}}</p>
+                        <p>Het gezin {{$familynaam}} komt niet in aanmerking voor de Sinterklaasbank. De reden hiervoor is: </p> 
+                        <p><i>{{$reden_afmelden}}</i></p>
 
                         @endif
                         

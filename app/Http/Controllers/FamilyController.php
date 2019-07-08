@@ -336,7 +336,8 @@ class FamilyController extends Controller
                     'goedgekeurd' => true,
                     'voornaam' => $family->user->voornaam,
                     'email'=>$family->user->email,
-                    'familynaam' => $family->achternaam
+                    'familynaam' => $family->achternaam,
+                    'reden_afmelden' => false
                 ];
             
 
@@ -562,6 +563,28 @@ class FamilyController extends Controller
         *   stuur een mail naar de intermediair wanneer het gezin wordt afgekeurd. 
         */
 
+                $maildata = [
+                    'goedgekeurd' => false,
+                    'voornaam' => $family->user->voornaam,
+                    'email'=>$family->user->email,
+                    'familynaam' => $family->achternaam,
+                    'reden_afmelden' => $request->redenafkeuren . "(" . $definitieftekst . ")";
+                ];
+            
+
+            Mail::send('emails.uitslagfamiliekeuren', $maildata, function ($message) use ($maildata){
+
+                $message->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank');
+                
+                $message->to($maildata['email']);
+                    
+                $message->subject("Het gezin ". $maildata['familynaam']. " is goedgekeurd");
+                
+            });
+
+
+/*
+
         $maildata = [
                 'titel' => "Het gezin ". $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank",
                 'mailmessage' => "Het gezin " . $family->achternaam. " komt niet in aanmerking voor de Sinterklaasbank. De reden hiervoor is : \n\n " . $request->redenafkeuren . ".\n\n".$definitieftekst."\n\n",
@@ -582,7 +605,7 @@ class FamilyController extends Controller
             // catch code
         }
 
-
+*/
         /*
         *   Einde mail
         */
