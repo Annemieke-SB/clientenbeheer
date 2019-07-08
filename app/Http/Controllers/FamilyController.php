@@ -578,7 +578,7 @@ class FamilyController extends Controller
                 
                 $message->to($maildata['email']);
                     
-                $message->subject("Het gezin ". $maildata['familynaam']. " is goedgekeurd");
+                $message->subject("Het gezin ". $maildata['familynaam']. " is afgekeurd");
                 
             });
 
