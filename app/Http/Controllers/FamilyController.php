@@ -568,7 +568,7 @@ class FamilyController extends Controller
                     'voornaam' => $family->user->voornaam,
                     'email'=>$family->user->email,
                     'familynaam' => $family->achternaam,
-                    'reden_afmelden' => $request->redenafkeuren . "(" . $definitieftekst . ")"
+                    'reden_afmelden' => $request->redenafkeuren . "</p><p>" . $definitieftekst . ")"
                 ];
             
 
