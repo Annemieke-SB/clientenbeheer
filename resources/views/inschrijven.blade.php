@@ -49,7 +49,7 @@
         <h3>Particulieren</h3>
         <p>
             <ul class="list-group">
-                <li class="list-group-item">Ik ken iemand ken die in aanmerking zou moeten komen voor de Sinterklaasbank..</li>
+                <li class="list-group-item">Ik ken iemand die in aanmerking zou moeten komen voor de Sinterklaasbank..</li>
                 <li class="list-group-item">Ik vind dat mijn gezin in aanmerking zou moeten komen voor de Sinterklaasbank..</li>
                 <li class="list-group-item">Ik werk niet bij een hulpverlenings-instelling..</li>
             </ul>

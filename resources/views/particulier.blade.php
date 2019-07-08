@@ -15,7 +15,7 @@
 
                 <div class="panel-body">
                     <h1>U bent particulier</h1>
-                    <p>U kunt zich helaas alleen inschrijven als u intermediair bent. Als u vindt dat u ondersteuning nodig heeft van de Sinterklaasbank, dan kunt u contact op te nemen met een hulpverlenende instantie, school of een professionele begeleider. Deze kunnen zich namelijk inschrijven als intermediair van de Sinterklaasbank, en u vervolgens aanmelden. </p><p>Enkele voorbeelden van organisaties die intermediair kunnen zijn; budgetcoach, budgetbeheer, huisarts, directeur basisschool, wijkcoach, HR-adviseur etc.. </p>
+                    <p>U kunt zich helaas alleen inschrijven als u intermediair bent. Als u vindt dat u ondersteuning nodig heeft van de Sinterklaasbank, dan kunt u contact opnemen met een hulpverlenende instantie, school of een professionele begeleider. Deze kunnen zich namelijk inschrijven als intermediair van de Sinterklaasbank, en u vervolgens aanmelden. </p><p>Enkele voorbeelden van organisaties die intermediair kunnen zijn; budgetcoach, budgetbeheer, huisarts, directeur basisschool, wijkcoach, HR-adviseur etc.. </p>
                <div class="media">
 <br>
 
