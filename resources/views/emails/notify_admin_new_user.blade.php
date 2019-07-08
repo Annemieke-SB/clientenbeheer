@@ -279,7 +279,6 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">Er is een nieuwe gebruiker in de cliëntenbeheer!</span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->

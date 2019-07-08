@@ -331,9 +331,39 @@ class FamilyController extends Controller
             *   stuur een mail naar de intermediair wanneer het gezin wordt afgekeurd. 
             */
 
+
+
+            $user = User::find($id);
+
+
+
+                $maildata = [
+                    'goedgekeurd' => true,
+                    'voornaam' => $family->user->voornaam,
+                    'email'=>$user->email,
+                    'familynaam' => $family->achternaam
+                ];
+            
+
+            Mail::send('emails.uitslagfamiliekeuren', $maildata, function ($message) use ($maildata){
+
+                $message->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank');
+                
+                $message->to($maildata['email']);
+                    
+                $message->subject("Het gezin ". $maildata['familynaam']. " is goedgekeurd");
+                
+            });
+
+
+
+
+
+/*
+
             $maildata = [
-                    'titel' => "Het gezin ". $family->achternaam. " is zojuist goedgekeurd",
-                    'mailmessage' => "Het gezin " . $family->achternaam. " is zojuist goedgekeurd. Dit betekent dat (mits u niets meer wijzigt aan dit gezin) de kinderen verzekert zijn van een sinterklaaskado. \n\nNa sluiting van de inschrijving kunt u dan een PDF downloaden in uw downloadoverzicht. Een link naar dat overzicht ontvangt u als de inschrijvingen zijn gesloten.\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
+                    'titel' => "Het gezin ". $family->achternaam. " is goedgekeurd",
+                    'mailmessage' => "Het gezin " . $family->achternaam. " is goedgekeurd. Dit betekent dat (mits u niets meer wijzigt aan dit gezin) de kinderen verzekert zijn van een sinterklaaskado. \n\nNa sluiting van de inschrijving kunt u de kadobon (PDF) downloaden in uw downloadoverzicht. \n\nEen link ontvangt u als de inschrijvingen zijn gesloten.\n\nHeeft u hier vragen over? Neem dan contact op met info@sinterklaasbank.nl.",
                     'voornaam' => $family->user->voornaam,
                     'email'=>$family->user->email
             ];
@@ -350,7 +380,7 @@ class FamilyController extends Controller
             catch(\Exception $e){
                 // catch code
             }
-
+*/
 
             /*
             *   Einde mail

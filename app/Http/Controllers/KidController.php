@@ -239,7 +239,7 @@ class KidController extends Controller
 
         $kid->fill($input)->save();
 
-        return redirect('kids/show/'.$kid->id)->with('message', 'Kindgegevens gewijzigd');
+        return redirect('family/show/'.$kid->family_id)->with('message', 'Kindgegevens gewijzigd');
     }
 
 
