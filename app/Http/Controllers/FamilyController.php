@@ -332,11 +332,6 @@ class FamilyController extends Controller
             */
 
 
-
-            $user = User::find($id);
-
-
-
                 $maildata = [
                     'goedgekeurd' => true,
                     'voornaam' => $family->user->voornaam,
