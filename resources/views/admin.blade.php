@@ -83,7 +83,7 @@
 </div>
 
                        
-@if (count($nogtekeuren_users)>0)
+@if (isset($nogtekeuren_users) && count($nogtekeuren_users)>0)
 
 
     <div class="panel-group" id="accordion">
@@ -136,7 +136,7 @@
 
 @endif 
  
-@if (count($nogtekeuren_families)>0)
+@if (isset($nogtekeuren_families) && count($nogtekeuren_families)>0)
 
 
     <div class="panel-group" id="accordion">
@@ -186,7 +186,7 @@
 @endif 
 
                        
-@if (count($intermediairzonderfamilies)!=0)
+@if (isset($intermediairzonderfamilies) && count($intermediairzonderfamilies)!=0)
 
 
     <div class="panel-group" id="accordion">
@@ -235,7 +235,7 @@
 
 @endif 
 
-@if (count($familieszonderkinderen)>0)
+@if (isset($familieszonderkinderen) && count($familieszonderkinderen)>0)
 
 
     <div class="panel-group" id="accordion">
@@ -286,7 +286,7 @@
 
 @endif 
 
-@if (count($intermediairmetnietgedownloadepdfs)>0)
+@if (isset ($intermediairmetnietgedownloadepdfs) && count($intermediairmetnietgedownloadepdfs)>0)
 
     <div class="panel-group" id="accordion">
       
