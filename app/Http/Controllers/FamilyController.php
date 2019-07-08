@@ -341,7 +341,7 @@ class FamilyController extends Controller
                     'goedgekeurd' => true,
                     'voornaam' => $family->user->voornaam,
                     'email'=>$user->email,
-                    'familynaam' => $family->achternaam;
+                    'familynaam' => $family->achternaam
                 ];
             
 
