@@ -305,9 +305,9 @@
                           @if($definitiefafkeuren)
                           <p>De afkeuring is definitief, u kunt het gezin niet opnieuw aanmelden. Wij verzoeken u het gezin uit uw lijst te verwijderen.</p>
                           @else
-                          U kunt het gezin terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin waar mogelijk kunt aanpassen of verwijderen.
+                          U kunt het gezin terugvinden in uw overzicht van gezinnen die niet zijn aangemeld, zodat u het gezin (waar mogelijk) kunt aanpassen of verwijderen.
                           @endif
-                          
+
                         @endif
                         
                         <p>Met vriendelijke groet,</p>
