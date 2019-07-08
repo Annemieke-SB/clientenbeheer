@@ -335,7 +335,7 @@ class FamilyController extends Controller
                 $maildata = [
                     'goedgekeurd' => true,
                     'voornaam' => $family->user->voornaam,
-                    'email'=>$user->email,
+                    'email'=>$family->user->email,
                     'familynaam' => $family->achternaam
                 ];
             
