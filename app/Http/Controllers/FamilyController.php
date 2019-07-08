@@ -346,11 +346,13 @@ class FamilyController extends Controller
             
 
             Mail::send('emails.uitslagfamiliekeuren', $maildata, function ($message) use ($maildata){
+
                 $message->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank');
                 
                 $message->to($maildata['email']);
                     
                 $message->subject("Het gezin ". $maildata['familynaam']. " is goedgekeurd");
+                
             });
 
 
