@@ -28,11 +28,13 @@ class UserTest extends TestCase
 	$user->tussenvoegsel = "van";
 
 
-        $this->assertEquals($user->GetNaam(), "Henrique van Huisstede");
+        $this->assertEquals($user->naam, "Henrique van Huisstede");
     }
 
     public function test_barcode_loskoppelen_bij_wissen_user()
     {
+
+
 	$user = User::create(
 
         [   
@@ -101,9 +103,20 @@ class UserTest extends TestCase
         ]);
 
 	$barcodeCheckedBeforeDelete = Barcode::where('kid_id', $kid->id)->first();
-	$barcodeCheckedAfterDelete = Barcode::where('barcode', $barcode->barcode)->first();
+	
 
-	$response = $this->call('GET', 'kidController@destroy', ['id'=> $kid->id]);
+	//$response = $this->call('POST', 'FamilyController@setafkeurtext', ['id'=> $family->id]);
+
+
+    $this->visit('FamilyController@setafkeurtext')
+         ->type($family->id, 'id')
+         ->type("test unit test", 'redenafkeuren')
+         ->uncheck('definitiefafkeuren');
+
+
+    $barcodeCheckedAfterDelete = Barcode::where('barcode', $barcode->barcode)->first();
+
+    //dd($barcodeCheckedAfterDelete);
 
         $this->assertEquals($barcode->barcode, $barcodeCheckedBeforeDelete->barcode);
         $this->assertEquals(NULL, $barcodeCheckedAfterDelete->kid_id);
