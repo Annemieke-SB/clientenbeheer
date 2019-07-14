@@ -31,7 +31,8 @@ class EmailVerification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Bericht van de Sinterklaasbank: bevestig uw aanmelding')
+        return $this->from('noreply@sinterklaasbank.nl', 'Stichting de Sinterklaasbank')
+                    ->subject('Bericht van de Sinterklaasbank: bevestig uw aanmelding')
                     ->view('emails.verification');
     }
 }
