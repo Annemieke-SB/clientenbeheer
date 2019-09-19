@@ -116,7 +116,7 @@ class UserController extends Controller
             // Toon intermediairs met andere initiatieven
 
             $users = User::whereHas('familys', function($query){
-                $query->where('andere_alternatieven', 1);
+                $query->where('andere_alternatieven', 1)->where('aangemeld', 1);
             })->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));   
 
         } else {
