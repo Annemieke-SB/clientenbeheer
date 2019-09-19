@@ -41,6 +41,7 @@ class Custommade {
             <li>U krijgt automatisch rode velden te zien als er bepaalde problemen zijn en zult die problemen op moeten lossen (zoals dubbele invoer, gezinnen die niet in aanmerking komen verwijderen).</li>
             <li>De gezinnen die u aanmeldt zijn op de hoogte van de aanmelding.</li>
             <li>Wij zullen u zien als ons contactpersoon voor het gezin, de correspondentie loopt via u.</li>
+            <li>De inschrijving sluit op 15 oktober, of eerder wanneer er 6000 kinderen zijn aangemeld.</li>
             <li>De Sinterklaasbank kan in bepaalde gevallen contact opnemen met het gezin (bijvoorbeeld om de gegevens te controleren) en kan daarbij uw gegevens aan het gezin verstrekken.</li>
             </ul>
 
