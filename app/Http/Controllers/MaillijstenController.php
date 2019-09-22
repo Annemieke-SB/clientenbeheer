@@ -84,7 +84,8 @@ class MaillijstenController extends Controller
             // Intermediairs die nog gezinnen moeten aanmelden
 
                 $intermediairmetnietaangemeldegezinnen = User::whereHas('familys', function($query){
-                                $query->where('aangemeld', 0);
+                                //$query->where('aangemeld', 0);
+                                $query->where('aangemeld', 0)->where('goedgekeurd', 0)->whereNull('familys.definitiefafkeuren');
                         })->get();
 
 
