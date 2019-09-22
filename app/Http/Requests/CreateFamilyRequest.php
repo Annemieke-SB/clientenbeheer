@@ -50,7 +50,7 @@ class CreateFamilyRequest extends FormRequest
             'achternaam.min'  => 'De achternaam moet minimaal 2 karakters hebben.',
             'type.min' => 'Het type intermediair (naam van de instelling) moet minimaal 5 karakters hebben.',
             'huisnummer.required'  => 'U moet een huisnummer opgeven.',
-            'huisnummer.nummeric'  => 'U heeft een letter bij het huisnummer gezet, letters horen in het veld "huisnummertoevoeging"',
+            'huisnummer.numeric'  => 'U heeft een letter bij het huisnummer gezet, letters horen in het veld "huisnummertoevoeging"',
             'postcode.required'  => 'U moet een geldige Nederlandse postcode opgeven (zoals 1234AB).',
             'adres.required'  => 'Adres kon niet worden opgehaald. Klopt de postcode of huisnummer wel?',
             'woonplaats.required'  => 'Plaats kon niet worden opgehaald. Klopt de postcode of huisnummer  wel?',
