@@ -464,7 +464,17 @@
             $(function(){
              $('input[name="postcode"]').attr('maxlength','6');
          }); 
-
+        // geen - in huisnummer                
+        $(function(){
+          $('input[name="huisnummer"]').bind('input', function(){
+            $(this).val(function(_, v){
+                if(v.includes("-")) {
+                    alert('Een "-" is niet toegestaan bij huisnummer, het wordt weggehaald (gebruik de huisnummer-toevoeging)');
+                }
+              return v.replace('-', '');
+            });
+          });
+        });
 
 
             // Als postcodeveld wordt gekozen; adresvelden legen
