@@ -119,11 +119,11 @@
       </td>
       <td>{{$ntku->email}}</td>
                 <td>
-                          <a href="{{ url('user/show') }}/{{$ntku->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+                          <a href="{{ url('user/show') }}/{{$ntku->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a><br>
                           @if ($ntku->hold)
-                              <small>in de wacht door {{$ntku->hold}}</small>&nbsp;<a href="{{ url('user/outhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-play"></span>&nbsp;Uit de wacht</button></a>
+                              <small>in de wacht door {{$ntku->hold}}</small>&nbsp;<a href="{{ url('user/outhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-play"></span>&nbsp;Uit de wacht</button></a><br>
                           @else
-                              <a href="{{ url('user/onhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-pause"></span>&nbsp;wacht</button></a>
+                              <a href="{{ url('user/onhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-pause"></span>&nbsp;wacht</button></a><br>
                           @endif
                           
                           <a href="{{ url('user/toggleactive') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Activeer</button></a>
