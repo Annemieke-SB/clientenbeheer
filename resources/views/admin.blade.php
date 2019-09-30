@@ -128,7 +128,7 @@
                           @if (isset($ntku->hold))
                               <a href="{{ url('user/outhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-success btn-xs text-right"><span class="glyphicon glyphicon-play"></span>&nbsp;Uit de wacht</button></a><br>
                           @else
-                              <a href="{{ url('user/onhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-pause"></span>&nbsp;wacht</button></a><br>
+                              <a href="{{ url('user/onhold') }}/{{$ntku->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-pause"></span>&nbsp;wacht</button></a><br>
                           @endif
                           
                           <a href="{{ url('user/toggleactive') }}/{{$ntku->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-ok"></span>&nbsp;Activeer</button></a>
