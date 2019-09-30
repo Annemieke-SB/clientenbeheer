@@ -523,7 +523,7 @@ class FamilyController extends Controller
 
 
 
-    public function onhold($id)
+    public function onhold($fam_id)
     {
 
         
@@ -541,8 +541,7 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $family = Family::find($id);   
-
+        $family = Family::findOrFail($fam_id); 
         $family->hold = $loggedinuser->naam;
         $family->save();
 
@@ -550,7 +549,7 @@ class FamilyController extends Controller
         return redirect('home')->with('message', 'Het gezin is in de wacht gezet.');
     }
 
-    public function outhold($id)
+    public function outhold($fam_id))
     {
         
         $loggedinuser = Auth::user();
@@ -567,8 +566,7 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $family = Family::find($id);   
-
+        $family = Family::findOrFail($fam_id); 
         $family->hold = NULL;
         $family->save();
 
