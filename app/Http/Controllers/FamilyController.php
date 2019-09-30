@@ -522,6 +522,63 @@ class FamilyController extends Controller
     }  
 
 
+
+    public function onhold($id)
+    {
+
+        
+        $loggedinuser = Auth::user();
+
+        // Intermediairs mogen de activatie niet wijzigen        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde de family/onhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        if(($loggedinuser->usertype == 2)){
+            
+            Log::info('Een raadpleger probeerde de family/onhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $family = Family::find($id);   
+
+        $family->hold = $loggedinuser->naam;
+        $family->save();
+
+
+        return redirect('home')->with('message', 'Het gezin is in de wacht gezet.');
+    }
+
+    public function outhold($id)
+    {
+        
+        $loggedinuser = Auth::user();
+
+        // Intermediairs mogen de activatie niet wijzigen        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde de user/outhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        if(($loggedinuser->usertype == 2)){
+            
+            Log::info('Een raadpleger probeerde de user/outhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $family = Family::find($id);   
+
+        $family->hold = NULL;
+        $family->save();
+
+
+        return redirect('home')->with('message', 'Het gezin is uit de wacht gehaald.');
+    }
+
+
+
+
     /* 
     * Mogelijkheid om een gezin af te keuren door een tekst te zetten. 
     */
