@@ -29,6 +29,7 @@ class Family extends Model
             'motivering',
             'andere_alternatieven',
             'user_id',
+            'hold',
             'aangemeld',
             'goedgekeurd'
     ];
