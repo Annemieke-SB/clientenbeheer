@@ -99,6 +99,8 @@ Route::post('user/updateemail/', 'UserController@updateemail')->middleware('auth
 Route::post('user/updatepassword/', 'UserController@updatepassword')->middleware('auth');
 Route::get('user/destroy/{id}', 'UserController@destroy')->middleware('auth');
 Route::get('user/redirecttointermediair/{id}', 'UserController@redirecttointermediair')->middleware('auth');
+Route::get('user/onhold/{id}', 'UserController@onhold')->middleware('auth');
+Route::get('user/outhold/{id}', 'UserController@outhold')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->middleware('auth');
 Route::get('/redeemed', 'RedeemedController@index')->middleware('auth');
@@ -127,6 +129,8 @@ Route::get('family/aanmelden/{id}', 'FamilyController@aanmelden')->middleware('a
 Route::get('family/afkeuren/{id}', 'FamilyController@afkeuren')->middleware('auth');
 Route::post('family/afkeuren/', 'FamilyController@setafkeurtext')->middleware('auth');
 Route::get('family/intrekken/{id}', 'FamilyController@aanmeldingintrekken')->middleware('auth');
+Route::get('family/onhold/{id}', 'Family@onhold')->middleware('auth');
+Route::get('family/outhold/{id}', 'FamilyController@outhold')->middleware('auth');
 
 Route::get('/kids/toevoegen/{id}', 'KidController@create')->middleware('auth');
 Route::get('/kids/destroy/{id}', 'KidController@destroy')->middleware('auth');

@@ -218,6 +218,39 @@ class UserController extends Controller
     }
 
 
+    public function onhold($id))
+    {
+
+        
+        $loggedinuser = Auth::user();
+
+        // Intermediairs mogen de activatie niet wijzigen        
+        if(($loggedinuser->usertype == 3)){
+            Log::info('Een intermediair probeerde de user/onhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        if(($loggedinuser->usertype == 2)){
+            
+            Log::info('Een raadpleger probeerde de user/onhold te benaderen, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $user = User::find($id);   
+
+        $user->hold = $loggedinuser->naam;
+        $user->save();
+
+
+        return redirect('user/show/'. $user->id)->with('message', 'De gebruiker is in de wacht gezet.');
+    }
+
+    public function outhold($id))
+    {
+        //
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
