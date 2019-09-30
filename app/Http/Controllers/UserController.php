@@ -218,7 +218,7 @@ class UserController extends Controller
     }
 
 
-    public function onhold($id))
+    public function onhold($id)
     {
 
         
@@ -245,7 +245,7 @@ class UserController extends Controller
         return redirect('user/show/'. $user->id)->with('message', 'De gebruiker is in de wacht gezet.');
     }
 
-    public function outhold($id))
+    public function outhold($id)
     {
         //
     }
