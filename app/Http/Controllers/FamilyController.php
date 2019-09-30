@@ -546,7 +546,7 @@ class FamilyController extends Controller
         $family->save();
 
 
-        return redirect('home')->with('message', 'Het gezin is in de wacht gezet.');
+        return redirect('home')->with('message', 'Het gezin is in de wacht gezet. Ververs om de update te zien.');
     }
 
     public function outhold($fam_id)
@@ -571,7 +571,7 @@ class FamilyController extends Controller
         $family->save();
 
 
-        return redirect('home')->with('message', 'Het gezin is uit de wacht gehaald.');
+        return redirect('home')->with('message', 'Het gezin is uit de wacht gehaald. Ververs om de update te zien.');
     }
 
 

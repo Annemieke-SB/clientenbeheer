@@ -242,7 +242,7 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect('home')->with('message', 'De gebruiker is in de wacht gezet.');
+        return redirect('home')->with('message', 'De gebruiker is in de wacht gezet. Ververs om de update te zien.');
     }
 
     public function outhold($id)
@@ -268,7 +268,7 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect('home')->with('message', 'De gebruiker is uit de wacht gehaald.');
+        return redirect('home')->with('message', 'De gebruiker is uit de wacht gehaald. Ververs om de update te zien.');
     }
 
 

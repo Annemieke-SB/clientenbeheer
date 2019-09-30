@@ -178,11 +178,14 @@
         @if ($ntkf->blacklisted)
           &nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
         @endif
+        @if (isset($ntkf->hold))
+        <p class="bg-danger">&nbsp;<small>in de wacht door {{$ntkf->hold}}</small></p>
+        @endif
       </td>
                 <td>
                           <a href="{{ url('family/show') }}/{{$ntkf->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a><br>                          
                           @if ($ntkf->hold)
-                              <small>in de wacht door {{$ntkf->hold}}</small>&nbsp;<a href="{{ url('family/outhold') }}/{{$ntkf->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-play"></span>&nbsp;Uit de wacht</button></a><br>
+                              <a href="{{ url('family/outhold') }}/{{$ntkf->id}}"><button type="button" class="btn btn-warning btn-xs text-right"><span class="glyphicon glyphicon-play"></span>&nbsp;Uit de wacht</button></a><br>
                           @else
                               <a href="{{ url('family/onhold') }}/{{$ntkf->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-pause"></span>&nbsp;wacht</button></a><br>
                           @endif
