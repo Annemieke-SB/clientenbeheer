@@ -549,7 +549,7 @@ class FamilyController extends Controller
         return redirect('home')->with('message', 'Het gezin is in de wacht gezet.');
     }
 
-    public function outhold($fam_id))
+    public function outhold($fam_id)
     {
         
         $loggedinuser = Auth::user();
