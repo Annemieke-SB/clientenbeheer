@@ -129,7 +129,7 @@ Route::get('family/aanmelden/{id}', 'FamilyController@aanmelden')->middleware('a
 Route::get('family/afkeuren/{id}', 'FamilyController@afkeuren')->middleware('auth');
 Route::post('family/afkeuren/', 'FamilyController@setafkeurtext')->middleware('auth');
 Route::get('family/intrekken/{id}', 'FamilyController@aanmeldingintrekken')->middleware('auth');
-Route::get('family/onhold/{id}', 'Family@onhold')->middleware('auth');
+Route::get('family/onhold/{id}', 'FamilyController@onhold')->middleware('auth');
 Route::get('family/outhold/{id}', 'FamilyController@outhold')->middleware('auth');
 
 Route::get('/kids/toevoegen/{id}', 'KidController@create')->middleware('auth');
