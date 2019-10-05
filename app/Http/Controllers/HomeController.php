@@ -257,7 +257,7 @@ class HomeController extends Controller
             ->join('familys', function ($Join) {
                 $Join->on('kids.family_id', '=', 'familys.id')
                         ->where('familys.goedgekeurd','=',1)
-                        ->select('kids.id');
+                        ->select('id');
             })
             ->get();
 
