@@ -265,7 +265,7 @@ class HomeController extends Controller
             $kinderen = DB::table('kids')
             ->join('familys', 'kids.family_id', '=', 'familys.id')
             ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
-            ->select('kids.id')
+            ->select('kids.id', 'barcode.barcode')
             ->where('familys.goedgekeurd','=',1)
             ->get();
 
@@ -274,9 +274,9 @@ class HomeController extends Controller
 
             foreach ($kinderen as $k => $v) {
 //dd($v);
-                $kc = Kid::find($v->id);
+                //$kc = Kid::find($v->id);
 
-                dd($kc->id);
+                dd($v);
                 if(!isset($kc->barcode)) {
 
                     dd($v);
