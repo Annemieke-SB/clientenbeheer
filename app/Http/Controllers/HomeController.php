@@ -266,7 +266,7 @@ class HomeController extends Controller
             ->join('familys', 'kids.family_id', '=', 'familys.id')
             ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
             ->select('kids.id')
-            ->where('familys.id','=',50)
+            ->where('familys.goedgekeurd','=',1)
             ->get();
 
 
