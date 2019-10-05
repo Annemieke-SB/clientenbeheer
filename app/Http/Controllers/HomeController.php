@@ -252,7 +252,7 @@ class HomeController extends Controller
             =============================================================
         */
             $kids_goedgekeurd_zonder_barcode = 0;
-/*
+
             $kids_goedgekeurd = DB::table('kids')
             ->join('familys', function ($Join) {
                 $Join->on('kids.family_id', '=', 'familys.id')
@@ -272,7 +272,6 @@ class HomeController extends Controller
 
             $kinderen2 = DB::table('kids')
             ->join('familys', 'kids.family_id', '=', 'familys.id')
-            ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
             ->where('familys.goedgekeurd','=',1)
             ->count();
 
@@ -291,7 +290,6 @@ class HomeController extends Controller
             ->count();
 dd($kinderen, $kinderen2, $barc);
 
-
             //dd($kids_goedgekeurd_tmp[51]);
 
             foreach ($kinderen as $k => $v) {
@@ -306,7 +304,7 @@ dd($kinderen, $kinderen2, $barc);
                 }
                 
             }
-*/
+
 
             //dd($kids_goedgekeurd_zonder_barcode);
 
