@@ -245,10 +245,36 @@ class HomeController extends Controller
         })
         ->count();
 
+        /* Hier checkroutines voor de integriteit */
 
+        /* 
+            Controle of alle goedgekeurde kinderen ook een barcode hebben
+            =============================================================
+        */
+            $kids_goedgekeurd_zonder_barcode = array();
+
+            $kids_goedgekeurd_tmp = DB::table('kids')
+            ->join('familys', function ($Join) {
+                $Join->on('kids.family_id', '=', 'familys.id')
+                        ->where('familys.goedgekeurd','=',1)
+                        ->select('kids.*');
+            })
+            ->get();
+
+            foreach ($kids_goedgekeurd_tmp as $k) {
+
+                $kc = Kid::find($k->id);
+                $kids_goedgekeurd_zonder_barcode[] == $kc->barcode;
+            }
+
+            dd($kids_goedgekeurd_zonder_barcode);
+
+        /*             
+            =============================================================
+        */
 
 		return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
-				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_nog_niet_aangemeld'=> $kids_nog_niet_aangemeld, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld]);     
+				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_goedgekeurd_zonder_barcode'=> $kids_goedgekeurd_zonder_barcode, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld]);     
     }
 
     public function kinderlijst()

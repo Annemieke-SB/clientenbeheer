@@ -126,6 +126,23 @@
 						</tbody>
                 	</table>
 
+					<table class="table"><caption>Controlegetallen (foutopsporing)</caption>
+                		<thead>
+                			<tr>
+                				<th>Categorie</th><th>Aantal</th>
+                			</tr>
+                		</thead>
+						<tbody>
+
+							<tr>
+								<td>Kids goedgekeurd zonder barcode</td>
+								<td>{{ $kids_goedgekeurd_zonder_barcode }}</td>
+							</tr>
+
+						</tbody>
+                	</table>
+
+
                 </div>
             </div>
         </div>

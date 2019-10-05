@@ -78,8 +78,19 @@ class MaillijstenController extends Controller
                 $lijst = $intermediairmetnietgedownloadepdfs->unique();
 
             } 
+/*
+            if (request()->input('lijst')=='idpk') { 
+            // Intermediairs die pdf krijgen
 
+                $intermediairsdiepdfkrijgen = collect(User::whereHas('barcodes', function($query){
+                            $query->whereNull('downloadedpdf');
+                        })->select('email')->get()
+                );
 
+                $lijst = $intermediairsdiepdfkrijgen->unique();
+
+            } 
+*/
             if (request()->input('lijst')=='iag') { 
             // Intermediairs die nog gezinnen moeten aanmelden
 
