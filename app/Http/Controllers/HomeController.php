@@ -266,13 +266,13 @@ class HomeController extends Controller
                 $kc = Kid::find($k->id);
                 if(empty($kc->barcode)) {
 
-                    $kids_goedgekeurd_zonder_barcode[] = $kc->id;
+                    dd($kc->id);
 
                 }
                 
             }
 
-            dd($kids_goedgekeurd_zonder_barcode);
+            //dd($kids_goedgekeurd_zonder_barcode);
 
         /*             
             =============================================================
