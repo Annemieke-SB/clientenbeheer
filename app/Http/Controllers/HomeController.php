@@ -258,7 +258,7 @@ class HomeController extends Controller
                 $Join->on('kids.family_id', '=', 'familys.id')
                         ->where('familys.goedgekeurd','=',1);
             })
-            ->all();
+            ->get();
 
             //dd($kids_goedgekeurd_tmp[51]);
 
