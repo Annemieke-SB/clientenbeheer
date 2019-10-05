@@ -269,7 +269,7 @@ class HomeController extends Controller
             ->where('familys.goedgekeurd','=',1)
             ->count();
 
-dd($kinderen);
+//dd($kinderen);
 
             //dd($kids_goedgekeurd_tmp[51]);
 
