@@ -299,11 +299,15 @@ class HomeController extends Controller
 
                 
                 if(!isset($kc->barcode)) {
-dd($kc);
+
                     $kids_goedgekeurd_zonder_barcode++;
 
                 }
                 
+                if($kids_goedgekeurd_zonder_barcode>0) {
+                    dd($kc);
+                }
+
             }
 
 
