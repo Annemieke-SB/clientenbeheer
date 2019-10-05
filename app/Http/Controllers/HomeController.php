@@ -253,16 +253,26 @@ class HomeController extends Controller
         */
             $kids_goedgekeurd_zonder_barcode = array();
 
-            $kids_goedgekeurd_tmp = DB::table('kids')
+            $kids_goedgekeurd = DB::table('kids')
             ->join('familys', function ($Join) {
                 $Join->on('kids.family_id', '=', 'familys.id')
-                        ->where('familys.goedgekeurd','=',1);
+                        ->where('familys.goedgekeurd','=',1)
+                        ->select('kids.*');
             })
+            ->count();
+
+
+            $kinderen = DB::table('kids')
+            ->join('familys', 'kids.family_id', '=', 'familys.id')
+            ->join('barcodes', 'kids.id', '=', 'barcodes.kids_id')
+            ->select('kids.*', 'barcodes.barcode')
+            ->where('familys.goedgekeurd','=',1)
             ->get();
+
 
             //dd($kids_goedgekeurd_tmp[51]);
 
-            foreach ($kids_goedgekeurd_tmp as $k => $v) {
+            foreach ($kinderen as $k => $v) {
 //dd($v);
                 $kc = Kid::find($v->id);
                 if(!isset($kc->barcode)) {
