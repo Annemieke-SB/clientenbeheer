@@ -288,16 +288,16 @@ class HomeController extends Controller
                         ->select('kids.*');
             })
             ->count();
-dd($kinderen, $kinderen2, $barc);
+//dd($kinderen, $kinderen2, $barc);
 
             //dd($kids_goedgekeurd_tmp[51]);
 
-            foreach ($kinderen as $k => $v) {
+            foreach ($kinderen2 as $k => $v) {
 //dd($v);
-                //$kc = Kid::find($v->id);
+                $kc = Kid::find($v->id);
 
                 
-                if(!isset($v->barcode)) {
+                if(!isset($kc->barcode)) {
 
                     $kids_goedgekeurd_zonder_barcode++;
 
