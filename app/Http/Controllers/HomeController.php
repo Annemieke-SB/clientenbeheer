@@ -250,7 +250,7 @@ class HomeController extends Controller
         /* 
             Controle of alle goedgekeurde kinderen ook een barcode hebben
             =============================================================
-        */
+        
             $kids_goedgekeurd_zonder_barcode = 0;
 
             $kids_goedgekeurd = DB::table('kids')
@@ -291,6 +291,7 @@ class HomeController extends Controller
             ->count();
 dd($kinderen, $kinderen2, $barc);
 
+
             //dd($kids_goedgekeurd_tmp[51]);
 
             foreach ($kinderen as $k => $v) {
@@ -305,7 +306,7 @@ dd($kinderen, $kinderen2, $barc);
                 }
                 
             }
-
+*/
 
             //dd($kids_goedgekeurd_zonder_barcode);
 
