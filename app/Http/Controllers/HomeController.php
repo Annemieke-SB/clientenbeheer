@@ -293,7 +293,7 @@ class HomeController extends Controller
         */
 
 		return view('tellingen', ['intermediairzonderfamilies'=>$intermediairzonderfamilies, 'intermediairzonderkids'=>$intermediairzonderkids,
-				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_goedgekeurd_zonder_barcode'=> $kids_goedgekeurd_zonder_barcode, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld]);     
+				'families_goedgekeurd'=>$families_goedgekeurd, 'familieszonderkinderen'=>$familieszonderkinderen, 'families_tekeuren'=>$families_tekeuren, 'kids'=>$kids,'kids_goedgekeurd'=>$kids_goedgekeurd, 'kids_definitiefdisqualified'=>$kids_definitiefdisqualified, 'kids_disqualified'=>$kids_disqualified, 'families_disqualified'=>$families_disqualified, 'intermediairs'=>$intermediairs, 'families_definitiefdisqualified'=>$families_definitiefdisqualified, 'families'=>$families, 'kids_metbarcode'=>$kids_metbarcode, 'kids_in_afwachting_van_keuring' => $kids_in_afwachting_van_keuring, 'kids_goedgekeurd_zonder_barcode'=> $kids_goedgekeurd_zonder_barcode, 'gezinnen_nog_niet_aangemeld'=>$gezinnen_nog_niet_aangemeld, 'kids_nog_niet_aangemeld'=>$kids_nog_niet_aangemeld]);     
     }
 
     public function kinderlijst()
