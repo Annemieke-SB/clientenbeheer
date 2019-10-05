@@ -265,8 +265,8 @@ class HomeController extends Controller
             $kinderen = DB::table('kids')
             ->join('familys', 'kids.family_id', '=', 'familys.id')
             ->join('barcodes', 'kids.id', '=', 'barcodes.kids_id')
-            ->select('kids.*', 'barcodes.barcode')
-            ->where('familys.goedgekeurd','=',1)
+            ->select('kids.id')
+            ->where('familys.id','=',1)
             ->get();
 
 
