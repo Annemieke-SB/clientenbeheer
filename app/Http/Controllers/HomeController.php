@@ -261,7 +261,7 @@ class HomeController extends Controller
             })
             ->get();
 
-            dd($kids_goedgekeurd_tmp[1]);
+            dd($kids_goedgekeurd_tmp[50]);
 
             foreach ($kids_goedgekeurd_tmp as $k) {
 
