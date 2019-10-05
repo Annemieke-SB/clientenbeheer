@@ -267,8 +267,9 @@ class HomeController extends Controller
             ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
             ->select('kids.id', 'barcodes.barcode')
             ->where('familys.goedgekeurd','=',1)
-            ->get();
+            ->count();
 
+dd($kinderen);
 
             //dd($kids_goedgekeurd_tmp[51]);
 
