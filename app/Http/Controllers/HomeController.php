@@ -264,7 +264,7 @@ class HomeController extends Controller
 
             foreach ($kids_goedgekeurd_tmp as $k => $v) {
 //dd($v);
-                $kc = Kid::find($k->id);
+                $kc = Kid::find($v->id);
                 if(!isset($kc->barcode)) {
 
                     dd($v->id);
