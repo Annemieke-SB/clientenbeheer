@@ -276,10 +276,10 @@ class HomeController extends Controller
 //dd($v);
                 //$kc = Kid::find($v->id);
 
-                dd($v->barcode);
-                if(!isset($kc->barcode)) {
+                
+                if(!isset($v->barcode)) {
 
-                    dd($v);
+                    dd($v->id);
 
                 }
                 
