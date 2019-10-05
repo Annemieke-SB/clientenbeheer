@@ -251,7 +251,7 @@ class HomeController extends Controller
             Controle of alle goedgekeurde kinderen ook een barcode hebben
             =============================================================
         */
-            $kids_goedgekeurd_zonder_barcode = array();
+            $kids_goedgekeurd_zonder_barcode = 0;
 
             $kids_goedgekeurd = DB::table('kids')
             ->join('familys', function ($Join) {
@@ -279,7 +279,7 @@ class HomeController extends Controller
                 
                 if(!isset($v->barcode)) {
 
-                    dd($v->id);
+                    $kids_goedgekeurd_zonder_barcode++;
 
                 }
                 
