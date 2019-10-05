@@ -256,7 +256,7 @@ class HomeController extends Controller
             $kids_goedgekeurd_tmp = DB::table('kids')
             ->join('familys', function ($Join) {
                 $Join->on('kids.family_id', '=', 'familys.id')
-                        ->where('familys.goedgekeurd','=',1)
+                        ->where('familys.goedgekeurd','=',1);
             })
             ->get();
 
