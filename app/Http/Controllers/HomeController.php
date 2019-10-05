@@ -267,9 +267,29 @@ class HomeController extends Controller
             ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
             ->select('kids.id', 'barcodes.barcode')
             ->where('familys.goedgekeurd','=',1)
-            ->get();
+            ->count();
 
-//dd($kinderen);
+
+            $kinderen2 = DB::table('kids')
+            ->join('familys', 'kids.family_id', '=', 'familys.id')
+            ->join('barcodes', 'kids.id', '=', 'barcodes.kid_id')
+            ->where('familys.goedgekeurd','=',1)
+            ->count();
+
+
+
+            $barc = DB::table('barcodes')
+            ->whereNotNull('kid_id')
+            ->count();
+
+            $kids_goedgekeurd_zb = DB::table('kids')
+            ->join('familys', function ($Join) {
+                $Join->on('kids.family_id', '=', 'familys.id')
+                        ->where('familys.goedgekeurd','=',1)
+                        ->select('kids.*');
+            })
+            ->count();
+dd($kinderen, $kinderen2, $barc);
 
             //dd($kids_goedgekeurd_tmp[51]);
 
