@@ -305,6 +305,8 @@ class HomeController extends Controller
                 }
                 
                 if($kids_goedgekeurd_zonder_barcode>0) {
+
+                    echo "Er is een goedgekeurd kind dat geen barcode heeft:<br><br>";
                     dd($kc);
                 }
 
