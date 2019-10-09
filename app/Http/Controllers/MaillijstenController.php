@@ -104,6 +104,19 @@ class MaillijstenController extends Controller
 
             }    
 
+            if (request()->input('lijst')=='ai') { 
+            // Alle intermediairs
+
+                $alleintermediairs = collect(User::where('usertype',3)
+                    ->select('email')
+                    ->get()
+                );
+
+
+                $lijst = $alleintermediairs->unique();
+
+            }  
+
         return view('maillijsten.index', ['lijst'=>$lijst]);   
 
     }  
