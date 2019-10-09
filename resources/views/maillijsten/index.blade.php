@@ -56,6 +56,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kies <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="{{ url('/maillijsten/') }}/?lijst=ai">Alle intermediairs</a></li>  
             <li><a href="{{ url('/maillijsten/') }}/?lijst=zkg">Intermediairs zonder kinderen OF gezinnen</a></li>  
             <li><a href="{{ url('/maillijsten/') }}/?lijst=ntd">Intermediairs die nog moeten downloaden</a></li>   
             <li><a href="{{ url('/maillijsten/') }}/?lijst=iag">Intermediairs die nog gezinnen moeten aanmelden</a></li>            
@@ -70,7 +71,9 @@
                 @if (Request::input('lijst')=='zkg')
                     <b>Intermediairs zonder kinderen OF gezinnen</b>                 
                 @elseif (Request::input('lijst')=='ntd')
-                    <b>Intermediairs die nog PDF's moeten downloaden</b>  
+                    <b>Intermediairs die nog PDF's moeten downloaden</b>                  
+                @elseif (Request::input('lijst')=='ai')
+                    <b>Alle intermediairs</b>  
                 @elseif (Request::input('lijst')=='iag')
                     <b>Intermediairs die nog gezinnen moeten aanmelden</b>                 
                 @else
