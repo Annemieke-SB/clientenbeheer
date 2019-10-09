@@ -61,7 +61,7 @@
             <li><a href="{{ url('/users/index') }}/?filter=iga">Toon intermediairs waarvan nog gezinnen moeten worden aangemeld</a></li> 
             <li><a href="{{ url('/users/index') }}/?filter=igg">Toon intermediairs waarvan nog gezinnen moeten worden goedgekeurd</a></li> 
             <li><a href="{{ url('/users/index') }}/?filter=iai">Toon intermediairs met aangemelde gezinnen met andere initiatieven</a></li>      
-            <li><a href="{{ url('/users/index') }}/?filter=iai">Toon intermediairs met niet aangemelde gezinnen met andere initiatieven</a></li>   
+            <li><a href="{{ url('/users/index') }}/?filter=inai">Toon intermediairs met niet aangemelde gezinnen met andere initiatieven</a></li>   
           </ul>
         </li>
       </ul>
@@ -84,7 +84,7 @@
                     <b>Intermediairs met te keuren/aangemelde gezinnen</b> 
                 @elseif (Request::input('filter')=='iai')
                     <b>Intermediairs met aangemelde gezinnen met andere initiatieven</b> 
-                @elseif (Request::input('filter')=='iai')
+                @elseif (Request::input('filter')=='inai')
                     <b>Intermediairs met niet aangemelde gezinnen met andere initiatieven</b> 
                 @else
                     Geen filter
