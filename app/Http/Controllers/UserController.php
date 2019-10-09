@@ -113,10 +113,18 @@ class UserController extends Controller
 
         } elseif (request()->input('filter')=='iai') {
 
-            // Toon intermediairs met andere initiatieven
+            // Toon intermediairs met aangemelde gezinnen met andere initiatieven
 
             $users = User::whereHas('familys', function($query){
                 $query->where('andere_alternatieven', 1)->where('aangemeld', 1);
+            })->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));   
+
+        } elseif (request()->input('filter')=='inai') {
+
+            // Toon intermediairs met niet aangemelde gezinnen alle andere initiatieven
+
+            $users = User::whereHas('familys', function($query){
+                $query->where('andere_alternatieven', 1)->where('aangemeld', 0);
             })->orderBy('achternaam', $sorts)->paginate($aant)->appends('filter', request('filter'));   
 
         } else {
