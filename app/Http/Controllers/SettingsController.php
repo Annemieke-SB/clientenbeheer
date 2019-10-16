@@ -140,7 +140,7 @@ class SettingsController extends Controller
                 $open_gesloten = Setting::find('4');                
 
                 if ($open_gesloten->value == "1") {
-                    $this->sendMailToIntermediairs ("downloadpagina_open");
+                    // $this->sendMailToIntermediairs ("downloadpagina_open");
                 } else {
                     return redirect('/settings/')->with('message', 'Instelling niet gewijzigd; downloadpagina kan alleen worden geopend als de inschrijvingen zijn gesloten.');
                 }
@@ -148,7 +148,7 @@ class SettingsController extends Controller
                 
             } else {
 
-                $this->sendMailToIntermediairs ("downloadpagina_sluiten");
+                // $this->sendMailToIntermediairs ("downloadpagina_sluiten");
 
             }
         }
