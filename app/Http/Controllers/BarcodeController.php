@@ -438,14 +438,13 @@ class BarcodeController extends Controller
         $opmerking = Request::input('opmerking');
 
 
-        $freebarcodes = Barcode::whereNull('kid_id')->take($aantal)->get();
+        $freebarcodes = Barcode::whereNull('kid_id')->whereNull('user_id')->take($aantal)->get();
 
 
 
         foreach ($freebarcodes as $freebarcode) {
             
-                    Barcode::find($freebarcode->id)->update([
-                    'kid_id' => 0,
+                    Barcode::find($freebarcode->id)->update([                    
                     'user_id' => $user->id,
                     'opmerking' => $opmerking,
                 ]);  
