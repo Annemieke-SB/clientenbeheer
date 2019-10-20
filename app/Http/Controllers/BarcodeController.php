@@ -316,7 +316,7 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $extrabarcodes = Barcode::where('kid_id', '=', '0')->get();
+        $extrabarcodes = Barcode::whereNull('kid_id')->whereNotNull('user_id')->get();
 
         return view('barcodes.extrabarcodes', ['extrabarcodes'=>$extrabarcodes]);  
     }
