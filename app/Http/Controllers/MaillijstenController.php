@@ -117,6 +117,20 @@ class MaillijstenController extends Controller
 
             }  
 
+            if (request()->input('lijst')=='aigg') { 
+            // Alle intermediairs met goedgekeurde gezinnen
+
+                $intermediairmetnietaangemeldegezinnen = User::whereHas('familys', function($query){
+                                //$query->where('aangemeld', 0);
+                                $query->where('goedgekeurd', 1);
+                        })->get();
+
+
+                $lijst = $alleintermediairs->unique();
+
+            }  
+
+
         return view('maillijsten.index', ['lijst'=>$lijst]);   
 
     }  

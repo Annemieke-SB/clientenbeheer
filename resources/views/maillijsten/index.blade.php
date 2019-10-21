@@ -59,7 +59,8 @@
             <li><a href="{{ url('/maillijsten/') }}/?lijst=ai">Alle intermediairs</a></li>  
             <li><a href="{{ url('/maillijsten/') }}/?lijst=zkg">Intermediairs zonder kinderen OF gezinnen</a></li>  
             <li><a href="{{ url('/maillijsten/') }}/?lijst=ntd">Intermediairs die nog moeten downloaden</a></li>   
-            <li><a href="{{ url('/maillijsten/') }}/?lijst=iag">Intermediairs die nog gezinnen moeten aanmelden</a></li>            
+            <li><a href="{{ url('/maillijsten/') }}/?lijst=iag">Intermediairs die nog gezinnen moeten aanmelden</a></li>      
+            <li><a href="{{ url('/maillijsten/') }}/?lijst=aigg">Intermediairs met goedgekeurde gezinnen</a></li>       
           </ul>
         </li>
       </ul>
@@ -75,7 +76,9 @@
                 @elseif (Request::input('lijst')=='ai')
                     <b>Alle intermediairs</b>  
                 @elseif (Request::input('lijst')=='iag')
-                    <b>Intermediairs die nog gezinnen moeten aanmelden</b>                 
+                    <b>Intermediairs die nog gezinnen moeten aanmelden</b> 
+                @elseif (Request::input('lijst')=='aiggg')
+                    <b>Intermediairs met goedgekeurde gezinnen</b>                                     
                 @else
                     Geen lijst gekozen
                 @endif
