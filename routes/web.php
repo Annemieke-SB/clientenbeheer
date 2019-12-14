@@ -173,6 +173,10 @@ Route::get('/emailtest/', 'SettingsController@sendMailToIntermediairs')->middlew
 
 Route::get('/maillijsten/', 'MaillijstenController@index')->middleware('auth');
 
+Route::get('/exporteren/', 'ExportController@index')->middleware('auth');
+Route::get('/exportselector/{selector}', 'ExportController@exportselector')->middleware('auth');
+
+
 /*
 *
 * Opschonen (depricated)

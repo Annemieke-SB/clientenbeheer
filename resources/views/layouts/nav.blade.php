@@ -48,6 +48,7 @@
         <li><a href="{{ url('/users/index?filter=igg') }}"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>&nbsp;Keuren gezinnen</a></li>        
         <li><a href="{{ url('/tellingen/') }}"><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>&nbsp;Tellingen</a></li>
         <li><a href="{{ url('/maillijsten/') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Maillijsten</a></li>
+        <li><a href="{{ url('/exporteren/') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Exports</a></li>        
         <li role="separator" class="divider"></li>
         <li><a href="{{ url('/barcodes/') }}"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>&nbsp;Barcodes</a></li>
       </ul>

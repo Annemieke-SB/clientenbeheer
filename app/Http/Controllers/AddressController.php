@@ -1,6 +1,7 @@
 <?php
 
 namespace Speelpenning\PostcodeNl\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
 use Illuminate\Routing\Controller;

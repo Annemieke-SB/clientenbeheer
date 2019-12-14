@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -15,6 +18,8 @@
         "speelpenning/laravel-postcode-nl": "^4.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
+        "composer/composer": "^1.9",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
