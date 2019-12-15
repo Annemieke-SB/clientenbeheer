@@ -19,7 +19,7 @@ class KidsExport implements FromCollection, WithHeadings
             ->join('users', 'users.id', '=', 'kids.user_id')
             ->join('familys', 'familys.id', '=', 'kids.family_id')
             ->where('familys.goedgekeurd', '=', 1)
-            ->select('kids.voornaam', 'familys.achternaam', 'goedgekeurd', 'users.email', 'users.organisatienaam')
+            ->select('kids.voornaam', 'familys.achternaam', 'familys.goedgekeurd', 'users.email', 'users.organisatienaam')
             ->get();
 
 
