@@ -57,7 +57,7 @@
                                 <tr>
                                     <td>
                                 
-                                        <a href="{{ url('/exportselector') }}/{{$v}}">link</a>
+                                        <a href="{{ url('/exportselector') }}/{{$v}}"><img src="{{URL::asset('img/icons/excel_icon.png')}}" alt="profile Pic" height="30" width="30"></a>
 
                                     </td>
                                     <td>

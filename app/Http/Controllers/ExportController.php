@@ -13,7 +13,7 @@ use App\Family;
 use App\Kid;
 use App\Setting;
 use App\Barcode;
-use App\Exports\UsersExport;
+use App\Exports\KidsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
@@ -45,7 +45,7 @@ class ExportController extends Controller
         $lijst = array(
                         //  'Omschrijving' => 'selector'
 
-                            'Gebruikers'=>'users',
+                            'Goedgekeurde kinderen icm familie en intermediair'=>'kids',
 
                     );       
 
@@ -64,11 +64,10 @@ class ExportController extends Controller
         // zie https://docs.laravel-excel.com/3.1/exports/ hoe de export kunnen worden klaargezet
 
         switch ($selector) {
-            case "users":
-                //return Excel::download(new UsersExport, 'users.xlsx');
+            case "kids":
+                return Excel::download(new KidsExport, 'kids.xlsx');
                 break;
         }
-        return view('exporteren.export', ['selector'=>$selector]); 
     }
 
 }
