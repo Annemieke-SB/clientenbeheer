@@ -18,11 +18,11 @@ class IntermediairsExport implements FromCollection, WithHeadings
             ->join('familys', 'users.id', '=', 'familys.user_id')
             ->where('familys.goedgekeurd', '=', 1)
             ->select('users.voornaam', 'users.achternaam', 'users.email', 'users.organisatienaam')
+            ->distinct()
             ->get();
 
-        $unique = $collection->unique('users');
 
-        return $unique;
+        return $users;
 
         //return User::all();
     }
