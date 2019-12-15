@@ -18,8 +18,8 @@ class KidsExport implements FromCollection, WithHeadings
     	$kids = DB::table('kids')
             ->join('users', 'users.id', '=', 'kids.user_id')
             ->join('familys', 'familys.id', '=', 'kids.family_id')
+            ->where('familys.goedgekeurd', '=', 1)
             ->select('kids.voornaam', 'familys.achternaam', 'users.email', 'users.organisatienaam')
-            ->where('familys.goedgekeurd', '=', '1')
             ->get();
 
 
