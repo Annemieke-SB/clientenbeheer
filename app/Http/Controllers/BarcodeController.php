@@ -29,7 +29,7 @@ use Custommade;
 
 /* 
     Deze  heb  ik ertussen gezet omdat hij de cardnumber niet goed las
-*/
+
 
 
 use PHPExcel_Cell;
@@ -52,7 +52,7 @@ class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel
         return parent::bindValue($cell, $value);
     }
 }
-
+*/
 
 /* 
     Einde oplossing
