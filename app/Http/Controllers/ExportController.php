@@ -14,6 +14,7 @@ use App\Kid;
 use App\Setting;
 use App\Barcode;
 use App\Exports\KidsExport;
+use App\Exports\IntermediairsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
@@ -46,6 +47,7 @@ class ExportController extends Controller
                         //  'Omschrijving' => 'selector'
 
                             'Goedgekeurde kinderen icm familie en intermediair'=>'kids',
+                            'De intermediairs van goedgekeurde gezinnen'=>'intermediairs',
 
                     );       
 
@@ -66,6 +68,9 @@ class ExportController extends Controller
         switch ($selector) {
             case "kids":
                 return Excel::download(new KidsExport, 'kids.xlsx');
+                break;
+            case "intermediairs":
+                return Excel::download(new IntermediairsExport, 'intermediairs.xlsx');
                 break;
         }
     }
