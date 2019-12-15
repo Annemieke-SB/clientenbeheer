@@ -35,7 +35,7 @@ use Custommade;
 use PHPExcel_Cell;
 use PHPExcel_Cell_DataType;
 use PHPExcel_Cell_IValueBinder;
-use PHPExcel_Cell_DefaultValueBinder;
+//use PHPExcel_Cell_DefaultValueBinder;
 
 class MyValueBinder extends PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
 {
