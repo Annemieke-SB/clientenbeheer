@@ -8,6 +8,7 @@ class Setting extends Model
 {
 
 	protected $fillable = [
+            'setting',
             'value',
 	];
 

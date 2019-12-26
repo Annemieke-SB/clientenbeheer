@@ -52,6 +52,19 @@ return [
             'prefix' => '',
         ],
 
+        'testing' => [
+            'driver' => 'mysql',
+            'database' => "clientenbeheer_unittest",
+            'prefix' => '',            
+            'username' => 'homestead',
+            'password' => 'secret',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),

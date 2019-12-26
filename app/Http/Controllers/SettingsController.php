@@ -56,7 +56,7 @@ class SettingsController extends Controller
         // Intermediairs mogen de index niet zien        
         if(($user->usertype == 3)){
             Log::info('Een intermediair probeerde de settings-indexpagina te laden, userid: '.$user->id);
-            return redirect('user/show/'.$user->id)->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
 

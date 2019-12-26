@@ -88,6 +88,7 @@ Route::get('contacts/index', 'ContactController@index')->middleware('auth');
 Route::get('contacts/show/{id}', 'ContactController@show')->middleware('auth');
 Route::get('contacts/edit/{id}', 'ContactController@edit')->middleware('auth');
 
+Route::get('users', 'UserController@index')->middleware('auth');
 Route::get('users/index', 'UserController@index')->middleware('auth');
 Route::get('users/downloads/{id}', 'UserController@downloads')->middleware('auth');
 Route::get('user/toggleactive/{id}', 'UserController@toggleactive')->middleware('auth');

@@ -138,7 +138,7 @@ class UserController extends Controller
 
         // Intermediairs mogen de index niet zien        
         if(($loggedinuser->usertype == 3)){
-            Log::info('Een intermediair probeerde de gebruikers-indexpagina te laden, userid: '.$user->id);
+            Log::info('Een intermediair probeerde de gebruikers-indexpagina te laden, userid: '.$loggedinuser->id);
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
@@ -498,11 +498,13 @@ class UserController extends Controller
     {
         $loggedinuser = Auth::user();
 
-       if (Setting::get('inschrijven_gesloten') == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
-            return redirect('users/index')->with('message', 'Het is niet mogelijk om gebruikers te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben. Je zou wel de gebruiker (intermediair) kunnen deactiveren in het gebruikersoverzicht.'); 
-        }
+
 
         if ($loggedinuser->usertype==1){
+
+            if (Setting::get('downloads_ingeschakeld') == 1) { // als inschrijven is gesloten, dan kan er niets vernietigd worden
+            return redirect('users/index')->with('message', 'Het is niet mogelijk om gebruikers te verwijderen nadat de inschrijvingen zijn gesloten. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben. Je zou wel de gebruiker (intermediair) kunnen deactiveren in het gebruikersoverzicht.'); 
+            }
 
             $user = User::findOrFail($id);
 
