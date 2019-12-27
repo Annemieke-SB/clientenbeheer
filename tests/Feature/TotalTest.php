@@ -510,31 +510,147 @@ class TotalTest extends TestCase
 
 
 
-	    public function testIntermediairs_kunnen_geen_gezinnen_kinderen_aanmelden_na_inschrijven_gesloten()
+	    public function testIntermediairs_kunnen_geen_gezinnen_aanmaken_na_inschrijven_gesloten()
 	    {
-
-	    	// Deze nog TODO!!!!
 
 	    	// Backup
 	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
 	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
 
-	    	// Gasten mogen de pagina niet zien
+			// Intermediairs 
+			$intermediair = factory(User::class)->create(['usertype'=>'3']);
+			$this->actingAs($intermediair);
 
-	        $response = $this->get('/inschrijven')->assertViewIs('inschrijvinggesloten');
-	        $response = $this->get('/register')->assertSeeText('De inschrijvingen zijn gesloten');
+	        $response = $this->get('/familie/toevoegen/' . $intermediair->id)->assertRedirect('home');	        
 
 	        //Feedback
-			echo "\n* Inschrijving gesloten: Een niet ingelogde gebruiker kan niet meer inschrijven als inschrijving gesloten is."; 
-			echo "\n* Inschrijving gesloten: De rechtstreekse inschrijfpagina is niet meer toegankelijk.";  
-
+			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin meer aanmaken."; 
 
 			// Backup terugzetten
 			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
 
-			echo "\n* [TODO] Inschrijving gesloten: Een intermediair kan GEEN gezinnen meer wijzigen / aanmelden / verwijderen.";   
-			echo "\n* [TODO] Inschrijving gesloten: Een intermediair kan GEEN kinderen meer wijzigen / verwijderen.";   
-			echo "\n* [TODO] Inschrijving gesloten: Een intermediair kan WEL inloggen en kijken."; 
+	    }
+
+
+	    public function testIntermediairs_kunnen_geen_gezinnen_aanmelden_na_inschrijven_gesloten()
+	    {
+
+	    	// Backup
+	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+
+			// Intermediairs 
+			$intermediair = factory(User::class)->create(['usertype'=>'3']);
+			$this->actingAs($intermediair);
+
+			$family = factory(Family::class)->make( ['user_id' => $intermediair->id ] );
+			$family->save();
+
+	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
+
+	        $response = $this->get('/family/aanmelden/' . $family->id);
+
+	        $response->assertSessionHas('message', "U heeft een gezin proberen aan te melden terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.");
+   
+
+	        //Feedback
+			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin aanmelden."; 
+
+			// Backup terugzetten
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+
+	    }
+
+
+	    public function testIntermediairs_kunnen_geen_gezinnen_kinderen_wijzigen_na_inschrijven_gesloten()
+	    {
+
+	    	// Backup
+	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+
+			// Intermediairs 
+			$intermediair = factory(User::class)->create(['usertype'=>'3']);
+			$this->actingAs($intermediair);
+
+			$family = factory(Family::class)->make( ['user_id' => $intermediair->id ] );
+			$family->save();
+
+			$kid = Kid::create( ['family_id' => $family->id,
+								'user_id' =>  $family->user->id,
+								'voornaam' => 'Jaap',
+								'tussenvoegsel' => 'van',
+								'achternaam' => 'Jansen',
+								'geboortedatum'=>"20-3-2003",
+								'geslacht'=>"m"] );
+			$kid->save();			
+
+	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
+
+	        $response = $this->get('/family/edit/' . $family->id);
+
+	        $response->assertSessionHas('message', "U heeft een gezin proberen te wijzigen terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.");
+   
+	        $response = $this->get('/kids/edit/' . $kid->id);
+
+	        $response->assertSessionHas('message', "U heeft een kind proberen te wijzigen terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.");
+
+	        //Feedback
+			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin of kind meer wijzigen."; 
+
+			// Backup terugzetten
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+
+	    }
+
+
+	    public function testIntermediairs_kunnen_geen_gezinnen_kinderen_verwijderen_na_inschrijven_gesloten()
+	    {
+
+	    	// Backup
+	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+
+			// Intermediairs 
+			$intermediair = factory(User::class)->create(['usertype'=>'3']);
+			$this->actingAs($intermediair);
+
+			$family = factory(Family::class)->make( ['user_id' => $intermediair->id ] );
+			$family->save();
+
+	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
+
+	        $response = $this->get('/family/destroy/' . $family->id);
+
+	        $response->assertSessionHas('message', "Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten.");
+   
+
+			$kid = Kid::create( ['family_id' => $family->id,
+								'user_id' =>  $family->user->id,
+								'voornaam' => 'Jaap',
+								'tussenvoegsel' => 'van',
+								'achternaam' => 'Jansen',
+								'geboortedatum'=>"20-3-2003",
+								'geslacht'=>"m"] );
+			$kid->save();			
+
+
+	        $response = $this->get('/kids/destroy/' . $kid->id);
+
+	        //dd($response);
+
+	        $response->assertSessionHas('message', "U heeft een kind proberen te verwijderen terwijl de inschrijvingen zijn gesloten.");
+
+	        //Feedback
+			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin of kind meer verwijderen."; 
+
+			// Backup terugzetten
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+
+	    }
+
+
+	    /* =====
+	     * TODO
+
+			echo "\n* [TODO] Inschrijving weer openen: kan niet als de downloads openstaan.";     
 			echo "\n* [TODO] Downloads geopend: kan alleen als de inschrijvingen zijn gesloten."; 	
 			echo "\n* [TODO] Downloads geopend: Intermediairs kunnen WEL bij eigen PDF's."; 
 			echo "\n* [TODO] Downloads geopend: Intermediairs kunnen NIET bij andere PDF's (ook niet bij de overige PDFs van de admins)."; 	
@@ -546,15 +662,15 @@ class TotalTest extends TestCase
 			echo "\n* [TODO] Goedgekeurde gezinnen: Een intermediair kan WEL een goedgekeurd gezin verwijderen."; 
 			echo "\n* [TODO] Goedgekeurde gezinnen: Een intermediair kan GEEN goedgekeurd kind verwijderen. Dit kan namelijk de samenstelling van het gezin veranderen waardoor het gezin opnieuw moet worden beoordeeld"; 
 
-			echo "\n* [TODO] EMAIL"; 
-			echo "\n* [TODO] =====";
+			echo "\n\nEMAIL"; 
+			echo "\n=====";
 			echo "\n* [TODO] De adminmailer werkt";
 			echo "\n* [TODO] De gebruiker krijgt een email bij inschrijving";
 			echo "\n* [TODO] De gebruiker krijgt een email bij een mailwijziging";
 		    echo "\n* [TODO] De gebruiker krijgt een email bij een wijziging";
 		    echo "\n* [TODO] De gebruiker krijgt een email bij een wachtwoordreset";
 
+		==== */ 
 
-	    }
 
 }

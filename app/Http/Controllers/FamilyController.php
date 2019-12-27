@@ -150,8 +150,8 @@ class FamilyController extends Controller
         $family = Family::find($id);
 
 
-        if (Setting::get('downloads_ingeschakeld') == 1) { // als downloads zijn ingeschakeld, dan kan er niets vernietigd worden
-            return redirect('user/home'."/$family->user->id")->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de downloads zijn geopend. Dit omdat er mogelijk kinderen aan gekoppeld zitten die al een PDF tot hun beschikking hebben.'); 
+        if (Setting::get('inschrijven_gesloten') == 1) { // als downloads zijn ingeschakeld, dan kan er niets vernietigd worden
+            return redirect('user/home'."/$family->user->id")->with('message', 'Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten.'); 
         }
 
 
@@ -408,6 +408,13 @@ class FamilyController extends Controller
             return redirect('home')->with('message', 'U heeft een barcode geprobeerd te koppelen terwijl de downloads al geopend zijn, dit kan niet. U bent weer teruggeleid naar uw startpagina.');
             
         } 
+
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Een intermediair probeerde de een familie aan te melden (family.aanmelden) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een gezin proberen aan te melden terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+            
+        }        
 
         if($family->definitiefafkeuren) {
 

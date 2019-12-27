@@ -117,6 +117,7 @@ class KidController extends Controller
 
     public function destroy($id)
     {
+        $loggedinuser = Auth::user();
 
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
@@ -127,6 +128,12 @@ class KidController extends Controller
 
 
 
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Een intermediair probeerde de een kind te verwijderen terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een kind proberen te verwijderen terwijl de inschrijvingen zijn gesloten.');
+            
+        } 
 
         /* 
             Getest en werkt: 
@@ -136,7 +143,7 @@ class KidController extends Controller
         */
 
         $kid = Kid::find($id);
-        $loggedinuser = Auth::user();
+        
 
 
         /*
@@ -185,6 +192,8 @@ class KidController extends Controller
     public function edit($id)
     {
 
+        $loggedinuser = Auth::user();
+
         if(Setting::get('downloads_ingeschakeld') == 1) {
 
             Log::info('Er werd geprobeerd barcodes los te koppelen terwijl de downloads al zijn geopend: user '.$loggedinuser->id);
@@ -192,8 +201,16 @@ class KidController extends Controller
             
         } 
 
+
+        if(Setting::get('inschrijven_gesloten') == 1) {
+
+            Log::info('Een intermediair probeerde de een kind te wijzigen (family.edit) terwijl de inschrijvingen zijn gesloten: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een kind proberen te wijzigen terwijl de inschrijvingen zijn gesloten. U bent weer teruggeleid naar uw startpagina.');
+            
+        } 
+
         $kid = Kid::find($id);
-        $loggedinuser = Auth::user();
+
 
         if ($kid->family->aangemeld == 1 && $loggedinuser->usertype == 3){
 
