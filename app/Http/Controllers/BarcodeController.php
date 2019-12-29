@@ -77,9 +77,9 @@ class BarcodeController extends Controller
 
         $aant_barcodes = DB::table('barcodes')->count(); //6000
         
-        $beschikbare_barcodes = Barcode::where('kid_id', NULL)->count(); //987
+        $beschikbare_barcodes = Barcode::where('user_id', NULL)->count(); //987
 
-        $losse_barcodes = Barcode::where('kid_id', '0')->count(); //6
+        $losse_barcodes = Barcode::whereNull('kid_id')->whereNotNull('user_id')->count(); //6
 
         $uitgegeven_barcodes = $aant_barcodes - ($beschikbare_barcodes);
 
