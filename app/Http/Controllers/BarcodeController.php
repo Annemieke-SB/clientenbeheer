@@ -29,7 +29,7 @@ use Custommade;
 
 /* 
     Deze  heb  ik ertussen gezet omdat hij de cardnumber niet goed las
-*/
+
 
 
 use PHPExcel_Cell;
