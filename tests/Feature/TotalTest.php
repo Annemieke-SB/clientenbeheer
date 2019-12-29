@@ -620,7 +620,6 @@ class TotalTest extends TestCase
 	        $response = $this->get('/family/destroy/' . $family->id);
 
 	        $response->assertSessionHas('message', "Het is niet mogelijk om gezinnen te verwijderen nadat de inschrijvingen zijn gesloten.");
-   
 
 			$kid = Kid::create( ['family_id' => $family->id,
 								'user_id' =>  $family->user->id,
@@ -631,10 +630,7 @@ class TotalTest extends TestCase
 								'geslacht'=>"m"] );
 			$kid->save();			
 
-
 	        $response = $this->get('/kids/destroy/' . $kid->id);
-
-	        //dd($response);
 
 	        $response->assertSessionHas('message', "U heeft een kind proberen te verwijderen terwijl de inschrijvingen zijn gesloten.");
 
@@ -647,10 +643,41 @@ class TotalTest extends TestCase
 	    }
 
 
+
+	    public function testInschrijving_openen_niet_als_downloads_al_open_staan()
+	    {
+	    	// Backup huidige waarde
+
+	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+	    	$downloads_ingeschakeld = Setting::get('downloads_ingeschakeld');
+
+	    	// Alleen admins mogen de instellingen aanpassen zien
+	    	$admin = factory(User::class)->create(['usertype'=>'1']);
+	        $this->actingAs($admin);
+
+	        // Instelling 4 (eerst verzetten, dan updaten en eval)
+	        DB::table('settings')->where('id', '=', 6)->update(['value'=> 1]);	// downloads aan
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);  // inschrijving gesloten
+
+	        $response = $this->post('/settings/update/4', ['value'=>0, 'id'=>4]);
+	        $response->assertRedirect('/settings/');
+	        $response->assertSessionHas('message', "Instelling niet gewijzigd; downloadpagina is al aktief dus er zijn mogelijk al PDFs gedownload.");
+			$this->assertDatabaseHas('settings', ['id' => 4, 'value' => 1]);
+
+
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);	
+			DB::table('settings')->where('id', '=', 6)->update(['value'=> $downloads_ingeschakeld]);
+
+
+	        //Feedback	        
+			echo "\n* Inschrijving weer openen: kan niet als de downloads openstaan.";  
+				 
+	    }
+
+
 	    /* =====
 	     * TODO
-
-			echo "\n* [TODO] Inschrijving weer openen: kan niet als de downloads openstaan.";     
+  
 			echo "\n* [TODO] Downloads geopend: kan alleen als de inschrijvingen zijn gesloten."; 	
 			echo "\n* [TODO] Downloads geopend: Intermediairs kunnen WEL bij eigen PDF's."; 
 			echo "\n* [TODO] Downloads geopend: Intermediairs kunnen NIET bij andere PDF's (ook niet bij de overige PDFs van de admins)."; 	
