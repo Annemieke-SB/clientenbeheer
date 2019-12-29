@@ -85,9 +85,9 @@ class BarcodeController extends Controller
 
         //$uitgegeven_barcodes = Barcode::whereNotNull('kid_id')->count();
 
-        $nietgedownloadde_barcodes = Barcode::where('downloadedpdf', NULL)->count();
+        $nietgedownloadde_barcodes = Barcode::whereNull('downloadedpdf')->count();
 
-        $gedownloadde_barcodes = Barcode::whereNotNull('downloadedpdf', NULL)->count();    
+        $gedownloadde_barcodes = Barcode::whereNotNull('downloadedpdf')->count();    
 
 					
 		$aangemelde_kinderen = DB::table('kids')
