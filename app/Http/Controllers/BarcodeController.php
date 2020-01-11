@@ -364,7 +364,7 @@ class BarcodeController extends Controller
         $start = $eerste_verzilvering->date_redemption;
         $eind = $laatste_verzilvering->date_redemption;
 
-        while (strtotime($start) <= strtotime($eind) {
+        while (strtotime($start) <= strtotime($eind)) {
 
 /*
             $totaal = Barcode::where('date_redemption', $start)->count();
