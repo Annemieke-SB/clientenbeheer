@@ -48,98 +48,6 @@
             </ul>
 
         </div>
-    </div>        
-
-
-    <div class="panel panel-default">   
-        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
-        <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
-           
-                    @if(count($overzichtIntermediairs) == 0)
-                        Er zijn nog geen gebruikte barcodes in de database te zien. 
-                    @else
-
-                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Organisatienaam</th>
-                                <th>Aantal onverzilverd</th>
-                                <th>Aktie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                           
-
-
-                             @foreach($overzichtIntermediairs as $key => $ngb)
-                            
-                            <tr>
-                                <td>
-                                    {{$ngb['organisatienaam']}}
-                                </td>
-                                <td>
-                                    {{$ngb['aantalonverzilverd']}}
-                                </td>                                                                        
-                                <td>
-                                    <a href="{{ url('/user') }}/show/{{ $ngb['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
-                                </td>
-                            </tr>
-                            
-                            @endforeach     
- 
-                        </tbody>
-                    </table>  
-            @endif                  
-        </div>
-    </div>    
-
-                    
-
-    <div class="panel panel-default">   
-        <div class="panel-heading">Overzicht ongebruikte barcodes per kind</div>           
-        <div class="panel-body"> 
-           
-                    @if($welgebruiktebarcodes == 0)
-                        Er zijn nog geen gebruikte barcodes in de database te zien. 
-                    @else
-
-                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Kind</th>
-                                <th>Gezin</th>
-                                <th>Intermediair</th>
-                                <th>Aktie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        @foreach($nietgebruiktebarcodes as $ngb)
-                        
-                        <tr>
-                            <td>
-                                {{$ngb->kid->naam}}
-                            </td>
-                            <td>
-                                {{$ngb->kid->family->naam}}
-                            </td>
-                            <td>
-                                {{$ngb->kid->user->naam}}
-                            </td>                                                                        
-                            <td>
-                                <a href="{{ url('/kids') }}/show/{{ $ngb->kid->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Kind</button></a>&nbsp;
-                                <a href="{{ url('/family') }}/show/{{ $ngb->kid->family->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Gezin</button></a>&nbsp;
-                                <a href="{{ url('/user') }}/show/{{ $ngb->kid->user->id }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
-                            </td>
-                        </tr>
-                        
-                        @endforeach    
- 
-                        </tbody>
-                    </table>  
-            @endif                  
-        </div>
     </div>    
 
     <div class="panel panel-default">   
@@ -161,7 +69,7 @@
                         
                         <tr>
                             <td>
-                                Barcode {{$nglb->opmerking}} is niet gebruikt. Doel/opmerking: 
+                                Barcode {{$nglb->barcode}} is niet gebruikt. Doel/opmerking: 
                                 @if (!$nglb->opmerking)
                                 Niet opgegeven
                                 @else
@@ -176,23 +84,74 @@
                 </table>   
             @endif                   
         </div>
-    </div>                          
+    </div> 
+
+    <div class="panel panel-default">   
+        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
+        <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
+           
+                    @if(count($intermediairsmetongebruiktecodes) == 0)
+                        Er zijn nog geen gebruikte barcodes in de database te zien. 
+                    @else
+
+                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Intermediair</th>
+                                <th>Aantal onverzilverd</th>
+                                <th>Aktie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                           <!--
+        foreach ($nietgebruiktebarcodes->unique('user_id') as $v) {
+            dd($v->user->naam);    
+        }
+                           -->
+
+                             @foreach ($intermediairsmetongebruiktecodes as $v)
+                            
+                            <tr>
+                                <td>
+                                    {{ $v['naam'] }}
+                                </td>
+                                <td>
+                                    {{ $v['aantal'] }}
+                                </td>                                                                        
+                                <td>
+                                    <a href="{{ url('/user') }}/show/{{ $v['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                </td>
+                            </tr>
+                            
+                            @endforeach     
+ 
+                        </tbody>
+                    </table>  
+            @endif                  
+        </div>
+    </div>    
+
+
+                         
 
     <div class="panel panel-default">   
         <div class="panel-heading">Eindlijst uploaden
         </div>           
         <div class="panel-body"> 
 
-            <p>Hieronder kun je de eindlijst met gebruikte codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv), maar het scheidingsteken moet ";" (puntkomma) zijn. Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
-            <pre>Voorbeeld<br>
+            <p>Hieronder kun je de eindlijst met gebruikte codes uploaden. Het kan een tekst-bestand zijn (.txt) of een Komma Gescheiden-bestand (.csv), maar het scheidingsteken moet "," (komma) zijn. Zorg dat de inhoud van het bestand er zo uitziet (zonder lege regels):<br></p>
+            <pre>Voorbeeld (datum [Y-m-D],code,bedrag)<br>
 
-                CardNumber              CardStatus  Load_Value  AccountBalance  DateFirstLoad   ShopIdFirstLoad NoOfRedemptions ValueOfRedemptions  Date last Redemption
-                629993 900540 0000011   1           25          0,02            14.11.2017      300             1               24,98               02.12.2017
-                629993 900540 0000029   1           25          0               14.11.2017      300             1               25                  04.12.2017
-                629993 900540 0000037   1           25          0               14.11.2017      300             1               25                  03.12.2017
+                date,code,value
+                2019-12-01,SINTB-123454,24.99
+                2019-12-01,SINTB-111234,5
 
             </pre>
             
+
+            <div class="alert alert-info">Let op: bij het uploaden van een nieuwe lijst worden de oude bedragen en datums NIET op nul gezet, dus geen losse updates uploaden! Wel worden de oude waardes overschreven.<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+
             {!! Form::open(array('url'=>'/barcodes/eindlijst_upload', 'method'=>'POST', 'files'=>true)) !!}
             
             {{ csrf_field() }}
@@ -207,6 +166,8 @@
         </div>
         
     </div>
+
+
 </div>
 </div>
 </div>

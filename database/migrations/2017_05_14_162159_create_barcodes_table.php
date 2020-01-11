@@ -20,6 +20,7 @@ class CreateBarcodesTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('downloadedpdf')->nullable();
             $table->string('value_of_redemptions')->nullable();   
+            $table->date('date_redemption')->nullable(); 
             $table->string('opmerking')->nullable();          
             $table->timestamps();
         });

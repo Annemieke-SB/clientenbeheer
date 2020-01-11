@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Imports\BarcodeEindlijstImport;
 
 
 
@@ -331,12 +332,17 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        $nietgebruiktebarcodes = Barcode::where('value_of_redemptions', '=', 0)
+        $aantalOnverzilverd = array();
+        $overzichtIntermediairs = array();
+        $arrayIntermediairAantalOnverzilverdeBarcodes = array();
+
+        $nietgebruiktebarcodes = Barcode::whereNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')
                                 ->where('kid_id','!=',0)->get();
 
-        $nietgebruiktelossebarcodes = Barcode::where('value_of_redemptions', '=', 0)
-                                ->where('kid_id','=',0)->get();
+        $nietgebruiktelossebarcodes = Barcode::whereNull('value_of_redemptions')
+                                ->whereNull('kid_id')
+                                ->whereNotNull('user_id')->get();
 
         $totaaluitgegeven = Barcode::All()->sum('value_of_redemptions');
         //$totaaluitgegeven = 0;
@@ -344,16 +350,30 @@ class BarcodeController extends Controller
         $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')->count();
 
+        
+
+        $intermediairsmetongebruiktecodes = false;
+
+        foreach ($nietgebruiktebarcodes->unique('user_id') as $v) {
+
+            $intermediairsmetongebruiktecodes[] = ([
+
+                'id' => $v->user->id,
+                'naam' => $v->user->naam,
+                'aantal' => $nietgebruiktebarcodes->where('user_id', $v->user->id)->count()
+            ]);    
+        }
+
+        //dd($intermediairsmetongebruiktecodes);
 
         //$arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
-
+/*
         $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcodes', function($query){
                 $query->where('value_of_redemptions', 0)->where('kid_id','!=',0);
             })->orderBy('organisatienaam', 'ASC')->get(); 
 
-        $overzichtIntermediairs = array();
-
         foreach ($arrayIntermediairAantalOnverzilverdeBarcodes as $key => $value) {
+
             $aantalOnverzilverd = Barcode::where('value_of_redemptions', '=', 0)
                                 ->where('user_id','=',$value['id'])->count();
             $overzichtIntermediairs[] = [ 
@@ -364,9 +384,19 @@ class BarcodeController extends Controller
                                         
                                     ];
         }
+*/
+
+        /*
+            Hier de top1toys dingen
+        */
+
+        $ongematchte_top1toys = false;
+
+        $intermediairsmetongebruiktecodes = collect($intermediairsmetongebruiktecodes)->sortByDesc('aantal');
+
 
         return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 
-            'overzichtIntermediairs'=>$overzichtIntermediairs]);  
+            'overzichtIntermediairs'=>$overzichtIntermediairs, 'intermediairsmetongebruiktecodes'=>$intermediairsmetongebruiktecodes]);  
     }
 
 
@@ -385,29 +415,31 @@ class BarcodeController extends Controller
          * -- hier wordt de upload tijdelijk opgeslagen
          */
 
-        $path = Storage::putFile('tmp', Request::file('uploadedfilename'));
+        //$path = Storage::putFile('tmp', Request::file('uploadedfilename'));
       
         /**
          *  hier wordt de upload ingelezen
          */
-        Config::set('excel.csv.delimiter', ';');
+        
         //$raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
 
+        $eindlijst = Excel::import(new BarcodeEindlijstImport, request()->file('uploadedfilename'), NULL, \Maatwebsite\Excel\Excel::CSV);
 
-        $myValueBinder = new MyValueBinder;
-        $raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path)->get();
-
+        //$myValueBinder = new MyValueBinder;
+        //$raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path)->get();
+        //$raw_barcodes = Excel::setValueBinder()->load('storage/app/'.$path)->get();
 
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
          */
 
-        foreach ($raw_barcodes as $key => $value) {
+        foreach ($eindlijst as $key => $value) {
 
-                $barcodestring = str_replace(' ', '', $value['cardnumber']);
+                $barcodestring = $value['code'];
 
                 $barcode = Barcode::where('barcode', $barcodestring)->update([
-                    'value_of_redemptions' => str_replace(',', '.', $value['valueofredemptions']),
+                    'value_of_redemptions' => str_replace(',', '.', $value['value']),
+                    'date_of_redemption' => $value['date']
                 ]);            
         }
 
@@ -416,7 +448,7 @@ class BarcodeController extends Controller
          *  
          */
         
-        Storage::delete($path);
+        //Storage::delete($path);
 
         return redirect()->action('BarcodeController@barcodereview');
 

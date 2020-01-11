@@ -19,6 +19,8 @@ class Barcode extends Model
             'kid_id', 
             'user_id',
             'downloadedpdf', 
+            'value_of_redemptions', 
+            'date_of_redemption', 
             'opmerking'
     ];
 
