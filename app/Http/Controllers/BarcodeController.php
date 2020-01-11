@@ -364,6 +364,8 @@ class BarcodeController extends Controller
         $start = $eerste_verzilvering->date_redemption;
         $eind = $laatste_verzilvering->date_redemption;
 
+        dd($start);
+
         while (strtotime($start) <= strtotime($eind)) {
 
 /*
