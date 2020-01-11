@@ -325,6 +325,7 @@ class BarcodeController extends Controller
     
     public function barcodereview()
     {
+        ini_set('max_execution_time', 3600);
         $loggedinuser = Auth::user();
 
         if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
@@ -354,15 +355,23 @@ class BarcodeController extends Controller
 
         $intermediairsmetongebruiktecodes = false;
 
-        foreach ($nietgebruiktebarcodes->unique('user_id') as $v) {
+        if ($welgebruiktebarcodes > 0) {
 
-            $intermediairsmetongebruiktecodes[] = ([
+            foreach ($nietgebruiktebarcodes->unique('user_id') as $v) {
 
-                'id' => $v->user->id,
-                'naam' => $v->user->naam,
-                'aantal' => $nietgebruiktebarcodes->where('user_id', $v->user->id)->count()
-            ]);    
+                $intermediairsmetongebruiktecodes[] = ([
+
+                    'id' => $v->user->id,
+                    'naam' => $v->user->naam,
+                    'aantal' => $nietgebruiktebarcodes->where('user_id', $v->user->id)->count()
+                ]);    
+            }
+
+        } else {
+            $intermediairsmetongebruiktecodes = 0;
         }
+
+
 
         //dd($intermediairsmetongebruiktecodes);
 
@@ -403,6 +412,8 @@ class BarcodeController extends Controller
     public function eindlijst_upload()
     {
 
+        ini_set('max_execution_time', 3600);
+
         $user = Auth::user();
 
         if(($user->usertype == 3)){
@@ -431,7 +442,7 @@ class BarcodeController extends Controller
 
         /**
          *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
-         */
+
 
         foreach ($eindlijst as $key => $value) {
 
@@ -442,7 +453,7 @@ class BarcodeController extends Controller
                     'date_of_redemption' => $value['date']
                 ]);            
         }
-
+         */
         /**
          *  Als alles bekeken is kan het bestand worden gewist uit de tmp-dir
          *  
@@ -484,6 +495,26 @@ class BarcodeController extends Controller
 
         return redirect()->action('BarcodeController@extrabarcodes');
 
+    }
+
+
+    public function nietgebruiktperintermediair($id)
+    {
+        $user = Auth::user();
+
+        if(($user->usertype == 3)){
+            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
+            Log::info('Een intermediair probeerde de barcode-nietgebruiktperintermediair te laden, userid: '.$user->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $nietgebruiktebarcodes = Barcode::where('user_id', $id)
+                                    ->whereNull('value_of_redemptions')->get();
+
+        $intermediair = User::find($id);
+
+
+        return view('barcodes.nietgebruiktperintermediair', ['intermediair' => $intermediair, 'nietgebruiktebarcodes' => $nietgebruiktebarcodes]);
     }
 
 

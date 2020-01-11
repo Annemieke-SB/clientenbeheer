@@ -18,7 +18,7 @@ class BarcodeEindlijstImport implements ToCollection, WithHeadingRow
             
                 $barcodestring = $row["code"];
 
-                ini_set('max_execution_time', 3600);
+                
 
                 $barcode = Barcode::where('barcode', $barcodestring)->update([
                     'value_of_redemptions' => $row['value'],

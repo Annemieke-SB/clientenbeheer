@@ -146,6 +146,7 @@ Route::get('/extrabarcodes', 'BarcodeController@extrabarcodes')->middleware('aut
 Route::get('/barcodereview', 'BarcodeController@barcodereview')->middleware('auth');
 Route::post('barcodes/eindlijst_upload', 'BarcodeController@eindlijst_upload')->middleware('auth');
 Route::post('barcodes/claimlossebarcodes', 'BarcodeController@claimlossebarcodes')->middleware('auth');
+Route::get('barcodes/ongebruikt/{id}', 'BarcodeController@nietgebruiktperintermediair')->middleware('auth');
 
 Route::get('settings', 'SettingsController@index')->middleware('auth');
 Route::post('settings/update/{id}', 'SettingsController@update')->middleware('auth');

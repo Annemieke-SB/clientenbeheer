@@ -90,7 +90,7 @@
         <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
         <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
            
-                    @if(count($intermediairsmetongebruiktecodes) == 0)
+                    @if ( $welgebruiktebarcodes == 0 )
                         Er zijn nog geen gebruikte barcodes in de database te zien. 
                     @else
 
@@ -110,7 +110,7 @@
         }
                            -->
 
-                             @foreach ($intermediairsmetongebruiktecodes as $v)
+                            @foreach ($intermediairsmetongebruiktecodes as $v)
                             
                             <tr>
                                 <td>
@@ -121,6 +121,7 @@
                                 </td>                                                                        
                                 <td>
                                     <a href="{{ url('/user') }}/show/{{ $v['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
+                                     <a href="{{ url('/barcodes') }}/ongebruikt/{{ $v['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Mail</button></a>&nbsp;
                                 </td>
                             </tr>
                             
