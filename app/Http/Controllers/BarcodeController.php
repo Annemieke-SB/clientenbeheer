@@ -357,6 +357,7 @@ class BarcodeController extends Controller
 
         //setlocale(LC_ALL, 'nl_NL');
 
+/*
         $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->oldest('date_redemption')->first();
         $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->latest('date_redemption')->first();
 
@@ -379,7 +380,13 @@ class BarcodeController extends Controller
 
             $start = date ("Y-m-d", strtotime("+1 day", strtotime($start)));
         }
+*/
+            $date_arr[] = ([
+                'dag' => "bla", 
+                'date' => "bla", 
+                'totaal' => "bla", 
 
+            ]);
 
         $intermediairsmetongebruiktecodes = false;
 
