@@ -355,7 +355,7 @@ class BarcodeController extends Controller
 
         // datums
 
-        //setlocale(LC_ALL, 'nl_NL');
+        setlocale(LC_ALL, 'nl_NL');
 
 
         $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->where('date_redemption', '!=', '0000-00-00')->oldest('date_redemption')->first();
