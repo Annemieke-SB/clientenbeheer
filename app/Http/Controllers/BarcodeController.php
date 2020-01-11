@@ -360,10 +360,10 @@ class BarcodeController extends Controller
 
         $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->oldest('date_redemption')->first();
         $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->latest('date_redemption')->first();
-/*
+
         $start = $eerste_verzilvering->date_redemption;
         $eind = $laatste_verzilvering->date_redemption;
-
+/*
         while (strtotime($start) <= strtotime($eind)) {
 
 
