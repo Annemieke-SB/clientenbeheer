@@ -351,7 +351,35 @@ class BarcodeController extends Controller
         $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')->count();
 
-        
+
+
+        // datums
+
+        setlocale(LC_ALL, 'nl_NL');
+
+        $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->oldest('date_redemption')->first();
+        $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->latest('date_redemption')->first();
+
+        $start = $eerste_verzilvering->date_redemption;
+        $eind = $laatste_verzilvering->date_redemption;
+
+        while (strtotime($start) <= strtotime($eind)) {
+
+
+            $totaal = Barcode::where('date_redemption', $start)->count();
+
+
+
+            $date_arr[] = ([
+                'dag' => strftime("%A", strtotime($start)), 
+                'date' => date("d-m-Y", strtotime($start)),
+                'totaal' => $totaal
+
+            ]);
+
+            $start = date ("Y-m-d", strtotime("+1 day", strtotime($start)));
+        }
+
 
         $intermediairsmetongebruiktecodes = false;
 
@@ -405,7 +433,7 @@ class BarcodeController extends Controller
 
 
         return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 
-            'overzichtIntermediairs'=>$overzichtIntermediairs, 'intermediairsmetongebruiktecodes'=>$intermediairsmetongebruiktecodes]);  
+            'overzichtIntermediairs'=>$overzichtIntermediairs, 'intermediairsmetongebruiktecodes'=>$intermediairsmetongebruiktecodes, 'date_arr'=>$date_arr]);  
     }
 
 

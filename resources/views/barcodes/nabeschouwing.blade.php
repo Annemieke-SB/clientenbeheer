@@ -51,6 +51,45 @@
     </div>    
 
     <div class="panel panel-default">   
+        <div class="panel-heading">Verzilveringen per datum</div>           
+        <div class="panel-body"> 
+           
+            @if($welgebruiktebarcodes == 0)
+                Er zijn nog geen gebruikte barcodes in de database te zien. 
+            @else
+
+                <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Dag</th>
+                            <th>Datum</th>
+                            <th>Aantal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($date_arr as $v)
+                        
+                        <tr>
+                            <td>
+                                {{ $v['dag'] }}
+                            </td>
+                            <td>
+                                {{ $v['date'] }}
+                            </td>
+                            <td>
+                                {{$v['totaal']}}
+                            </td>  
+                        </tr>
+                        
+                        @endforeach                                
+                        
+                    </tbody>
+                </table>   
+            @endif                   
+        </div>
+    </div> 
+
+    <div class="panel panel-default">   
         <div class="panel-heading">Overzicht ongebruikte losse barcodes</div>           
         <div class="panel-body"> 
            
