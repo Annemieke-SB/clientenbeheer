@@ -363,13 +363,13 @@ class BarcodeController extends Controller
 
         $start = $eerste_verzilvering->date_redemption;
         $eind = $laatste_verzilvering->date_redemption;
-/*
+
         while (strtotime($start) <= strtotime($eind)) {
 
 
             $totaal = Barcode::where('date_redemption', $start)->count();
 
-
+/*
 
             $date_arr[] = ([
                 'dag' => strftime("%A", strtotime($start)), 
@@ -377,10 +377,10 @@ class BarcodeController extends Controller
                 'totaal' => $totaal
 
             ]);
-
+*/
             $start = date ("Y-m-d", strtotime("+1 day", strtotime($start)));
         }
-*/
+
             $date_arr[] = ([
                 'dag' => "bla", 
                 'date' => "bla", 
