@@ -361,15 +361,15 @@ class BarcodeController extends Controller
         $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->oldest('date_redemption')->first();
         $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->latest('date_redemption')->first();
 
-        $start = $eerste_verzilvering->date_redemption;
-        $eind = $laatste_verzilvering->date_redemption;
+        $start = strtotime($eerste_verzilvering->date_redemption);
+        $eind = strtotime($laatste_verzilvering->date_redemption);
 
-        while (strtotime($start) <= strtotime($eind)) {
-
-
-            $totaal = Barcode::where('date_redemption', $start)->count();
+        while ($start <= $eind) {
 
 /*
+            $totaal = Barcode::where('date_redemption', $start)->count();
+
+
 
             $date_arr[] = ([
                 'dag' => strftime("%A", strtotime($start)), 
