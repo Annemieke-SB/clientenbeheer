@@ -368,7 +368,7 @@ class BarcodeController extends Controller
 
         while (strtotime($start) <= strtotime($eind)) {
 
-/*
+
             $totaal = Barcode::where('date_redemption', $start)->count();
 
 
@@ -379,17 +379,12 @@ class BarcodeController extends Controller
                 'totaal' => $totaal
 
             ]);
-*/
+
             //dd($start);
-            $start = date("Y-m-d", strtotime("+1 dag", strtotime($start))); 
+            $start = date("Y-m-d", strtotime("+1 day", strtotime($start))); 
         }
 
-            $date_arr[] = ([
-                'dag' => "bla", 
-                'date' => "bla", 
-                'totaal' => "bla", 
 
-            ]);
 
         $intermediairsmetongebruiktecodes = false;
 
