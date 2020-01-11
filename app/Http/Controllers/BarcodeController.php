@@ -378,7 +378,7 @@ class BarcodeController extends Controller
 
             ]);
 */
-            dd($start);
+            //dd($start);
             $start = date("Y-m-d", strtotime("+1 dag", strtotime($start))); 
         }
 
