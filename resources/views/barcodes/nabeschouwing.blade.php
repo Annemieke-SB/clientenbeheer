@@ -21,6 +21,8 @@
               <div class="panel-body">
                 <p>
                     <a href="{{ url('barcodes') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;
+                    <a href="{{ url('barcodereview/datums') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;Datums</button></a>&nbsp;
+                    <a href="{{ url('barcodereview/intermediairsmetongebruiktecodes') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;&nbsp;Intermediairs met ongebruikte codes</button></a>&nbsp;
                 </p>
 
 
@@ -50,44 +52,6 @@
         </div>
     </div>    
 
-    <div class="panel panel-default">   
-        <div class="panel-heading">Verzilveringen per datum</div>           
-        <div class="panel-body"> 
-           
-            @if($welgebruiktebarcodes == 0)
-                Er zijn nog geen gebruikte barcodes in de database te zien. 
-            @else
-
-                <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Dag</th>
-                            <th>Datum</th>
-                            <th>Aantal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($date_arr as $v)
-                        
-                        <tr>
-                            <td>
-                                {{ $v['dag'] }}
-                            </td>
-                            <td>
-                                {{ $v['date'] }}
-                            </td>
-                            <td>
-                                {{$v['totaal']}}
-                            </td>  
-                        </tr>
-                        
-                        @endforeach                                
-                        
-                    </tbody>
-                </table>   
-            @endif                   
-        </div>
-    </div> 
 
     <div class="panel panel-default">   
         <div class="panel-heading">Overzicht ongebruikte losse barcodes</div>           
@@ -124,54 +88,6 @@
             @endif                   
         </div>
     </div> 
-
-    <div class="panel panel-default">   
-        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
-        <div class="panel-body"><p>Uit deze lijst zijn de extra barcodes (gegenereerd door de sinterklaasbank) niet meegenomen.</p>
-           
-                    @if ( $welgebruiktebarcodes == 0 )
-                        Er zijn nog geen gebruikte barcodes in de database te zien. 
-                    @else
-
-                    <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Intermediair</th>
-                                <th>Aantal onverzilverd</th>
-                                <th>Aktie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                           <!--
-        foreach ($nietgebruiktebarcodes->unique('user_id') as $v) {
-            dd($v->user->naam);    
-        }
-                           -->
-
-                            @foreach ($intermediairsmetongebruiktecodes as $v)
-                            
-                            <tr>
-                                <td>
-                                    {{ $v['naam'] }}
-                                </td>
-                                <td>
-                                    {{ $v['aantal'] }}
-                                </td>                                                                        
-                                <td>
-                                    <a href="{{ url('/user') }}/show/{{ $v['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Intermediair</button></a>&nbsp;
-                                     <a href="{{ url('/barcodes') }}/ongebruikt/{{ $v['id'] }}"><button class="btn btn-info btn-xs" type="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;Mail</button></a>&nbsp;
-                                </td>
-                            </tr>
-                            
-                            @endforeach     
- 
-                        </tbody>
-                    </table>  
-            @endif                  
-        </div>
-    </div>    
-
 
                          
 

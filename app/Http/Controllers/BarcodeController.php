@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 
 use Input;
-use Request;
+use Illuminate\Http\Request;
+
 use Excel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Imports\BarcodeEindlijstImport;
+
 
 
 
@@ -351,38 +353,31 @@ class BarcodeController extends Controller
         $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
                                 ->whereNotNull('kid_id')->count();
 
+        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes]);  
+    }
 
+    
+    public function nabeschouwingperintermediair()
+    {
+        ini_set('max_execution_time', 3600);
+        $loggedinuser = Auth::user();
 
-        // datums
-
-        setlocale(LC_ALL, 'nl_NL');
-
-
-        $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->where('date_redemption', '!=', '0000-00-00')->oldest('date_redemption')->first();
-        $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->where('date_redemption', '!=', '0000-00-00')->latest('date_redemption')->first();
-
-        $start = $eerste_verzilvering->date_redemption;
-        $eind = $laatste_verzilvering->date_redemption;
-
-        //dd($start);
-
-        while (strtotime($start) <= strtotime($eind)) {
-
-
-            $totaal = Barcode::where('date_redemption', $start)->count();
-
-
-
-            $date_arr[] = ([
-                'dag' => strftime("%A", strtotime($start)), 
-                'date' => date("d-m-Y", strtotime($start)),
-                'totaal' => $totaal
-
-            ]);
-
-            //dd($start);
-            $start = date("Y-m-d", strtotime("+1 day", strtotime($start))); 
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de barcodereview te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
+
+        $aantalOnverzilverd = array();
+        $overzichtIntermediairs = array();
+        $arrayIntermediairAantalOnverzilverdeBarcodes = array();
+
+        $nietgebruiktebarcodes = Barcode::whereNull('value_of_redemptions')
+                                ->whereNotNull('kid_id')
+                                ->where('kid_id','!=',0)->get();
+
+        $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
+                                ->whereNotNull('kid_id')->count();
+
 
 
 
@@ -396,49 +391,61 @@ class BarcodeController extends Controller
 
                     'id' => $v->user->id,
                     'naam' => $v->user->naam,
+                    'zonderreden' => $nietgebruiktebarcodes->where('user_id', $v->user->id)->where('reden_nietgebruikt', NULL)->count(),
                     'aantal' => $nietgebruiktebarcodes->where('user_id', $v->user->id)->count()
                 ]);    
             }
 
         } else {
             $intermediairsmetongebruiktecodes = 0;
-        }
-
-
-
-        //dd($intermediairsmetongebruiktecodes);
-
-        //$arrayIntermediairAantalOnverzilverdeBarcodes = Barcode::where('value_of_redemptions', '=', 0)
-/*
-        $arrayIntermediairAantalOnverzilverdeBarcodes = User::whereHas('barcodes', function($query){
-                $query->where('value_of_redemptions', 0)->where('kid_id','!=',0);
-            })->orderBy('organisatienaam', 'ASC')->get(); 
-
-        foreach ($arrayIntermediairAantalOnverzilverdeBarcodes as $key => $value) {
-
-            $aantalOnverzilverd = Barcode::where('value_of_redemptions', '=', 0)
-                                ->where('user_id','=',$value['id'])->count();
-            $overzichtIntermediairs[] = [ 
-                                        
-                                        'id'=> $value['id'],
-                                        'organisatienaam' => $value['organisatienaam'],
-                                        'aantalonverzilverd' => $aantalOnverzilverd
-                                        
-                                    ];
-        }
-*/
-
-        /*
-            Hier de top1toys dingen
-        */
-
-        $ongematchte_top1toys = false;
+        }                                
 
         $intermediairsmetongebruiktecodes = collect($intermediairsmetongebruiktecodes)->sortByDesc('aantal');
 
+        return view('barcodes.nabeschouwingperintermediair', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 'intermediairsmetongebruiktecodes'=>$intermediairsmetongebruiktecodes]);  
+    }
 
-        return view('barcodes.nabeschouwing', ['nietgebruiktebarcodes'=>$nietgebruiktebarcodes,'nietgebruiktelossebarcodes'=>$nietgebruiktelossebarcodes, 'totaaluitgegeven'=>$totaaluitgegeven, 'welgebruiktebarcodes'=>$welgebruiktebarcodes, 
-            'overzichtIntermediairs'=>$overzichtIntermediairs, 'intermediairsmetongebruiktecodes'=>$intermediairsmetongebruiktecodes, 'date_arr'=>$date_arr]);  
+
+ 
+    public function barcodereviewopdatum()
+    {
+        ini_set('max_execution_time', 3600);
+        $loggedinuser = Auth::user();
+
+
+
+        if ($loggedinuser->usertype!=1){ // als iemand anders dan admin wil kijken
+            Log::info('Een niet-admin probeerde een de barcodereview te laden, userid: '.$loggedinuser->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        setlocale(LC_ALL, 'nl_NL');
+
+        $welgebruiktebarcodes = Barcode::whereNotNull('value_of_redemptions')
+                                ->whereNotNull('kid_id')->count();
+
+        $eerste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->where('date_redemption', '!=', '0000-00-00')->oldest('date_redemption')->first();
+        $laatste_verzilvering = DB::table('barcodes')->whereNotNull('date_redemption')->where('date_redemption', '!=', '0000-00-00')->latest('date_redemption')->first();
+
+        $start = $eerste_verzilvering->date_redemption;
+        $eind = $laatste_verzilvering->date_redemption;
+
+        while (strtotime($start) <= strtotime($eind)) {
+
+            $totaal = Barcode::where('date_redemption', $start)->count();
+
+            $date_arr[] = ([
+                'dag' => strftime("%A", strtotime($start)), 
+                'date' => date("d-m-Y", strtotime($start)),
+                'totaal' => $totaal
+
+            ]);
+
+            //dd($start);
+            $start = date("Y-m-d", strtotime("+1 day", strtotime($start))); 
+        }
+
+        return view('barcodes.nabeschouwingopdatum', ['date_arr'=>$date_arr, 'welgebruiktebarcodes' => $welgebruiktebarcodes]);  
     }
 
 
@@ -455,44 +462,7 @@ class BarcodeController extends Controller
             return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
         }
 
-        /**
-         * -- hier wordt de upload tijdelijk opgeslagen
-         */
-
-        //$path = Storage::putFile('tmp', Request::file('uploadedfilename'));
-      
-        /**
-         *  hier wordt de upload ingelezen
-         */
-        
-        //$raw_barcodes = Excel::load('storage/app/'.$path, function($reader) {})->get();
-
         $eindlijst = Excel::import(new BarcodeEindlijstImport, request()->file('uploadedfilename'), NULL, \Maatwebsite\Excel\Excel::CSV);
-
-        //$myValueBinder = new MyValueBinder;
-        //$raw_barcodes = Excel::setValueBinder($myValueBinder)->load('storage/app/'.$path)->get();
-        //$raw_barcodes = Excel::setValueBinder()->load('storage/app/'.$path)->get();
-
-        /**
-         *  hier wordt alles klaargezet om het format te controleren en de barcodes in een array te zetten
-
-
-        foreach ($eindlijst as $key => $value) {
-
-                $barcodestring = $value['code'];
-
-                $barcode = Barcode::where('barcode', $barcodestring)->update([
-                    'value_of_redemptions' => str_replace(',', '.', $value['value']),
-                    'date_of_redemption' => $value['date']
-                ]);            
-        }
-         */
-        /**
-         *  Als alles bekeken is kan het bestand worden gewist uit de tmp-dir
-         *  
-         */
-        
-        //Storage::delete($path);
 
         return redirect()->action('BarcodeController@barcodereview');
 
@@ -531,6 +501,7 @@ class BarcodeController extends Controller
     }
 
 
+
     public function nietgebruiktperintermediair($id)
     {
         $user = Auth::user();
@@ -549,6 +520,52 @@ class BarcodeController extends Controller
 
         return view('barcodes.nietgebruiktperintermediair', ['intermediair' => $intermediair, 'nietgebruiktebarcodes' => $nietgebruiktebarcodes]);
     }
+
+
+
+
+
+
+        public function tabelnietgebruiktperintermediair($id)
+    {
+        $user = Auth::user();
+
+        if(($user->usertype == 3)){
+            $juisteintermediair = DB::table('intermediairs')->where('user_id', $user->id)->first();
+            Log::info('Een intermediair probeerde de barcode-nietgebruiktperintermediair te laden, userid: '.$user->id);
+            return redirect('home')->with('message', 'U heeft een onjuiste pagina bezocht en bent weer teruggeleid naar uw startpagina.');
+        }
+
+        $nietgebruiktebarcodes = Barcode::where('user_id', $id)
+                                    ->whereNull('value_of_redemptions')->get();
+
+        $intermediair = User::find($id);
+
+
+        return view('barcodes.tabelnietgebruiktperintermediair', ['intermediair' => $intermediair, 'nietgebruiktebarcodes' => $nietgebruiktebarcodes]);
+    }
+
+    public function doorgeven_reden_nietgebruik(Request $request)
+    {
+        
+
+        $barcode = Barcode::findOrFail($request->input('id'));
+
+
+        if ($request->input('reden_nietgebruikt')=="") {
+
+            $barcode->reden_nietgebruikt = null;
+            $uitkomst = "Reden gewist";
+
+        } else {
+            $barcode->reden_nietgebruikt = $request->input('reden_nietgebruikt');
+            $uitkomst = "Reden toegevoegd of gewijzigd";
+        }
+
+        $barcode->save();
+
+        return redirect('barcodes/tabelongebruikt/'.$barcode->user_id)->with('message', $uitkomst);
+    }    
 
 
 }

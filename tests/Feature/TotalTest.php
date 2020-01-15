@@ -515,7 +515,10 @@ class TotalTest extends TestCase
 
 	    	// Backup
 	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+	    	$downloads_ingeschakeld = Setting::get('downloads_ingeschakeld');
+
 	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
+	    	DB::table('settings')->where('id', '=', 6)->update(['value'=> 0]);
 
 			// Intermediairs 
 			$intermediair = factory(User::class)->create(['usertype'=>'3']);
@@ -528,6 +531,7 @@ class TotalTest extends TestCase
 
 			// Backup terugzetten
 			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+	    	DB::table('settings')->where('id', '=', 6)->update(['value'=> $downloads_ingeschakeld]);
 
 	    }
 
@@ -537,6 +541,10 @@ class TotalTest extends TestCase
 
 	    	// Backup
 	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+	    	$downloads_ingeschakeld = Setting::get('downloads_ingeschakeld');
+
+	    	DB::table('settings')->where('id', '=', 4)->update(['value'=> 1]);
+	    	DB::table('settings')->where('id', '=', 6)->update(['value'=> 0]);
 
 			// Intermediairs 
 			$intermediair = factory(User::class)->create(['usertype'=>'3']);
@@ -556,7 +564,7 @@ class TotalTest extends TestCase
 			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin aanmelden."; 
 
 			// Backup terugzetten
-			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);			
 
 	    }
 
@@ -566,6 +574,7 @@ class TotalTest extends TestCase
 
 	    	// Backup
 	    	$inschrijven_gesloten = Setting::get('inschrijven_gesloten');
+	    	$downloads_ingeschakeld = Setting::get('downloads_ingeschakeld');
 
 			// Intermediairs 
 			$intermediair = factory(User::class)->create(['usertype'=>'3']);
@@ -597,7 +606,8 @@ class TotalTest extends TestCase
 			echo "\n* Inschrijving gesloten: Een intermediair kan GEEN gezin of kind meer wijzigen."; 
 
 			// Backup terugzetten
-			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);
+			DB::table('settings')->where('id', '=', 4)->update(['value'=> $inschrijven_gesloten]);	    	
+			DB::table('settings')->where('id', '=', 6)->update(['value'=> $downloads_ingeschakeld]);
 
 	    }
 

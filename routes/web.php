@@ -147,9 +147,16 @@ Route::get('/barcodereview', 'BarcodeController@barcodereview')->middleware('aut
 Route::post('barcodes/eindlijst_upload', 'BarcodeController@eindlijst_upload')->middleware('auth');
 Route::post('barcodes/claimlossebarcodes', 'BarcodeController@claimlossebarcodes')->middleware('auth');
 Route::get('barcodes/ongebruikt/{id}', 'BarcodeController@nietgebruiktperintermediair')->middleware('auth');
+Route::get('barcodes/tabelongebruikt/{id}', 'BarcodeController@tabelnietgebruiktperintermediair')->middleware('auth');
+Route::post('barcodes/doorgeven_reden_nietgebruik/', 'BarcodeController@doorgeven_reden_nietgebruik')->middleware('auth');
+Route::get('/barcodereview/datums', 'BarcodeController@barcodereviewopdatum')->middleware('auth');
+Route::get('/barcodereview/intermediairsmetongebruiktecodes', 'BarcodeController@nabeschouwingperintermediair')->middleware('auth');
+
+
+
 
 Route::get('settings', 'SettingsController@index')->middleware('auth');
-Route::post('settings/update/{id}', 'SettingsController@update')->middleware('auth');
+Route::post('settings/update/{id}', 'SettingsController@update')->middleware('auth'); 
 
 Route::get('/postcode-nl/address/{postcode}/{houseNumber}/{houseNumberAddition?}', 'AddressController@get')->middleware('auth');
 

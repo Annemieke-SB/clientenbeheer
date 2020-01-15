@@ -21,7 +21,8 @@ class Barcode extends Model
             'downloadedpdf', 
             'value_of_redemptions', 
             'date_of_redemption', 
-            'opmerking'
+            'opmerking',
+            'reden_nietgebruikt'
     ];
 
 

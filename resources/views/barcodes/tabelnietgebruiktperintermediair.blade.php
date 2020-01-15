@@ -3,6 +3,10 @@
 @section('content')
 <div class="container">
 
+    @if(!empty($new_barcodes))
+    {{dd($new_barcodes)}}
+    @endif
+
     <div class="row">
 
         <div class="col-md-8 col-md-offset-2">
@@ -11,13 +15,14 @@
                 <ol class="breadcrumb">
                   <li><a href="{{ url('home') }}">Home</a></li>
                   <li><a href="{{ url('/barcodes') }}">Barcodes</a></li>
-                  <li class="active">Niet gebruikte codes per intermediair</li>
+                  <li class="active">Niet gebruikte codes van intermediair {{$intermediair->achternaam}} (tabel)</li>
               </ol> 
 
               <div class="panel-body">
                 <p>
-                    <a href="{{ url('barcodereview') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;
-                </p>
+                    <a href="{{ url('barcodereview/intermediairsmetongebruiktecodes') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>&nbsp;
+
+                      </p>
 
 
                 <!-- Flashmessage -->
@@ -27,19 +32,24 @@
 
         </div>
     </div>        
+
+
+
     <div class="panel panel-default">   
-        <div class="panel-heading">Overzicht ongebruikte barcodes per intermediair</div>           
+        <div class="panel-heading">Overzicht ongebruikte barcodes intermediair {{$intermediair->achternaam}}</div>           
         <div class="panel-body"> 
            
+
                     <table id="table" name="table" class="table table-striped table-bordered table-hover table-condensed">
                         <thead>
                             <tr>
                                 <th>Kind</th>
                                 <th>Gezin</th>
-                                <th>Code gebruikt</th>
+                                <th>Reden niet gebruikt</th>
                             </tr>
                         </thead>
                         <tbody>
+
 
                         @foreach($nietgebruiktebarcodes as $ngb)
                         
@@ -52,14 +62,33 @@
                             </td>
                             <td>
 
+                                {!! Form::open(['url' => 'barcodes/doorgeven_reden_nietgebruik']) !!}
+                                {!! Form::token() !!}
+
+                                <div class="form-group">
+
+                                    {!! Form::text('reden_nietgebruikt', $ngb->reden_nietgebruikt) !!}
+                                    {!! Form::hidden('id', $ngb->id) !!}
+                                    {!! Form::submit('verwerk') !!}
+
+                                </div>    
+                                {!! Form::close() !!}
+                
                                 &nbsp;
                             </td>                                                                     
-                        </tr>          
-                            @endforeach    
+                        </tr>
+                        
+                        @endforeach    
+ 
                         </tbody>
-                    </table>   
+                    </table>           
+
+
         </div>
     </div>    
+
+
+
 
 </div>
 </div>
@@ -88,6 +117,11 @@ $(document).ready(function() {
 // Hier om de tooltips te activeren
 $('[data-toggle="tooltip"]').tooltip();
 });
+
+function goBack() {
+  window.history.back();
+}
+
 
 </script>
 @endsection
