@@ -13,6 +13,8 @@
  
     <h1>Blacklist</h1>
 
+    <p>Hier staan alle vermeldingen in de blacklist (nieuwste staat boven).</p>
+
                         <a href="{{ url('blacklist/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Email toevoegen</button></a>
     <!-- Bootstrap FAQ - START -->
                                      <!-- Flashmessage -->
@@ -33,7 +35,7 @@
 
         <tr>
             <td>{{ $item->email }}&nbsp;<span class="glyphicon glyphicon-info-sign btn-info" aria-hidden="true" data-toggle="tooltip" title="{{ $item->reden }}"></span></td>
-            <td><small>{{ $item->user->naam }}<br>Sinds: {{ $item->created_at }}</small></td>
+            <td><small>{{ $item->user->naam }}<br>Sinds: {{ date('j M Y G:i', strtotime($item->created_at)) }}</small></td>
             <td>
                         <a href="{{ url('blacklist/destroy') }}/{{$item->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 

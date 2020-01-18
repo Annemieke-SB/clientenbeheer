@@ -33,7 +33,8 @@ class BlacklistController extends Controller
      */
     public function index()
     {
-	$items = Blacklist::all();
+	$items = Blacklist::orderBy('created_at', 'DESC')->get();
+
         return view('blacklist.index', ['blacklisted_items' => $items]);
     }
 
