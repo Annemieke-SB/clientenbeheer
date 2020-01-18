@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 use App\Faqs;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\EmailVerification;
 use App\Mail\ChangeEmailVerification;
@@ -43,13 +42,15 @@ class BlacklistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Blacklist $request)
+    public function create( Request $request )
     {
         $loggedinuser = Auth::user();
+        
+        $email = $request->input('email');
      
 
 
-        return view('blacklist.create', ['user_id'=> $loggedinuser->id]);
+        return view('blacklist.create', ['user_id'=> $loggedinuser->id,  'email'=>$email]);
         //
     }
 

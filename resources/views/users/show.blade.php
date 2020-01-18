@@ -23,6 +23,8 @@
 
 @include ('layouts.intermediairnav',['page'=>'home'] )
 
+
+
     @if (App\Setting::get('inschrijven_gesloten') == 1 && App\Setting::get('downloads_ingeschakeld') == 0) {{-- Inschrijvingen gesloten --}}
         <br><br>
         <div class="panel panel-danger">
@@ -45,6 +47,9 @@
 
 
     <div class="col-sm-6">
+
+
+
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
@@ -59,8 +64,10 @@
                             
 
 		@if (Auth::user()->usertype == 1 && $user->blacklisted)
+
 		&nbsp;<span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span>
 
+        
 		@endif
 				</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $user->functie }}&nbsp;bij&nbsp;{{ $user->organisatienaam }}&nbsp;</h6>
@@ -69,6 +76,12 @@
                 <span class="glyphicon glyphicon glyphicon-globe" aria-hidden="true"></span> <a href="http://{{ preg_replace('#^https?://#', '', $user->website) }}" target="_BLANK" class="card-link">{{ $user->website }}</a> <br> 
                 <span class="glyphicon glyphicon glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:{{ $user->email }}" class="card-link">{{ $user->email }}</a>&nbsp;
 
+        @if (Auth::user()->usertype == 1 && !$user->blacklisted)
+
+        <a href="{{ url('blacklist/toevoegen')}}?email={{$user->email}}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;&nbsp;Zet op de blacklist</button></a>
+
+
+        @endif
                 
                                     @if ($user->emailverified)
                                         
@@ -78,12 +91,16 @@
                     					&nbsp;<a href="{{ url('/user') }}/manualemailverification/{{ $user->id }}">Handmatig geverifieerd door beheerder</a>
                 				    	@endif
                 				    @endif  
-                                    <br><br>
+                                    <br>
                                     {{ $user->created_at->format('d-m-Y H:i:s') }}&nbsp;aangemaakt<br>
                                     {{ $user->updated_at->format('d-m-Y H:i:s') }}&nbsp;gewijzigd
 
 
-	    </p></div>
+	    </p>
+
+
+
+    </div>
          </div>
     </div>
     <div class="col-sm-6">

@@ -16,8 +16,15 @@
                 </ol> 
 
                 <div class="panel-body">
+
+<p>
+    Hier kan je een emailadres aan de blacklist toevoegen. De blacklist is alleen een 'vlaggetje' en doet verder niets. Het is een geheugensteuntje, zorg dus dat je een duidelijke reden vermeld. De blacklist blijft altijd bewaard en bestaat alleen uit een emailadres. Het emailadres wordt gecheckt bij de intermediairs en gezinnen. 
+</p>
+
+
+
                         <p>
-                        <a href="{{ url('blacklist') }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
+                        <a href="{{ url()->previous() }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                         </p>
                    
 
@@ -26,6 +33,12 @@
             @if (Session::get('message'))
             <div class="alert alert-info fade in">{{ Session::get('message')}}<a href="#" class="close" data-dismiss="alert">&times;</a></div>
 	    @endif      
+
+
+
+
+
+
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -43,7 +56,7 @@
                         <div class="form-group">
 
                             {!! Form::label('email', 'E-mail') !!}
-                            {!! Form::text('email', null, ['class' => 'form-control','required', 'autofocus']) !!}
+                            {!! Form::text('email', $email, ['class' => 'form-control','required', 'autofocus']) !!}
 
                         </div>
                         <div class="form-group">

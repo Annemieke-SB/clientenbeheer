@@ -26,7 +26,7 @@ Geen gebruikers gevonden.
 @else
       <table class="table table-striped">
         <thead>
-            <th style="width: 80%;">Naam</th>
+            <th style="width: 70%;">Naam</th>
             <th>Aktie</th>
         </thead>
   
@@ -52,6 +52,12 @@ Geen gebruikers gevonden.
                                                             <a href="{{ url('/user') }}/toggleactive/{{ $user->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>&nbsp;Activeer</button></a>
                                                         @endif
                                                     @endif  
+
+                                   @if (!$user->blacklisted)
+
+                        <a href="{{ url('blacklist/toevoegen')}}?email={{$user->email}}"><button type="button" class="btn btn-default navbar-btn btn-xs text-right"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;&nbsp;Zet op de blacklist</button></a>
+
+                @endif
             </td>
         </tr>
 
@@ -67,7 +73,7 @@ Geen gezinnen gevonden.
 @else
      <table class="table table-striped">
         <thead>
-            <th style="width: 80%;">Naam</th>
+            <th style="width: 60%;">Naam</th>
             <th>Aktie</th>
         </thead>
   
@@ -82,6 +88,12 @@ Geen gezinnen gevonden.
 	</td>
             <td>
                         <a href="{{ url('family/show') }}/{{$family->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+           
+                @if (!$family->blacklisted)
+
+                        &nbsp;<a href="{{ url('blacklist/toevoegen')}}?email={{$family->email}}"><button type="button" class="btn btn-default navbar-btn btn-xs text-right"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;&nbsp;Zet op de blacklist</button></a>
+
+                @endif
             </td>
         </tr>
 
@@ -107,6 +119,8 @@ Geen kinderen gevonden.
             <td>{{ $kid->naam }}</td>
             <td>
                         <a href="{{ url('kids/show') }}/{{$kid->id}}"><button type="button" class="btn btn-info btn-xs text-right"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Toon</button></a>
+
+
             </td>
         </tr>
 

@@ -26,18 +26,14 @@
       <table class="table table-striped">
         <thead>
             <th>Email</th>
-            <th>Reden</th>
             <th>Door</th>
-            <th>Sinds</th>
             <th>Aktie</th>
         </thead>
       @foreach ($blacklisted_items as $item)
 
         <tr>
-            <td>{{ $item->email }}</td>
-            <td>{{ $item->reden }}</td>
-            <td>{{ $item->user->naam }}</td>
-            <td>{{ $item->created_at }}</td>
+            <td>{{ $item->email }}&nbsp;<span class="glyphicon glyphicon-info-sign btn-info" aria-hidden="true" data-toggle="tooltip" title="{{ $item->reden }}"></span></td>
+            <td><small>{{ $item->user->naam }}<br>Sinds: {{ $item->created_at }}</small></td>
             <td>
                         <a href="{{ url('blacklist/destroy') }}/{{$item->id}}"><button type="button" class="btn btn-danger btn-xs text-right"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;wis</button></a>
 

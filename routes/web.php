@@ -78,7 +78,7 @@ Route::post('/search', 'SearchController@index');
 Route::get('/search', 'SearchController@index');
 
 Route::get('/blacklist', 'BlacklistController@index');
-Route::get('/blacklist/toevoegen', 'BlacklistController@create');
+Route::get('/blacklist/toevoegen/', 'BlacklistController@create');
 Route::post('/blacklist/store', 'BlacklistController@store');
 Route::post('/blacklist/update', 'BlacklistController@update');
 Route::get('/blacklist/edit/{id}', 'BlacklistController@edit');
@@ -150,7 +150,7 @@ Route::get('barcodes/ongebruikt/{id}', 'BarcodeController@nietgebruiktperinterme
 Route::get('barcodes/tabelongebruikt/{id}', 'BarcodeController@tabelnietgebruiktperintermediair')->middleware('auth');
 Route::post('barcodes/doorgeven_reden_nietgebruik/', 'BarcodeController@doorgeven_reden_nietgebruik')->middleware('auth');
 Route::get('/barcodereview/datums', 'BarcodeController@barcodereviewopdatum')->middleware('auth');
-Route::get('/barcodereview/intermediairsmetongebruiktecodes', 'BarcodeController@nabeschouwingperintermediair')->middleware('auth');
+Route::get('/barcodereview/intermediairsmetongebruiktecodes', 'BarcodeController@nietgebruiktperintermediair')->middleware('auth');
 
 
 

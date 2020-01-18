@@ -107,22 +107,33 @@
                                 </div>
                     @endif
 
+                @if ($family->blacklisted)
+                        <p><span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>&nbsp;Blacklist</span></p>
+                @endif
+
 
                     <a href="{{ url('/user/show/'. $family->user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Naar intermediair</button></a>
 
                     @if (App\Setting::get('downloads_ingeschakeld') == 0 && $family->aangemeld == 1)  
                         @if ($family->goedgekeurd == 0)    
-                        <a href="{{ url('/family') }}/goedkeuren/{{ $family->id }}"><button class="btn btn-success btn-xs" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>   
+                        <a href="{{ url('/family') }}/goedkeuren/{{ $family->id }}"><button class="btn btn-default navbar-btn btn-sm text-right" type="button"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>&nbsp;Goedkeuren</button></a>   
                         @endif
 
                         @if ($family->aangemeld == 1)
-                        <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-danger btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
+                        <a href="{{ url('/family') }}/afkeuren/{{ $family->id }}"><button class="btn btn-default navbar-btn btn-sm text-right" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;Afkeuren</button></a>   
                         @endif
                     @endif
                 @else
 
                     <a href="{{ url('/user/show/'. $family->user->id) }}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Terug</button></a>
                 @endif
+
+                @if (!$family->blacklisted)
+
+                        <a href="{{ url('blacklist/toevoegen')}}?email={{$family->email}}"><button type="button" class="btn btn-default navbar-btn btn-sm text-right"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;&nbsp;Zet op de blacklist</button></a>
+
+                @endif
+
                 </div>
             </div>
 

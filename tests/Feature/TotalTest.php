@@ -707,6 +707,11 @@ class TotalTest extends TestCase
 		    echo "\n* [TODO] De gebruiker krijgt een email bij een wijziging";
 		    echo "\n* [TODO] De gebruiker krijgt een email bij een wachtwoordreset";
 
+		    echo "\n\nBlacklist";
+		    echo "\n=====";
+			echo "\n* [TODO] Kan alleen door een admin worden toegevoegd/gewist/gewijzigd";
+			echo "\n* [TODO] Als in blacklist, is er een vlaggetje zichtbaar in alle relevante views?";
+
 		==== */ 
 
 
