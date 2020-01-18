@@ -150,7 +150,7 @@ Route::get('barcodes/ongebruikt/{id}', 'BarcodeController@nietgebruiktperinterme
 Route::get('barcodes/tabelongebruikt/{id}', 'BarcodeController@tabelnietgebruiktperintermediair')->middleware('auth');
 Route::post('barcodes/doorgeven_reden_nietgebruik/', 'BarcodeController@doorgeven_reden_nietgebruik')->middleware('auth');
 Route::get('/barcodereview/datums', 'BarcodeController@barcodereviewopdatum')->middleware('auth');
-Route::get('/barcodereview/intermediairsmetongebruiktecodes', 'BarcodeController@nietgebruiktperintermediair')->middleware('auth');
+Route::get('/barcodereview/intermediairsmetongebruiktecodes', 'BarcodeController@nabeschouwingperintermediair')->middleware('auth');
 
 
 
