@@ -109,7 +109,11 @@
                     <table>
 
                         <tr>
-                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->family->tussenvoegsel }}&nbsp;{{ $kid->family->achternaam }}&nbsp;</td>
+                            <td>Gezin&nbsp;</td><td> : </td><td>&nbsp;
+                            @if ( $kid->family->tussenvoegsel != "" )
+                                 {{$kid->family->tussenvoegsel}}&nbsp;
+                            @endif
+                            {{$kid->family->achternaam}}&nbsp;</td>
                         </tr>
                         <tr>                            
                             <td>Naam&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->naam }}&nbsp;
@@ -120,12 +124,26 @@
                             <td>Leeftijd op Sinterklaasavond&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->agenextsint }}</td></tr><tr>  
                             <td>Geslacht&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->geslacht }}</td></tr>
                             @if (Auth::user()->usertype==1) 
-                              <tr><td>Verzilverd bedrag&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->bedragverzilverd }}</td></tr>
-                            @endif
+                              <tr><td>Verzilverd bedrag&nbsp;</td><td> : </td><td>&nbsp;{{ $kid->bedragverzilverd }}
 
-                       
+                              </td></tr>
+                            @endif       
 
                     </table>
+
+                    @if ( !$kid->bedragverzilverd && Auth::user()->usertype==1 )
+                                {!! Form::open(['url' => 'barcodes/doorgeven_reden_nietgebruik']) !!}
+                                {!! Form::token() !!}
+
+                                <div class="form-group">
+
+                                    {!! Form::text('reden_nietgebruikt', $kid->barcode->reden_nietgebruikt) !!}
+                                    {!! Form::hidden('id', $kid->barcode->id) !!}
+                                    {!! Form::submit('verwerk') !!}
+
+                                </div>    
+                                {!! Form::close() !!}
+                    @endif
 
                     @if ($gesloten == 1) {{-- Inschrijvingen gesloten --}}
                         <br><br>

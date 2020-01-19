@@ -548,8 +548,8 @@ class BarcodeController extends Controller
     public function doorgeven_reden_nietgebruik(Request $request)
     {
         
-
         $barcode = Barcode::findOrFail($request->input('id'));
+
 
 
         if ($request->input('reden_nietgebruikt')=="") {

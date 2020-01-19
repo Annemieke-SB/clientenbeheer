@@ -13,7 +13,7 @@
  
     <h1>Blacklist</h1>
 
-    <p>Hier staan alle vermeldingen in de blacklist (nieuwste staat boven).</p>
+    <p>Hier staan alle vermeldingen in de blacklist (nieuwste staat boven). Voor de reden doe je muis over <span class="glyphicon glyphicon-info-sign btn-info" aria-hidden="true" data-toggle="tooltip" title="nee, niet hier, hier beneden moet je kijken!!"></span></p>
 
                         <a href="{{ url('blacklist/toevoegen') }}"><button type="button" class="btn btn-info navbar-btn btn-sm text-right">&nbsp;Email toevoegen</button></a>
     <!-- Bootstrap FAQ - START -->
